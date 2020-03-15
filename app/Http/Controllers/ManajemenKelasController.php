@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Major;
+use App\Employee;
+use App\Subject;
 class ManajemenKelasController extends Controller
 {
     /**
@@ -13,7 +15,10 @@ class ManajemenKelasController extends Controller
      */
     public function index()
     {
-        //
+        $data['employees'] = Employee::pluck('PE_Nip');
+        $data['subjects'] = Subject::pluck('MK_ID');
+        $data['major'] = Major::pluck('PS_Nama_Baru','PS_Kode_Prodi');
+        return view('kelas.index',$data);
     }
 
     /**
@@ -23,7 +28,10 @@ class ManajemenKelasController extends Controller
      */
     public function create()
     {
-        //
+        $data['employees'] = Employee::pluck('PE_Nip');
+        $data['subjects'] = Subject::pluck('MK_ID');
+        $data['major'] = Major::pluck('PS_Nama_Baru','PS_Kode_Prodi');
+        return view('kelas.create',$data);
     }
 
     /**
