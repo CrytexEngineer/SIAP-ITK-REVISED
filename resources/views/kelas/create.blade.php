@@ -9,8 +9,6 @@
 
                     <div class="card-body">
 
-                        @include('validation_error')
-
                         {{ Form::open(['url'=>'kelas'])}}
 
                         @csrf
