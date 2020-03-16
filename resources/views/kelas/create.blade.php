@@ -13,13 +13,6 @@
 
                         @csrf
 
-                        <div class="form-group row">
-                            <label class="col-md-2 col-form-label text-md-right">Kode Kelas</label>
-                            <div class="col-md-3">
-                                {{ Form::text('kode_mk',null,['class'=>'form-control','placeholder'=>'Kode kelas'])}}
-                            </div>
-                        </div>
-
                         @include('kelas.form')
 
                         <div class="form-group row mb-0">

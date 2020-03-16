@@ -20,12 +20,14 @@
                             </div>
                         @endif
 
-                        <a href="/manajemen_akun/mahasiswa/create" class="btn btn-success">Input Data Baru</a>
+                        <a href="/manajemen_akun/mahasiswa/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
+                            @include('matakuliah.import')
                             <hr>
 
                         <table class="table table-bordered" id="users-table">
                             <thead>
                             <tr>
+                                <th>NIM</th>
                                 <th>Nama Lengkap</th>
                                 <th>E-mail</th>
                                 <th>Created At</th>
@@ -49,6 +51,7 @@
                 serverSide: true,
                 ajax: '/manajemen_akun/mahasiswa/json',
                 columns: [
+                    { data: 'nim_mahasiswa', name: 'nim_mahasiswa' }, /* SESUAIKAN */
                     { data: 'name', name: 'name' },
                     { data: 'email', name: 'email' },
                     { data: 'created_at', name: 'created_at' },
