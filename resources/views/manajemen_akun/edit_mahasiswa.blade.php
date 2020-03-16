@@ -11,6 +11,14 @@
                         {{Form::model($users, ['url'=>'manajemen_akun/mahasiswa/'.$users->email, 'method'=>'PUT'])}}
                             @csrf
 
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label text-md-right">NIM Mahasiswa</label>
+                            <div class="col-md-6">
+                                {{ Form::text('MA_Nrp', null, ['class'=>'form-control', 'placeholder'=> 'NIM Mahasiswa']) }}
+                            </div>
+                        </div>
+
                             <div class="form-group row">
                                 <label class="col-md-2 col-form-label text-md-right">Nama Lengkap</label>
                                 <div class="col-md-6">

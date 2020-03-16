@@ -12,6 +12,13 @@
                         @csrf
 
                         <div class="form-group row">
+                            <label class="col-md-2 col-form-label text-md-right">E-mail</label>
+                            <div class="col-md-4">
+                                {{ Form::text('PE_Nip', null, ['class'=>'form-control', 'placeholder'=> 'NIP Pegawai']) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label class="col-md-2 col-form-label text-md-right">Nama Lengkap</label>
                             <div class="col-md-6">
                                 {{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=> 'Nama Pegawai']) }}

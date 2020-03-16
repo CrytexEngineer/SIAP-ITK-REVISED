@@ -15,7 +15,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">NIP</label>
 
                                 <div class="col-md-6">
-                                    {{ Form::text('PE_Nip', null, ['class'=>'form-control', 'placeholder'=> 'NIM Pegawai']) }}
+                                    {{ Form::text('PE_Nip', null, ['class'=>'form-control', 'placeholder'=> 'NIP Pegawai']) }}
                                 </div>
                             </div>
 

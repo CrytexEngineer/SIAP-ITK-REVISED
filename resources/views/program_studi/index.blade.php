@@ -1,27 +1,18 @@
 @extends('layouts.app')
-@section('title','program_studi')
+@section('title','Modul Program Studi')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Modul jurusan</div>
+                    <div class="card-header">Modul Program Studi</div>
 
                     <div class="card-body">
 
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+                        @include('alert')
 
-                        @if (session('status_failed'))
-                            <div class="alert alert-danger" role="alert">
-                                {{ session('status_failed') }}
-                            </div>
-                        @endif
-
-                        <a href="/program_studi/create" class="btn btn-success">Input Data Baru</a>
+                        <a href="/program_studi/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
+                        @include('matakuliah.import')
                         <hr>
 
                         <table class="table table-bordered" id="users-table">

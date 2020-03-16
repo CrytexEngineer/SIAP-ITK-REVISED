@@ -21,12 +21,14 @@
                             </div>
                         @endif
 
-                        <a href="/manajemen_akun/pegawai/create" class="btn btn-success">Input Data Baru</a>
+                        <a href="/manajemen_akun/pegawai/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
+                        @include('matakuliah.import')
                         <hr>
 
                         <table class="table table-bordered" id="users-table">
                             <thead>
                             <tr>
+                                <th>NIP</th>
                                 <th>Nama Lengkap</th>
                                 <th>E-mail</th>
                                 <th>Role</th>
@@ -53,6 +55,7 @@
                 serverSide: true,
                 ajax: '/manajemen_akun/pegawai/json',
                 columns: [
+                    { data: 'nip_pegawai', name: 'nip_pegawai' }, /* SESUAIKAN */
                     { data: 'name', name: 'name' },
                     { data: 'email', name: 'email' },
                     { data: 'role', name: 'role' },

@@ -9,18 +9,9 @@
 
                     <div class="card-body">
 
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+                        @include('alert')
 
-                        @if (session('status_failed'))
-                            <div class="alert alert-danger" role="alert">
-                                {{ session('status_failed') }}
-                            </div>
-                        @endif
-                            <div class="row">
+                        <div class="row">
                                 <div class="col-md-4">
                                     <table class="table table-bordered">
                                         <tr>
@@ -33,7 +24,13 @@
                                         </tr>
                                         <tr>
                                             <td colspan="2">
-                                                <a href="/kelas/create" class="btn btn-primary">Input Data</a>
+                                                <button type="submit" class="btn btn-primary"><i class="fas fa-sync-alt"></i> Refresh Data</button>
+                                                <a href="/kelas/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                @include('matakuliah.import')
                                             </td>
                                         </tr>
                                     </table>
@@ -43,17 +40,35 @@
                                         <tr>
                                             <th width="40">Kode Kelas</th>
                                             <th>Nama Kelas</th>
+                                            <th>Program Studi</th>
                                             <th width="100">Kode Matakuliah</th>
                                             <th width="40">Tahun</th>
                                             <th width="40">Semester</th>
                                             <th>Daya Tampung</th>
-                                            <th>Jumlah Terisi</th>
+                                            <th>Jumlah Kelas Terisi</th>
                                             <th>NIP Pengajar</th>
                                             <th>Hari</th>
                                             <th>Jam Mulai</th>
                                             <th>Jam Usai</th>
                                             <th>Ruangan</th>
                                         </tr>
+{{--                                        @foreach($kelas as $row)--}}
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+{{--                                        @endforeach--}}
                                     </table>
                                 </div>
                             </div>

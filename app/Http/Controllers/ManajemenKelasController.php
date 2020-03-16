@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Major;
 use App\Employee;
 use App\Subject;
+use App\Kelas;
+use PhpParser\Node\Expr\New_;
+
 class ManajemenKelasController extends Controller
 {
     /**
@@ -15,6 +18,12 @@ class ManajemenKelasController extends Controller
      */
     public function index()
     {
+//        $kelas = \DB::table('classes')
+//            ->join('subjects','subjects.MK_ID','=','classes.KE_KR_MK_ID')
+//            ->join('employees','employees.PE_Nip','=','classes.KE_PE_NIPPengajar')
+//            ->get();
+//        return $kelas;
+
         $data['employees'] = Employee::pluck('PE_Nip');
         $data['subjects'] = Subject::pluck('MK_ID');
         $data['major'] = Major::pluck('PS_Nama_Baru','PS_Kode_Prodi');
@@ -42,7 +51,14 @@ class ManajemenKelasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        $data ['kelas'] = \DB::table('classes')
+//                ->join('subjects','subjects.MK_ID','=','classes.KE_KR_MK_ID')
+//                ->join('employees','employees.PE_Nip','=','classes.KE_PE_NIPPengajar')
+//                ->get();
+
+        $kelas = New Kelas();
+        $kelas->create($request->all());
+        return redirect('kelas')->with('status','Informasi Kelas Berhasil Ditambahkan');
     }
 
     /**
