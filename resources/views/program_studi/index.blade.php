@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Modul jurusan</div>
+                    <div class="card-header">Modul Program Studi</div>
 
                     <div class="card-body">
 
@@ -22,8 +22,13 @@
                         @endif
 
                         <a href="/program_studi/create" class="btn btn-success">Input Data Baru</a>
+                            <form action="{{ route('import_program_studi') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <input type="file" name="file" class="form-control">
+                                <br>
+                                {{ Form::submit('Import',['class'=>'btn btn-primary'])}}
+                            </form>
                         <hr>
-
                         <table class="table table-bordered" id="users-table">
                             <thead>
                             <tr>
@@ -51,7 +56,7 @@
                 ajax: '/program_studi/json', //DIGANTI SESUAI CONTROLLER
                 columns: [
                     { data: 'PS_Kode_Prodi', name: 'PS_Kode_Prodi' }, //SESUAIKAN DB
-                    { data: 'PS_Nama_Baru', name: 'PS_Nama_Baru' }, //SESUAIKAN DB
+                    { data: 'PS_Nama', name: 'PS_Nama' }, //SESUAIKAN DB
                     { data: 'action', name: 'action' }
                 ]
             });

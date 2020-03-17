@@ -13,7 +13,12 @@ class ManajemenKelasController extends Controller
      */
     public function index()
     {
-        //
+
+        $data['employees'] = Employee::pluck('PE_Nip');
+        $data['subjects'] = Subject::pluck('MK_ID');
+        $data['major'] = Major::pluck('PS_Nama','PS_Kode_Prodi');
+        return view('kelas.index',$data);
+
     }
 
     /**
