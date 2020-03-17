@@ -11,6 +11,17 @@ use PhpParser\Node\Expr\New_;
 
 class ManajemenKelasController extends Controller
 {
+    function json(){
+        return Datatables::of(kelas::all())
+            ->addColumn('action', function ($row) {
+                $action  = '<a href="/kelas/'.$row->kode_mk.'/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+                $action .= \Form::open(['url'=>'kelas/'.$row->kode_mk,'method'=>'delete','style'=>'float:right']);
+                $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
+                $action .= \Form::close();
+                return $action;
+            })
+            ->make(true);
+    }
     /**
      * Display a listing of the resource.
      *
