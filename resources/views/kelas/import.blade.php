@@ -1,5 +1,4 @@
 <a href="" class="btn btn-success" data-toggle="modal" data-target="#importExcel">Import Excel</a>
-<a href="/matakuliah/export_excel" class="btn btn-success"target="_blank">Export Excel</a>
 <!-- Import Excel -->
 <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

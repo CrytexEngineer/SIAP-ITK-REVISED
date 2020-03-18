@@ -47,8 +47,6 @@
 
 @push('scripts')
     <script>
-
-
         $(function() {
             $('#users-table').DataTable({
                 processing: true,

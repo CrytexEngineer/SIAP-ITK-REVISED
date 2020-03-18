@@ -12,9 +12,9 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label class="col-md-2 col-form-label text-md-right">E-mail</label>
+                            <label class="col-md-2 col-form-label text-md-right">NIP Pegawai</label>
                             <div class="col-md-4">
-                                {{ Form::text('PE_Nip', null, ['class'=>'form-control', 'placeholder'=> 'NIP Pegawai']) }}
+                                {{ Form::text('PE_Nip', null, ['class'=>'form-control', 'placeholder'=> 'NIP Pegawai'], ['readonly']) }}
                             </div>
                         </div>
 
