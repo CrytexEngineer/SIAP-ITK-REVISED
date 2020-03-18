@@ -19,7 +19,6 @@ Route::get('/', function () {
 Route::get('/manajemen_akun/mahasiswa/json', 'ManajemenAkunMahasiswaController@json');
 Route::get('/manajemen_akun/pegawai/json', 'ManajemenAkunPegawaiController@json');
 Route::get('/kelas', 'ManajemenKelasController@json');
-Route::get('/matakuliah/json', 'MatakuliahController@json');
 Route::get('/program_studi/json', 'ManajemenProgramStudiController@json');
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('home');
@@ -54,24 +53,31 @@ Route::get('/register/pegawai', 'RegisterPegawaiController@showRegistrationForm'
 Route::resource('/akunmahasiswa', 'ManajemenAkunMahasiswaController');
 Route::get('/akunmahasiswa/json', 'ManajemenAkunMahasiswaController@json');
 
-Route::resource('/akunpegawai', 'ManajemenAkunPegawaiController');
+
 Route::get('/akunpegawai/json', 'ManajemenAkunPegawaiController@json');
 
-Route::resource('/matakuliah', 'ManajemenMataKuliahController');
+
 Route::get('matakuliah/json', 'ManajemenMataKuliahController@json');
 
 
 Route::resource('/register/pegawai', 'RegisterPegawaiController');
 
 Route::resource('/manajemen_akun/mahasiswa', 'ManajemenAkunMahasiswaController');
-Route::resource('/manajemen_akun/pegawai', 'ManajemenAkunPegawaiController');
-Route::resource('/kelas', 'ManajemenKelasController');
-Route::resource('/matakuliah', 'ManajemenMatakuliahController');
-Route::resource('/program_studi', 'ManajemenProgramStudiController');
 
-//import routes
-route::get('/matakuliah/import', 'ManajemenMatakuliahController@importView')->name('import_matakuliah');
+
+
+//Program Studi
+Route::resource('/program_studi', 'ManajemenProgramStudiController');
+Route::post('/program_studi/import', 'ManajemenProgramStudiController@import')->name('import_program_studi');
+
+//Mata Kuliah
+Route::resource('/matakuliah', 'ManajemenMatakuliahController');
 Route::post('/matakuliah/import', 'ManajemenMatakuliahController@import')->name('import_matakuliah');
 
+//Kelas
+Route::resource('/kelas', 'ManajemenKelasController');
+Route::post('/kelas/import','ManajemenKelasController@import')->name('import_kelas');
 
-
+//Pegawai
+Route::resource('/akunpegawai', 'ManajemenAkunPegawaiController');
+Route::post('/akunpegawai/import','ManajemenAkunPegawaiController@import')->name('import_employee');

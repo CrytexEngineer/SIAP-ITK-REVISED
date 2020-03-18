@@ -2,17 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Middleware\Student;
+use App\Role;
 use App\User;
 use DataTables;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class ManajemenAkunMahasiswaController extends Controller
 {
 
     function json()
     {
-        return Datatables::of(User::where('role', 10)->get()->all())
+        return Datatables::of(DB::table('users')
+            ->join('students', 'users.email', '=', 'students.MA_Email')
+            ->where('role','=','10')->get()->all())
             ->addColumn('action', function ($row) {
                 $action = '<a href="/manajemen_akun/mahasiswa/' . $row->email . '/edit" class="btn btn btn-primary btn-sm"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
                 $action .= \Form::open(['url' => 'akunmahasiswa/' . $row->email, 'method' => 'delete', 'style' => 'float:right']);
@@ -52,12 +56,39 @@ class ManajemenAkunMahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
-//        $akunmahasiswa = New User();
-//        $akunmahasiswa->create($request->all());
-//        return redirect('/manajemen_akun/mahasiswa');
 
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'MA_Nrp' => ['required', 'integer', 'unique:students'],
+            'role' => ['required', 'integer'],]);
+
+        $data = $request->all();
+        $user = [
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'role' => $data['role'],
+            'password' => Hash::make($data['password']),
+        ];
+
+        $student = new \App\Student([
+            'MA_Nrp' => $data['MA_Nrp'],
+            'MA_NRP_Baru' => $data['MA_Nrp'],
+            'MA_NamaLengkap' => $data['name'],
+            'MA_Email' => $data['email']]);
+
+
+        if ($student->save()) {
+            User::create($user);
+            $user = User::where('email', $data['email'])->first();
+            $role = Role::where('id', $data['role'])->get()->first();
+            $user->roles()->attach($role);
+        }
+
+        return redirect('/akunmahasiswa')->with('status','Data Mahasiswa Berhasil Disimpan');
     }
+
 
     /**
      * Display the specified resource.
@@ -114,7 +145,8 @@ class ManajemenAkunMahasiswaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {  $user = User::where('email', $id)->with('student');
+    {
+        $user = User::where('email', $id)->with('student');
         if ($user != null) {
 
             if ($user->delete()) {
