@@ -67,6 +67,7 @@ class ManajemenKelasController extends Controller
 //                ->join('employees','employees.PE_Nip','=','classes.KE_PE_NIPPengajar')
 //                ->get();
 
+        dd($request->all());
         $kelas = New Kelas();
         $kelas->create($request->all());
         return redirect('kelas')->with('status','Informasi Kelas Berhasil Ditambahkan');
