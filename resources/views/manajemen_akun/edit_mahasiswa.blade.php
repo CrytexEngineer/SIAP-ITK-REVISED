@@ -15,7 +15,7 @@
                         <div class="form-group row">
                             <label class="col-md-2 col-form-label text-md-right">NIM Mahasiswa</label>
                             <div class="col-md-6">
-                                {{ Form::text('MA_Nrp', null, ['class'=>'form-control', 'placeholder'=> 'NIM Mahasiswa']) }}
+                                {{ Form::text('MA_Nrp', null, ['class'=>'form-control', 'placeholder'=> 'NIM Mahasiswa'], ['readonly']) }}
                             </div>
                         </div>
 
@@ -39,7 +39,6 @@
                                     <a href="/akunmahasiswa" class="btn btn-primary">Kembali</a>
                                 </div>
                             </div>
-                        </form>
                     </div>
                 </div>
             </div>
