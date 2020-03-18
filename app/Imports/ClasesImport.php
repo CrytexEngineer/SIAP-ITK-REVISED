@@ -39,7 +39,7 @@ class ClasesImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFa
         }
 
         $kelas->update($data);
-        dd($kelas);
+
     }
 
     public function rules(): array

@@ -8,21 +8,29 @@ use App\Kelas;
 use App\Major;
 use App\Subject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
+use Yajra\DataTables\DataTables;
 
 class ManajemenKelasController extends Controller
 {
-    function json(){
-        return Datatables::of(kelas::all())
+    function json()
+    {
+
+        return Datatables::of(DB::table('classes')
+            ->join('employees', 'classes.KE_PE_NIPPengajar', '=', 'employees.PE_Nip')
+            ->join('subjects', 'classes.KE_KR_MK_ID', '=', 'subjects.MK_ID')
+            ->join('majors', 'classes.KE_KodeJurusan', '=', 'majors.PS_Kode_Prodi'))
             ->addColumn('action', function ($row) {
-                $action  = '<a href="/kelas/'.$row->kode_mk.'/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
-                $action .= \Form::open(['url'=>'kelas/'.$row->kode_mk,'method'=>'delete','style'=>'float:right']);
+                $action = '<a href="/kelas/' . $row->id . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+                $action .= \Form::open(['url' => 'kelas/' . $row->id, 'method' => 'delete', 'style' => 'float:right']);
                 $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
                 $action .= \Form::close();
                 return $action;
             })
             ->make(true);
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -30,12 +38,6 @@ class ManajemenKelasController extends Controller
      */
     public function index()
     {
-//        $kelas = \DB::table('classes')
-//            ->join('subjects','subjects.MK_ID','=','classes.KE_KR_MK_ID')
-//            ->join('employees','employees.PE_Nip','=','classes.KE_PE_NIPPengajar')
-//            ->get();
-//        return $kelas;
-
         $data['employees'] = Employee::pluck('PE_Nip');
         $data['subjects'] = Subject::pluck('MK_ID');
         $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
@@ -49,7 +51,7 @@ class ManajemenKelasController extends Controller
      */
     public function create()
     {
-        $data['employees'] = Employee::pluck('PE_Nip','PE_NamaLengkap');
+        $data['employees'] = Employee::pluck('PE_Nip', 'PE_NamaLengkap');
         $data['subjects'] = Subject::pluck('MK_ID');
         $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
         return view('kelas.create', $data);
@@ -62,12 +64,8 @@ class ManajemenKelasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {dd($request->all());
-//        $data ['kelas'] = \DB::table('classes')
-//                ->join('subjects','subjects.MK_ID','=','classes.KE_KR_MK_ID')
-//                ->join('employees','employees.PE_Nip','=','classes.KE_PE_NIPPengajar')
-//                ->get();
-
+    {
+        dd($request->all());
         $kelas = New Kelas();
         $kelas->create($request->all());
         return redirect('kelas')->with('status', 'Informasi Kelas Berhasil Ditambahkan');
@@ -113,7 +111,9 @@ class ManajemenKelasController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+
+    //pasing data kode mk dan mata kuliah kesini $kelas=['Kode MK','Nama_MK']
+    public function destroy($kelas)
     {
         //
     }
