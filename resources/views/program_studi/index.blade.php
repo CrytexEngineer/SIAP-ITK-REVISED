@@ -12,7 +12,7 @@
                         @include('alert')
 
                         <a href="/program_studi/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
-                        @include('matakuliah.import')
+                        @include('program_studi.import')
                         <hr>
                         <table class="table table-bordered" id="users-table">
                             <thead>

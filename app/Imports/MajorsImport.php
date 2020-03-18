@@ -3,7 +3,6 @@
 namespace App\Imports;
 
 use App\Major;
-
 use Maatwebsite\Excel\Concerns\SkipsOnFailure;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
@@ -24,11 +23,14 @@ class MajorsImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFa
             return new Major([
                 'PS_Kode_Prodi' => $row['ps_kode_prodi'],
                 'PS_Nama' => $row['ps_nama']]);
-
-            $major = Major::where('PS_Kode_Prodi', '=', $row['ps_kode_prodi']);
-            $major->update($row);
-
         }
+
+        $major = Major::where('PS_Kode_Prodi', '=', $row['ps_kode_prodi']);
+        $data = ['PS_Kode_Prodi' => $row['ps_kode_prodi'],
+            'PS_Nama' => $row['ps_nama']];
+
+        $major->update($data);
+
     }
 
     public function rules(): array
@@ -44,7 +46,6 @@ class MajorsImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFa
      */
     public function onFailure(Failure ...$failures)
     {
-dd($failures);
     }
 }
 

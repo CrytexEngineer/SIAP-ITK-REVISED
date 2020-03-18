@@ -53,7 +53,7 @@ Route::get('/register/pegawai', 'RegisterPegawaiController@showRegistrationForm'
 Route::resource('/akunmahasiswa', 'ManajemenAkunMahasiswaController');
 Route::get('/akunmahasiswa/json', 'ManajemenAkunMahasiswaController@json');
 
-Route::resource('/akunpegawai', 'ManajemenAkunPegawaiController');
+
 Route::get('/akunpegawai/json', 'ManajemenAkunPegawaiController@json');
 
 
@@ -63,8 +63,6 @@ Route::get('matakuliah/json', 'ManajemenMataKuliahController@json');
 Route::resource('/register/pegawai', 'RegisterPegawaiController');
 
 Route::resource('/manajemen_akun/mahasiswa', 'ManajemenAkunMahasiswaController');
-Route::resource('/manajemen_akun/pegawai', 'ManajemenAkunPegawaiController');
-Route::resource('/kelas', 'ManajemenKelasController');
 
 
 
@@ -76,5 +74,10 @@ Route::post('/program_studi/import', 'ManajemenProgramStudiController@import')->
 Route::resource('/matakuliah', 'ManajemenMatakuliahController');
 Route::post('/matakuliah/import', 'ManajemenMatakuliahController@import')->name('import_matakuliah');
 
+//Kelas
+Route::resource('/kelas', 'ManajemenKelasController');
+Route::post('/kelas/import','ManajemenKelasController@import')->name('import_kelas');
 
-
+//Pegawai
+Route::resource('/akunpegawai', 'ManajemenAkunPegawaiController');
+Route::post('/akunpegawai/import','ManajemenAkunPegawaiController@import')->name('import_employee');

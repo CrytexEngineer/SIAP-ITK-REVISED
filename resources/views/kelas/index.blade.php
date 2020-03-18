@@ -30,7 +30,7 @@
                                         </tr>
                                         <tr>
                                             <td colspan="2">
-                                                @include('matakuliah.import')
+                                                @include('kelas.import')
                                             </td>
                                         </tr>
                                     </table>
@@ -74,7 +74,7 @@
                             </div>
                     </div>
                 </div>
-            </div>
+            </div>S
         </div>
     </div>
 @endsection

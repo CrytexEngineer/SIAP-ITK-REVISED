@@ -44,10 +44,10 @@
                                         <option value="2">Admin</option>
                                         <option value="3">Observer</option>
                                         <option value="4">Wakil Rektor</option>
-                                        <option value="5">Tendik Jurusan</option>
-                                        <option value="6">Tendik Pusat</option>
-                                        <option value="7">Ketua Prodi</option>
-                                        <option value="8">Kepala Jurusan</option>
+                                        <option value="5">Ketua Prodin</option>
+                                        <option value="6">Kepala Jurusan</option>
+                                        <option value="7">Tendik Jurusan</option>
+                                        <option value="8">Tendik Pusat</option>
                                         <option value="9">Dosen Pengampu</option>
                                     </select>
                                     {{--                                <input id="PE_NamaLengkap" type="text" class="form-control @error('PE_NamaLengkap') is-invalid @enderror" name="PE_NamaLengkap" value="{{ old('PE_NamaLengkap') }}" required autocomplete="PE_NamaLengkap" autofocus>--}}
