@@ -13,6 +13,8 @@
 
                         @include('alert')
 
+
+
                         <a href="/kelas/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
 
                         @include('kelas.import')
