@@ -22,7 +22,7 @@
                         @endif
 
                         <a href="/manajemen_akun/pegawai/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
-                        @include('matakuliah.import')
+                        @include('manajemen_akun.import')
                         <hr>
 
                         <table class="table table-bordered" id="users-table">
@@ -53,10 +53,10 @@
                 serverSide: true,
                 ajax: '/manajemen_akun/pegawai/json',
                 columns: [
-                    { data: 'nip_pegawai', name: 'nip_pegawai' }, /* SESUAIKAN */
+                    { data: 'PE_Nip', name: 'PE_Nip' }, /* SESUAIKAN */
                     { data: 'name', name: 'name' },
                     { data: 'email', name: 'email' },
-                    { data: 'role', name: 'role' },
+                    { data: 'role_name', name: 'role_name' },
                     { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' },
                     { data: 'action', name: 'action' }

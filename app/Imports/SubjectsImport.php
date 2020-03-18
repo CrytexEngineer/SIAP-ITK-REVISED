@@ -24,7 +24,6 @@ class SubjectsImport implements ToModel, WithHeadingRow, WithValidation, SkipsOn
      */
     public function model(array $row)
     {
-
         if (!Subject::where('MK_ID', $row['mk_id'])->first()) {
 
             return new Subject([

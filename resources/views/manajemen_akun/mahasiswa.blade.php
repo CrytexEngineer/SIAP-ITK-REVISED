@@ -51,7 +51,7 @@
                 serverSide: true,
                 ajax: '/manajemen_akun/mahasiswa/json',
                 columns: [
-                    { data: 'nim_mahasiswa', name: 'nim_mahasiswa' }, /* SESUAIKAN */
+                    { data: 'MA_Nrp', name: 'MA_Nrp' }, /* SESUAIKAN */
                     { data: 'name', name: 'name' },
                     { data: 'email', name: 'email' },
                     { data: 'created_at', name: 'created_at' },

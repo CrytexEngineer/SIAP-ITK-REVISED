@@ -8,7 +8,7 @@
                     <div class="card-header">Register Mahasiswa</div>
 
                     <div class="card-body">
-                        {{Form::open(['url'=>'manajemen_akun/mahasiswa'])}}
+                        {{Form::open(['url'=>'manajemen_akun/mahasiswa/'])}}
                             @csrf
 
                             <div class="form-group row">
