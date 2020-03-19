@@ -59,19 +59,23 @@
 {{--                            <a class="nav-link" href="#">Manajemen Akun</a>--}}
 {{--                        </li>--}}
 
+
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Manajemen Akun <span class="caret"></span>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-database"></i> Manajemen Data
                             </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="manajemen_akun/mahasiswa">Mahasiswa</a>
-                                <a class="dropdown-item" href="manajemen_akun/pegawai">Pegawai</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/manajemen_akun/mahasiswa">Akun Mahasiswa</a>
+                                <a class="dropdown-item" href="/manajemen_akun/pegawai">Akun Pegawai</a>
+                                <a class="dropdown-item" href="/kelas">Kelas</a>
+                                <a class="dropdown-item" href="/matakuliah">Matakuliah</a>
+                                <a class="dropdown-item" href="/program_studi">Program Studi</a>
                             </div>
+                        </li>
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                <i class="fas fa-user"></i> {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

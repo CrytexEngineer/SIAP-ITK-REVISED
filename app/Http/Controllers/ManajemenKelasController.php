@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use App\Employee;
 use App\Imports\ClasesImport;
 use App\Kelas;
@@ -16,7 +16,6 @@ class ManajemenKelasController extends Controller
 {
     function json()
     {
-
         return Datatables::of(DB::table('classes')
             ->join('employees', 'classes.KE_PE_NIPPengajar', '=', 'employees.PE_Nip')
             ->join('subjects', 'classes.KE_KR_MK_ID', '=', 'subjects.MK_ID')
@@ -31,6 +30,27 @@ class ManajemenKelasController extends Controller
             ->make(true);
     }
 
+//    UNTUK MENAMPILKAN AUTOCOMPLETE//
+    function fetch(Request $request)
+    {
+        if($request->get('query'))
+        {
+            $query = $request->get('query');
+            $data = DB::table('subjects')
+                ->where('MK_Mata_Kuliah', 'LIKE', "%{$query}%")
+                ->get();
+            $output = '<ul class="dropdown-menu" style="display:block; position:relative">';
+            foreach($data as $row)
+            {
+                $output .= '
+       <li><a href="#">'.$row->MK_Mata_Kuliah.'</a></li>
+       ';
+            }
+            $output .= '</ul>';
+            echo $output;
+        }
+    }
+  
     /**
      * Display a listing of the resource.
      *
@@ -51,6 +71,8 @@ class ManajemenKelasController extends Controller
      */
     public function create()
     {
+        $data['employees_nip'] = Employee::pluck('PE_Nip','PE_Nip');
+        $data['employees_nama'] = Employee::pluck('PE_NamaLengkap','PE_NamaLengkap');
         $data['employees'] = Employee::pluck('PE_Nip', 'PE_NamaLengkap');
         $data['subjects'] = Subject::pluck('MK_ID');
         $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');

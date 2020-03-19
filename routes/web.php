@@ -78,6 +78,8 @@ Route::post('/matakuliah/import', 'ManajemenMatakuliahController@import')->name(
 Route::get('/kelas/json', 'ManajemenKelasController@json');
 Route::resource('/kelas', 'ManajemenKelasController');
 Route::post('/kelas/import','ManajemenKelasController@import')->name('import_kelas');
+Route::post('/kelas/fetch', 'ManajemenKelasController@fetch')->name('kelas.fetch');
+
 
 //Pegawai
 Route::resource('/akunpegawai', 'ManajemenAkunPegawaiController');
