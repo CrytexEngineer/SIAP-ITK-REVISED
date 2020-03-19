@@ -11,9 +11,9 @@
 
                         {{ Form::open(['url'=>'kelas'])}}
 
-                        @csrf
-
                         @include('kelas.form')
+
+                        @csrf
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-2">
@@ -22,7 +22,6 @@
                                 <a href="/kelas" class="btn btn-primary">Kembali</a>
                             </div>
                         </div>
-                        </form>
                     </div>
                 </div>
             </div>
