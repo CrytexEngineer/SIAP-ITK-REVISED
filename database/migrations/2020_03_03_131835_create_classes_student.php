@@ -14,12 +14,12 @@ class CreateClassesStudent extends Migration
     public function up()
     {
         Schema::create('class_student', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->unsigned();
             $table->timestamps();
             $table->bigInteger('MA_Nrp')->unsigned();
             $table->bigInteger('KE_ID')->unsigned();
             $table->foreign('MA_Nrp')->references('MA_Nrp')->on('students')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('KE_ID')->references('KE_ID')->on('classes')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('KE_ID')->references('id')->on('classes')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

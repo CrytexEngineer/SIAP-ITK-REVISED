@@ -40,16 +40,16 @@
             $('#users-table').DataTable({
                 "scrollX": true,
                 processing: true,
-                serverSide: true,
                 ajax: '/matakuliah/json',
                 columns: [
                     {data: 'MK_ID', name: 'MK_ID'},
                     {data: 'MK_Mata_Kuliah', name: 'MK_Mata_Kuliah'},
                     {data: 'MK_ThnKurikulum', name: 'MK_ThnKurikulum'},
                     {data: 'MK_KreditKuliah', name: 'MK_KreditKuliah'},
-                    {data: 'action', name: 'action'}
-                ]
-            });
+                    {data: 'action', name: 'action'}],
+            })
         });
+
+
     </script>
 @endpush

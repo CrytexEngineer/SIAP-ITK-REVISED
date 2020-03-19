@@ -13,6 +13,8 @@
 
                         @include('alert')
 
+
+
                         <a href="/kelas/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
 
                         @include('kelas.import')
@@ -55,15 +57,15 @@
                 serverSide: true,
                 ajax: '/kelas/json',
                 columns: [
-                    {data: 'KE_ID', name: 'KE_ID'},
+                    {data: 'id', name: 'id'},
                     {data: 'KE_Kelas', name: 'KE_Kelas'},
-                    {data: 'KE_KodeJurusan', name: 'KE_KodeJurusan'},
-                    {data: 'KE_KR_MK_ID', name: 'KE_KR_MK_ID'},
+                    {data: 'PS_Nama', name: 'KE_KodeJurusan'},
+                    {data: 'MK_Mata_Kuliah', name: 'KE_KR_MK_ID'},
                     {data: 'KE_Tahun', name: 'KE_Tahun'},
                     {data: 'KE_IDSemester', name: 'KE_IDSemester'},
                     {data: 'KE_DayaTampung', name: 'KE_IDSemester'},
                     {data: 'KE_Terisi', name: 'KE_Terisi'},
-                    {data: 'KE_PE_NIPPengajar', name: 'KE_PE_NIPPengajar'},
+                    {data: 'PE_Nama', name: 'PE_Nama'},
                     {data: 'KE_Jadwal_IDHari', name: 'KE_Jadwal_IDHari'},
                     {data: 'KE_Jadwal_JamMulai', name: 'KE_Jadwal_JamMulai'},
                     {data: 'KE_Jadwal_JamUsai', name: 'KE_Jadwal_JamUsai'},

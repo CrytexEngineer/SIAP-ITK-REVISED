@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\MajorsImport;
+use App\Imports\SubjectsImport;
 use App\Major;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 
 
@@ -54,7 +57,7 @@ class ManajemenProgramStudiController extends Controller
 
         $request->validate([
             'PS_Kode_Prodi' =>'required|unique:majors|min:5',
-            'PS_Nama_Baru' => 'required|min:6',
+            'PS_Nama' => 'required|min:6',
 
         ]);
 
@@ -97,7 +100,7 @@ class ManajemenProgramStudiController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'PS_Nama_Baru' => 'required|min:6',
+            'PS_Nama' => 'required|min:6',
 
         ]);
 
@@ -117,5 +120,12 @@ class ManajemenProgramStudiController extends Controller
         $major = Major::where('PS_Kode_Prodi', $id);
         $major->delete();
         return redirect('/program_studi')->with('status','Data Program Studi Berhasil Dihapus');;
+    }
+
+
+    public function import()
+    {
+        $data = Excel::import(new MajorsImport(),request()->file('file'));
+        return back();
     }
 }

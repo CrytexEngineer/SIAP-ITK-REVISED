@@ -15,7 +15,7 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->bigInteger('PE_Nip')->unsigned()->primary();
-            $table->string('PE_Email')->unique();
+            $table->string('PE_Email')->unique()->nullable();
             $table->String('PE_NamaLengkap');
             $table->String('PE_Nama');
             $table->integer('PE_TipePegawai')->unsigned();

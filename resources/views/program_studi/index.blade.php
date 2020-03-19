@@ -12,9 +12,8 @@
                         @include('alert')
 
                         <a href="/program_studi/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
-                        @include('matakuliah.import')
+                        @include('program_studi.import')
                         <hr>
-
                         <table class="table table-bordered" id="users-table">
                             <thead>
                             <tr>
@@ -42,7 +41,7 @@
                 ajax: '/program_studi/json', //DIGANTI SESUAI CONTROLLER
                 columns: [
                     { data: 'PS_Kode_Prodi', name: 'PS_Kode_Prodi' }, //SESUAIKAN DB
-                    { data: 'PS_Nama_Baru', name: 'PS_Nama_Baru' }, //SESUAIKAN DB
+                    { data: 'PS_Nama', name: 'PS_Nama' }, //SESUAIKAN DB
                     { data: 'action', name: 'action' }
                 ]
             });
