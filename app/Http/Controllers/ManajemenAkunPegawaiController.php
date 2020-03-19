@@ -192,5 +192,7 @@ class ManajemenAkunPegawaiController extends Controller
         $data = Excel::import(new EmployeesImport(), request()->file('file'));
         return back();
     }
+
+    
 }
 
