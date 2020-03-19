@@ -23,27 +23,27 @@
                         <table class="table table-bordered" id="users-table" style="overflow-x:auto;">
                             <thead>
                             <tr>
-                                <th width="40">Kode Kelas</th>
-                                <th>Nama Kelas</th>
+                                <th>Matakuliah</th>
+                                <th>Kelas</th>
+                                <th>Ruangan</th>
                                 <th>Program Studi</th>
-                                <th>Kode kelas</th>
                                 <th>Tahun</th>
                                 <th>Semester</th>
                                 <th>Daya Tampung</th>
                                 <th>Jumlah Kelas Terisi</th>
                                 <th>NIP Pengajar</th>
+                                <th>Nama Pengajar</th>
                                 <th>Hari</th>
                                 <th>Jam Mulai</th>
                                 <th>Jam Usai</th>
-                                <th>Ruangan</th>
-                                <th width="85">Action</th>
+                                <th width="70">Action</th>
                             </tr>
                             </thead>
                         </table>
 
                     </div>
                 </div>
-            </div>S
+            </div>
         </div>
     </div>
 @endsection
@@ -58,19 +58,19 @@
                 serverSide: true,
                 ajax: '/kelas/json',
                 columns: [
-                    {data: 'KE_ID', name: 'KE_ID'},
+                    {data: 'MK_Mata_Kuliah', name: 'KE_KR_MK_ID'},
                     {data: 'KE_Kelas', name: 'KE_Kelas'},
-                    {data: 'KE_KodeJurusan', name: 'KE_KodeJurusan'},
-                    {data: 'KE_KR_MK_ID', name: 'KE_KR_MK_ID'},
+                    {data: 'KE_Jadwal_Ruangan', name: 'KE_Jadwal_Ruangan'},
+                    {data: 'PS_Nama', name: 'KE_KodeJurusan'},
                     {data: 'KE_Tahun', name: 'KE_Tahun'},
                     {data: 'KE_IDSemester', name: 'KE_IDSemester'},
                     {data: 'KE_DayaTampung', name: 'KE_IDSemester'},
                     {data: 'KE_Terisi', name: 'KE_Terisi'},
                     {data: 'KE_PE_NIPPengajar', name: 'KE_PE_NIPPengajar'},
+                    {data: 'PE_Nama', name: 'KE_PE_NIPPengajar'},
                     {data: 'KE_Jadwal_IDHari', name: 'KE_Jadwal_IDHari'},
                     {data: 'KE_Jadwal_JamMulai', name: 'KE_Jadwal_JamMulai'},
                     {data: 'KE_Jadwal_JamUsai', name: 'KE_Jadwal_JamUsai'},
-                    {data: 'KE_Jadwal_Ruangan', name: 'KE_Jadwal_Ruangan'},
                     {data: 'action', name: 'action'}
                 ]
             });
