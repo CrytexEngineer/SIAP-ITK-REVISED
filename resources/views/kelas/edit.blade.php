@@ -8,7 +8,7 @@
                     <div class="card-header">Edit Data Kelas</div>
 
                     <div class="card-body">
-                        @include('validation_error')
+{{--                        @include('validation_error')--}}
 
                         {{ Form::model($kelas,['url'=>'kelas/'.$kelas->kode_mk,'method'=>'PUT'])}}
 
