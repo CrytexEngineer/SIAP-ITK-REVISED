@@ -8,12 +8,14 @@ use App\Kelas;
 use App\Major;
 use App\Subject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 
 class ManajemenKelasController extends Controller
 {
-    function json(){
+    function json()
+    {
         return Datatables::of(DB::table('classes')
             ->join('employees', 'classes.KE_PE_NIPPengajar', '=', 'employees.PE_Nip')
             ->join('subjects', 'classes.KE_KR_MK_ID', '=', 'subjects.MK_ID')
@@ -48,7 +50,7 @@ class ManajemenKelasController extends Controller
             echo $output;
         }
     }
-
+  
     /**
      * Display a listing of the resource.
      *
@@ -56,12 +58,6 @@ class ManajemenKelasController extends Controller
      */
     public function index()
     {
-//        $kelas = \DB::table('classes')
-//            ->join('subjects','subjects.MK_ID','=','classes.KE_KR_MK_ID')
-//            ->join('employees','employees.PE_Nip','=','classes.KE_PE_NIPPengajar')
-//            ->get();
-//        return $kelas;
-
         $data['employees'] = Employee::pluck('PE_Nip');
         $data['subjects'] = Subject::pluck('MK_ID');
         $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
@@ -88,8 +84,8 @@ class ManajemenKelasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {dd($request->all());
-
+    {
+        dd($request->all());
         $kelas = New Kelas();
         $kelas->create($request->all());
         return redirect('kelas')->with('status', 'Informasi Kelas Berhasil Ditambahkan');
@@ -135,7 +131,9 @@ class ManajemenKelasController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+
+    //pasing data kode mk dan mata kuliah kesini $kelas=['Kode MK','Nama_MK']
+    public function destroy($kelas)
     {
         $kelas = Kelas::where('id',$id);
         $kelas -> delete();
