@@ -16,8 +16,8 @@ Route::get('/', function () {
 });
 
 
-Route::get('/manajemen_akun/mahasiswa/json', 'ManajemenAkunMahasiswaController@json');
-Route::get('/manajemen_akun/pegawai/json', 'ManajemenAkunPegawaiController@json');
+Route::get('/akunmahasiswa/json', 'ManajemenAkunMahasiswaController@json');
+Route::get('/akunpegawai/json', 'ManajemenAkunPegawaiController@json');
 Route::get('/kelas', 'ManajemenKelasController@json');
 Route::get('/program_studi/json', 'ManajemenProgramStudiController@json');
 
@@ -85,3 +85,5 @@ Route::post('/kelas/fetch', 'ManajemenKelasController@fetch')->name('kelas.fetch
 //Pegawai
 Route::resource('/akunpegawai', 'ManajemenAkunPegawaiController');
 Route::post('/akunpegawai/import','ManajemenAkunPegawaiController@import')->name('import_employee');
+
+//Mahasiswa

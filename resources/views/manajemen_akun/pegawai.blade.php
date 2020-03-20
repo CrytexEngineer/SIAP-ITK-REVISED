@@ -21,7 +21,7 @@
                             </div>
                         @endif
 
-                        <a href="/manajemen_akun/pegawai/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
+                        <a href="/akunpegawai/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
                         @include('manajemen_akun.import')
                         <hr>
 
@@ -51,9 +51,9 @@
             $('#users-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '/manajemen_akun/pegawai/json',
+                ajax: '/akunpegawai/json',
                 columns: [
-                    { data: 'PE_Nip', name: 'PE_Nip' }, /* SESUAIKAN */
+                    { data: 'PE_Nip', name: 'PE_Nip' },
                     { data: 'name', name: 'name' },
                     { data: 'email', name: 'email' },
                     { data: 'role_name', name: 'role_name' },
