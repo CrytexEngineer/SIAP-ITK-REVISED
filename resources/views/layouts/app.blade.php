@@ -65,8 +65,8 @@
                                 <i class="fas fa-database"></i> Manajemen Data
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/manajemen_akun/mahasiswa">Akun Mahasiswa</a>
-                                <a class="dropdown-item" href="/manajemen_akun/pegawai">Akun Pegawai</a>
+                                <a class="dropdown-item" href="/akunmahasiswa">Akun Mahasiswa</a>
+                                <a class="dropdown-item" href="/akunpegawai">Akun Pegawai</a>
                                 <a class="dropdown-item" href="/kelas">Kelas</a>
                                 <a class="dropdown-item" href="/matakuliah">Matakuliah</a>
                                 <a class="dropdown-item" href="/program_studi">Program Studi</a>
