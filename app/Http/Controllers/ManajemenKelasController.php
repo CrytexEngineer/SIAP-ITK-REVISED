@@ -71,9 +71,7 @@ class ManajemenKelasController extends Controller
      */
     public function create()
     {
-        $data['employees_nip'] = Employee::pluck('PE_Nip','PE_Nip');
-        $data['employees_nama'] = Employee::pluck('PE_NamaLengkap','PE_NamaLengkap');
-        $data['employees'] = Employee::pluck('PE_Nip', 'PE_NamaLengkap');
+        $data['employees'] = Employee::pluck('PE_NamaLengkap','PE_Nip');
         $data['subjects'] = Subject::pluck('MK_ID');
         $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
         return view('kelas.create', $data);
@@ -137,7 +135,9 @@ class ManajemenKelasController extends Controller
     //pasing data kode mk dan mata kuliah kesini $kelas=['Kode MK','Nama_MK']
     public function destroy($kelas)
     {
-        //
+        $kelas = Kelas::where('id',$id);
+        $kelas -> delete();
+        return redirect('/kelas');
     }
 
     public function import()
