@@ -49,6 +49,7 @@
     <script>
         $(function() {
             $('#users-table').DataTable({
+                "scrollX": true,
                 processing: true,
                 serverSide: true,
                 ajax: '/akunpegawai/json',

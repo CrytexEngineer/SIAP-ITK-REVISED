@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateClassesStudent extends Migration
 {
- /**
+    /**
      * Run the migrations.
      *
      * @return void
@@ -15,11 +15,14 @@ class CreateClassesStudent extends Migration
     {
         Schema::create('class_student', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
+            $table->integer('KU_KE_Tahun');
+            $table->bigInteger('KU_MA_Nrp')->unsigned();
+            $table->string('KU_KE_KR_MK_ID');
+            $table->string('KU_KE_Kelas');
+            $table->bigInteger('KU_KE_KodeJurusan')->unsigned();
+            $table->foreign('KU_MA_Nrp')->references('MA_Nrp')->on('students')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('KU_KE_KR_MK_ID')->references('KE_KR_MK_ID')->on('classes')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
-            $table->bigInteger('MA_Nrp')->unsigned();
-            $table->bigInteger('KE_ID')->unsigned();
-            $table->foreign('MA_Nrp')->references('MA_Nrp')->on('students')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('KE_ID')->references('id')->on('classes')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

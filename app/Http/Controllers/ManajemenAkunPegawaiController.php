@@ -193,6 +193,6 @@ class ManajemenAkunPegawaiController extends Controller
         return back();
     }
 
-    
+
 }
 

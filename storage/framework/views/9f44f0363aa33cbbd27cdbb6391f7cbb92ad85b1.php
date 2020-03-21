@@ -21,7 +21,7 @@
                             </div>
                         <?php endif; ?>
 
-                        <a href="/manajemen_akun/mahasiswa/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
+                        <a href="/akunmahasiswa/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
                             <?php echo $__env->make('matakuliah.import', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                             <hr>
 
@@ -50,9 +50,9 @@
             $('#users-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '/manajemen_akun/mahasiswa/json',
+                ajax: '/akunmahasiswa/json',
                 columns: [
-                    { data: 'MA_Nrp', name: 'MA_Nrp' }, /* SESUAIKAN */
+                    { data: 'MA_Nrp', name: 'MA_Nrp' },
                     { data: 'name', name: 'name' },
                     { data: 'email', name: 'email' },
                     { data: 'created_at', name: 'created_at' },

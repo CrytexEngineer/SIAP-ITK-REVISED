@@ -22,7 +22,7 @@
                             </div>
                         <?php endif; ?>
 
-                        <a href="/manajemen_akun/pegawai/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
+                        <a href="/akunpegawai/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
                         <?php echo $__env->make('manajemen_akun.import', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         <hr>
 
@@ -48,15 +48,14 @@
 
 <?php $__env->startPush('scripts'); ?>
     <script>
-
-
         $(function() {
             $('#users-table').DataTable({
+                "scrollX": true,
                 processing: true,
                 serverSide: true,
-                ajax: '/manajemen_akun/pegawai/json',
+                ajax: '/akunpegawai/json',
                 columns: [
-                    { data: 'PE_Nip', name: 'PE_Nip' }, /* SESUAIKAN */
+                    { data: 'PE_Nip', name: 'PE_Nip' },
                     { data: 'name', name: 'name' },
                     { data: 'email', name: 'email' },
                     { data: 'role_name', name: 'role_name' },
