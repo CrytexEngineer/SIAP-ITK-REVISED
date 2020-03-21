@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use DB;
 use App\Employee;
 use App\Imports\ClasesImport;
@@ -20,7 +21,7 @@ class ManajemenKelasController extends Controller
             ->join('subjects', 'classes.KE_KR_MK_ID', '=', 'subjects.MK_ID')
             ->join('majors', 'classes.KE_KodeJurusan', '=', 'majors.PS_Kode_Prodi'))
             ->addColumn('action', function ($row) {
-                $action = '<a href="/kelas/'.$row->id . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+                $action = '<a href="/kelas/' . $row->id . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
                 $action .= \Form::open(['url' => 'kelas/' . $row->id, 'method' => 'delete', 'style' => 'float:right']);
                 $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
                 $action .= \Form::close();
@@ -32,21 +33,19 @@ class ManajemenKelasController extends Controller
 //    UNTUK MENAMPILKAN AUTOCOMPLETE//
     function fetch(Request $request)
     {
-        if($request->get('query'))
-        {
+        if ($request->get('query')) {
             $query = $request->get('query');
             $data = DB::table('subjects')
                 ->where('MK_Mata_Kuliah', 'LIKE', "%{$query}%")
                 ->get();
             $output = '<ul class="dropdown-menu" style="display:block; position:relative">';
-            foreach($data as $row)
-            {
+            foreach ($data as $row) {
                 $output .= '
-       <li><a href="#">'.$row->MK_Mata_Kuliah.'</a></li>
+       <li><a href="#">' . $row->MK_ID . ' - ' . $row->MK_Mata_Kuliah . '   </a></li>
        ';
             }
             $output .= '</ul>';
-            echo $output;
+            echo "$output";
         }
     }
 
@@ -70,7 +69,7 @@ class ManajemenKelasController extends Controller
      */
     public function create()
     {
-        $data['employees'] = Employee::pluck('PE_NamaLengkap','PE_Nip');
+        $data['employees'] = Employee::pluck('PE_NamaLengkap', 'PE_Nip');
         $data['subjects'] = Subject::pluck('MK_ID');
         $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
         return view('kelas.create', $data);
@@ -122,9 +121,9 @@ class ManajemenKelasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $subject = Kelas::where('id','=',$id);
-        $subject->update($request->except('_method','_token'));
-        return redirect('/kelas')->with('status','Data Kelas Berhasil Di Update');;
+        $subject = Kelas::where('id', '=', $id);
+        $subject->update($request->except('_method', '_token'));
+        return redirect('/kelas')->with('status', 'Data Kelas Berhasil Di Update');;
     }
 
     /**
@@ -137,9 +136,9 @@ class ManajemenKelasController extends Controller
     //pasing data kode mk dan mata kuliah kesini $kelas=['Kode MK','Nama_MK']
     public function destroy($id)
     {
-        $subject = Kelas::where('id',$id);
+        $subject = Kelas::where('id', $id);
         $subject->delete();
-        return redirect('/kelas')->with('status','Data Kelas Berhasil Dihapus');;
+        return redirect('/kelas')->with('status', 'Data Kelas Berhasil Dihapus');;
     }
 
     public function import()

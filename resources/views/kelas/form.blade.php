@@ -68,7 +68,7 @@
 <div class="form-group row">
     <label class="col-md-2 col-form-label text-md-right">Nama Pengajar</label>
     <div class="col-md-4">
-        {{Form::select('PE_NamaLengkap',$employees,null,['class'=>'form-control'])}}
+        {{Form::select('KE_PE_NIPPengajar',$employees,null,['class'=>'form-control'])}}
     </div>
 </div>
 

@@ -70,7 +70,7 @@
 
 
                     {data: 'KE_PE_NIPPengajar', name: 'KE_PE_NIPPengajar'},
-                    {data: 'PE_Nama', name: 'KE_PE_NIPPengajar'},
+                    {data: 'PE_Nama', name: 'employees.PE_Nama'},
 
                     {data: 'KE_Jadwal_IDHari', name: 'KE_Jadwal_IDHari'},
                     {data: 'KE_Jadwal_JamMulai', name: 'KE_Jadwal_JamMulai'},
