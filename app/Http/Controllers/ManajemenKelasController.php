@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use DB;
 use App\Employee;
 use App\Imports\ClasesImport;
 use App\Kelas;
@@ -50,7 +49,7 @@ class ManajemenKelasController extends Controller
             echo $output;
         }
     }
-  
+
     /**
      * Display a listing of the resource.
      *
@@ -110,7 +109,12 @@ class ManajemenKelasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['employees'] = Employee::pluck('PE_NamaLengkap','PE_Nip');
+        $data['subjects'] = Subject::pluck('MK_ID');
+        $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
+
+        $data['kelas']=Kelas::where('id',$id)->first();
+        return view('kelas.edit',$data);
     }
 
     /**
@@ -135,7 +139,7 @@ class ManajemenKelasController extends Controller
     //pasing data kode mk dan mata kuliah kesini $kelas=['Kode MK','Nama_MK']
     public function destroy($kelas)
     {
-        $kelas = Kelas::where('id',$id);
+        $kelas = Kelas::where('id',$kelas);
         $kelas -> delete();
         return redirect('/kelas');
     }
