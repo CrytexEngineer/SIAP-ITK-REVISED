@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use DB;
 use App\Employee;
 use App\Imports\ClasesImport;
 use App\Kelas;
@@ -50,7 +49,7 @@ class ManajemenKelasController extends Controller
             echo $output;
         }
     }
-  
+
     /**
      * Display a listing of the resource.
      *
