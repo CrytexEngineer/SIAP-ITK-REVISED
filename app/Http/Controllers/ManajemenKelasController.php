@@ -15,20 +15,20 @@ use Yajra\DataTables\DataTables;
 class ManajemenKelasController extends Controller
 {
     function json()
-    {
-        return Datatables::of(DB::table('classes')
-            ->join('employees', 'classes.KE_PE_NIPPengajar', '=', 'employees.PE_Nip')
-            ->join('subjects', 'classes.KE_KR_MK_ID', '=', 'subjects.MK_ID')
-            ->join('majors', 'classes.KE_KodeJurusan', '=', 'majors.PS_Kode_Prodi'))
-            ->addColumn('action', function ($row) {
-                $action = '<a href="/kelas/' . $row->id . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
-                $action .= \Form::open(['url' => 'kelas/' . $row->id, 'method' => 'delete', 'style' => 'float:right']);
-                $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
-                $action .= \Form::close();
-                return $action;
-            })
-            ->make(true);
-    }
+{
+    return Datatables::of(DB::table('classes')
+        ->join('employees', 'classes.KE_PE_NIPPengajar', '=', 'employees.PE_Nip')
+        ->join('subjects', 'classes.KE_KR_MK_ID', '=', 'subjects.MK_ID')
+        ->join('majors', 'classes.KE_KodeJurusan', '=', 'majors.PS_Kode_Prodi'))
+        ->addColumn('action', function ($row) {
+            $action = '<a href="/kelas/' . $row->id . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+            $action .= \Form::open(['url' => 'kelas/' . $row->id, 'method' => 'delete', 'style' => 'float:right']);
+            $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
+            $action .= \Form::close();
+            return $action;
+        })
+        ->make(true);
+}
 
 //    UNTUK MENAMPILKAN AUTOCOMPLETE//
     function fetch(Request $request)

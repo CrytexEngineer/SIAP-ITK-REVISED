@@ -22,7 +22,7 @@ class ManajemenAkunPegawaiController extends Controller
             ->join('employees', 'users.email', '=', 'employees.PE_Email')
             ->join('roles', 'users.role', '=', 'roles.id')->where('role', '<', '10')->get()->all())
             ->addColumn('action', function ($row) {
-                $action = '<a href="/manajemen_akun/pegawai/' . $row->email . '/edit" class="btn btn btn-primary btn-sm"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+                $action = '<a href="/mahasiswa/pegawai/' . $row->email . '/edit" class="btn btn btn-primary btn-sm"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
                 $action .= \Form::open(['url' => 'akunpegawai/' . $row->email, 'method' => 'delete', 'style' => 'float:right']);
                 $action .= "<button type='submit' class='btn btn-danger btn-sm'>Hapus</button>";
                 $action .= \Form::close();
@@ -40,7 +40,7 @@ class ManajemenAkunPegawaiController extends Controller
      */
     public function index()
     {
-        return view('manajemen_akun.pegawai');
+        return view('mahasiswa.pegawai');
     }
 
     /**
@@ -50,7 +50,7 @@ class ManajemenAkunPegawaiController extends Controller
      */
     public function create()
     {
-        return view('manajemen_akun.create_pegawai');
+        return view('mahasiswa.create_pegawai');
     }
 
     /**
@@ -137,7 +137,7 @@ class ManajemenAkunPegawaiController extends Controller
 
     {
         $data['users'] = User::where('email', $id)->first();
-        return view('manajemen_akun.edit_pegawai', $data);
+        return view('mahasiswa.edit_pegawai', $data);
 
 
     }
@@ -164,7 +164,7 @@ class ManajemenAkunPegawaiController extends Controller
                     'PE_Email' => $user['email']]
             );
         }
-        return redirect('manajemen_akun/pegawai')->with('status', 'Data Berhasil Diubah');
+        return redirect('mahasiswa/pegawai')->with('status', 'Data Berhasil Diubah');
     }
 
     /**
@@ -183,7 +183,7 @@ class ManajemenAkunPegawaiController extends Controller
                 $employee->delete();
             }
         }
-        return redirect('/manajemen_akun/pegawai')->with('status_failed', 'Data Berhasil Dihapus');
+        return redirect('/mahasiswa/pegawai')->with('status_failed', 'Data Berhasil Dihapus');
     }
 
     function import()

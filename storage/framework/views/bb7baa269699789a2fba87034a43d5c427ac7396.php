@@ -6,7 +6,7 @@
                     <div class="card-header">Register Mahasiswa</div>
 
                     <div class="card-body">
-                        <?php echo e(Form::open(['url'=>'manajemen_akun/mahasiswa/'])); ?>
+                        <?php echo e(Form::open(['url'=>'mahasiswa/mahasiswa/'])); ?>
 
                             <?php echo csrf_field(); ?>
 
@@ -112,4 +112,4 @@ unset($__errorArgs, $__bag); ?>
     </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views/manajemen_akun/create_mahasiswa.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views/mahasiswa/create_mahasiswa.blade.php ENDPATH**/ ?>

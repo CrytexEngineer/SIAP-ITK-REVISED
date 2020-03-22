@@ -15,9 +15,9 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->bigInteger('MA_Nrp')->unsigned()->primary();
-            $table->integer('MA_NRP_Baru')->unsigned()->unique();
+            $table->bigInteger('MA_NRP_Baru')->unsigned()->unique();
             $table->String('MA_NamaLengkap');
-            $table->String('MA_Email')->unique();
+            $table->String('MA_Email')->unique()->nullable();
             $table->timestamps();
         });
     }

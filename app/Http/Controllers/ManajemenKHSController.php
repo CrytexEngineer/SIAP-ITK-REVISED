@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Imports\ClasesImport;
+use App\Imports\KHSImport;
+use App\Imports\KHSimportimplements;
 use App\Kelas;
 use App\Khs;
 use Illuminate\Http\Request;
@@ -35,7 +37,7 @@ class ManajemenKhsController extends Controller
 
     public function index()
     {
-        //
+        return view('khs.index');
     }
 
     /**
@@ -45,7 +47,7 @@ class ManajemenKhsController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -112,7 +114,7 @@ class ManajemenKhsController extends Controller
 
     public function import()
     {
-        $data = Excel::import(new KHSimport(), request()->file('file'));
+        $data = Excel::import(new KHSImport(), request()->file('file'));
         return back();
     }
 }

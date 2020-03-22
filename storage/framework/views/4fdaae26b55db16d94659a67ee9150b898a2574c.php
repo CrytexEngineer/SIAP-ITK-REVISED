@@ -23,7 +23,7 @@
                         <?php endif; ?>
 
                         <a href="/akunpegawai/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
-                        <?php echo $__env->make('manajemen_akun.import', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                        <?php echo $__env->make('mahasiswa.import', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         <hr>
 
                         <table class="table table-bordered" id="users-table">
@@ -68,4 +68,4 @@
     </script>
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views/manajemen_akun/pegawai.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views/mahasiswa/pegawai.blade.php ENDPATH**/ ?>

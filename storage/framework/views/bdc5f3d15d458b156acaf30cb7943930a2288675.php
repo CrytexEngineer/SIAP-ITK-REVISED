@@ -26,4 +26,4 @@
         </form>
     </div>
 </div>
-<?php /**PATH D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views/manajemen_akun/import.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views/mahasiswa/import.blade.php ENDPATH**/ ?>
