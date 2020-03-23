@@ -14,7 +14,11 @@ class CreatePresencesTable extends Migration
     public function up()
     {
         Schema::create('presences', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('PR_ID');
+            $table->bigInteger('KU_ID')->unsigned();
+            $table->foreign('KU_ID')->references('id')->on('class_student')->onDelete('cascade')->onUpdate('cascade');
+            $table->bigInteger('KE_ID')->unsigned();
+            $table->foreign('KE_ID')->references('id')->on('classes')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -22,7 +26,6 @@ class CreatePresencesTable extends Migration
     /**
      * Reverse the migrations.
      *
-     * 
      * @return void
      */
     public function down()
