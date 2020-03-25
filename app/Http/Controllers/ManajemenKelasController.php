@@ -106,11 +106,15 @@ class ManajemenKelasController extends Controller
      */
     public function edit($id)
     {
-        $data['kelas'] = Kelas::where('id', $id)->first();
-        $data['employees'] = Employee::pluck('PE_Nip');
+
+
+        $data['employees'] = Employee::pluck('PE_NamaLengkap','PE_Nip');
         $data['subjects'] = Subject::pluck('MK_ID');
         $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
-        return view('kelas.edit', $data);
+
+        $data['kelas']=Kelas::where('id',$id)->first();
+        return view('kelas.edit',$data);
+
     }
 
     /**
@@ -137,9 +141,11 @@ class ManajemenKelasController extends Controller
     //pasing data kode mk dan mata kuliah kesini $kelas=['Kode MK','Nama_MK']
     public function destroy($id)
     {
+
         $subject = Kelas::where('id', $id);
         $subject->delete();
         return redirect('/kelas')->with('status', 'Data Kelas Berhasil Dihapus');;
+
     }
 
     public function import()
