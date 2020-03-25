@@ -8,7 +8,7 @@ class Subject extends Model
 {
 
     protected $fillable = ['MK_ID', 'MK_Mata_Kuliah', 'MK_ThnKurikulum', 'MK_KreditKuliah'];
-    protected $primaryKey = 'MK_ID';
+
 
     public function employees()
     {

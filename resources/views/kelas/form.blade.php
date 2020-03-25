@@ -26,7 +26,7 @@
 <div class="form-group row">
     <label class="col-md-2 col-form-label text-md-right">Program Studi</label>
     <div class="col-md-4">
-        {{Form::select('PS_Kode_Prodi',$major,null,['class'=>'form-control'])}}
+        {{Form::select('PS_Kode_Prodi',$major ?? '',null,['class'=>'form-control'])}}
     </div>
 </div>
 

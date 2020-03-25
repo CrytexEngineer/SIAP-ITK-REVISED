@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\KHSImport;
+use App\Imports\StudentsImport;
 use App\Role;
 use App\User;
 use DataTables;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ManajemenAkunMahasiswaController extends Controller
 {
@@ -18,7 +21,7 @@ class ManajemenAkunMahasiswaController extends Controller
             ->join('students', 'users.email', '=', 'students.MA_Email')
             ->where('role','=','10')->get()->all())
             ->addColumn('action', function ($row) {
-                $action = '<a href="/manajemen_akun/mahasiswa/' . $row->email . '/edit" class="btn btn btn-primary btn-sm"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+                $action = '<a href="/mahasiswa/mahasiswa/' . $row->email . '/edit" class="btn btn btn-primary btn-sm"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
                 $action .= \Form::open(['url' => 'akunmahasiswa/' . $row->email, 'method' => 'delete', 'style' => 'float:right']);
                 $action .= "<button type='submit' class='btn btn-danger btn-sm'>Hapus</button>";
                 $action .= \Form::close();
@@ -35,7 +38,7 @@ class ManajemenAkunMahasiswaController extends Controller
      */
     public function index()
     {
-        return view('manajemen_akun.mahasiswa');
+        return view('mahasiswa.mahasiswa');
     }
 
     /**
@@ -45,7 +48,7 @@ class ManajemenAkunMahasiswaController extends Controller
      */
     public function create()
     {
-        return view('manajemen_akun.create_mahasiswa');
+        return view('mahasiswa.create_mahasiswa');
     }
 
     /**
@@ -110,7 +113,7 @@ class ManajemenAkunMahasiswaController extends Controller
     public function edit($id)
     {
         $data['users'] = User::where('email', $id)->first();
-        return view('manajemen_akun.edit_mahasiswa', $data);
+        return view('mahasiswa.edit_mahasiswa', $data);
 
     }
 
@@ -155,5 +158,11 @@ class ManajemenAkunMahasiswaController extends Controller
             }
         }
         return redirect('/akunmahasiswa')->with('status_failed', 'Data Berhasil Dihapus');
+    }
+
+    public function import(){
+        $data = Excel::import(new StudentsImport(), request()->file('file'));
+        return back();
+
     }
 }

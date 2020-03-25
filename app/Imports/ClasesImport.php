@@ -5,11 +5,13 @@ namespace App\Imports;
 use App\Kelas;
 use Maatwebsite\Excel\Concerns\SkipsOnFailure;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Validators\Failure;
 
-class ClasesImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailure
+class ClasesImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailure, WithBatchInserts
+
 {
     /**
      * @param array $row
@@ -47,6 +49,7 @@ class ClasesImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFa
         return [
             'ke_kr_mk_id' => ['required'],
             'ke_pe_nippengajar' => 'required',
+
         ];
     }
 
@@ -57,4 +60,11 @@ class ClasesImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFa
     {
 
     }
+
+    public function batchSize(): int
+    {
+        return 1000;
+    }
+
+
 }

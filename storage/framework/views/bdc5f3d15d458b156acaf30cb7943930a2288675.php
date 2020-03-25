@@ -1,9 +1,8 @@
 <a href="" class="btn btn-success" data-toggle="modal" data-target="#importExcel">Import Excel</a>
-<a href="/matakuliah/export_excel" class="btn btn-success"target="_blank">Export Excel</a>
 <!-- Import Excel -->
 <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form method="post" action="<?php echo e(route('import_employee')); ?>" enctype="multipart/form-data"> /* EDIT DISINI */
+        <form method="post" action="<?php echo e(route('import_employee')); ?>" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
@@ -27,4 +26,4 @@
         </form>
     </div>
 </div>
-<?php /**PATH D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views/manajemen_akun/import.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views/mahasiswa/import.blade.php ENDPATH**/ ?>

@@ -5,11 +5,13 @@ namespace App\Imports;
 use App\Major;
 use Maatwebsite\Excel\Concerns\SkipsOnFailure;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Validators\Failure;
 
-class MajorsImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailure
+class MajorsImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailure, WithBatchInserts
+
 {
     /**
      * @param array $row
@@ -46,6 +48,11 @@ class MajorsImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFa
      */
     public function onFailure(Failure ...$failures)
     {
+    }
+
+    public function batchSize(): int
+    {
+        return 1000;
     }
 }
 

@@ -22,8 +22,8 @@
                             </div>
                         <?php endif; ?>
 
-                        <a href="/manajemen_akun/pegawai/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
-                        <?php echo $__env->make('manajemen_akun.import', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                        <a href="/akunpegawai/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
+                        <?php echo $__env->make('mahasiswa.import', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         <hr>
 
                         <table class="table table-bordered" id="users-table">
@@ -48,15 +48,14 @@
 
 <?php $__env->startPush('scripts'); ?>
     <script>
-
-
         $(function() {
             $('#users-table').DataTable({
+                "scrollX": true,
                 processing: true,
                 serverSide: true,
-                ajax: '/manajemen_akun/pegawai/json',
+                ajax: '/akunpegawai/json',
                 columns: [
-                    { data: 'PE_Nip', name: 'PE_Nip' }, /* SESUAIKAN */
+                    { data: 'PE_Nip', name: 'PE_Nip' },
                     { data: 'name', name: 'name' },
                     { data: 'email', name: 'email' },
                     { data: 'role_name', name: 'role_name' },
@@ -69,4 +68,4 @@
     </script>
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views/manajemen_akun/pegawai.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views/mahasiswa/pegawai.blade.php ENDPATH**/ ?>

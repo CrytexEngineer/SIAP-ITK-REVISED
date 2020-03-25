@@ -7,7 +7,7 @@
                     <div class="card-header"><?php echo $__env->yieldContent('title'); ?></div>
 
                     <div class="card-body">
-                        <?php echo e(Form::model($users, ['url'=>'manajemen_akun/mahasiswa/'.$users->email, 'method'=>'PUT'])); ?>
+                        <?php echo e(Form::model($users, ['url'=>'mahasiswa/mahasiswa/'.$users->email, 'method'=>'PUT'])); ?>
 
                             <?php echo csrf_field(); ?>
 
@@ -51,4 +51,4 @@
     </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views/manajemen_akun/edit_mahasiswa.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views/mahasiswa/edit_mahasiswa.blade.php ENDPATH**/ ?>

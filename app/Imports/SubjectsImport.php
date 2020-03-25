@@ -8,11 +8,13 @@ use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\SkipsOnFailure;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Validators\Failure;
 
-class SubjectsImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailure
+class SubjectsImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailure, WithBatchInserts
+
 {
 
     use Importable;
@@ -24,6 +26,8 @@ class SubjectsImport implements ToModel, WithHeadingRow, WithValidation, SkipsOn
      */
     public function model(array $row)
     {
+
+
         if (!Subject::where('MK_ID', $row['mk_id'])->first()) {
 
             return new Subject([
@@ -61,4 +65,10 @@ class SubjectsImport implements ToModel, WithHeadingRow, WithValidation, SkipsOn
     {
 
     }
+
+    public function batchSize(): int
+    {
+        return 1000;
+    }
+
 }

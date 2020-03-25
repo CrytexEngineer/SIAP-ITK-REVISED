@@ -11,9 +11,9 @@
                         <?php echo e(Form::open(['url'=>'kelas'])); ?>
 
 
-                        <?php echo csrf_field(); ?>
-
                         <?php echo $__env->make('kelas.form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+                        <?php echo csrf_field(); ?>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-2">
@@ -23,7 +23,6 @@
                                 <a href="/kelas" class="btn btn-primary">Kembali</a>
                             </div>
                         </div>
-                        </form>
                     </div>
                 </div>
             </div>

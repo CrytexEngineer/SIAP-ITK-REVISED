@@ -8,7 +8,9 @@
                     <div class="card-header">Edit Data Kelas</div>
 
                     <div class="card-body">
+
                         {{ Form::model($kelas,['url'=>'kelas/'.$kelas->id,'method'=>'PUT'])}}
+
 
                         @csrf
 

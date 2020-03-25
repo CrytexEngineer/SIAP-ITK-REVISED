@@ -6,7 +6,7 @@
                     <div class="card-header"><?php echo e(__('Register')); ?></div>
 
                     <div class="card-body">
-                        <?php echo e(Form::open(['url'=>'manajemen_akun/pegawai'])); ?>
+                        <?php echo e(Form::open(['url'=>'mahasiswa/pegawai'])); ?>
 
                          <?php echo csrf_field(); ?>
 
@@ -52,13 +52,13 @@
                                         <option value="8">Tendik Pusat</option>
                                         <option value="9">Dosen Pengampu</option>
                                     </select>
-                                    
 
-                                    
-                                    
-                                    
-                                    
-                                    
+
+
+
+
+
+
                                 </div>
                             </div>
 
@@ -113,4 +113,4 @@ unset($__errorArgs, $__bag); ?>
     </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views/manajemen_akun/create_pegawai.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views/mahasiswa/create_pegawai.blade.php ENDPATH**/ ?>
