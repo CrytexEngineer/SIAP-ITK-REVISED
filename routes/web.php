@@ -97,3 +97,8 @@ Route::post('/akunpegawai/import','ManajemenAkunPegawaiController@import')->name
 Route::get('/akunmahasiswa/json', 'ManajemenAkunMahasiswaController@json');
 Route::resource('/akunmahasiswa', 'ManajemenAkunMahasiswaController');
 Route::post('/akunmahasiswa/import', 'ManajemenAkunMahasiswaController@import')->name('import_mahasiswa');
+
+
+//Operasi QR
+Route::get('generateQR',"ManajemenKodeQRController@getQrCode");
+Route::get('generateQrView',"ManajemenKodeQRController@getQrCodeView");

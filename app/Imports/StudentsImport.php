@@ -26,8 +26,8 @@ class StudentsImport   implements ToModel, WithHeadingRow, WithValidation, Skips
 
 
         $data = ['MA_Nrp' => $row['ma_nrp'],
-            'MA_NRP_Baru' => $row['ma_nrp'],
-//            'MA_Email' => $row['ma_email'],
+            'MA_NRP_Baru' => $row['ma_nrp_baru'],
+             'MA_Email' => $row['ma_email'],
             'MA_NamaLengkap' => $row['ma_namalengkap']];
 
 
