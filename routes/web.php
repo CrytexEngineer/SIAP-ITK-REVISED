@@ -100,5 +100,4 @@ Route::post('/akunmahasiswa/import', 'ManajemenAkunMahasiswaController@import')-
 
 
 //Operasi QR
-Route::get('generateQR',"ManajemenKodeQRController@getQrCode");
-Route::get('generateQrView',"ManajemenKodeQRController@getQrCodeView");
+Route::resource('/validator',"ManajemenValidatorController");

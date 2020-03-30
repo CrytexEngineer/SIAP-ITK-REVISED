@@ -6,6 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class presence extends Model
 {
-    protected $primaryKey='PR_ID';
-    //
+protected $primaryKey='PR_ID';
 }

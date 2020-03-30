@@ -77,6 +77,8 @@ return array(
     'App\\Student' => $baseDir . '/app/Student.php',
     'App\\Subject' => $baseDir . '/app/Subject.php',
     'App\\User' => $baseDir . '/app/User.php',
+    'App\\Validator' => $baseDir . '/app/Validator.php',
+    'App\\meeting' => $baseDir . '/app/meeting.php',
     'App\\presence' => $baseDir . '/app/Presence.php',
     'BaconQrCode\\Common\\AbstractEnum' => $vendorDir . '/bacon/bacon-qr-code/src/BaconQrCode/Common/AbstractEnum.php',
     'BaconQrCode\\Common\\BitArray' => $vendorDir . '/bacon/bacon-qr-code/src/BaconQrCode/Common/BitArray.php',

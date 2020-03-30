@@ -23,7 +23,7 @@
     setInterval(function () {
         $.ajax({
             type: "GET",
-            url: "/generateQR/",
+            url: "/validator/1",
             success: function (response) {
                 // If not false, update the post
                 if (response) {

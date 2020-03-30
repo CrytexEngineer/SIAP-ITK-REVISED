@@ -21,4 +21,5 @@ Route::group(['prefix' => 'v1'], function () {
         'except' => ['create', 'edit']]);
     Route::resource('mobile/user', 'Mobile\UserProfileController', [
         'except' => ['create', 'edit']]);
+    Route::POST('mobile/validate', 'ManajemenValidatorController@validation');
 });

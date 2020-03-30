@@ -588,6 +588,8 @@ class ComposerStaticInitec3511fe6357fb830208805227b91dde
         'App\\Student' => __DIR__ . '/../..' . '/app/Student.php',
         'App\\Subject' => __DIR__ . '/../..' . '/app/Subject.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\Validator' => __DIR__ . '/../..' . '/app/Validator.php',
+        'App\\meeting' => __DIR__ . '/../..' . '/app/meeting.php',
         'App\\presence' => __DIR__ . '/../..' . '/app/Presence.php',
         'BaconQrCode\\Common\\AbstractEnum' => __DIR__ . '/..' . '/bacon/bacon-qr-code/src/BaconQrCode/Common/AbstractEnum.php',
         'BaconQrCode\\Common\\BitArray' => __DIR__ . '/..' . '/bacon/bacon-qr-code/src/BaconQrCode/Common/BitArray.php',
