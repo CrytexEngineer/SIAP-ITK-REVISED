@@ -17,8 +17,11 @@ class CreateMeetingsTable extends Migration
             $table->bigIncrements('PT_ID')->unsigned();
             $table->timestamps();
             $table->bigInteger('PT_KE_ID')->unsigned();
+            $table->string('PT_Name');
+            $table->string('PT_Type');
+            $table->string('PT_Notes');
             $table->foreign('PT_KE_ID')->references('id')->on('classes')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('PT_Token');
+            $table->string('PT_Token')->unique();
             $table->string('PT_isLate');
             $table->time('PT_LateTime');
             $table->time('PT_BlockTime');

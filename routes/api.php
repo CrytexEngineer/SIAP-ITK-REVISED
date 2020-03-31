@@ -16,10 +16,11 @@
 //});
 
 
-Route::group(['prefix' => 'v1'], function () {
-    Route::resource('mobile/kelas', 'Mobile\KelasController', [
+Route::group(['prefix' => 'v1/mobile'], function () {
+    Route::resource('kelas', 'Mobile\KelasController', [
         'except' => ['create', 'edit']]);
-    Route::resource('mobile/user', 'Mobile\UserProfileController', [
+    Route::resource('user', 'Mobile\UserProfileController', [
         'except' => ['create', 'edit']]);
-    Route::POST('mobile/validate', 'ManajemenValidatorController@validation');
+    Route::POST('validate', 'ManajemenValidatorController@validation');
+    Route::POST('validate/register_meeting', 'ManajemenPertemuanController@registerStudent');
 });

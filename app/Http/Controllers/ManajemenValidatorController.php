@@ -94,9 +94,10 @@ class ManajemenValidatorController extends Controller
                 return response()->json($response, Response::HTTP_FORBIDDEN);
             }
 
+
             $token = DB::table('meetings')
                 ->join('validators', 'meetings.PT_ID', '=', 'validators.VD_PT_ID')
-                ->join('classes', 'meetings.PT_KE_ID', '=', 'classes.id')
+                ->join('classes', 'meetings.PT_KE_ID', '=', 'classes.KE_ID')
                 ->where('validators.VD_PT_ID', '=', $request->input('VD_PT_ID'))
                 ->get()->first();
 
