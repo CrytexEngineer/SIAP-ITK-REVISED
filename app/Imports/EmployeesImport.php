@@ -3,6 +3,7 @@
 namespace App\Imports;
 
 use App\Employee;
+use Maatwebsite\Excel\Concerns\SkipsOnError;
 use Maatwebsite\Excel\Concerns\SkipsOnFailure;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
@@ -10,8 +11,9 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Validators\Failure;
 use phpDocumentor\Reflection\Types\Integer;
+use Throwable;
 
-class EmployeesImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailure, WithBatchInserts
+class EmployeesImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailure, WithBatchInserts, SkipsOnError
 
 {
     /**
@@ -58,6 +60,14 @@ class EmployeesImport implements ToModel, WithHeadingRow, WithValidation, SkipsO
 
     public function batchSize(): int
     {
-        return 1000;
+        return 10;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function onError(Throwable $e)
+    {
+        // TODO: Implement onError() method.
     }
 }

@@ -1,12 +1,12 @@
 <?php $__env->startSection('title','Modul Kelas'); ?>
 <?php $__env->startSection('content'); ?>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">Modul Kelas</div>
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-header">Modul Kelas</div>
 
-                    <div class="card-body">
+                                            <div class="card-body">
 
                         <?php echo $__env->make('alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 

@@ -20,7 +20,7 @@ class CreateMeetingsTable extends Migration
             $table->string('PT_Name');
             $table->string('PT_Type');
             $table->string('PT_Notes');
-            $table->foreign('PT_KE_ID')->references('id')->on('classes')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('PT_KE_ID')->references('KE_ID')->on('classes')->onUpdate('cascade')->onDelete('cascade');
             $table->string('PT_Token')->unique();
             $table->string('PT_isLate');
             $table->time('PT_LateTime');

@@ -5,15 +5,18 @@ namespace App\Imports;
 use App\Employee;
 use App\Student;
 use Illuminate\Support\Collection;
+use Maatwebsite\Excel\Concerns\SkipsOnError;
 use Maatwebsite\Excel\Concerns\SkipsOnFailure;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Facades\Excel;
 use Maatwebsite\Excel\Validators\Failure;
+use Throwable;
 
-class StudentsImport   implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailure
+class StudentsImport   implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailure, SkipsOnError,WithBatchInserts
 {
     /**
      * @param array $row
@@ -55,13 +58,23 @@ class StudentsImport   implements ToModel, WithHeadingRow, WithValidation, Skips
     public
     function onFailure(Failure ...$failures)
     {
-        $data = Excel::import(new StudentsImport(), request()->file('file'));
-        return back();
+
     }
 
+
+    /**
+     * @inheritDoc
+     */
+    public function onError(Throwable $e)
+    {
+        // TODO: Implement onError() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function batchSize(): int
     {
-        return 1000;
+        return 100;
     }
-
 }
