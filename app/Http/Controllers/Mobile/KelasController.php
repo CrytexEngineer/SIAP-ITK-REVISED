@@ -15,7 +15,7 @@ class KelasController extends Controller
 
 
         $kelas = DB::select("SELECT `class_student`.`KU_MA_Nrp`,
-                        `classes`.`id`,
+                        `classes`.`KE_ID`,
                         `classes`.`KE_KR_MK_ID`,
                         `classes`.`KE_Kelas`,
                         `classes`.`KE_PE_NIPPengajar`,
@@ -43,7 +43,7 @@ class KelasController extends Controller
             'method' => 'GET'
         ];
 
-        $response = ['propeties'=>$properties,
+        $response = ['properties'=>[$properties],
             'kelas' => $kelas];
 
         return response()->json($response, 200);

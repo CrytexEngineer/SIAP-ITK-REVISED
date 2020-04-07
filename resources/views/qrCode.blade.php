@@ -23,7 +23,7 @@
     setInterval(function () {
         $.ajax({
             type: "GET",
-            url: "/validator/2",
+            url: "/validator/3",
             success: function (response) {
                 // If not false, update the post
                 if (response) {

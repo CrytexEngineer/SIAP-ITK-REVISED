@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Mobile;
 use App\Student;
 use App\user;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class UserProfileController
 {

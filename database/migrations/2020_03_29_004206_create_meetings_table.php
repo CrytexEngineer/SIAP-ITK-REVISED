@@ -23,8 +23,8 @@ class CreateMeetingsTable extends Migration
             $table->foreign('PT_KE_ID')->references('KE_ID')->on('classes')->onUpdate('cascade')->onDelete('cascade');
             $table->string('PT_Token')->unique();
             $table->string('PT_isLate');
-            $table->time('PT_LateTime');
-            $table->time('PT_BlockTime');
+            $table->dateTime('PT_LateTime')->useCurrent();
+            $table->dateTime('PT_BlockTime')->useCurrent();
 
         });
     }

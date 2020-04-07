@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Mobile;
 
+
+use App\Http\Controllers\Controller;
 use App\meeting;
 use App\presence;
 use Illuminate\Http\Request;
@@ -13,6 +15,10 @@ class MeetingController extends Controller
 {
     public function registerStudent(Request $request)
     {
+        $properties = ['msg' => 'Refister Presensi',
+            'href' => "api/v1/mobile/validate/register_meeting",
+            'method' => 'POST'
+        ];
         $request->validate([
             'MA_Nrp' => 'required',
             'PT_Token' => 'required'
@@ -27,7 +33,17 @@ class MeetingController extends Controller
             $currentTime = strtotime(date('Y-m-d H:i:s'));
             $isBlocked = ($blockTime - $currentTime);
             $isLate = ($lateTime - $currentTime);
-            $defaultTime = strtotime(date('H:i:s', 1585497600));
+            $defaultBlockTime = strtotime($meetings['created_at'] . '+120 minutes');
+            $defaultLateTime=strtotime($meetings['created_at']);
+
+
+            if ($blockTime == $defaultLateTime || $blockTime >$defaultBlockTime) {
+                $defaultBlockTime = strtotime($meetings['created_at'] . '+120 minutes');
+                $isBlocked = ($defaultBlockTime - $currentTime);
+            }
+            if ($lateTime == $defaultLateTime) {
+                $isLate = 1;
+            }
 
             $khs = DB::select("select * from `meetings`
                 inner join `classes` on `meetings`.`PT_KE_ID` = `classes`.`KE_ID`
@@ -36,24 +52,23 @@ class MeetingController extends Controller
                 " and `classes`.`KE_Kelas` = class_student.KU_KE_Kelas
                  and `class_student`.`KU_MA_Nrp`=" . $request->input('MA_Nrp'));
 
-
             if ($khs) {
 
-                if ($isBlocked > 0 || $blockTime == $defaultTime) {
-
+                if ($isBlocked > 0) {
                     $isPresenced = presence::whereDate('created_at', Carbon::today())
                         ->where('PR_KU_ID', '=', $khs[0]->KU_ID)->get()->first();
 
                     if (!$isPresenced) {
-
+                        $keterangan = 'HADIR';
+                        $type = 'QR';
                         $latemrker = 'LATE';
+                        $properties = ['msg' => 'Kamu  telat, Lebih rajin ya!'];
 
-
-                        if ($isLate > 0 || $lateTime == $defaultTime) {
+                        if ($isLate > 0) {
 
                             $latemrker = 'NOT_LATE';
-                            $keterangan = 'HADIR';
-                            $type = 'QR';
+                            $properties = ['msg' => 'Kamu Tepat Waktu, Luar Biasa!'];
+
                         }
 
                         $presence = new presence(['PR_KU_ID' => $khs['0']->KU_ID,
@@ -61,24 +76,27 @@ class MeetingController extends Controller
                             'PR_IsLAte' => $latemrker,
                             'PR_Keterangan' => $keterangan,
                             'PR_Type' => $type]);
+
                         $presence->save();
+                        return response()->json(['properties' => [$properties], 'presence' => $presence], Response::HTTP_CREATED);
+
                     }
 
-                    $response = ['msg' => 'Kamu tidak terdaftar di kelas ini'];
-                    return response()->json($response, Response::HTTP_NOT_FOUND);
+                    $properties = ['msg' => 'Kamu Telah Melakukan Presensi'];
+                    return response()->json(['properties' => [$properties]], Response::HTTP_OK);
 
                 }
 
 
-                $response = ['msg' => 'Kamu telat, Dilarang Absen'];
-                return response()->json($response, Response::HTTP_FORBIDDEN);
+                $properties = ['msg' => 'Kamu melewati batas waktu, Presensi diblokir'];
+                return response()->json(['properties' => [$properties]], Response::HTTP_OK);
 
 
             }
-            $response = ['msg' => 'Kamu tidak terdaftar di kelas ini'];
-            return response()->json($response, Response::HTTP_NOT_FOUND);
+            $properties = ['msg' => 'Kamu tidak terdaftar di kelas ini'];
+            return response()->json(['properties' => [$properties]], Response::HTTP_OK);
         }
-        $response = ['msg' => 'Pertemuan tidak ditemukan'];
-        return response()->json($response, Response::HTTP_NOT_FOUND);
+        $properties = ['msg' => 'Pertemuan tidak ditemukan'];
+        return response()->json(['properties' => [$properties]], Response::HTTP_OK);
     }
 }
