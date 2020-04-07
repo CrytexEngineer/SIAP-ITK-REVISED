@@ -1,15 +1,14 @@
 
-
 @extends('layouts.app')
 @section('title','Modul Kelas')
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">Modul Kelas</div>
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-header">Modul Kelas</div>
 
-                    <div class="card-body">
+                                            <div class="card-body">
 
                         @include('alert')
 
@@ -79,5 +78,8 @@
                 ]
             });
         });
+
+
     </script>
+
 @endpush

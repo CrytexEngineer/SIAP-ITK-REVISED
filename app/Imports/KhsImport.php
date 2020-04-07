@@ -4,15 +4,17 @@ namespace App\Imports;
 
 
 use App\Khs;
+use Maatwebsite\Excel\Concerns\SkipsOnError;
 use Maatwebsite\Excel\Concerns\SkipsOnFailure;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Validators\Failure;
+use Throwable;
 
 
-class KHSImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailure, WithBatchInserts
+class KHSImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailure, WithBatchInserts, SkipsOnError
 {
 
     public function model(array $row)
@@ -59,6 +61,14 @@ class KHSImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailu
     public function batchSize(): int
     {
         return 1000;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function onError(Throwable $e)
+    {
+        // TODO: Implement onError() method.
     }
 }
 

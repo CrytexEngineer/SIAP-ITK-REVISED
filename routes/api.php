@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,8 +11,16 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+
+Route::group(['prefix' => 'v1/mobile'], function () {
+    Route::resource('kelas', 'Mobile\KelasController', [
+        'except' => ['create', 'edit']]);
+    Route::resource('user', 'Mobile\UserProfileController', [
+        'except' => ['create', 'edit']]);
+    Route::POST('validate', 'Mobile\ValidatorController@validation');
+    Route::POST('validate/register_meeting', 'Mobile\MeetingController@registerStudent');
 });
-
-

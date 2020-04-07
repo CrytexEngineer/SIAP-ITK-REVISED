@@ -22,7 +22,7 @@ class ManajemenAkunPegawaiController extends Controller
             ->join('employees', 'users.email', '=', 'employees.PE_Email')
             ->join('roles', 'users.role', '=', 'roles.id')->where('role', '<', '10')->get()->all())
             ->addColumn('action', function ($row) {
-                $action = '<a href="/mahasiswa/pegawai/' . $row->email . '/edit" class="btn btn btn-primary btn-sm"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+                $action = '<a href="/pegawai/pegawai/' . $row->email . '/edit" class="btn btn btn-primary btn-sm"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
                 $action .= \Form::open(['url' => 'akunpegawai/' . $row->email, 'method' => 'delete', 'style' => 'float:right']);
                 $action .= "<button type='submit' class='btn btn-danger btn-sm'>Hapus</button>";
                 $action .= \Form::close();
@@ -30,7 +30,7 @@ class ManajemenAkunPegawaiController extends Controller
 
             })
             ->make(true);
-        //Khusus di pegawai harus query ke roles selain mahasiswa
+        //Khusus di pegawai harus query ke roles selain pegawai
     }
 
     /**
@@ -40,7 +40,7 @@ class ManajemenAkunPegawaiController extends Controller
      */
     public function index()
     {
-        return view('mahasiswa.pegawai');
+        return view('employee.pegawai');
     }
 
     /**
@@ -50,7 +50,7 @@ class ManajemenAkunPegawaiController extends Controller
      */
     public function create()
     {
-        return view('mahasiswa.create_pegawai');
+        return view('employee.create_pegawai');
     }
 
     /**
@@ -137,7 +137,7 @@ class ManajemenAkunPegawaiController extends Controller
 
     {
         $data['users'] = User::where('email', $id)->first();
-        return view('mahasiswa.edit_pegawai', $data);
+        return view('employee.edit_pegawai', $data);
 
 
     }
@@ -164,7 +164,7 @@ class ManajemenAkunPegawaiController extends Controller
                     'PE_Email' => $user['email']]
             );
         }
-        return redirect('mahasiswa/pegawai')->with('status', 'Data Berhasil Diubah');
+        return redirect('/akunpegawai')->with('status', 'Data Berhasil Diubah');
     }
 
     /**
@@ -183,7 +183,7 @@ class ManajemenAkunPegawaiController extends Controller
                 $employee->delete();
             }
         }
-        return redirect('/mahasiswa/pegawai')->with('status_failed', 'Data Berhasil Dihapus');
+        return redirect('/akunpegawai')->with('status_failed', 'Data Berhasil Dihapus');
     }
 
     function import()

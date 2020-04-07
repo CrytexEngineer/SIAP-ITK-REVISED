@@ -6,14 +6,16 @@ use App\Subject;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\SkipsOnError;
 use Maatwebsite\Excel\Concerns\SkipsOnFailure;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Validators\Failure;
+use Throwable;
 
-class SubjectsImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailure, WithBatchInserts
+class SubjectsImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailure,  SkipsOnError
 
 {
 
@@ -66,9 +68,12 @@ class SubjectsImport implements ToModel, WithHeadingRow, WithValidation, SkipsOn
 
     }
 
-    public function batchSize(): int
-    {
-        return 1000;
-    }
 
+    /**
+     * @inheritDoc
+     */
+    public function onError(Throwable $e)
+    {
+        // TODO: Implement onError() method.
+    }
 }

@@ -1,1 +1,1 @@
-C:37:"PHPUnit\Runner\DefaultTestResultCache":205:{a:2:{s:7:"defects";a:1:{s:40:"Tests\Feature\ExampleTest::testBasicTest";i:4;}s:5:"times";a:2:{s:37:"Tests\Unit\ExampleTest::testBasicTest";d:0.045;s:40:"Tests\Feature\ExampleTest::testBasicTest";d:0.837;}}}
+C:37:"PHPUnit\Runner\DefaultTestResultCache":204:{a:2:{s:7:"defects";a:1:{s:40:"Tests\Feature\ExampleTest::testBasicTest";i:4;}s:5:"times";a:2:{s:37:"Tests\Unit\ExampleTest::testBasicTest";d:0.043;s:40:"Tests\Feature\ExampleTest::testBasicTest";d:1.23;}}}

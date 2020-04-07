@@ -23,7 +23,7 @@
                                 <a href="/kelas" class="btn btn-primary">Kembali</a>
                             </div>
                         </div>
-                        </form>
+
                     </div>
                 </div>
             </div>

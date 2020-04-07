@@ -1,5 +1,53 @@
 [
     {
+        "name": "bacon/bacon-qr-code",
+        "version": "1.0.3",
+        "version_normalized": "1.0.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Bacon/BaconQrCode.git",
+            "reference": "5a91b62b9d37cee635bbf8d553f4546057250bee"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Bacon/BaconQrCode/zipball/5a91b62b9d37cee635bbf8d553f4546057250bee",
+            "reference": "5a91b62b9d37cee635bbf8d553f4546057250bee",
+            "shasum": ""
+        },
+        "require": {
+            "ext-iconv": "*",
+            "php": "^5.4|^7.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8"
+        },
+        "suggest": {
+            "ext-gd": "to generate QR code images"
+        },
+        "time": "2017-10-17T09:59:25+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "BaconQrCode": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-2-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Ben Scholzen 'DASPRiD'",
+                "email": "mail@dasprids.de",
+                "homepage": "http://www.dasprids.de",
+                "role": "Developer"
+            }
+        ],
+        "description": "BaconQrCode is a QR code generator for PHP.",
+        "homepage": "https://github.com/Bacon/BaconQrCode"
+    },
+    {
         "name": "dnoegel/php-xdg-base-dir",
         "version": "v0.1.1",
         "version_normalized": "0.1.1.0",
@@ -399,17 +447,17 @@
     },
     {
         "name": "facade/ignition",
-        "version": "1.16.0",
-        "version_normalized": "1.16.0.0",
+        "version": "1.16.1",
+        "version_normalized": "1.16.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/facade/ignition.git",
-            "reference": "37f094775814b68d0c6cc8b8ff3c3be243f20725"
+            "reference": "af05ac5ee8587395d7474ec0681c08776a2cb09d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/facade/ignition/zipball/37f094775814b68d0c6cc8b8ff3c3be243f20725",
-            "reference": "37f094775814b68d0c6cc8b8ff3c3be243f20725",
+            "url": "https://api.github.com/repos/facade/ignition/zipball/af05ac5ee8587395d7474ec0681c08776a2cb09d",
+            "reference": "af05ac5ee8587395d7474ec0681c08776a2cb09d",
             "shasum": ""
         },
         "require": {
@@ -433,11 +481,11 @@
         "suggest": {
             "laravel/telescope": "^2.0"
         },
-        "time": "2020-01-21T17:46:02+00:00",
+        "time": "2020-03-05T12:39:07+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "v2.x-dev"
+                "dev-master": "1.x-dev"
             },
             "laravel": {
                 "providers": [
@@ -831,17 +879,17 @@
     },
     {
         "name": "laravel/framework",
-        "version": "v6.18.0",
-        "version_normalized": "6.18.0.0",
+        "version": "v6.18.1",
+        "version_normalized": "6.18.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/laravel/framework.git",
-            "reference": "077b895d935b7fbcfb1d1eb34217fa4f80a130d8"
+            "reference": "367c2c8dfdfe83cb2ddbc029c0222174098d093a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/077b895d935b7fbcfb1d1eb34217fa4f80a130d8",
-            "reference": "077b895d935b7fbcfb1d1eb34217fa4f80a130d8",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/367c2c8dfdfe83cb2ddbc029c0222174098d093a",
+            "reference": "367c2c8dfdfe83cb2ddbc029c0222174098d093a",
             "shasum": ""
         },
         "require": {
@@ -943,7 +991,7 @@
             "symfony/psr-http-message-bridge": "Required to use PSR-7 bridging features (^1.2).",
             "wildbit/swiftmailer-postmark": "Required to use Postmark mail driver (^3.0)."
         },
-        "time": "2020-03-03T13:14:27+00:00",
+        "time": "2020-03-10T14:11:04+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1247,17 +1295,17 @@
     },
     {
         "name": "league/flysystem",
-        "version": "1.0.64",
-        "version_normalized": "1.0.64.0",
+        "version": "1.0.65",
+        "version_normalized": "1.0.65.0",
         "source": {
             "type": "git",
             "url": "https://github.com/thephpleague/flysystem.git",
-            "reference": "d13c43dbd4b791f815215959105a008515d1a2e0"
+            "reference": "8f17b3ba67097aafb8318cd5c553b1acf7c891c8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/d13c43dbd4b791f815215959105a008515d1a2e0",
-            "reference": "d13c43dbd4b791f815215959105a008515d1a2e0",
+            "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/8f17b3ba67097aafb8318cd5c553b1acf7c891c8",
+            "reference": "8f17b3ba67097aafb8318cd5c553b1acf7c891c8",
             "shasum": ""
         },
         "require": {
@@ -1287,7 +1335,7 @@
             "spatie/flysystem-dropbox": "Allows you to use Dropbox storage",
             "srmklive/flysystem-dropbox-v2": "Allows you to use Dropbox storage for PHP 5 applications"
         },
-        "time": "2020-02-05T18:14:17+00:00",
+        "time": "2020-03-08T18:53:20+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2487,17 +2535,17 @@
     },
     {
         "name": "phpspec/prophecy",
-        "version": "v1.10.2",
-        "version_normalized": "1.10.2.0",
+        "version": "v1.10.3",
+        "version_normalized": "1.10.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/phpspec/prophecy.git",
-            "reference": "b4400efc9d206e83138e2bb97ed7f5b14b831cd9"
+            "reference": "451c3cd1418cf640de218914901e51b064abb093"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/phpspec/prophecy/zipball/b4400efc9d206e83138e2bb97ed7f5b14b831cd9",
-            "reference": "b4400efc9d206e83138e2bb97ed7f5b14b831cd9",
+            "url": "https://api.github.com/repos/phpspec/prophecy/zipball/451c3cd1418cf640de218914901e51b064abb093",
+            "reference": "451c3cd1418cf640de218914901e51b064abb093",
             "shasum": ""
         },
         "require": {
@@ -2511,7 +2559,7 @@
             "phpspec/phpspec": "^2.5 || ^3.2",
             "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5 || ^7.1"
         },
-        "time": "2020-01-20T15:57:02+00:00",
+        "time": "2020-03-05T15:02:03+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -3921,6 +3969,69 @@
         ],
         "description": "Library that helps with managing the version number of Git-hosted PHP projects",
         "homepage": "https://github.com/sebastianbergmann/version"
+    },
+    {
+        "name": "simplesoftwareio/simple-qrcode",
+        "version": "2.0.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/SimpleSoftwareIO/simple-qrcode.git",
+            "reference": "90b2282dd29be1e52565e9832dc23af41610ea07"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/SimpleSoftwareIO/simple-qrcode/zipball/90b2282dd29be1e52565e9832dc23af41610ea07",
+            "reference": "90b2282dd29be1e52565e9832dc23af41610ea07",
+            "shasum": ""
+        },
+        "require": {
+            "bacon/bacon-qr-code": "1.0.*",
+            "ext-gd": "*",
+            "illuminate/support": ">=5.0.0",
+            "php": ">=7.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "0.9.*",
+            "phpunit/phpunit": "~6"
+        },
+        "time": "2017-11-26T15:27:12+00:00",
+        "type": "library",
+        "extra": {
+            "laravel": {
+                "providers": [
+                    "SimpleSoftwareIO\\QrCode\\QrCodeServiceProvider"
+                ],
+                "aliases": {
+                    "QrCode": "SimpleSoftwareIO\\QrCode\\Facades\\QrCode"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "SimpleSoftwareIO\\QrCode\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Simple Software LLC",
+                "email": "support@simplesoftware.io"
+            }
+        ],
+        "description": "Simple QrCode is a QR code generator made for Laravel.",
+        "homepage": "http://www.simplesoftware.io",
+        "keywords": [
+            "Simple",
+            "generator",
+            "laravel",
+            "qrcode",
+            "wrapper"
+        ]
     },
     {
         "name": "swiftmailer/swiftmailer",
@@ -5493,17 +5604,17 @@
     },
     {
         "name": "vlucas/phpdotenv",
-        "version": "v3.6.0",
-        "version_normalized": "3.6.0.0",
+        "version": "v3.6.1",
+        "version_normalized": "3.6.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/vlucas/phpdotenv.git",
-            "reference": "1bdf24f065975594f6a117f0f1f6cabf1333b156"
+            "reference": "8f7961f7b9deb3b432452c18093cf16f88205902"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/1bdf24f065975594f6a117f0f1f6cabf1333b156",
-            "reference": "1bdf24f065975594f6a117f0f1f6cabf1333b156",
+            "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/8f7961f7b9deb3b432452c18093cf16f88205902",
+            "reference": "8f7961f7b9deb3b432452c18093cf16f88205902",
             "shasum": ""
         },
         "require": {
@@ -5512,9 +5623,13 @@
             "symfony/polyfill-ctype": "^1.9"
         },
         "require-dev": {
+            "ext-filter": "*",
             "phpunit/phpunit": "^4.8.35 || ^5.0 || ^6.0 || ^7.0"
         },
-        "time": "2019-09-10T21:37:39+00:00",
+        "suggest": {
+            "ext-filter": "Required to use the boolean validator."
+        },
+        "time": "2020-03-12T13:44:00+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {

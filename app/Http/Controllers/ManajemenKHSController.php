@@ -25,8 +25,8 @@ class ManajemenKhsController extends Controller
             ->join('students', 'class_student.KU_MA_Nrp', '=', 'students.MA_Nrp')
             ->join('subjects', 'class_student.KU_KE_KR_MK_ID', '=', 'subjects.MK_ID'))
             ->addColumn('action', function ($row) {
-                $action = '<a href="/Khs/' . $row->id . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
-                $action .= \Form::open(['url' => 'Khs/' . $row->id, 'method' => 'delete', 'style' => 'float:right']);
+                $action = '<a href="/Khs/' . $row->KU_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+                $action .= \Form::open(['url' => 'Khs/' . $row->KU_ID, 'method' => 'delete', 'style' => 'float:right']);
                 $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
                 $action .= \Form::close();
                 return $action;
@@ -94,7 +94,7 @@ class ManajemenKhsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Khs = Khs::where('id', '=', $id);
+        $Khs = Khs::where('KU_ID', '=', $id);
         $Khs->update($request->except('_method', '_token'));
         return redirect('/Khs')->with('status', 'Data Khs Berhasil Di Update');;
     }
@@ -107,7 +107,7 @@ class ManajemenKhsController extends Controller
      */
     public function destroy($id)
     {
-        $Khs = Khs::where('id', $id);
+        $Khs = Khs::where('KU_ID', $id);
         $Khs->delete();
         return redirect('/Khs')->with('status', 'Data Khs Berhasil Dihapus');;
     }
