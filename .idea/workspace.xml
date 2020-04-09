@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     <list default="true" id="6503ca3e-34cd-4f5f-9216-8da38316a428" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/resources/views/register/mahasiswa.blade.php" afterDir="false" />
@@ -18,13 +19,23 @@
 =======
     <list default="true" id="6503ca3e-34cd-4f5f-9216-8da38316a428" name="Default Changelist" comment="Update AUTH" />
 >>>>>>> Stashed changes
+=======
+    <list default="true" id="7edc0709-3965-46d0-9adc-49980219df56" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegisterMahasiswaController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegisterPegawaiController.php" beforeDir="false" />
+    </list>
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< Updated upstream
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+=======
+  <component name="ComposerSettings">
+>>>>>>> Stashed changes
     <execution>
       <executable />
     </execution>
@@ -251,6 +262,24 @@
     </ignored-roots>
     <MESSAGE value="Update AUTH" />
     <option name="LAST_COMMIT_MESSAGE" value="Update AUTH" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <servers />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="0" key="#Live_Templates" timestamp="1582274428955">

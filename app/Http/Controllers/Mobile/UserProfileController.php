@@ -21,8 +21,8 @@ class UserProfileController
             'method' => 'GET'
         ];
 
-        $response = ['propeties'=>$properties,
-            'user' => $user];
+        $response = ['propeties'=>[$properties],
+            'user' => [$user]];
 
         return response()->json($response, 200);
 
