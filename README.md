@@ -1,2 +1,0 @@
-# SIAP ITK
- Final Project
