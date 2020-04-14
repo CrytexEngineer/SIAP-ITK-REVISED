@@ -31,12 +31,19 @@
                                 <th>NIP</th>
                                 <th>Nama Lengkap</th>
                                 <th>E-mail</th>
+<<<<<<< HEAD
                                 <th>Roles</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
                                 @can('manage-users')
                                 <th width="85">Action</th>
                                     @endcan
+=======
+                                <th>Role</th>
+                                <th>Created At</th>
+                                <th>Updated At</th>
+                                <th width="85">Action</th>
+>>>>>>> master
                             </tr>
                             </thead>
                         </table>
@@ -57,6 +64,7 @@
                 ajax: '/akunpegawai/json',
                 columns: [
                     { data: 'PE_Nip', name: 'PE_Nip' },
+<<<<<<< HEAD
                     { data: 'PE_NamaLengkap', name: 'PE_NamaLengkap' },
                     { data: 'PE_Email', name: 'PE_Email' },
                     { data: '', name: 'role_name' },
@@ -65,6 +73,14 @@
                         @can('manage-users')
                     { data: 'action', name: 'action' }
                     @endcan
+=======
+                    { data: 'name', name: 'name' },
+                    { data: 'email', name: 'email' },
+                    { data: 'role_name', name: 'role_name' },
+                    { data: 'created_at', name: 'created_at' },
+                    { data: 'updated_at', name: 'updated_at' },
+                    { data: 'action', name: 'action' }
+>>>>>>> master
                 ]
             });
         });

@@ -38,7 +38,6 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo;
-
     public function redirectTo()
     {
         switch (Auth::user()->role) {
