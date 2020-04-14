@@ -101,3 +101,9 @@ Route::post('/akunmahasiswa/import', 'ManajemenAkunMahasiswaController@import')-
 
 //Operasi QR
 Route::resource('/validator',"ManajemenValidatorController");
+
+
+//Multi-user Management
+Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
+    Route::resource('/users', 'UsersController', ['except' => ['show','create', 'store']]);
+});
