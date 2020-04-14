@@ -44,7 +44,8 @@ class ManajemenAkunPegawaiController extends Controller
      */
     public function index()
     {
-        return view('employee.pegawai');
+        $employees = Employee::all();
+        return view('employee.pegawai')->with('employees',$employees);
     }
 
     /**
