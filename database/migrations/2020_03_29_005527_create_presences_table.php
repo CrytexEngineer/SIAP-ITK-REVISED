@@ -17,11 +17,9 @@ class CreatePresencesTable extends Migration
             $table->bigIncrements('PR_ID');
             $table->timestamps();
             $table->bigInteger('PR_PT_ID')->unsigned();
-            $table->bigInteger('PR_KE_ID')->unsigned();
             $table->foreign('PR_PT_ID')->references('PT_ID')->on('meetings')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('PR_KU_ID')->unsigned();
             $table->foreign('PR_KU_ID')->references('KU_ID')->on('class_student')->onUpdate('cascade')->onDelete('cascade');
-            $table->bigInteger('PR_KU_MA_Nrp')->unsigned();
             $table->string("PR_Type");
             $table->string("PR_IsLAte");
             $table->string('PR_Keterangan');

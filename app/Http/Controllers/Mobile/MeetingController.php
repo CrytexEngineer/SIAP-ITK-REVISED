@@ -73,9 +73,7 @@ class MeetingController extends Controller
 
                         $presence = new presence(['PR_KU_ID' => $khs['0']->KU_ID,
                             'PR_PT_ID' => $meetings['PT_ID'],
-                            'PR_KE_ID'=>$meetings['PT_KE_ID'],
                             'PR_IsLAte' => $latemrker,
-                            'PR_KU_MA_Nrp' => $request->input('MA_Nrp'),
                             'PR_Keterangan' => $keterangan,
                             'PR_Type' => $type]);
 
@@ -101,5 +99,4 @@ class MeetingController extends Controller
         $properties = ['msg' => 'Pertemuan tidak ditemukan'];
         return response()->json(['properties' => [$properties]], Response::HTTP_OK);
     }
-
 }

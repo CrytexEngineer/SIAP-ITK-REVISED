@@ -1,4 +1,4 @@
-﻿Simple QrCode
+﻿﻿Simple QrCode
 ========================
 
 [![Build Status](https://travis-ci.org/SimpleSoftwareIO/simple-qrcode.svg?branch=master)](https://travis-ci.org/SimpleSoftwareIO/simple-qrcode)

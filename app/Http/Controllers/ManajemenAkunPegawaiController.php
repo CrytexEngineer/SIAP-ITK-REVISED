@@ -15,12 +15,16 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ManajemenAkunPegawaiController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     function json()
     {
         return Datatables::of(DB::table('users')
             ->join('employees', 'users.email', '=', 'employees.PE_Email')
-            ->join('roles', 'users.role', '=', 'roles.id')->where('role', '<', '10')->get()->all())
+            ->join('roles', 'users.role', '=', 'roles.id')->get()->all())
             ->addColumn('action', function ($row) {
                 $action = '<a href="/pegawai/pegawai/' . $row->email . '/edit" class="btn btn btn-primary btn-sm"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
                 $action .= \Form::open(['url' => 'akunpegawai/' . $row->email, 'method' => 'delete', 'style' => 'float:right']);
