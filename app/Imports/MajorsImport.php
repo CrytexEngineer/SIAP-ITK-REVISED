@@ -3,6 +3,7 @@
 namespace App\Imports;
 
 use App\Major;
+use App\Student;
 use Maatwebsite\Excel\Concerns\SkipsOnError;
 use Maatwebsite\Excel\Concerns\SkipsOnFailure;
 use Maatwebsite\Excel\Concerns\ToModel;
@@ -22,18 +23,17 @@ class MajorsImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFa
      */
     public function model(array $row)
     {
-        if (!Major::where('PS_Kode_Prodi', $row['ps_kode_prodi'])->first()) {
 
-            return new Major([
-                'PS_Kode_Prodi' => $row['ps_kode_prodi'],
-                'PS_Nama' => $row['ps_nama']]);
-        }
-
-        $major = Major::where('PS_Kode_Prodi', '=', $row['ps_kode_prodi']);
+        $majors = Major::where('PS_Kode_Prodi', $row['ps_kode_prodi'])->first();
         $data = ['PS_Kode_Prodi' => $row['ps_kode_prodi'],
             'PS_Nama' => $row['ps_nama']];
 
-        $major->update($data);
+
+        if (!$majors) {
+            return new Major($data);
+        }
+
+        $majors->update($data);
 
     }
 
