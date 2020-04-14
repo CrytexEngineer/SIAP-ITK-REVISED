@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
   <component name="ChangeListManager">
 <<<<<<< Updated upstream
 <<<<<<< HEAD
@@ -40,6 +45,10 @@
       <executable />
     </execution>
   </component>
+<<<<<<< Updated upstream
+=======
+>>>>>>> master
+>>>>>>> Stashed changes
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -262,6 +271,24 @@
     </ignored-roots>
     <MESSAGE value="Update AUTH" />
     <option name="LAST_COMMIT_MESSAGE" value="Update AUTH" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <servers />
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
