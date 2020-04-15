@@ -19,9 +19,7 @@
                             <tr>
                                 <th>Kode Program Studi</th>
                                 <th>Nama Program Studi</th>
-                                @can('manage-users')
                                 <th width="85">Action</th>
-                                    @endcan
                             </tr>
                             </thead>
                         </table>
@@ -44,9 +42,7 @@
                 columns: [
                     { data: 'PS_Kode_Prodi', name: 'PS_Kode_Prodi' }, //SESUAIKAN DB
                     { data: 'PS_Nama', name: 'PS_Nama' }, //SESUAIKAN DB
-                        @can('manage-users')
                     { data: 'action', name: 'action' }
-                    @endcan
                 ]
             });
         });

@@ -32,9 +32,7 @@
                                 <th>E-mail</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
-                                @can('manage-users')
-                                <th width="50">Action</th>
-                                @endcan
+                                <th width="85">Action</th>
                             </tr>
                             </thead>
                         </table>
@@ -54,13 +52,11 @@
                 ajax: '/akunmahasiswa/json',
                 columns: [
                     { data: 'MA_Nrp', name: 'MA_Nrp' },
-                    { data: 'MA_NamaLengkap', name: 'MA_NamaLengkap' },
-                    { data: 'MA_Email', name: 'MA_Email' },
+                    { data: 'name', name: 'name' },
+                    { data: 'email', name: 'email' },
                     { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' },
-                    @can('manage-users')
                     { data: 'action', name: 'action' }
-                    @endcan
                 ]
             });
         });
