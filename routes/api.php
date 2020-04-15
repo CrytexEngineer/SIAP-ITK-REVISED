@@ -25,5 +25,8 @@ Route::group(['prefix' => 'v1/mobile'], function () {
     Route::POST('login','Mobile\LoginController@login');
     Route::POST('validate/register_meeting', 'Mobile\MeetingController@registerStudent');
     Route::GET('profile/{id}','Mobile\UserProfileController@show');
+    Route::post('create','Mobile\PasswordResetController@create');
+    Route::get('find/{token}', 'Mobile\PasswordResetController@find');
+    Route::post('reset', 'Mobile\PasswordResetController@reset');
 
 });
