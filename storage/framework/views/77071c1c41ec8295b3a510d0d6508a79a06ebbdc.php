@@ -1,28 +1,29 @@
-@extends('layouts.app')
-@section('title', 'Manajemen Akun Pegawai')
-@section('content')
+<?php $__env->startSection('title', 'Manajemen Akun Pegawai'); ?>
+<?php $__env->startSection('content'); ?>
 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">@yield('title')</div>
+                    <div class="card-header"><?php echo $__env->yieldContent('title'); ?></div>
 
                     <div class="card-body">
-                        @if (session('status'))
+                        <?php if(session('status')): ?>
                             <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+                                <?php echo e(session('status')); ?>
 
-                        @if (session('status_failed'))
-                            <div class="alert alert-danger" role="alert">
-                            {{ session('status_failed') }}
                             </div>
-                        @endif
+                        <?php endif; ?>
+
+                        <?php if(session('status_failed')): ?>
+                            <div class="alert alert-danger" role="alert">
+                            <?php echo e(session('status_failed')); ?>
+
+                            </div>
+                        <?php endif; ?>
 
                         <a href="/akunpegawai/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
-                        @include('employee.import')
+                        <?php echo $__env->make('employee.import', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         <hr>
 
                         <table class="table table-bordered" id="users-table">
@@ -31,19 +32,12 @@
                                 <th>NIP</th>
                                 <th>Nama Lengkap</th>
                                 <th>E-mail</th>
-<<<<<<< HEAD
                                 <th>Roles</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
-                                @can('manage-users')
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage-users')): ?>
                                 <th width="85">Action</th>
-                                    @endcan
-=======
-                                <th>Role</th>
-                                <th>Created At</th>
-                                <th>Updated At</th>
-                                <th width="85">Action</th>
->>>>>>> master
+                                    <?php endif; ?>
                             </tr>
                             </thead>
                         </table>
@@ -52,9 +46,9 @@
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@push('scripts')
+<?php $__env->startPush('scripts'); ?>
     <script>
         $(function() {
             $('#users-table').DataTable({
@@ -64,25 +58,18 @@
                 ajax: '/akunpegawai/json',
                 columns: [
                     { data: 'PE_Nip', name: 'PE_Nip' },
-<<<<<<< HEAD
                     { data: 'PE_NamaLengkap', name: 'PE_NamaLengkap' },
                     { data: 'PE_Email', name: 'PE_Email' },
-                    { data: '', name: 'role_name' },
+                    { data: '<?php echo e(implode(\', \', $user->roles()->get()->pluck(\'role_name\')->toArray())); ?>', name: 'role_name' },
                     { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' },
-                        @can('manage-users')
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage-users')): ?>
                     { data: 'action', name: 'action' }
-                    @endcan
-=======
-                    { data: 'name', name: 'name' },
-                    { data: 'email', name: 'email' },
-                    { data: 'role_name', name: 'role_name' },
-                    { data: 'created_at', name: 'created_at' },
-                    { data: 'updated_at', name: 'updated_at' },
-                    { data: 'action', name: 'action' }
->>>>>>> master
+                    <?php endif; ?>
                 ]
             });
         });
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Kuli (ah)\Prodi\TA\PROJECT WEB SIAP\SIAP-ITK-REVISED\resources\views/employee/pegawai.blade.php ENDPATH**/ ?>

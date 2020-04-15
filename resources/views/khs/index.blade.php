@@ -36,7 +36,9 @@
                                 <th>Hari</th>
                                 <th>Jam Mulai</th>
                                 <th>Jam Usai</th>
+                                @can('manage-users')
                                 <th width="70">Action</th>
+                                    @endcan
                             </tr>
                             </thead>
                         </table>
@@ -75,7 +77,9 @@
                     {data: 'KE_Jadwal_IDHari', name: 'KE_Jadwal_IDHari'},
                     {data: 'KE_Jadwal_JamMulai', name: 'KE_Jadwal_JamMulai'},
                     {data: 'KE_Jadwal_JamUsai', name: 'KE_Jadwal_JamUsai'},
+                        @can('manage-users')
                     {data: 'action', name: 'action'}
+                    @endcan
                 ]
             });
         });
