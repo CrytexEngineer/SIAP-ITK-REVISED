@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Edit User {{ $user->name }}</div>
+                    <div class="card-header">Edit User {{ $user->PE_Nip }}</div>
 
                     <div class="card-body">
                         @if (session('status'))

@@ -881,17 +881,17 @@
     },
     {
         "name": "laravel/framework",
-        "version": "v6.18.3",
-        "version_normalized": "6.18.3.0",
+        "version": "v6.18.6",
+        "version_normalized": "6.18.6.0",
         "source": {
             "type": "git",
             "url": "https://github.com/laravel/framework.git",
-            "reference": "4e48acfaba87f08320a2764d36c3b6a4a4112ccf"
+            "reference": "4ef5f9612c2694c915f53f0cec3e4081e9bfc778"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/4e48acfaba87f08320a2764d36c3b6a4a4112ccf",
-            "reference": "4e48acfaba87f08320a2764d36c3b6a4a4112ccf",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/4ef5f9612c2694c915f53f0cec3e4081e9bfc778",
+            "reference": "4ef5f9612c2694c915f53f0cec3e4081e9bfc778",
             "shasum": ""
         },
         "require": {
@@ -993,7 +993,7 @@
             "symfony/psr-http-message-bridge": "Required to use PSR-7 bridging features (^1.2).",
             "wildbit/swiftmailer-postmark": "Required to use Postmark mail driver (^3.0)."
         },
-        "time": "2020-03-24T16:37:50+00:00",
+        "time": "2020-04-08T15:51:23+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1029,17 +1029,17 @@
     },
     {
         "name": "laravel/tinker",
-        "version": "v2.3.0",
-        "version_normalized": "2.3.0.0",
+        "version": "v2.4.0",
+        "version_normalized": "2.4.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/laravel/tinker.git",
-            "reference": "5271893ec90ad9f8d3e34792ac6b72cad3b84cc2"
+            "reference": "cde90a7335a2130a4488beb68f4b2141869241db"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/tinker/zipball/5271893ec90ad9f8d3e34792ac6b72cad3b84cc2",
-            "reference": "5271893ec90ad9f8d3e34792ac6b72cad3b84cc2",
+            "url": "https://api.github.com/repos/laravel/tinker/zipball/cde90a7335a2130a4488beb68f4b2141869241db",
+            "reference": "cde90a7335a2130a4488beb68f4b2141869241db",
             "shasum": ""
         },
         "require": {
@@ -1047,17 +1047,17 @@
             "illuminate/contracts": "^6.0|^7.0|^8.0",
             "illuminate/support": "^6.0|^7.0|^8.0",
             "php": "^7.2",
-            "psy/psysh": "^0.9|^0.10",
-            "symfony/var-dumper": "^4.0|^5.0"
+            "psy/psysh": "^0.10.3",
+            "symfony/var-dumper": "^4.3|^5.0"
         },
         "require-dev": {
             "mockery/mockery": "^1.3.1",
-            "phpunit/phpunit": "^8.0|^9.0"
+            "phpunit/phpunit": "^8.4|^9.0"
         },
         "suggest": {
             "illuminate/database": "The Illuminate Database package (^6.0|^7.0|^8.0)."
         },
-        "time": "2020-03-17T15:34:59+00:00",
+        "time": "2020-04-07T15:01:31+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1221,17 +1221,17 @@
     },
     {
         "name": "league/commonmark",
-        "version": "1.3.3",
-        "version_normalized": "1.3.3.0",
+        "version": "1.3.4",
+        "version_normalized": "1.3.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/thephpleague/commonmark.git",
-            "reference": "5a67afc2572ec6d430526cdc9c637ef124812389"
+            "reference": "dd3261eb9a322e009fa5d96d19b9ae19708ce04b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/5a67afc2572ec6d430526cdc9c637ef124812389",
-            "reference": "5a67afc2572ec6d430526cdc9c637ef124812389",
+            "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/dd3261eb9a322e009fa5d96d19b9ae19708ce04b",
+            "reference": "dd3261eb9a322e009fa5d96d19b9ae19708ce04b",
             "shasum": ""
         },
         "require": {
@@ -1254,7 +1254,7 @@
             "scrutinizer/ocular": "^1.5",
             "symfony/finder": "^4.2"
         },
-        "time": "2020-04-05T16:01:48+00:00",
+        "time": "2020-04-13T20:52:18+00:00",
         "bin": [
             "bin/commonmark"
         ],
@@ -1893,17 +1893,17 @@
     },
     {
         "name": "nikic/php-parser",
-        "version": "v4.3.0",
-        "version_normalized": "4.3.0.0",
+        "version": "v4.4.0",
+        "version_normalized": "4.4.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/nikic/PHP-Parser.git",
-            "reference": "9a9981c347c5c49d6dfe5cf826bb882b824080dc"
+            "reference": "bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/9a9981c347c5c49d6dfe5cf826bb882b824080dc",
-            "reference": "9a9981c347c5c49d6dfe5cf826bb882b824080dc",
+            "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120",
+            "reference": "bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120",
             "shasum": ""
         },
         "require": {
@@ -1914,7 +1914,7 @@
             "ircmaxell/php-yacc": "0.0.5",
             "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0"
         },
-        "time": "2019-11-08T13:50:10+00:00",
+        "time": "2020-04-10T16:34:50+00:00",
         "bin": [
             "bin/php-parse"
         ],
@@ -5605,17 +5605,17 @@
     },
     {
         "name": "vlucas/phpdotenv",
-        "version": "v3.6.2",
-        "version_normalized": "3.6.2.0",
+        "version": "v3.6.3",
+        "version_normalized": "3.6.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/vlucas/phpdotenv.git",
-            "reference": "786a947e57086cf236cefdee80784634224b99fa"
+            "reference": "1b3103013797f04521c6cae5560f604649484066"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/786a947e57086cf236cefdee80784634224b99fa",
-            "reference": "786a947e57086cf236cefdee80784634224b99fa",
+            "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/1b3103013797f04521c6cae5560f604649484066",
+            "reference": "1b3103013797f04521c6cae5560f604649484066",
             "shasum": ""
         },
         "require": {
@@ -5632,7 +5632,7 @@
             "ext-filter": "Required to use the boolean validator.",
             "ext-pcre": "Required to use most of the library."
         },
-        "time": "2020-03-27T23:36:02+00:00",
+        "time": "2020-04-12T15:18:03+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {

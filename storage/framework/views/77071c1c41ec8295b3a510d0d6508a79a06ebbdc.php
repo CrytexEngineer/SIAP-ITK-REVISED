@@ -36,7 +36,7 @@
                                 <th>Created At</th>
                                 <th>Updated At</th>
                                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage-users')): ?>
-                                <th width="85">Action</th>
+                                <th width="50">Action</th>
                                     <?php endif; ?>
                             </tr>
                             </thead>
@@ -60,7 +60,7 @@
                     { data: 'PE_Nip', name: 'PE_Nip' },
                     { data: 'PE_NamaLengkap', name: 'PE_NamaLengkap' },
                     { data: 'PE_Email', name: 'PE_Email' },
-                    { data: '<?php echo e(implode(\', \', $user->roles()->get()->pluck(\'role_name\')->toArray())); ?>', name: 'role_name' },
+                    { data: 'role_name', name: 'role_name' },
                     { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' },
                         <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage-users')): ?>

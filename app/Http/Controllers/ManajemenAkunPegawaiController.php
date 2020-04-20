@@ -22,19 +22,31 @@ class ManajemenAkunPegawaiController extends Controller
 
     function json()
     {
-        return Datatables::of(DB::table('users')
-            ->join('employees', 'users.email', '=', 'employees.PE_Email')
-            ->join('roles', 'users.role', '=', 'roles.id')->get()->all())
+//        return Datatables::of(DB::table('employee')
+//            ->join('employees', 'users.email', '=', 'employees.PE_Email')
+//            ->join('roles', 'users.role', '=', 'roles.id')->get()->all())
+//            ->addColumn('action', function ($row) {
+//                $action = '<a href="/pegawai/pegawai/' . $row->email . '/edit" class="btn btn btn-primary btn-sm"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+//                $action .= \Form::open(['url' => 'akunpegawai/' . $row->email, 'method' => 'delete', 'style' => 'float:right']);
+//                $action .= "<button type='submit' class='btn btn-danger btn-sm'>Hapus</button>";
+//                $action .= \Form::close();
+//                return $action;
+//
+//            })
+//            ->make(true);
+        //Khusus di pegawai harus query ke roles selain pegawai
+
+        return Datatables::of(DB::table('employees')
+            ->join('employee_role','employees.PE_Nip','=','employee_role.employee_PE_Nip')
+            ->join('roles','employee_role.role_id','=','roles.id'))
             ->addColumn('action', function ($row) {
-                $action = '<a href="/pegawai/pegawai/' . $row->email . '/edit" class="btn btn btn-primary btn-sm"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
-                $action .= \Form::open(['url' => 'akunpegawai/' . $row->email, 'method' => 'delete', 'style' => 'float:right']);
-                $action .= "<button type='submit' class='btn btn-danger btn-sm'>Hapus</button>";
+                $action  = '<a href="/akunpegawai/'.$row->PE_Nip.'/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+                $action .= \Form::open(['url'=>'pegawai/'.$row->PE_Nip,'method'=>'delete','style'=>'float:right']);
+                $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
                 $action .= \Form::close();
                 return $action;
-
             })
             ->make(true);
-        //Khusus di pegawai harus query ke roles selain pegawai
     }
 
     /**
@@ -45,6 +57,7 @@ class ManajemenAkunPegawaiController extends Controller
     public function index()
     {
         $employees = Employee::all();
+//        $roles = Role::all();
         return view('employee.pegawai')->with('employees',$employees);
     }
 
@@ -137,14 +150,15 @@ class ManajemenAkunPegawaiController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public
-    function edit($id)
+    public function edit($id)
 
     {
-        $data['users'] = User::where('email', $id)->first();
-        return view('employee.edit_pegawai', $data);
-
-
+        $roles = Role::all();
+        $data['employee'] = Employee::where('PE_Nip', $id)->first();
+        return view('employee.edit_pegawai', $data)->with([
+            'id' => $id,
+            'roles' => $roles
+        ]);
     }
 
     /**

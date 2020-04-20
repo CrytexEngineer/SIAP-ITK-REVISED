@@ -36,7 +36,7 @@
                                     @can('manage-users')
                                         <td>
                                             <a href="{{ route('admin.users.edit', $user->PE_Nip) }}"><button type="button" class="btn btn-primary float-left">Edit</button></a>
-                                            <form action="{{ route('admin.users.destroy', $user->PE_Nip) }}" method="POST" class="float-left">
+                                            <form action="{{ route('admin.users.destroy', $user) }}" method="POST" class="float-left">
                                                 @csrf
                                                 {{ method_field('DELETE') }}
                                                 <button type="submit" class="btn btn-warning">Delete</button>
