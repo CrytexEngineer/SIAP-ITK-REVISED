@@ -6,8 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    public function employee(){
-        return $this->belongsToMany('App\Employee');
+
+    protected $fillable = ['role_name'];
+
+    public function users(){
+      return $this->belongsToMany(User::Class);
     }
 
 

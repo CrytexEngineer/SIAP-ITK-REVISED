@@ -51,23 +51,4 @@ class User extends Authenticatable
     public function employee(){
         return$this->belongsTo(Employee::Class,'email','PE_Email');
     }
-
-    //Multi-user Management
-//    public function roles(){
-//        return $this->belongsToMany('App\Role');
-//    }
-//
-//    public function hasAnyRoles($roles){
-//        if($this->roles()->whereIn('name', $roles)->first()){
-//            return true;
-//        }
-//        return false;
-//    }
-//
-//    public function hasRole($role){
-//        if($this->roles()->where('name', $role)->first()){
-//            return true;
-//        }
-//        return false;
-//    }
 }
