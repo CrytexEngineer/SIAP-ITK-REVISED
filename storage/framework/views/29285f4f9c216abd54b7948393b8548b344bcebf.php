@@ -21,7 +21,9 @@
                                 <th>Nama Matakuliah</th>
                                 <th>Tahun Kurikulum</th>
                                 <th>Kredit Kuliah</th>
-                                <th width="85">Action</th>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage-users')): ?>
+                                <th width="50">Action</th>
+                                    <?php endif; ?>
                             </tr>
                             </thead>
                         </table>

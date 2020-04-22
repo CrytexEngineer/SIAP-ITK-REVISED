@@ -26,6 +26,10 @@
     <!-- Styles DataTables dont change! -->
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
 
+    
+    <link rel="icon" href="<?php echo e(URL::asset('/css/favicon.png')); ?>" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo e(URL::asset('/css/app.css')); ?>">
+
 
 </head>
 <body>
@@ -71,6 +75,7 @@
                                 <a class="dropdown-item" href="/akunmahasiswa">Akun Mahasiswa</a>
                                 <a class="dropdown-item" href="/akunpegawai">Akun Pegawai</a>
                                 <a class="dropdown-item" href="/kelas">Kelas</a>
+                                <a class="dropdown-item" href="/khs">KHS</a>
                                 <a class="dropdown-item" href="/matakuliah">Matakuliah</a>
                                 <a class="dropdown-item" href="/program_studi">Program Studi</a>
                             </div>
