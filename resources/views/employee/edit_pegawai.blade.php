@@ -8,7 +8,7 @@
                     <div class="card-header">@yield('title')</div>
 
                     <div class="card-body">
-                        {{Form::model($users, ['url'=>'mahasiswa/pegawai/'.$users->email, 'method'=>'PUT'])}}
+                        {{Form::model($employee, ['url'=>'akunpegawai/'.$employee->PE_Nip, 'method'=>'PUT'])}}
                         @csrf
 
                         <div class="form-group row">
@@ -21,23 +21,27 @@
                         <div class="form-group row">
                             <label class="col-md-2 col-form-label text-md-right">Nama Lengkap</label>
                             <div class="col-md-6">
-                                {{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=> 'Nama Pegawai']) }}
+                                {{ Form::text('PE_NamaLengkap', null, ['class'=>'form-control', 'placeholder'=> 'Nama Pegawai']) }}
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="col-md-2 col-form-label text-md-right">E-mail</label>
                             <div class="col-md-4">
-                                {{ Form::text('email', null, ['class'=>'form-control', 'placeholder'=> 'E-Mail Pegawai']) }}
+                                {{ Form::text('PE_Email', null, ['class'=>'form-control', 'placeholder'=> 'E-Mail Pegawai']) }}
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-md-2 col-form-label text-md-right">Role</label>
-                            <div class="col-md-4">
-                                {{Form::select('role', ['1' => 'SuperAdmin', '2' => 'Admin', '3' =>'Observer', '4'=>'Wakil Rektor',
-                                  '5'=>'Tendik Jurusan', '6'=>'Tendik Pusat', '7'=>'Ketua Prodi','8'=>'Kepala Jurusan','9'=>'Dosen Pengampu'])}}
-{{--                                {{ Form::text('email', null, ['class'=>'form-control', 'placeholder'=> 'E-Mail Pegawai']) }}--}}
+                            <label for="roles" class="col-md-2 col-form-label text-md-right">Roles</label>
+                            <div class="col-md-6">
+                            @foreach($roles as $role)
+                                <div class="form-check" class="col-md-6">
+                                    <input type="checkbox" name="roles[]" value="{{ $role->id }}"
+                                           @if($employee->roles()->pluck('roles.id')->contains($role->id)) checked @endif>
+                                    <label>{{ $role->role_name }}</label>
+                                </div>
+                            @endforeach
                             </div>
                         </div>
 
@@ -47,7 +51,6 @@
                                 <a href="/akunpegawai" class="btn btn-primary">Kembali</a>
                             </div>
                         </div>
-                        </form>
                     </div>
                 </div>
             </div>

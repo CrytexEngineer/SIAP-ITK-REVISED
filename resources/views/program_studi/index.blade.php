@@ -17,9 +17,11 @@
                         <table class="table table-bordered" id="users-table">
                             <thead>
                             <tr>
-                                <th>Kode Program Studi</th>
+                                <th width="100">Kode</th>
                                 <th>Nama Program Studi</th>
-                                <th width="85">Action</th>
+                                @can('manage-users')
+                                <th width="50">Action</th>
+                                    @endcan
                             </tr>
                             </thead>
                         </table>

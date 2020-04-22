@@ -22,7 +22,9 @@
                                 <th>Nama Matakuliah</th>
                                 <th>Tahun Kurikulum</th>
                                 <th>Kredit Kuliah</th>
-                                <th width="85">Action</th>
+                                @can('manage-users')
+                                <th width="50">Action</th>
+                                    @endcan
                             </tr>
                             </thead>
                         </table>
