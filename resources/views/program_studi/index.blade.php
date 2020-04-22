@@ -44,9 +44,7 @@
                 columns: [
                     { data: 'PS_Kode_Prodi', name: 'PS_Kode_Prodi' }, //SESUAIKAN DB
                     { data: 'PS_Nama', name: 'PS_Nama' }, //SESUAIKAN DB
-                        @can('manage-users')
                     { data: 'action', name: 'action' }
-                    @endcan
                 ]
             });
         });

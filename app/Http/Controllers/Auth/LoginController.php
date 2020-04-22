@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,18 +20,7 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers {
-        username as protected userNip;
-        validateLogin as protected userValidation;
-    }
-
-
-    function username()
-    {
-        return 'PE_Nip';
-    }
-
-    
+    use AuthenticatesUsers;
 
     /**
      * Where to redirect users after login.
@@ -88,6 +78,7 @@ class LoginController extends Controller
         }
 
 
+
     }
 
     /**
@@ -99,6 +90,4 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
-
 }

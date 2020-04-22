@@ -114,7 +114,7 @@ class ManajemenAkunPenggunaController extends Controller
             $user->employee->save();
         } else {
             $user->student['MA_NamaLengkap'] = $user['email'];
-            $user->student['MA_Email'] = $user['email'];
+            $user->student['email'] = $user['email'];
             $user->student->save();
         }
 

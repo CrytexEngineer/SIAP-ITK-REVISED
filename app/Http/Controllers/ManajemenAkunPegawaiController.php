@@ -15,10 +15,6 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ManajemenAkunPegawaiController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     function json()
     {

@@ -28,7 +28,7 @@ class ValidatorController extends Controller
 
 
         $validator = Validator::where("VD_PT_ID", "=", $request->input('VD_PT_ID'))
-            ->where('VD_Token', '=', $request->input('VD_Token'))->get()->first();
+            ->where('VD_Token', '=', trim($request['VD_Token'], '"'))->get()->first();
 
         if ($validator) {
             date_default_timezone_set("Asia/Kuala_Lumpur");

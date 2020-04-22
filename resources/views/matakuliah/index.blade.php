@@ -48,9 +48,7 @@
                     {data: 'MK_Mata_Kuliah', name: 'MK_Mata_Kuliah'},
                     {data: 'MK_ThnKurikulum', name: 'MK_ThnKurikulum'},
                     {data: 'MK_KreditKuliah', name: 'MK_KreditKuliah'},
-                        @can('manage-users')
                     {data: 'action', name: 'action'}],
-                @endcan
             })
         });
 

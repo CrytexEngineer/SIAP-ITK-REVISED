@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Imports\KHSImport;
 use App\Imports\StudentsImport;
 use App\Role;
-use App\Student;
 use App\User;
 use DataTables;
 use Illuminate\Http\Request;
@@ -18,26 +17,16 @@ class ManajemenAkunMahasiswaController extends Controller
 
     function json()
     {
-//        return Datatables::of(DB::table('students')
-//            ->join('students', 'users.email', '=', 'students.MA_Email')
-//            ->where('role','=','10')->get()->all())
-//            ->addColumn('action', function ($row) {
-//                $action = '<a href="/mahasiswa/mahasiswa/' . $row->email . '/edit" class="btn btn btn-primary btn-sm"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
-//                $action .= \Form::open(['url' => 'akunmahasiswa/' . $row->email, 'method' => 'delete', 'style' => 'float:right']);
-//                $action .= "<button type='submit' class='btn btn-danger btn-sm'>Hapus</button>";
-//                $action .= \Form::close();
-//                return $action;
-//
-//            })
-//            ->make(true);
-
-        return Datatables::of(Student::all())
+        return Datatables::of(DB::table('users')
+            ->join('students', 'users.email', '=', 'students.email')
+            ->where('role','=','10')->get()->all())
             ->addColumn('action', function ($row) {
-                $action  = '<a href="/mahasiswa/'.$row->MA_Nrp.'/edit" class="btn btn-primary btn-sm float-lg-left"><i class="fas fa-pencil-alt"></i></a>';
-                $action .= \Form::open(['url'=>'mahasiswa/'.$row->MA_Nrp,'method'=>'delete','style'=>'float:right']);
-                $action .= "<button type='submit'class='btn btn-danger btn-sm float-lg-left'><i class='fas fa-trash-alt'></i></button>";
+                $action = '<a href="/mahasiswa/mahasiswa/' . $row->email . '/edit" class="btn btn btn-primary btn-sm"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+                $action .= \Form::open(['url' => 'akunmahasiswa/' . $row->email, 'method' => 'delete', 'style' => 'float:right']);
+                $action .= "<button type='submit' class='btn btn-danger btn-sm'>Hapus</button>";
                 $action .= \Form::close();
                 return $action;
+
             })
             ->make(true);
     }
@@ -90,12 +79,12 @@ class ManajemenAkunMahasiswaController extends Controller
             'MA_Nrp' => $data['MA_Nrp'],
             'MA_NRP_Baru' => $data['MA_Nrp'],
             'MA_NamaLengkap' => $data['name'],
-            'MA_Email' => $data['email']]);
+            'email' => $data['MA_Email']]);
 
 
         if ($student->save()) {
             User::create($user);
-            $user = User::where('email', $data['email'])->first();
+            $user = User::where('email', $data['MA_Email'])->first();
             $role = Role::where('id', $data['role'])->get()->first();
             $user->roles()->attach($role);
         }
@@ -145,7 +134,7 @@ class ManajemenAkunMahasiswaController extends Controller
             $user->student->where('MA_Nrp', $user->student['MA_Nrp'])->update(
                 [
                     'MA_NamaLengkap' => $user['name'],
-                    'MA_Email' => $user['email'],]
+                    'email' => $user['email'],]
             );
 
         }
@@ -164,7 +153,7 @@ class ManajemenAkunMahasiswaController extends Controller
         if ($user != null) {
 
             if ($user->delete()) {
-                $student = \App\Student::where('MA_Email', $id);
+                $student = \App\Student::where('email', $id);
                 $student->delete();
             }
         }
