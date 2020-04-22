@@ -24,17 +24,19 @@ class PasswordResetController extends Controller
     {
 
         $request->validate([
-            'MA_Email' => 'required|string|email',
+            'MA_Email' => 'required|string',
         ]);
-        $user = Student::where('MA_Email', $request->MA_Email)->first();
+
+
+        $user = Student::where('email',  trim($request['MA_Email'], '"'))->first();
 
         if (!$user)
             return response()->json([
                 'message' => __('passwords.user')
-            ], 404);
+            ], 200);
 
-        $passwordReset = PasswordReset::updateOrCreate(['email' => $user->MA_Email], [
-            'MA_Email' => $user->MA_Email,
+        $passwordReset = PasswordReset::updateOrCreate(['email' => $user->email], [
+            'email' => $user->email,
             'token' => str_random(60)
         ]);
 
@@ -42,7 +44,8 @@ class PasswordResetController extends Controller
             $user->notify(new PasswordResetRequest($passwordReset->token));
 
         return response()->json([
-            'message' => __('passwords.sent')
+            'message' => __('passwords.sent'),
+            'user'=>[$user]
         ]);
     }
 
@@ -60,13 +63,13 @@ class PasswordResetController extends Controller
         if (!$passwordReset)
             return response()->json([
                 'message' => __('passwords.token')
-            ], 404);
+            ], 200);
 
         if (Carbon::parse($passwordReset->updated_at)->addMinutes(720)->isPast()) {
             $passwordReset->delete();
             return response()->json([
                 'message' => __('passwords.token')
-            ], 404);
+            ], 200);
         }
 
         return response()->json($passwordReset);
@@ -92,20 +95,20 @@ class PasswordResetController extends Controller
 
         $passwordReset = PasswordReset::where([
             ['token', $request->token],
-            ['MA_Email', $request->MA_Email]
+            ['email', $request->MA_Email]
         ])->first();
 
         if (!$passwordReset)
             return response()->json([
                 'message' => __('passwords.token')
-            ], 404);
+            ], 200);
 
         $user = Student::where('MA_Email', $passwordReset->MA_Email)->first();
 
         if (!$user)
             return response()->json([
                 'message' => __('passwords.user')
-            ], 404);
+            ], 200);
 
         $user->MA_PASSWORD = bcrypt($request->MA_PASSWORD);
         $user->save();

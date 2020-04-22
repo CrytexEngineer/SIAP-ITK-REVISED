@@ -3,9 +3,9 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
 
 class PasswordResetRequest extends Notification implements ShouldQueue
 {
@@ -26,7 +26,7 @@ class PasswordResetRequest extends Notification implements ShouldQueue
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
      * @return array
      */
     public function via($notifiable)
@@ -37,24 +37,25 @@ class PasswordResetRequest extends Notification implements ShouldQueue
     /**
      * Get the mail representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
     {
-        $url = url('/api/password/find/'.$this->token);
+        $url = url('/api/v1/mobile/password/find/' . $this->token);
+
 
         return (new MailMessage)
-            ->subject(__('passwords.email_password_reset_request_subject'))
-            ->line(__('passwords.email_password_reset_request_line1'))
-            ->action(__('passwords.email_password_reset_request_action'), url($url))
-            ->line(__('passwords.email_password_reset_request_line2'));
+            ->subject(__('Pengaturan Ulang Password'))
+            ->line(__('Kamu telah mengajukan permintaan pengaturan ulang password akun'))
+            ->action(__('Atur Ulang Password'), url($url))
+            ->line(__('Jika kamu tidak mengajukan pengaturan ulang password, abaikan pesan ini'));
     }
 
     /**
      * Get the array representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
      * @return array
      */
     public function toArray($notifiable)

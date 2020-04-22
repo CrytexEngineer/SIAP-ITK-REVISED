@@ -17,3 +17,4 @@ Homestead.json
 /.vagrant
 .phpunit.result.cache
 /app/Http/Controllers/ManajemenMataKuliahController.php
+SIAP_ITK.zip

@@ -128,7 +128,7 @@ class RegisterController extends Controller
             'MA_Nrp' => $data['MA_Nrp'],
             'MA_NRP_Baru' => $data['MA_Nrp'],
             'MA_NamaLengkap' => $data['name'],
-            'MA_Email' => $data['email']
+            'email' => $data['email']
         ]);
         if ($student->save()) {
             User::create($user);

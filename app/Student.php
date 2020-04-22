@@ -10,10 +10,12 @@ class Student extends Authenticatable
 {
     use Notifiable;
     protected $primaryKey='MA_Nrp';
-    protected $fillable = ['MA_Nrp', 'MA_NRP_Baru', 'MA_NamaLengkap', 'MA_Email','MA_IMEI','MA_PASSWORD'];
+    protected $fillable = ['MA_Nrp', 'MA_NRP_Baru', 'MA_NamaLengkap', 'email','MA_IMEI','MA_PASSWORD'];
 
     public function user()
     {
-        return $this->hasOne(User::Class, 'email', 'MA_Email');
+        return $this->hasOne(User::Class, 'email', 'email');
     }
+
+
 }

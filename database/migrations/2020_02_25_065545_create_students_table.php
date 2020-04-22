@@ -17,7 +17,7 @@ class CreateStudentsTable extends Migration
             $table->bigInteger('MA_Nrp')->unsigned()->primary();
             $table->String('MA_NRP_Baru')->unique();
             $table->String('MA_NamaLengkap');
-            $table->String('MA_Email')->nullable();
+            $table->String('email')->nullable();
             $table->String('MA_IMEI')->nullable();
             $table->String('MA_PASSWORD')->nullable();
             $table->timestamps();

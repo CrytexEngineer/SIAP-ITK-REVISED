@@ -10,10 +10,11 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController
 {
-private $properties;
+    private $properties;
+
     public function login(Request $request)
     {
-       $this->properties = ['msg' => 'Credentials Tidak Ditemukan',
+        $this->properties = ['msg' => 'Credentials Tidak Ditemukan',
             'href' => "api/v1/mobile/login",
             'method' => 'POST'
         ];
@@ -27,20 +28,25 @@ private $properties;
 
         $credential = $request->all();
         $email = trim($credential['MA_Email'], '"');
-        $user = Student::where('MA_Email', '=', $email)->get()->first();
+        $user = Student::where('email', '=', $email)->get()->first();
+
+        if ($user) {
+            if ($this->validate($credential, $user)) {
+
+                $this->properties['msg'] = "Selamat Datang " . $user['MA_NamaLengkap'];
+                $response = ['properties' => [$this->properties],
+                    'user' => [$user]];
 
 
-        if ($this->validate($credential, $user)) {
+                return response()->json($response, 200);
 
-            $this->properties['msg'] = "Selamat Datang " . $user['MA_NamaLengkap'];
-            $response = ['properties' => [$this->properties],
-                'user' => [$user]];
+            }
 
-
+            $response = ['properties' => [$this->properties]];
             return response()->json($response, 200);
 
         }
-
+        $this->properties['msg'] = "Username atau password salah";
         $response = ['properties' => [$this->properties]];
         return response()->json($response, 200);
 
@@ -57,16 +63,17 @@ private $properties;
 
                     $user['MA_IMEI'] = $imei;
                     $user->save();
-
-
-
                     return true;
                 }
+                $this->properties['msg'] = "Username atau password salah";
+                return false;
             }
             if ($user['MA_IMEI'] == $imei) {
                 if ($this->ValidatePassword($credential, $user)) {
                     return true;
                 }
+                $this->properties['msg'] = "Username atau password salah";
+                return false;
             }
             $this->properties['msg'] = "Perangkat Tidak Sesuai";
 

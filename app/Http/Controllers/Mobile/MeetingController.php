@@ -15,7 +15,7 @@ class MeetingController extends Controller
 {
     public function registerStudent(Request $request)
     {
-        $properties = ['msg' => 'Refister Presensi',
+        $properties = ['msg' => 'Register Presensi',
             'href' => "api/v1/mobile/validate/register_meeting",
             'method' => 'POST'
         ];
@@ -24,7 +24,7 @@ class MeetingController extends Controller
             'PT_Token' => 'required'
         ]);
 
-        $meetings = meeting::where('PT_Token', $request->input('PT_Token'))->get()->first();
+        $meetings = meeting::where('PT_Token', trim($request['PT_Token'], '"'))->get()->first();
 
         if ($meetings) {
             date_default_timezone_set("Asia/Kuala_Lumpur");
