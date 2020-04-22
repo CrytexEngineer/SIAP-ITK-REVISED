@@ -16,9 +16,9 @@ class CreateEmployeeRoleTable extends Migration
         Schema::create('employee_role', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('role_id')->unsigned();
-//            $table->foreign('role_id')->references('id')->on('roles')->onUpdate('cascade')->onDelete('cascade');
+         $table->foreign('role_id')->references('id')->on('roles')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('employee_PE_Nip')->unsigned();
-//            $table->foreign('employee_PE_Nip')->references('PE_Nip')->on('employees')->onUpdate('cascade')->onDelete('cascade');
+         $table->foreign('employee_PE_Nip')->references('PE_Nip')->on('employees')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

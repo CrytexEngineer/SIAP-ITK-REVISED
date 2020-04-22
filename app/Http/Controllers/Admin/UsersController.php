@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Role;
-use App\User;
 use App\Employee;
 use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
@@ -30,19 +30,22 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit( $id)
     {
+
         if(Gate::denies('manage-users')){
             return redirect(route('admin.users.index'));
         }
 
+        $employee = Employee::find($id);
         $roles = Role::all();
 
+
         return view('admin.users.edit')->with([
-            'user' => $user,
+            'employee' => $employee,
             'roles' => $roles
         ]);
     }
@@ -51,16 +54,21 @@ class UsersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  \App\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        $user->roles()->sync($request->roles);
+        $employee = Employee::find($id);
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->save();
+//        $employee=Employee::where("PE_Nip",$id);
+//        DB::select(" Select id from table employees where id=".$id);
+
+
+        $employee->roles()->sync($request->roles);
+        $employee->PE_NamaLengkap = $request->PE_NamaLengkap;
+        $employee->PE_Email = $request->PE_Email;
+        $employee->save();
 
         return redirect()->route('admin.users.index');
     }
@@ -68,17 +76,17 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User  $user
+     * @param  \App\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy( $id)
     {
         if(Gate::denies('manage-users')){
             return redirect(route('admin.users.index'));
         }
-
-        $user->roles()->detach();
-        $user->delete();
+        $employee = Employee::find($id);
+        $employee->roles()->detach();
+        $employee->delete();
 
         return redirect()->route('admin.users.index');
     }

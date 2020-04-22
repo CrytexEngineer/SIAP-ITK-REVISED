@@ -36,12 +36,11 @@ class ManajemenAkunPegawaiController extends Controller
 //            ->make(true);
         //Khusus di pegawai harus query ke roles selain pegawai
 
-        return Datatables::of(DB::table('employees')
-            ->join('employee_role','employees.PE_Nip','=','employee_role.employee_PE_Nip')
-            ->join('roles','employee_role.role_id','=','roles.id'))
+
+        return Datatables::of(Employee::with('roles')->get()->all())
             ->addColumn('action', function ($row) {
                 $action  = '<a href="/akunpegawai/'.$row->PE_Nip.'/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
-                $action .= \Form::open(['url'=>'pegawai/'.$row->PE_Nip,'method'=>'delete','style'=>'float:right']);
+                $action .= \Form::open(['url'=>'akunpegawai/'.$row->PE_Nip,'method'=>'delete','style'=>'float:right']);
                 $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
                 $action .= \Form::close();
                 return $action;
@@ -171,18 +170,32 @@ class ManajemenAkunPegawaiController extends Controller
     public
     function update(Request $request, $id)
     {
-        $user = User::where('email', $id)->with('roles')->with('employee')->get()->first();
-        if ($user != null) {
-            $user->update($request->except(['_token', '_method']));
-            $user->roles()->sync($user['role']);
 
-            $user->employee->where('PE_Nip', $user->employee['PE_Nip'])->update(
-                [
-                    'PE_Nama' => $user['name'],
-                    'PE_NamaLengkap' => $user['name'],
-                    'PE_Email' => $user['email']]
-            );
-        }
+//        $user = Employee::with('roles')->get()->all();
+//        dd($user);
+//        if ($user != null) {
+//            $user->update($request->except(['_token', '_method']));
+//            $user->roles()->sync($user['role']);
+//
+//            $user->employee->where('PE_Nip', $user->employee['PE_Nip'])->update(
+//                [
+//                    'PE_Nama' => $user['name'],
+//                    'PE_NamaLengkap' => $user['name'],
+//                    'PE_Email' => $user['email']]
+//            );
+//        }
+
+        $employee = Employee::find($id);
+
+//        $employee=Employee::where("PE_Nip",$id);
+//        DB::select(" Select id from table employees where id=".$id);
+
+        $employee->roles()->sync($request->roles);
+        $employee->PE_Nip = $request->PE_Nip;
+        $employee->PE_NamaLengkap = $request->PE_NamaLengkap;
+        $employee->PE_Email = $request->PE_Email;
+        $employee->save();
+
         return redirect('/akunpegawai')->with('status', 'Data Berhasil Diubah');
     }
 
@@ -195,13 +208,17 @@ class ManajemenAkunPegawaiController extends Controller
     public
     function destroy($id)
     {
-        $user = User::where('email', $id)->with('employee');
-        if ($user != null) {
-            if ($user->delete()) {
-                $employee = Employee::where('PE_Email', $id);
-                $employee->delete();
-            }
-        }
+//        $user = User::where('email', $id)->with('employee');
+//        if ($user != null) {
+//            if ($user->delete()) {
+//                $employee = Employee::where('PE_Email', $id);
+//                $employee->delete();
+//            }
+//        }
+
+        $employee = Employee::find($id);
+        $employee->roles()->detach();
+        $employee->delete();
         return redirect('/akunpegawai')->with('status_failed', 'Data Berhasil Dihapus');
     }
 

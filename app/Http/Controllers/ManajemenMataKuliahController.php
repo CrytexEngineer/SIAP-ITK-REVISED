@@ -22,9 +22,9 @@ class ManajemenMataKuliahController extends Controller
     {
         return Datatables::of(Subject::all())
            ->addColumn('action', function ($row) {
-            $action = '<a href="/matakuliah/' . $row->MK_ID . '/edit" class="btn btn btn-primary btn-sm"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+            $action = '<a href="/matakuliah/' . $row->MK_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
             $action .= \Form::open(['url' => 'matakuliah/' . $row->MK_ID, 'method' => 'delete', 'style' => 'float:right']);
-            $action .= "<button type='submit' class='btn btn-danger btn-sm'>Hapus</button>";
+            $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
             $action .= \Form::close();
             return $action;
 

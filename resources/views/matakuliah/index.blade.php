@@ -23,7 +23,7 @@
                                 <th>Tahun Kurikulum</th>
                                 <th>Kredit Kuliah</th>
                                 @can('manage-users')
-                                <th width="85">Action</th>
+                                <th width="50">Action</th>
                                     @endcan
                             </tr>
                             </thead>

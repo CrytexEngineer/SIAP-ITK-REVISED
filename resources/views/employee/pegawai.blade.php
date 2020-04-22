@@ -59,7 +59,8 @@
                     { data: 'PE_Nip', name: 'PE_Nip' },
                     { data: 'PE_NamaLengkap', name: 'PE_NamaLengkap' },
                     { data: 'PE_Email', name: 'PE_Email' },
-                    { data: 'role_name', name: 'role_name' },
+                    { data: 'roles', name: 'role_name',
+                      render:"[, ].role_name"},
                     { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' },
                         @can('manage-users')

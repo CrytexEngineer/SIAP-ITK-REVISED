@@ -33,17 +33,15 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-md-2 col-form-label text-md-right">Roles</label>
-                            <div class="col-md-4">
-{{--                                {{Form::select('role', ['1' => 'SuperAdmin', '2' => 'Admin', '3' =>'Observer', '4'=>'Wakil Rektor',--}}
-{{--                                  '5'=>'Tendik Jurusan', '6'=>'Tendik Pusat', '7'=>'Ketua Prodi','8'=>'Kepala Jurusan','9'=>'Dosen Pengampu'])}}--}}
-                                @foreach($roles as $role)
-                                    <div class="form-check" class="col-md-6">
-                                        <input type="checkbox" name="roles[]" value="{{ $role->id }}"
-                                               @if($employee->roles->pluck('id')->contains($role->id)) checked @endif>
-                                        <label>{{ $role->role_name }}</label>
-                                    </div>
-                                @endforeach
+                            <label for="roles" class="col-md-2 col-form-label text-md-right">Roles</label>
+                            <div class="col-md-6">
+                            @foreach($roles as $role)
+                                <div class="form-check" class="col-md-6">
+                                    <input type="checkbox" name="roles[]" value="{{ $role->id }}"
+                                           @if($employee->roles()->pluck('roles.id')->contains($role->id)) checked @endif>
+                                    <label>{{ $role->role_name }}</label>
+                                </div>
+                            @endforeach
                             </div>
                         </div>
 
@@ -53,7 +51,6 @@
                                 <a href="/akunpegawai" class="btn btn-primary">Kembali</a>
                             </div>
                         </div>
-                        </form>
                     </div>
                 </div>
             </div>

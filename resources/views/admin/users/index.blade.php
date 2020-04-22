@@ -30,7 +30,7 @@
                             @foreach($users as $user)
                                 <tr>
                                     <th scope="row">{{ $user->PE_Nip }}</th>
-                                    <td>{{ $user->PE_Nama }}</td>
+                                    <td>{{ $user->PE_NamaLengkap }}</td>
                                     <td>{{ $user->PE_Email }}</td>
                                     <td>{{ implode(', ', $user->roles()->get()->pluck('role_name')->toArray()) }}</td>
                                     @can('manage-users')
