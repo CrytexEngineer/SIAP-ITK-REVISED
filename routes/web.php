@@ -101,3 +101,7 @@ Route::post('/akunmahasiswa/import', 'ManajemenAkunMahasiswaController@import')-
 
 //Operasi QR
 Route::resource('/validator',"ManajemenValidatorController");
+
+//Rekapitulasi
+Route::resource('/rekapitulasi/mahasiswa',"RekapitulasiMahasiswaController");
+Route::get('/rekapitulasi/json',"RekapitulasiMahasiswaController@json");

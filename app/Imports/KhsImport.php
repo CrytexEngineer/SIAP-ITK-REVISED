@@ -22,7 +22,8 @@ class KHSImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailu
 
 
         $Khs = Khs::where('KU_MA_Nrp', $row['ku_ma_nrp'])
-            ->where('KU_KE_KR_MK_ID', $row['ku_ke_kr_mk_id'])->first();
+            ->where('KU_KE_KR_MK_ID', $row['ku_ke_kr_mk_id'])
+            ->where('KU_KE_Kelas',$row['ku_ke_kelas'])->first();
 
         $data = ['KU_KE_Tahun' => $row['ku_ke_tahun'],
             'KU_MA_Nrp' => $row['ku_ma_nrp'],
