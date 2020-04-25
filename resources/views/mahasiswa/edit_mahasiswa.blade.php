@@ -8,7 +8,7 @@
                     <div class="card-header">@yield('title')</div>
 
                     <div class="card-body">
-                        {{Form::model($users, ['url'=>'mahasiswa/mahasiswa/'.$users->email, 'method'=>'PUT'])}}
+                        {{Form::model($users, ['url'=>'akunmahasiswa/'.$users->MA_Nrp, 'method'=>'PUT'])}}
                             @csrf
 
 
@@ -22,14 +22,14 @@
                             <div class="form-group row">
                                 <label class="col-md-2 col-form-label text-md-right">Nama Lengkap</label>
                                 <div class="col-md-6">
-                                    {{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=> 'Nama Mahasiswa']) }}
+                                    {{ Form::text('MA_NamaLengkap', null, ['class'=>'form-control', 'placeholder'=> 'Nama Mahasiswa']) }}
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-md-2 col-form-label text-md-right">E-mail</label>
                                 <div class="col-md-4">
-                                    {{ Form::text('email', null, ['class'=>'form-control', 'placeholder'=> 'E-Mail Mahasiswa']) }}
+                                    {{ Form::text('MA_Email', null, ['class'=>'form-control', 'placeholder'=> 'E-Mail Mahasiswa']) }}
                                 </div>
                             </div>
 

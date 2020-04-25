@@ -15,7 +15,7 @@ class RekapitulasiMahasiswaController extends Controller
      */
     public function index()
     {
-
+        return view('rekapitulasi.mahasiswa.index');
     }
 
 

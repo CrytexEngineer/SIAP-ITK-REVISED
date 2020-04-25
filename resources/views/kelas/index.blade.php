@@ -68,7 +68,7 @@
                     {data: 'KE_Terisi', name: 'KE_Terisi'},
 
 
-                    {data: 'KE_PE_NIPPengajar', name: 'KE_PE_NIPPengajar'},
+                    {data: 'KE_PE_NIPPengajar', name: 'employees.KE_PE_NIPPengajar'},
                     {data: 'PE_Nama', name: 'employees.PE_Nama'},
 
                     {data: 'KE_Jadwal_IDHari', name: 'KE_Jadwal_IDHari'},
