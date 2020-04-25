@@ -10,6 +10,7 @@ class Student extends Authenticatable
 {
     use Notifiable;
     protected $primaryKey='MA_Nrp';
+    public $incrementing = false;
     protected $fillable = ['MA_Nrp', 'MA_NRP_Baru', 'MA_NamaLengkap', 'email','MA_IMEI','MA_PASSWORD'];
 
     public function user()

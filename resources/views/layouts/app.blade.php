@@ -26,6 +26,8 @@
     <!-- Styles DataTables dont change! -->
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
 
+    <link rel="icon" href="{{ URL::asset('/css/favicon.png') }}" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('/css/app.css')  }}">
 
 </head>
 <body>
@@ -58,10 +60,20 @@
                             </li>
                         @endif
                     @else
-{{--                        <li class="nav-item">--}}
-{{--                            <a class="nav-link" href="#">Manajemen Akun</a>--}}
-{{--                        </li>--}}
+                        {{--                        <li class="nav-item">--}}
+                        {{--                            <a class="nav-link" href="#">Manajemen Akun</a>--}}
+                        {{--                        </li>--}}
 
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-table"></i> Rekapitulasi Data
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/rekapitulasi/mahasiswa">Rekapitulasi Mahasiswa</a>
+                                <a class="dropdown-item" href="#">Rekapitulasi Dosen</a>
+                            </div>
+                        </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -71,6 +83,7 @@
                                 <a class="dropdown-item" href="/akunmahasiswa">Akun Mahasiswa</a>
                                 <a class="dropdown-item" href="/akunpegawai">Akun Pegawai</a>
                                 <a class="dropdown-item" href="/kelas">Kelas</a>
+                                <a class="dropdown-item" href="/khs">KHS</a>
                                 <a class="dropdown-item" href="/matakuliah">Matakuliah</a>
                                 <a class="dropdown-item" href="/program_studi">Program Studi</a>
                             </div>
@@ -78,7 +91,7 @@
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <i class="fas fa-user"></i> {{ Auth::user()->name }} <span class="caret"></span>
+                                <i class="fas fa-user"></i> {{ Auth::user()->PE_Nama }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -86,6 +99,10 @@
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
+                                </a>
+
+                                <a class="dropdown-item" href="{{ route('admin.users.index') }}">
+                                    User Management
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

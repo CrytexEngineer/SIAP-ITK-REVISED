@@ -20,7 +20,16 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers {
+        username as protected userNip;
+        validateLogin as protected userValidation;
+    }
+
+
+    function username()
+    {
+        return 'PE_Nip';
+    }
 
     /**
      * Where to redirect users after login.

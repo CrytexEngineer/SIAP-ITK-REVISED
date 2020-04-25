@@ -10,7 +10,6 @@ use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Validators\Failure;
-use phpDocumentor\Reflection\Types\Integer;
 use Throwable;
 
 class EmployeesImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailure, WithBatchInserts, SkipsOnError
@@ -25,10 +24,14 @@ class EmployeesImport implements ToModel, WithHeadingRow, WithValidation, SkipsO
     public function model(array $row)
     {
         $data = ['PE_Nip' => $row['pe_nip'],
-//            'PE_Email' => $row['pe_email'],
             'PE_NamaLengkap' => $row['pe_namalengkap'],
             'PE_Nama' => $row['pe_nama'],
-            'PE_TipePegawai' => $row['pe_idjenispegawai'],];
+        ];
+
+        if ($row['pe_email']!=null) {
+            $data['PE_Email'] = $row['pe_email'];
+        }
+
 
 
         $employee = Employee::where('PE_Nip', $row['pe_nip'])->first();
@@ -44,7 +47,7 @@ class EmployeesImport implements ToModel, WithHeadingRow, WithValidation, SkipsO
     function rules(): array
     {
         return [
-            'pe_nip' => ['required','integer'],
+            'pe_nip' => ['required', 'integer'],
             'pe_namalengkap' => 'required',
         ];
     }
@@ -56,6 +59,7 @@ class EmployeesImport implements ToModel, WithHeadingRow, WithValidation, SkipsO
     function onFailure(Failure ...$failures)
     {
 
+        dump($failures);
     }
 
     public function batchSize(): int
@@ -68,6 +72,6 @@ class EmployeesImport implements ToModel, WithHeadingRow, WithValidation, SkipsO
      */
     public function onError(Throwable $e)
     {
-        // TODO: Implement onError() method.
+        dump($e);
     }
 }

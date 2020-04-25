@@ -15,10 +15,12 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->bigInteger('PE_Nip')->unsigned()->primary();
-            $table->string('PE_Email')->unique()->nullable();
+            $table->string('PE_Email')->nullable();
             $table->String('PE_NamaLengkap');
             $table->String('PE_Nama');
-            $table->integer('PE_TipePegawai')->unsigned();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
