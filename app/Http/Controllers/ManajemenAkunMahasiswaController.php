@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Imports\KHSImport;
 use App\Imports\StudentsImport;
 use App\Role;
+use App\Student;
 use App\User;
 use DataTables;
 use Illuminate\Http\Request;
@@ -17,13 +18,11 @@ class ManajemenAkunMahasiswaController extends Controller
 
     function json()
     {
-        return Datatables::of(DB::table('users')
-            ->join('students', 'users.email', '=', 'students.email')
-            ->where('role','=','10')->get()->all())
+        return Datatables::of(Student::all())
             ->addColumn('action', function ($row) {
-                $action = '<a href="/mahasiswa/mahasiswa/' . $row->email . '/edit" class="btn btn btn-primary btn-sm"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
-                $action .= \Form::open(['url' => 'akunmahasiswa/' . $row->email, 'method' => 'delete', 'style' => 'float:right']);
-                $action .= "<button type='submit' class='btn btn-danger btn-sm'>Hapus</button>";
+                $action = '<a href="/akunmahasiswa/' . $row->MA_Nrp . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+                $action .= \Form::open(['url' => 'akunmahasiswa/' . $row->MA_Nrp, 'method' => 'delete', 'style' => 'float:right']);
+                $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
                 $action .= \Form::close();
                 return $action;
 
@@ -112,7 +111,7 @@ class ManajemenAkunMahasiswaController extends Controller
      */
     public function edit($id)
     {
-        $data['users'] = User::where('email', $id)->first();
+        $data['users'] = Student::where('MA_Nrp', $id)->first();
         return view('mahasiswa.edit_mahasiswa', $data);
 
     }
