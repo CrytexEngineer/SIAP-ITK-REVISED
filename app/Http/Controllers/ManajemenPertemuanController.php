@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\meeting;
-use App\presence;
+use App\Presence;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;

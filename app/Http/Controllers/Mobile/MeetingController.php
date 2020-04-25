@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Mobile;
 
 use App\Http\Controllers\Controller;
 use App\meeting;
-use App\presence;
+use App\Presence;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
@@ -55,7 +55,7 @@ class MeetingController extends Controller
             if ($khs) {
 
                 if ($isBlocked > 0) {
-                    $isPresenced = presence::whereDate('created_at', Carbon::today())
+                    $isPresenced = Presence::whereDate('created_at', Carbon::today())
                         ->where('PR_KU_ID', '=', $khs[0]->KU_ID)->get()->first();
 
                     if (!$isPresenced) {
@@ -71,7 +71,7 @@ class MeetingController extends Controller
 
                         }
 
-                        $presence = new presence(['PR_KU_ID' => $khs['0']->KU_ID,
+                        $presence = new Presence(['PR_KU_ID' => $khs['0']->KU_ID,
                             'PR_PT_ID' => $meetings['PT_ID'],
                             'PR_KE_ID'=>$meetings['PT_KE_ID'],
                             'PR_IsLAte' => $latemrker,

@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Mobile;
 
 
 use App\Http\Controllers\Controller;
-use App\Meeting;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class KelasController extends Controller
@@ -44,27 +42,18 @@ class KelasController extends Controller
             'method' => 'GET'
         ];
 
-        $response = ['properties' => [$properties],
-            'kelas' => $kelas];
+        if ($kelas) {
+            $response = ['properties' => [$properties],
+                'kelas' => $kelas];
+
+        }
+        else{
+            $properties = ['msg' => 'Kelas Tidak Ditemukan'];
+            $response = ['properties' => [$properties]];
+        }
+
 
         return response()->json($response, 200);
-
     }
 
-    public function showPresenceRate($request)
-    {
-        $request->validate([
-            'KU_ID' => 'required',
-            'PT_KE_ID' => 'required'
-        ]);
-
-
-        DB::select("
-        SELECT COUNT(*)*100  as persentase_kehadiran from presences
-        INNER JOIN class_student ON presences.PR_KU_ID=class_student.KU_ID
-        WHERE class_student.KU_ID=$request->input('KU_ID') / (SELECT COUNT(*) FROM meetings
-         WHERE meetings.PT_KE_ID=$request->input('PT_KE_ID')) ");
-
-
-    }
 }

@@ -31,4 +31,7 @@ Route::group(['prefix' => 'v1/mobile'], function () {
     Route::GET('password/find/{token}', 'Mobile\PasswordResetController@find');
     Route::POST('password/reset', 'Mobile\PasswordResetController@reset');
 
+    Route::GET('presence/count', 'Mobile\PresenceController@count');
+    Route::GET('presence/index', 'Mobile\PresenceController@index');
+
 });
