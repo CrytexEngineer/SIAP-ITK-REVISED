@@ -9,7 +9,7 @@
 
                     <div class="card-body">
 
-{{--                        @include('validation_error')--}}
+                        @include('validation_error')
 
                         {{ Form::open(['url'=>'matakuliah'])}}
 

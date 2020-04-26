@@ -81,7 +81,6 @@ class ManajemenKelasController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
         $kelas = New Kelas();
         $kelas->create($request->all());
         return redirect('kelas')->with('status', 'Informasi Kelas Berhasil Ditambahkan');

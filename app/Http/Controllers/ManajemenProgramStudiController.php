@@ -17,9 +17,9 @@ class ManajemenProgramStudiController extends Controller
     {
         return DataTables::of(Major::all())
             ->addColumn('action', function ($row) {
-                $action = '<a href="/program_studi/' . $row->PS_Kode_Prodi . '/edit" class="btn btn btn-primary btn-sm"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+                $action = '<a href="/program_studi/' . $row->PS_Kode_Prodi . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
                 $action .= \Form::open(['url' => 'program_studi/' . $row->PS_Kode_Prodi, 'method' => 'DELETE', 'style' => 'float:right']);
-                $action .= "<button type='submit' class='btn btn-danger btn-sm'>Hapus</button>";
+                $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
                 $action .= \Form::close();
                 return $action;
             })
@@ -56,8 +56,8 @@ class ManajemenProgramStudiController extends Controller
     {
 
         $request->validate([
-            'PS_Kode_Prodi' =>'required|unique:majors|min:5',
-            'PS_Nama' => 'required|min:6',
+            'PS_Kode_Prodi' =>'required|unique:majors|min:1',
+            'PS_Nama' => 'required|min:3',
 
         ]);
 

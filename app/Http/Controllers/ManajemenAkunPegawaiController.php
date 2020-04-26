@@ -46,7 +46,11 @@ class ManajemenAkunPegawaiController extends Controller
      */
     public function create()
     {
-        return view('employee.create_pegawai');
+        $roles = Role::all();
+        $data['employee'] = Employee::with(roles)->get()->all();
+        return view('employee.create_pegawai', $data)->with([
+            'roles' => $roles
+        ]);
     }
 
     /**
@@ -74,40 +78,40 @@ class ManajemenAkunPegawaiController extends Controller
             'password' => Hash::make($data['password']),
         ];
 
-        $employee = [];
-        if ($data['role'] != 10) {
-            if ($data['role'] >= 1 && $data['role'] <= 6 || $data['role'] == 9) {
-
-                $employee = New Employee([
-                    'PE_Nip' => $data['PE_Nip'],
-                    'PE_Nama' => $data['name'],
-                    'PE_NamaLengkap' => $data['name'],
-                    'PE_Email' => $data['email'],
-                    'PE_TipePegawai' => 0
-                ]);
-            }
-
-            if ($data['role'] == 7 || $data['role'] == 8) {
-                $employee = New Employee([
-                    'PE_Nip' => $data['PE_Nip'],
-                    'PE_Nama' => $data['name'],
-                    'PE_NamaLengkap' => $data['name'],
-                    'PE_Email' => $data['email'],
-                    'PE_TipePegawai' => 1
-                ]);
-            }
-
-
-            if ($employee->save()) {
-
-                User::create($user);
-                $user = User::where('email', $data['email'])->first();
-                $role = Role::where('id', $data['role'])->get()->first();
-                $user->roles()->attach($role);
-            }
-            return redirect('/akunpegawai')->with('status', 'Data Pegawai Berhasil Disimpan');
-
-        }
+//        $employee = [];
+//        if ($data['role'] != 10) {
+//            if ($data['role'] >= 1 && $data['role'] <= 6 || $data['role'] == 9) {
+//
+//                $employee = New Employee([
+//                    'PE_Nip' => $data['PE_Nip'],
+//                    'PE_Nama' => $data['name'],
+//                    'PE_NamaLengkap' => $data['name'],
+//                    'PE_Email' => $data['email'],
+//                    'PE_TipePegawai' => 0
+//                ]);
+//            }
+//
+//            if ($data['role'] == 7 || $data['role'] == 8) {
+//                $employee = New Employee([
+//                    'PE_Nip' => $data['PE_Nip'],
+//                    'PE_Nama' => $data['name'],
+//                    'PE_NamaLengkap' => $data['name'],
+//                    'PE_Email' => $data['email'],
+//                    'PE_TipePegawai' => 1
+//                ]);
+//            }
+//
+//
+//            if ($employee->save()) {
+//
+//                User::create($user);
+//                $user = User::where('email', $data['email'])->first();
+//                $role = Role::where('id', $data['role'])->get()->first();
+//                $user->roles()->attach($role);
+//            }
+//            return redirect('/akunpegawai')->with('status', 'Data Pegawai Berhasil Disimpan');
+//
+//        }
     }
 
     /**
