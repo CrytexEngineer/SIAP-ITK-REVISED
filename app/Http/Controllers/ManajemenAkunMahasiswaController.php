@@ -59,36 +59,40 @@ class ManajemenAkunMahasiswaController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+         $request->validate([
+            'MA_NamaLengkap' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:students'],
+            'MA_PASSWORD' => ['required', 'string', 'min:8'],
             'MA_Nrp' => ['required', 'integer', 'unique:students'],
-            'role' => ['required', 'integer'],]);
+            'MA_IMEI' => ['required', 'integer','min:14', 'unique:students'],
+            'MA_NRP_Baru' => ['required', 'integer', 'unique:students'],
+            ]);
 
-        $data = $request->all();
-        $user = [
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'role' => $data['role'],
-            'password' => Hash::make($data['password']),
-        ];
-
-        $student = new \App\Student([
-            'MA_Nrp' => $data['MA_Nrp'],
-            'MA_NRP_Baru' => $data['MA_Nrp'],
-            'MA_NamaLengkap' => $data['name'],
-            'email' => $data['MA_Email']]);
-
-
-        if ($student->save()) {
-            User::create($user);
-            $user = User::where('email', $data['MA_Email'])->first();
-            $role = Role::where('id', $data['role'])->get()->first();
-            $user->roles()->attach($role);
-        }
-
+        $mahasiswa = New Student();
+        $mahasiswa->create($request->all());
         return redirect('/akunmahasiswa')->with('status','Data Mahasiswa Berhasil Disimpan');
+
+//        $data = $request->all();
+//        $user = [
+//            'name' => $data['name'],
+//            'email' => $data['email'],
+//            'role' => $data['role'],
+//            'password' => Hash::make($data['password']),
+//        ];
+//
+//        $student = new \App\Student([
+//            'MA_Nrp' => $data['MA_Nrp'],
+//            'MA_NRP_Baru' => $data['MA_Nrp'],
+//            'MA_NamaLengkap' => $data['name'],
+//            'email' => $data['MA_Email']]);
+//
+//
+//        if ($student->save()) {
+//            User::create($user);
+//            $user = User::where('email', $data['MA_Email'])->first();
+//            $role = Role::where('id', $data['role'])->get()->first();
+//            $user->roles()->attach($role);
+//        }
     }
 
 
@@ -126,18 +130,30 @@ class ManajemenAkunMahasiswaController extends Controller
     public function update(Request $request, $id)
     {
 
-        $user = User::where('email', $id)->with('student')->get()->first();
-        if ($user != null) {
-
-            $user->update($request->except(['_token', '_method']));
-            $user->student->where('MA_Nrp', $user->student['MA_Nrp'])->update(
-                [
-                    'MA_NamaLengkap' => $user['name'],
-                    'email' => $user['email'],]
-            );
-
+//        $user = User::where('email', $id)->with('student')->get()->first();
+//        if ($user != null) {
+//
+//            $user->update($request->except(['_token', '_method']));
+//            $user->student->where('MA_Nrp', $user->student['MA_Nrp'])->update(
+//                [
+//                    'MA_NamaLengkap' => $user['name'],
+//                    'email' => $user['email'],]
+//            );
+//
+//        }
+//        return redirect('/akunmahasiswa')->with('status', 'Data Berhasil Diubah');
+        $mahasiswa = Student::where('MA_Nrp','=',$id)->first();
+        $mahasiswa->MA_NamaLengkap = $request->MA_NamaLengkap;
+        $mahasiswa->email = $request->email;
+        $mahasiswa->MA_IMEI = $request->MA_IMEI;
+        if($request->MA_PASSWORD!='')
+        {
+            $mahasiswa->MA_PASSWORD = $request->MA_PASSWORD;
         }
-        return redirect('/akunmahasiswa')->with('status', 'Data Berhasil Diubah');
+
+        $mahasiswa->save();
+        //$mahasiswa->update($request->except('_method','_token'));
+        return redirect('/akunmahasiswa')->with('status','Data mahasiswa Berhasil Di Update');
     }
 
     /**
@@ -148,14 +164,18 @@ class ManajemenAkunMahasiswaController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::where('email', $id)->with('student');
-        if ($user != null) {
+//        $user = User::where('email', $id)->with('student');
+//        if ($user != null) {
+//
+//            if ($user->delete()) {
+//                $student = \App\Student::where('email', $id);
+//                $student->delete();
+//            }
+//        }
+//        return redirect('/akunmahasiswa')->with('status_failed', 'Data Berhasil Dihapus');
 
-            if ($user->delete()) {
-                $student = \App\Student::where('email', $id);
-                $student->delete();
-            }
-        }
+        $mahasiswa = Student::where('MA_Nrp',$id);
+        $mahasiswa->delete();
         return redirect('/akunmahasiswa')->with('status_failed', 'Data Berhasil Dihapus');
     }
 

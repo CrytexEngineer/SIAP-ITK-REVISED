@@ -58,19 +58,14 @@
                 columns: [
                     {data: 'MK_Mata_Kuliah', name: 'subjects.MK_Mata_Kuliah'},
                     {data: 'KE_Kelas', name: 'KE_Kelas'},
-
                     {data: 'KE_Jadwal_Ruangan', name: 'KE_Jadwal_Ruangan'},
                     {data: 'PS_Nama', name: 'majors.PS_Nama'},
-
                     {data: 'KE_Tahun', name: 'KE_Tahun'},
                     {data: 'KE_IDSemester', name: 'KE_IDSemester'},
                     {data: 'KE_DayaTampung', name: 'KE_IDSemester'},
                     {data: 'KE_Terisi', name: 'KE_Terisi'},
-
-
                     {data: 'KE_PE_NIPPengajar', name: 'employees.KE_PE_NIPPengajar'},
                     {data: 'PE_Nama', name: 'employees.PE_Nama'},
-
                     {data: 'KE_Jadwal_IDHari', name: 'KE_Jadwal_IDHari'},
                     {data: 'KE_Jadwal_JamMulai', name: 'KE_Jadwal_JamMulai'},
                     {data: 'KE_Jadwal_JamUsai', name: 'KE_Jadwal_JamUsai'},
