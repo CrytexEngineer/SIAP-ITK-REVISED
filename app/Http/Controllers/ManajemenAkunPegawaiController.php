@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Employee;
-use App\Imports\ClasesImport;
+use App\Imports\ClassesImport;
 use App\Imports\EmployeesImport;
 use App\Role;
 use App\User;

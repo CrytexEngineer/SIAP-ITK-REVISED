@@ -12,7 +12,7 @@ use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Validators\Failure;
 use Throwable;
 
-class ClasesImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailure, WithBatchInserts, SkipsOnError
+class ClassesImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailure, WithBatchInserts, SkipsOnError
 
 {
     /**
@@ -37,6 +37,7 @@ class ClasesImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFa
             'KE_KodeJurusan' => $row['ke_kodejurusan']];
 
         $kelas = Kelas::where('KE_KR_MK_ID', $row['ke_kr_mk_id'])->where('KE_Kelas', $row['ke_kelas'])->first();
+
 
         if (!$kelas) {
             return new Kelas($data);
