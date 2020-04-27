@@ -59,7 +59,6 @@
                 ajax: '/rekapitulasi/mahasiswa/json',
                 columns: [
                     //NO
-
                     {data: 'KU_KE_KR_MK_ID', name: 'KU_KE_KR_MK_ID'},
                     //NAMA MATA KULIAH
                     //SKS

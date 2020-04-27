@@ -60,7 +60,7 @@ class ClasesImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFa
      */
     public function onFailure(Failure ...$failures)
     {
-
+        dd($failures);
     }
 
     public function batchSize(): int
@@ -74,6 +74,7 @@ class ClasesImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFa
      */
     public function onError(Throwable $e)
     {
+        dd($e);
         // TODO: Implement onError() method.
     }
 }
