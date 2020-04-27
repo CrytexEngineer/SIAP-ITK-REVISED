@@ -103,8 +103,8 @@ Route::post('/akunmahasiswa/import', 'ManajemenAkunMahasiswaController@import')-
 Route::resource('/validator',"ManajemenValidatorController");
 
 //Rekapitulasi
+Route::get('/rekapitulasi/mahasiswa/json',"RekapitulasiMahasiswaController@json");
 Route::resource('/rekapitulasi/mahasiswa',"RekapitulasiMahasiswaController");
-Route::get('/rekapitulasi/json',"RekapitulasiMahasiswaController@json");
 
 //Multi-user Management
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){

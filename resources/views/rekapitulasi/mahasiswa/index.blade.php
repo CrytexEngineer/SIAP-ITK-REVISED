@@ -36,7 +36,7 @@
                                 <th>Kehadiran Mahasiswa</th>
                                 <th>Persentase</th>
 {{--                                @can('manage-users')--}}
-                                    <th width="70">Action</th>
+{{--                                    <th width="70">Action</th>--}}
 {{--                                @endcan--}}
                             </tr>
                             </thead>
@@ -56,25 +56,25 @@
                 "scrollX": true,
                 processing: true,
                 serverSide: true,
-                ajax: '/rekapitulasi_mahasiswa/json',
+                ajax: '/rekapitulasi/mahasiswa/json',
                 columns: [
                     //NO
-                    {data: 'class_student.KU_ID', name: 'class_student.KU_ID'},
-                    {data: 'class_student.KU_KE_KR_MK_ID', name: 'class_student.KU_KE_KR_MK_ID'},
+
+                    {data: 'KU_KE_KR_MK_ID', name: 'KU_KE_KR_MK_ID'},
                     //NAMA MATA KULIAH
                     //SKS
-                    {data: 'class_student.KU_KE_Kelas', name: 'class_student.KU_KE_Kelas'},
-                    {data: 'employees.PE_NamaLengkap', name: 'employees.PE_NamaLengkap'},
-                    {data: 't3.KE_Terisi', name: 't3.KE_Terisi'},
+                    {data: 'KU_KE_Kelas', name: 'KU_KE_Kelas'},
+                    {data: 'PE_NamaLengkap', name: 'PE_NamaLengkap'},
+                    {data: 'KE_Terisi', name: 'KE_Terisi'},
                     //NO.
-                    {data: 'students.MA_NRP_Baru', name: 'students.MA_NRP_Baru'},
-                    {data: 'students.MA_NamaLengkap', name: 'students.MA_NamaLengkap'},
+                    {data: 'MA_NRP_Baru', name: 'MA_NRP_Baru'},
+                    {data: 'MA_NamaLengkap', name: 'MA_NamaLengkap'},
                     //PEKAN PERKULIAHAN
                     {data: 'Jumlah_Pertemuan', name: 'Jumlah_Pertemuan'},
-                    {data: 'Khadiran Mahasiswa', name: 'Kehadiran'},
-                    {data: 'Persentase', name: 'persentase'},
+                    {data: 'Kehadiran', name: 'Kehadiran'},
+                    {data: 'persentase', name: 'persentase'},
                     {{--                    @can('manage-users')--}}
-                    {data: '#', name: '#'}
+{{--                    {data: 'action', name: 'action'}--}}
 {{--                    @endcan--}}
                 ]
             });

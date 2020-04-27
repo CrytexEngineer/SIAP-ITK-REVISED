@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Mobile;
 
 
 use App\Http\Controllers\Controller;
+use App\Presence;
 use Illuminate\Support\Facades\DB;
 
 class KelasController extends Controller
@@ -37,6 +38,22 @@ class KelasController extends Controller
                         AND `classes`.`KE_KR_MK_ID` = `class_student`.`KU_KE_KR_MK_ID`
                         AND `classes`.`KE_Kelas` = `class_student`.`KU_KE_Kelas` ");
 
+
+        foreach ($kelas as $class) {
+
+            ($class->KE_KR_MK_ID);
+            $count = Presence::count(['MA_Nrp' => trim($nrp, '"'),
+                'MK_ID' => trim($class->KE_KR_MK_ID, '"')]);
+            
+
+            $persentase = 0;
+            if ($count) {
+                $persentase = number_format($count[0]->persentase * 100, 0);
+            }
+            $class->KE_Count = $persentase;
+        }
+
+
         $properties = ['msg' => 'List Kelas Mahasiswa',
             'href' => "api/v1/mobile/kelas",
             'method' => 'GET'
@@ -46,8 +63,7 @@ class KelasController extends Controller
             $response = ['properties' => [$properties],
                 'kelas' => $kelas];
 
-        }
-        else{
+        } else {
             $properties = ['msg' => 'Kelas Tidak Ditemukan'];
             $response = ['properties' => [$properties]];
         }

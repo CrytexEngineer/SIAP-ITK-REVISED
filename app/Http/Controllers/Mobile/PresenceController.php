@@ -15,43 +15,60 @@ class PresenceController extends Controller
 
     function count(Request $request)
     {
-
+        error_log($request->input('MK_ID'));
         $request->validate([
             'MA_Nrp' => 'required',
             'MK_ID' => 'required'
         ]);
 
 
-        $properties = ['msg' => 'Rekapitulasi Kehadiran',
+        $properties = ['msg' => 'Rekapitulasi kehadiran',
             'href' => "api/v1/mobile/presence/count",
             'method' => 'GET'
         ];
 
-        $presenceCount = Presence::count(['MA_Nrp' => trim($request['MA_Nrp'],'"'), 'MK_ID' => trim($request['MK_ID'],'"')]);
+        $presenceCount = Presence::count(['MA_Nrp' => trim($request['MA_Nrp'], '"'), 'MK_ID' => trim($request['MK_ID'], '"')]);
 
-        if($presenceCount){
+        if ($presenceCount) {
             $response = ['properties' => [$properties],
                 'presenceCount' => $presenceCount];
 
-        }
-        else{
+        } else {
+            $properties = ['msg' => "Kehadiran tidak ditemukan"];
             $response = ['properties' => [$properties]];
-            $properties = ['msg' => 'Kamu Telah Melakukan Presensi'];
 
         }
 
 
-        return response()->json(['properties' => [$properties],$response], Response::HTTP_OK);
+        return response()->json( $response, Response::HTTP_OK);
     }
 
     function index(Request $request)
-    {
+    {  error_log($request->input('MK_ID'));
         $request->validate([
             'MA_Nrp' => 'required',
             'MK_ID' => 'required'
         ]);
 
-       return $presences= Presence::index(['MA_Nrp'=>trim($request['MA_Nrp'],'"'),'MK_ID'=>trim($request['MK_ID'],'"'),]);
+        $properties = ['msg' => 'Rekapitulasi kehadiran',
+            'href' => "api/v1/mobile/presence/count",
+            'method' => 'GET'
+        ];
+
+        $presences = Presence::index(['MA_Nrp' => trim($request['MA_Nrp'], '"'), 'MK_ID' => trim($request['MK_ID'], '"'),]);
+
+        if ($presences) {
+            $response = ['properties' => [$properties],
+                'presences' => $presences];
+
+        } else {
+            $properties = ['msg' => "Kehadiran tidak ditemukan"];
+            $response = ['properties' => [$properties]];
+
+        }
+
+        return response()->json($response, Response::HTTP_OK);
+
     }
 
 }

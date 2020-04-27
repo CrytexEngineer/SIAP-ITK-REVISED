@@ -21,7 +21,7 @@ class RekapitulasiMahasiswaController extends Controller
 
     public function json()
     {
-        return Datatables::of(Presence::count(array('max_percentage' => '0.5',)))
+        return Datatables::of(Presence::count(array()))
 
 //            ->addColumn('action', function ($row) {
 //                $action = '<a href="/Khs/' . $row->KU_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';

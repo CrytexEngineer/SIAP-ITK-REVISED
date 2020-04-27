@@ -61,12 +61,12 @@ class MeetingController extends Controller
                     if (!$isPresenced) {
                         $keterangan = 'HADIR';
                         $type = 'QR';
-                        $latemrker = 'LATE';
+                        $latemrker = 'Telat';
                         $properties = ['msg' => 'Kamu  telat, Lebih rajin ya!'];
 
                         if ($isLate > 0) {
 
-                            $latemrker = 'NOT_LATE';
+                            $latemrker = 'Tepat Waktu';
                             $properties = ['msg' => 'Kamu Tepat Waktu, Luar Biasa!'];
 
                         }
