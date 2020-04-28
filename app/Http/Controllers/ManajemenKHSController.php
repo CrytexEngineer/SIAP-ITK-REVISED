@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Imports\ClasesImport;
+use App\Imports\ClassesImport;
+use Illuminate\Support\Facades\DB;
 use App\Imports\KHSImport;
 use App\Imports\KHSimportimplements;
 use App\Kelas;
@@ -24,7 +25,8 @@ class ManajemenKhsController extends Controller
     {
         return Datatables::of(DB::table('class_student')
             ->join('students', 'class_student.KU_MA_Nrp', '=', 'students.MA_Nrp')
-            ->join('subjects', 'class_student.KU_KE_KR_MK_ID', '=', 'subjects.MK_ID'))
+            ->join('subjects', 'class_student.KU_KE_KR_MK_ID', '=', 'subjects.MK_ID')
+            ->join('majors', 'class_student.KU_KE_KodeJurusan', '=', 'majors.PS_Kode_Prodi'))
             ->addColumn('action', function ($row) {
                 $action = '<a href="/Khs/' . $row->KU_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
                 $action .= \Form::open(['url' => 'Khs/' . $row->KU_ID, 'method' => 'delete', 'style' => 'float:right']);

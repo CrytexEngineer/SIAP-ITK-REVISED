@@ -51,6 +51,7 @@ class KHSImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailu
 
     public function onFailure(Failure ...$failures)
     {
+        dd($failures);
     }
 
     /**
@@ -66,7 +67,7 @@ class KHSImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFailu
      */
     public function onError(Throwable $e)
     {
-        // TODO: Implement onError() method.
+        dd($e);
     }
 }
 

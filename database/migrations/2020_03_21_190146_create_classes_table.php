@@ -15,8 +15,8 @@ class CreateClassesTable extends Migration
     {
         Schema::create('classes', function (Blueprint $table) {
             $table->bigIncrements('KE_ID');
-            $table->string('KE_KR_MK_ID');
-            $table->foreign('KE_KR_MK_ID')->references('MK_ID')->on('subjects')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('KE_KR_MK_ID')->unique();
+//            $table->foreign('KE_KR_MK_ID')->references('MK_ID')->on('subjects')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('KE_Tahun');
             $table->integer('KE_IDSemester');
             $table->string('KE_Kelas');

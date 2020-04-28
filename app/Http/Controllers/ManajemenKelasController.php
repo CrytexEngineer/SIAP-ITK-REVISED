@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Employee;
-use App\Imports\ClasesImport;
+use App\Imports\ClassesImport;
 use App\Kelas;
 use App\Major;
 use App\Subject;
@@ -149,7 +149,7 @@ class ManajemenKelasController extends Controller
 
     public function import()
     {
-        $data = Excel::import(new ClasesImport(), request()->file('file'));
+        $data = Excel::import(new ClassesImport(), request()->file('file'));
         return back();
     }
 }
