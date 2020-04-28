@@ -15,6 +15,8 @@ class Presence extends Model
     {
         $defaultQuery = "SELECT class_student.KU_ID,
             class_student.KU_KE_KR_MK_ID,
+            subjects.MK_Mata_Kuliah,
+            subjects.MK_KreditKuliah,
             class_student.KU_KE_Kelas,
             employees.PE_NamaLengkap,
             t3.KE_Terisi,
@@ -32,7 +34,8 @@ class Presence extends Model
                   GROUP BY meetings.PT_KE_ID
              ) as t3  on t3.KE_KR_MK_ID=class_student.KU_KE_KR_MK_ID
              JOIN(students) ON class_student.KU_MA_Nrp= students.MA_Nrp
-              JOIN (employees)ON employees.PE_Nip=t3.KE_PE_NIPPengajar";
+              JOIN (employees)ON employees.PE_Nip=t3.KE_PE_NIPPengajar
+                JOIN (subjects)ON subjects.MK_ID=t3.KE_KR_MK_ID";
 
         $order = "ORDER BY class_student.KU_KE_KR_MK_ID, class_student.KU_MA_Nrp";
 
@@ -66,7 +69,7 @@ class Presence extends Model
 
     static function index($params = array())
     {
-        return DB::select ("SELECT presences.*, meetings.PT_Name,meetings.PT_Type from presences
+        return DB::select("SELECT presences.*, meetings.PT_Name,meetings.PT_Type from presences
          JOIN class_student on class_student.KU_ID=presences.PR_KU_ID
          JOIN meetings on meetings.PT_ID = presences.PR_PT_ID
          JOIN classes on presences.PR_KE_ID=classes.KE_ID WHERE
