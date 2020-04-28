@@ -21,7 +21,7 @@
                         <table class="table table-bordered" id="users-table" style="overflow-x:auto;">
                             <thead>
                             <tr>
-                                <th>NIM</th>
+                                <th width="50">NIM</th>
                                 <th>Nama</th>
                                 <th>Email</th>
                                 <th>Prodi/TPB</th>
@@ -30,6 +30,16 @@
                                 <th width="50">Action</th>
                             </tr>
                             </thead>
+                            <tfoot>
+                            <tr>
+                                <th width="50">NIM</th>
+                                <th>Nama</th>
+                                <th>Email</th>
+                                <th>Prodi/TPB</th>
+                                <th>Tahun Akademik</th>
+                                <th>Mata Kuliah Diambil</th>
+                            </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -45,7 +55,7 @@
             $('#users-table').DataTable({
                 "scrollX": true,
                 processing: true,
-                serverSide: true,
+                serverSide: false,
                 ajax: '/khs/json',
                 columns: [
                     {data: 'MA_NRP_Baru', name: 'MA_NRP_Baru'},
@@ -55,7 +65,27 @@
                     {data: 'KU_KE_Tahun', name: 'KU_KE_Tahun'},
                     {data: 'MK_Mata_Kuliah', name: 'MK_Mata_Kuliah'},
                     {data: 'action', name: 'action'}
-                ]
+                ],
+                initComplete: function () {
+                    this.api().columns().every( function () {
+                        var column = this;
+                        var select = $('<select><option value=""></option></select>')
+                            .appendTo( $(column.footer()).empty() )
+                            .on( 'change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search( val ? '^'+val+'$' : '', true, false )
+                                    .draw();
+                            } );
+
+                        column.data().unique().sort().each( function ( d, j ) {
+                            select.append( '<option value="'+d+'">'+d+'</option>' )
+                        } );
+                    } );
+                }
             });
         });
     </script>

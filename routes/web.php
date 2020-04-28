@@ -106,6 +106,10 @@ Route::resource('/validator',"ManajemenValidatorController");
 Route::get('/rekapitulasi/mahasiswa/json',"RekapitulasiMahasiswaController@json");
 Route::resource('/rekapitulasi/mahasiswa',"RekapitulasiMahasiswaController");
 
+//Rekapitulasi Dosen
+Route::get('/rekapitulasi/dosen/json',"RekapitulasiDosenController@json");
+Route::resource('/rekapitulasi/dosen',"RekapitulasiDosenController");
+
 //Rekapitulasi Pertemuan
 Route::get('/rekapitulasi/pertemuan/json',"RekapitulasiPegawaiController@json");
 Route::resource('/rekapitulasi/pertemuan',"RekapitulasiPegawaiController");

@@ -26,7 +26,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Styles DataTables dont change! -->
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css">
+
+
 
     <link rel="icon" href="{{ URL::asset('/css/favicon.png') }}" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/css/app.css')  }}">
@@ -73,7 +76,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/rekapitulasi/mahasiswa">Rekapitulasi Mahasiswa</a>
-                                <a class="dropdown-item" href="#">Rekapitulasi Dosen</a>
+                                <a class="dropdown-item" href="/rekapitulasi/dosen">Rekapitulasi Dosen</a>
                             </div>
                         </li>
 
