@@ -9,16 +9,18 @@
                     <div class="card-body">
 
                         <?php echo $__env->make('alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                        <?php echo $__env->make('validation_error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
                         <a href="/program_studi/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
+
                         <?php echo $__env->make('program_studi.import', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         <hr>
                         <table class="table table-bordered" id="users-table">
                             <thead>
                             <tr>
-                                <th>Kode Program Studi</th>
+                                <th width="150">Kode Program Studi</th>
                                 <th>Nama Program Studi</th>
-                                <th width="85">Action</th>
+                                <th width="50">Action</th>
                             </tr>
                             </thead>
                         </table>

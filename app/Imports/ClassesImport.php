@@ -34,9 +34,21 @@ class ClassesImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnF
             'KE_Jadwal_JamMulai' => $row['ke_jadwal_jammulai'],
             'KE_Jadwal_JamUsai' => $row['ke_jadwal_jamusai'],
             'KE_Jadwal_Ruangan' => $row['ke_jadwal_ruangan'],
-            'KE_KodeJurusan' => $row['ke_kodejurusan']];
+            'KE_KodeJurusan' => $row['ke_kodejurusan'],
+            'KE_RencanaTatapMuka' => $row['ke_rencanatatapmuka'],
+            'KE_RealisasiTatapMuka' => $row['ke_realisasitatapmuka']];
 
         $kelas = Kelas::where('KE_KR_MK_ID', $row['ke_kr_mk_id'])->where('KE_Kelas', $row['ke_kelas'])->first();
+
+
+//        if ($data['KE_RencanaTatapMuka']!="NULL"){
+//            $data['KE_RencanaTatapMuka']=1;
+//            dd($data);
+//        }
+//
+//        if ($data['KE_RealisasiTatapMuka']=="NULL"){
+//            $data['KE_RencanaTatapMuka']=0;
+//        }
 
 
         if (!$kelas) {

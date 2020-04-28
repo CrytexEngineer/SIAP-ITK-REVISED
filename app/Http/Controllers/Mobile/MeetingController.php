@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Mobile;
 
 
 use App\Http\Controllers\Controller;
-use App\meeting;
+use App\Meeting;
 use App\Presence;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -24,7 +24,7 @@ class MeetingController extends Controller
             'PT_Token' => 'required'
         ]);
 
-        $meetings = meeting::where('PT_Token', trim($request['PT_Token'], '"'))->get()->first();
+        $meetings = Meeting::where('PT_Token', trim($request['PT_Token'], '"'))->get()->first();
 
         if ($meetings) {
             date_default_timezone_set("Asia/Kuala_Lumpur");

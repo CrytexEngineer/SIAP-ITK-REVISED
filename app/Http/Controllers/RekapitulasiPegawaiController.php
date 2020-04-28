@@ -2,23 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Meeting;
-use App\Presence;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
+use App\Meeting;
 
-class ManajemenPertemuanController extends Controller
+class RekapitulasiPegawaiController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    function json(){
+        return Datatables::of(Meeting::count(array('KE_KodeJurusan'=>11110)))
+
+//            ->addColumn('action', function ($row) {
+//                $action = '<a href="/Khs/' . $row->KU_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+//                $action .= \Form::open(['url' => 'Khs/' . $row->KU_ID, 'method' => 'delete', 'style' => 'float:right']);
+//                $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
+//                $action .= \Form::close();
+//                return $action;
+//            })
+            ->make(true);
+
+
+
+
+
+    }
+
     public function index()
     {
-        //
+
     }
 
     /**
@@ -86,6 +103,4 @@ class ManajemenPertemuanController extends Controller
     {
         //
     }
-
-
 }

@@ -1,3 +1,6 @@
+<script src="https://cdn.rawgit.com/ashl1/datatables-rowsgroup/fbd569b8768155c7a9a62568e66a64115887d7d0/dataTables.rowsGroup.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+
 @extends('layouts.app')
 @section('title','Rekapitulasi Kehadiran Mahasiswa')
 @section('content')
@@ -16,8 +19,8 @@
                             <tr>
 {{--                                <th>No.</th>--}}
                                 <th>Kode Mata Kuliah</th>
-{{--                                <th>Mata Kuliah</th>--}}
-{{--                                <th>SKS</th>--}}
+                                <th>Mata Kuliah</th>
+                                <th>SKS</th>
                                 <th>Kelas</th>
                                 <th>Dosen Pengampu</th>
                                 <th>Jumlah Peserta</th>
@@ -62,11 +65,12 @@
                 processing: true,
                 serverSide: true,
                 ajax: '/rekapitulasi/mahasiswa/json',
+                'rowsGroup': [0],
                 columns: [
                     //NO
                     {data: 'KU_KE_KR_MK_ID', name: 'KU_KE_KR_MK_ID'},
-                    //NAMA MATA KULIAH
-                    //SKS
+                       {data: 'MK_Mata_Kuliah', name: 'MK_Mata_Kuliah'},
+                        {data: 'MK_KreditKuliah', name: 'MK_KreditKuliah'},
                     {data: 'KU_KE_Kelas', name: 'KU_KE_Kelas'},
                     {data: 'PE_NamaLengkap', name: 'PE_NamaLengkap'},
                     {data: 'KE_Terisi', name: 'KE_Terisi'},
