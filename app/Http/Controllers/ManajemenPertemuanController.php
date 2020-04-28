@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\meeting;
+use App\Meeting;
 use App\Presence;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

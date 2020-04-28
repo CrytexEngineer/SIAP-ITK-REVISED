@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class meeting extends Model
+class Meeting extends Model
 {
     protected $primaryKey = 'PT_ID';
 
@@ -27,12 +27,10 @@ class meeting extends Model
 
         $filter = null;
         if (isset($params['KE_KodeJurusan'])) {
-            $filter = " WHERE classes.KE_KodeJurusan=" . $params['KE_KodeJurusan'];
+            $filter = "WHERE classes.KE_KodeJurusan=" . $params['KE_KodeJurusan'];
         }
 
-        if ($filter){
         return DB::select($defaultQuery . " " . $filter . " " . $group . " " . $order);}
 
-        return DB::select($defaultQuery . " " ,m m. $group . " " . $order);
-    }
+
 }

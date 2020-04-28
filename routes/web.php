@@ -102,9 +102,13 @@ Route::post('/akunmahasiswa/import', 'ManajemenAkunMahasiswaController@import')-
 //Operasi QR
 Route::resource('/validator',"ManajemenValidatorController");
 
-//Rekapitulasi
+//Rekapitulasi Mahasiswa
 Route::get('/rekapitulasi/mahasiswa/json',"RekapitulasiMahasiswaController@json");
 Route::resource('/rekapitulasi/mahasiswa',"RekapitulasiMahasiswaController");
+
+//Rekapitulasi Pertemuan
+Route::get('/rekapitulasi/pertemuan/json',"RekapitulasiPegawaiController@json");
+Route::resource('/rekapitulasi/pertemuan',"RekapitulasiPegawaiController");
 
 //Multi-user Management
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
