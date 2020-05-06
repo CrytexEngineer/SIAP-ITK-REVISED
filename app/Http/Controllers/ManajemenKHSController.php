@@ -9,7 +9,6 @@ use App\Imports\KHSimportimplements;
 use App\Kelas;
 use App\Khs;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 

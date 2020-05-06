@@ -50,21 +50,9 @@ Auth::routes();
 
 Route::get('/register/mahasiswa', 'RegisterMahasiswaController@showRegistrationForm')->name('register/mahasiswa');
 Route::get('/register/pegawai', 'RegisterPegawaiController@showRegistrationForm');
-
-
-
-
 Route::get('/akunpegawai/json', 'ManajemenAkunPegawaiController@json');
-
-
-
-
-
 Route::resource('/register/pegawai', 'RegisterPegawaiController');
-
 Route::resource('/mahasiswa/mahasiswa', 'ManajemenAkunMahasiswaController');
-
-
 
 //Program Studi
 Route::resource('/program_studi', 'ManajemenProgramStudiController');
@@ -98,6 +86,12 @@ Route::get('/akunmahasiswa/json', 'ManajemenAkunMahasiswaController@json');
 Route::resource('/akunmahasiswa', 'ManajemenAkunMahasiswaController');
 Route::post('/akunmahasiswa/import', 'ManajemenAkunMahasiswaController@import')->name('import_mahasiswa');
 
+//Dosen
+Route::get('jadwal_mengajar','DosenController@jadwal_mengajar');
+Route::get('jadwal_mengajar/json','DosenController@jadwal_mengajar_json');
+Route::post('/kehadiran/update','KehadiranController@update');
+Route::post('kehadiran/{id_jadwal}','KehadiranController@store');
+Route::get('/kehadiran/{id_kehadiran}/absen','KehadiranController@show');
 
 //Operasi QR
 Route::resource('/validator',"ManajemenValidatorController");
@@ -118,3 +112,7 @@ Route::resource('/rekapitulasi/pertemuan',"RekapitulasiPegawaiController");
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
     Route::resource('/users', 'UsersController', ['except' => ['show','create', 'store']]);
 });
+
+//ResetPassword
+Route::get('reset_password','AturUlangPasswordController@index');
+
