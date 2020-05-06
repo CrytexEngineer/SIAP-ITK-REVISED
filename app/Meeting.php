@@ -12,16 +12,20 @@ class Meeting extends Model
 
     static function count($params = array())
     {
-        $defaultQuery = "SELECT  classes.KE_ID,employees.PE_NamaLengkap,classes.KE_Tahun,
-        subjects.MK_Mata_Kuliah,subjects.MK_Mata_Kuliah,classes.KE_Kelas,
+        $defaultQuery = "SELECT  classes.KE_ID,employees.PE_NamaLengkap,t2.tim_dosen,classes.KE_KR_MK_ID,
+        subjects.MK_Mata_Kuliah,subjects.MK_Mata_Kuliah,subjects.MK_KreditKuliah,classes.KE_Kelas,
         classes.KE_Terisi,classes.KE_RencanaTatapMuka,
               COUNT(*) as KE_RealisasiTatapMuka,
               (COUNT(*)/classes.KE_RencanaTatapMuka*100)as KE_Prosentase FROM meetings
               RIGHT JOIN classes ON meetings.PT_KE_ID=classes.KE_ID
               JOIN subjects on subjects.MK_ID=classes.KE_KR_MK_ID
-              JOIN employees on employees.PE_Nip=classes.KE_PE_NIPPengajar";
+              JOIN employees on employees.PE_Nip=classes.KE_PE_NIPPengajar
+              LEFT JOIN (SELECT classes.KE_ID , GROUP_CONCAT(t1.PE_NamaLengkap SEPARATOR ', ') as tim_dosen FROM classes
+                JOIN (SELECT class_employee.classes_KE_ID , employees.PE_NamaLengkap FROM class_employee JOIN employees on employees.PE_Nip= class_employee.employee_PE_Nip )AS t1 ON classes.KE_ID= t1.classes_KE_ID
+             GROUP BY t1.classes_KE_ID) as t2 on classes.KE_ID = t2.KE_ID
+              ";
 
-        $order = "ORDER BY classes.KE_KR_MK_ID,employees.PE_Nip";
+        $order = "ORDER BY employees.PE_Nip";
 
         $group = "GROUP BY classes.KE_ID";
 
@@ -30,7 +34,9 @@ class Meeting extends Model
             $filter = "WHERE classes.KE_KodeJurusan=" . $params['KE_KodeJurusan'];
         }
 
-        return DB::select($defaultQuery . " " . $filter . " " . $group . " " . $order);}
+
+        return DB::select($defaultQuery . " " . $filter . " " . $group . " " . $order);
+    }
 
 
 }

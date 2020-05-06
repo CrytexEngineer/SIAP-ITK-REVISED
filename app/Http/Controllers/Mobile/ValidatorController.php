@@ -37,7 +37,7 @@ class ValidatorController extends Controller
             $isExpired = ($expiredTime - $currentTime);
 
             if ($isExpired < 0) {
-                $properties['msg'] = 'Token Kadaluarsa, Silahkan Scan Ulang Kode QR';
+                $properties['msg'] = 'Token Kadaluarsa';
                 $response=['properties'=>[$properties]];
                 return response()->json($response, Response::HTTP_OK);
             }
@@ -56,7 +56,7 @@ class ValidatorController extends Controller
             return response()->json($response, Response::HTTP_ACCEPTED);
         }
 
-        $properties['msg'] = "Kode QR Tidak Ditemukan, Silahkan Scan Ulang Kode QR";
+        $properties['msg'] = "Kode QR Tidak Ditemukan";
         return response()->json(['properties' => [$properties]], Response::HTTP_OK);
     }
 }

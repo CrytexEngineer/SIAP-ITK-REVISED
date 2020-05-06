@@ -75,7 +75,7 @@ class MeetingController extends Controller
                             'PR_PT_ID' => $meetings['PT_ID'],
                             'PR_KE_ID'=>$meetings['PT_KE_ID'],
                             'PR_IsLAte' => $latemrker,
-                            'PR_KU_MA_Nrp' => $request->input('MA_Nrp'),
+//                            'PR_KU_MA_Nrp' => $request->input('MA_Nrp'),
                             'PR_Keterangan' => $keterangan,
                             'PR_Type' => $type]);
 

@@ -4,13 +4,12 @@ namespace App\Http\Controllers\Mobile;
 
 
 use App\Http\Controllers\Controller;
-use App\Student;
-use Illuminate\Http\Request;
-use Carbon\Carbon;
 use App\Notifications\PasswordResetRequest;
 use App\Notifications\PasswordResetSuccess;
-use App\User;
 use App\PasswordReset;
+use App\Student;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class PasswordResetController extends Controller
 {
@@ -28,7 +27,7 @@ class PasswordResetController extends Controller
         ]);
 
 
-        $user = Student::where('email',  trim($request['MA_Email'], '"'))->first();
+        $user = Student::where('email', trim($request['MA_Email'], '"'))->first();
 
         if (!$user)
             return response()->json([
@@ -45,7 +44,7 @@ class PasswordResetController extends Controller
 
         return response()->json([
             'message' => __('passwords.sent'),
-            'user'=>[$user]
+            'user' => [$user]
         ]);
     }
 
@@ -88,22 +87,24 @@ class PasswordResetController extends Controller
     public function reset(Request $request)
     {
         $request->validate([
-            'MA_Email' => 'required|string|email',
-            'MA_PASSWORD' => 'required|string|confirmed',
+            'email' => 'required|string|email',
+            'password' => 'required|string|confirmed',
             'token' => 'required|string'
         ]);
 
         $passwordReset = PasswordReset::where([
             ['token', $request->token],
-            ['email', $request->MA_Email]
+            ['email', $request->email]
         ])->first();
 
+        dd($request->all());
         if (!$passwordReset)
             return response()->json([
                 'message' => __('passwords.token')
             ], 200);
 
-        $user = Student::where('MA_Email', $passwordReset->MA_Email)->first();
+
+        $user = Student::where('email', $passwordReset->email)->first();
 
         if (!$user)
             return response()->json([
@@ -119,4 +120,11 @@ class PasswordResetController extends Controller
 
         return response()->json($user);
     }
+
+    public function showForm($token)
+    {
+
+        return view('resetPassword.index')->with($token);
+    }
 }
+

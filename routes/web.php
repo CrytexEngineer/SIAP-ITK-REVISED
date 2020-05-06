@@ -115,6 +115,9 @@ Route::get('/rekapitulasi/pertemuan/json',"RekapitulasiPegawaiController@json");
 Route::resource('/rekapitulasi/pertemuan',"RekapitulasiPegawaiController");
 
 //Multi-user Management
-Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
-    Route::resource('/users', 'UsersController', ['except' => ['show','create', 'store']]);
-});
+//Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
+//    Route::resource('/users', 'UsersController', ['except' => ['show','create', 'store']]);
+//});
+
+//reset password
+Route::GET('password/form/{token}', 'Mobile\PasswordResetController@showForm');

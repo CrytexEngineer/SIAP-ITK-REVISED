@@ -38,6 +38,23 @@
                                 <th width="70">Action</th>
                             </tr>
                             </thead>
+                            <tfoot>
+                            <tr>
+                                <th>Matakuliah</th>
+                                <th>Kelas</th>
+                                <th>Ruangan</th>
+                                <th>Program Studi</th>
+                                <th>Tahun</th>
+                                <th>Semester</th>
+                                <th>Daya Tampung</th>
+                                <th>Jumlah Kelas Terisi</th>
+                                <th>NIP Pengajar</th>
+                                <th>Nama Pengajar</th>
+                                <th>Hari</th>
+                                <th>Jam Mulai</th>
+                                <th>Jam Usai</th>
+                            </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -53,7 +70,7 @@
             $('#users-table').DataTable({
                 "scrollX": true,
                 processing: true,
-                serverSide: true,
+                serverSide: false,
                 ajax: '/kelas/json',
                 columns: [
                  {data: 'KE_KR_MK_ID', name: 'KE_KR_MK_ID'},
@@ -73,7 +90,27 @@
                     {data: 'KE_Jadwal_JamMulai', name: 'KE_Jadwal_JamMulai'},
                     {data: 'KE_Jadwal_JamUsai', name: 'KE_Jadwal_JamUsai'},
                     {data: 'action', name: 'action'}
-                ]
+                ],
+                initComplete: function () {
+                    this.api().columns().every( function () {
+                        var column = this;
+                        var select = $('<select><option value=""></option></select>')
+                            .appendTo( $(column.footer()).empty() )
+                            .on( 'change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search( val ? '^'+val+'$' : '', true, false )
+                                    .draw();
+                            } );
+
+                        column.data().unique().sort().each( function ( d, j ) {
+                            select.append( '<option value="'+d+'">'+d+'</option>' )
+                        } );
+                    } );
+                }
             });
         });
 

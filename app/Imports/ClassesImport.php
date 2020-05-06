@@ -63,7 +63,8 @@ class ClassesImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnF
     {
         return [
             'ke_kr_mk_id' => ['required'],
-            'ke_pe_nippengajar' => 'required',
+            'ke_pe_nippengajar' => 'required| exists:employees,PE_Nip'
+
 
         ];
     }
@@ -88,6 +89,6 @@ class ClassesImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnF
     public function onError(Throwable $e)
     {
         dd($e);
-        // TODO: Implement onError() method.
+
     }
 }

@@ -42,7 +42,7 @@ class PasswordResetRequest extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
-        $url = url('/api/v1/mobile/password/find/' . $this->token);
+        $url = url('/password/form/' . $this->token);
 
 
         return (new MailMessage)
