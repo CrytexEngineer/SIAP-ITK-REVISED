@@ -23,9 +23,11 @@ class EmployeesImport implements ToModel, WithHeadingRow, WithValidation, SkipsO
 
     public function model(array $row)
     {
+        $defaultpPassword="$2y$10$7TJnur9vdH.8kOZC5/ZqT.ZhJkx9W4fTNn3iIlo92.qiEVt1LoTMy";
         $data = ['PE_Nip' => $row['pe_nip'],
             'PE_NamaLengkap' => $row['pe_namalengkap'],
             'PE_Nama' => $row['pe_nama'],
+            'password'=>$defaultpPassword
         ];
 
         if ($row['pe_email']!=null) {
