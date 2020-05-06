@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Imports\ClassesImport;
-use Illuminate\Support\Facades\DB;
 use App\Imports\KHSImport;
 use App\Imports\KHSimportimplements;
-use App\Kelas;
 use App\Khs;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;

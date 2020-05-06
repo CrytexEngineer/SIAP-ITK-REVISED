@@ -14,16 +14,17 @@ class LoginController
 
     public function login(Request $request)
     {
-        $this->properties = ['msg' => 'Credentials Tidak Ditemukan',
-            'href' => "api/v1/mobile/login",
-            'method' => 'POST'
-        ];
 
         $request->validate([
             'MA_Email' => 'required',
             'MA_PASSWORD' => 'required',
             'MA_IMEI' => 'required'
         ]);
+
+        $this->properties = ['msg' => 'Credentials Tidak Ditemukan',
+            'href' => "api/v1/mobile/login",
+            'method' => 'POST'
+        ];
 
 
         $credential = $request->all();
