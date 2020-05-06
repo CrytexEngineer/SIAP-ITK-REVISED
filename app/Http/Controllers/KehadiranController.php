@@ -8,15 +8,19 @@ use Illuminate\Http\Request;
 class KehadiranController extends Controller
 {
     function index($id_jadwal){
-        $jadwal = \DB::table('jadwal_kuliah')
-            ->join('dosen','dosen.kode_dosen','=','jadwal_kuliah.kode_dosen')
-            ->join('matakuliah','matakuliah.kode_mk','=','jadwal_kuliah.kode_mk')
-            ->where('id',$id_jadwal)->first();
+        $jadwal = \DB::table('classes')
+            ->join('employees','employees.PE_Nip','=','classes.KE_PE_NIPPengajar')
+            ->join('subjects','subjects.MK_ID','=','classes.KE_KR_MK_ID')
+            ->where('KE_ID',$id_jadwal)->first();
 
-        $data['mahasiswa'] = \DB::table('khs')
-            ->join('mahasiswa','mahasiswa.nim','=','khs.nim')
-            ->where('khs.kode_dosen',$jadwal->kode_dosen)
-            ->where('khs.kode_mk',$jadwal->kode_mk)
+
+        $data['mahasiswa'] = \DB::table('class_student')
+            ->join('students','students.MA_Nrp','=','class_student.KU_MA_Nrp')
+            ->join('classes','classes.KE_KR_MK_ID','=','class_student.KU_KE_KR_MK_ID')
+            ->where('class_student.KU_KE_Kelas',$jadwal->KE_Kelas)
+            ->where('classes.KE_PE_NIPPengajar',$jadwal->PE_Nip)
+            ->where('class_student.KU_KE_KR_MK_ID',$jadwal->MK_ID)
+            ->where('classes.KE_Terisi',$jadwal->KE_Terisi)
             ->get();
         $data['jadwal']    = $jadwal;
         return view('kehadiran.index',$data);

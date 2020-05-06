@@ -15,9 +15,10 @@
                         @endif
 
                         <table class="table table-bordered">
-                            <tr><td width="270">Kode Matakuliah</td><td>{{ $jadwal->kode_mk}}</td></tr>
-                            <tr><td>Nama Matakuliah</td><td>{{ $jadwal->nama_mk}}</td></tr>
-                            <tr><td>Nama Dosen</td><td>{{ $jadwal->nama}}</td></tr>
+                            <tr><td width="270">Kode Matakuliah</td><td>{{ $jadwal->MK_ID}}</td></tr>
+                            <tr><td>Nama Matakuliah</td><td>{{ $jadwal->MK_Mata_Kuliah}}</td></tr>
+                            <tr><td>Nama Dosen</td><td>{{ $jadwal->KE_Kelas}}</td></tr>
+                            <tr><td>Nama Dosen</td><td>{{ $jadwal->PE_NamaLengkap}}</td></tr>
                         </table>
 
                         <a href="/jadwal_mengajar" class="btn btn-danger"><i class="fas fa-backward"></i> Kembali</a>
@@ -26,7 +27,7 @@
                         <table class="table table-bordered">
                             <tr>
                                 <th>NIM</th>
-                                <th>Nama Mahassiwa</th>
+                                <th>Nama Mahasiswa</th>
                                 <?php for($pertemuan=1;$pertemuan<=16;$pertemuan++)
                                 {
                                     echo "<th>$pertemuan</th>";
@@ -35,13 +36,13 @@
                             </tr>
                             @foreach($mahasiswa as $row)
                                 <tr>
-                                    <td>{{ $row->nim}}</td>
-                                    <td>{{ $row->nama_mahasiswa}}</td>
-                                    <?php for($pertemuan=1;$pertemuan<=16;$pertemuan++)
-                                    {
-                                        echo "<td>".chek_kehadiran($row->nim,Request::segment(2),$pertemuan)."</td>";
-                                    }
-                                    ?>
+                                    <td>{{ $row->MA_NRP_Baru}}</td>
+                                    <td>{{ $row->MA_NamaLengkap}}</td>
+<!--                                    --><?php //for($pertemuan=1;$pertemuan<=16;$pertemuan++)
+//                                    {
+//                                        echo "<td>".chek_kehadiran($row->nim,Request::segment(2),$pertemuan)."</td>";
+//                                    }
+//                                    ?>
                                 </tr>
                             @endforeach
                         </table>

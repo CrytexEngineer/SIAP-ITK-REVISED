@@ -14,7 +14,6 @@ class  DosenController extends Controller
     }
 
     function jadwal_mengajar_json(){
-//        dd('classes.KE_PE_NIPPengajarIndeks');
         $jadwal = \DB::table('classes')
             ->join('subjects','subjects.MK_ID','=','classes.KE_KR_MK_ID')
             ->join('days','days.id','=','classes.KE_Jadwal_IDHari')
