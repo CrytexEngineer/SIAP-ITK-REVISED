@@ -78,7 +78,7 @@ Route::post('/khs/import','ManajemenKHSController@import')->name('import_khs');
 
 //Pegawai
 Route::get('/akunpegawai/json', 'ManajemenAkunPegawaiController@json');
-Route::resource('/akunpegawai', 'ManajemenAkunPegawaiController');
+Route::resource('/akunpegawai', 'ManajemenAkunPegawaiController')->name('*','admin.users.index');
 Route::post('/akunpegawai/import','ManajemenAkunPegawaiController@import')->name('import_employee');
 
 //Mahasiswa

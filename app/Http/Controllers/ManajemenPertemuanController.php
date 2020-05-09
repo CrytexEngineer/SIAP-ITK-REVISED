@@ -45,13 +45,44 @@ class ManajemenPertemuanController extends Controller
         $request->validate([
             'PT_KE_ID' => ['required', 'integer'],
             'PT_Name' => ['required', 'string', 'max:255'],
-            'PT_Types' => ['required', 'string', 'max:255' ],
-            'PT_Notes' => ['required', 'string', 'max:255' ]
+            'PT_Types' => ['required', 'string', 'max:255'],
+            'PT_Notes' => ['required', 'string', 'max:255']
         ]);
 
-        $kelas=Kelas::find($request->PT_KE_ID);
-        $token= $this->getMeetingToken(16);
-        $isLate="NOT LATE";
+        $kelas = Kelas::find($request->PT_KE_ID);
+        $token = $this->getMeetingToken(16);
+        $isLate = "NOT LATE";
+
+        if ($kelas) {
+
+            date_default_timezone_set("Asia/Kuala_Lumpur");
+            $lateDay = strtotime($kelas['KE_Jadwal_IDHari']);
+            $currentDay = $dayOfTheWeek = Carbon::now()->dayOfWeek;
+            $lateTime = strtotime($kelas['KE_Jadwal_JamUsai']);
+            $currentTime = strtotime(date('H:i:s'));
+
+            if ($lateDay == $currentDay) {
+
+                if ($currentTime > $lateTime) {
+                    $isLate = "LATE";
+                }
+            } else {
+                $isLate = "LATE";
+            }
+
+            $meeting = new Meeting([
+                'PT_KE_ID' => $request->PT_KE_ID,
+                'PT_Name' => $request->PT_Name,
+                'PT_Token' => $token,
+                'PT_isLate' => $isLate,
+                'PT_Types' => $request->PT_Types,
+                'PT_Notes' => $request->PT_Notes,
+            ]);
+        } else {
+
+            return redirect()->back(404);
+
+        }
 
 
     }
