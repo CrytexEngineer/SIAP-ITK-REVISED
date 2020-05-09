@@ -17,7 +17,7 @@
                         <table class="table table-bordered">
                             <tr><td width="270">Kode Matakuliah</td><td>{{ $jadwal->MK_ID}}</td></tr>
                             <tr><td>Nama Matakuliah</td><td>{{ $jadwal->MK_Mata_Kuliah}}</td></tr>
-                            <tr><td>Nama Dosen</td><td>{{ $jadwal->KE_Kelas}}</td></tr>
+                            <tr><td>Kelas</td><td>{{ $jadwal->KE_Kelas}}</td></tr>
                             <tr><td>Nama Dosen</td><td>{{ $jadwal->PE_NamaLengkap}}</td></tr>
                         </table>
 
@@ -38,11 +38,11 @@
                                 <tr>
                                     <td>{{ $row->MA_NRP_Baru}}</td>
                                     <td>{{ $row->MA_NamaLengkap}}</td>
-<!--                                    --><?php //for($pertemuan=1;$pertemuan<=16;$pertemuan++)
-//                                    {
+                                    <?php for($pertemuan=1;$pertemuan<=16;$pertemuan++)
+                                    {
 //                                        echo "<td>".chek_kehadiran($row->nim,Request::segment(2),$pertemuan)."</td>";
-//                                    }
-//                                    ?>
+                                    }
+                                    ?>
                                 </tr>
                             @endforeach
                         </table>

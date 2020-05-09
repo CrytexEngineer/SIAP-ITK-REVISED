@@ -7816,17 +7816,20 @@ esources\\views/resetPassword/index.blade.php(12): Illuminate\\Foundation\\Boots
 #41 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #42 {main}
 "} 
-[2020-05-09 04:23:12] local.ERROR: Route [admin.users.index] not defined. (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\layouts\app.blade.php) {"userId":111111,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [admin.users.index] not defined. (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\\layouts\\app.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:420)
+[2020-05-09 04:23:12] local.ERROR: Route [admin.users.index] not defined. (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\layouts\app.blade.php) {"userId":111111,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [admin.users.index] not defined. (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\\layouts\\app.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:420)
 [stacktrace]
 #0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(777): Illuminate\\Routing\\UrlGenerator->route('admin.users.ind...', Array, true)
-#1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/layouts/app.blade.php(105): route('admin.users.ind...')
+#1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/layouts/app.blade.php(105): route('admin.users.ind...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #4 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
 #5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(143): Facade\\Ignition\\Views\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
 #6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(126): Illuminate\\View\\View->getContents()
 #7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(91): Illuminate\\View\\View->renderContents()
-#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/home.blade.php(24): Illuminate\\View\\View->render()
+#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/home.blade.php(24): Illuminate\\View\\View->render()
 #9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -7942,17 +7945,20 @@ esources\\views/resetPassword/index.blade.php(12): Illuminate\\Foundation\\Boots
 #58 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #59 {main}
 "} 
-[2020-05-09 04:23:38] local.ERROR: Route [admin.users.index] not defined. (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\layouts\app.blade.php) {"userId":111111,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [admin.users.index] not defined. (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\\layouts\\app.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:420)
+[2020-05-09 04:23:38] local.ERROR: Route [admin.users.index] not defined. (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\layouts\app.blade.php) {"userId":111111,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [admin.users.index] not defined. (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\\layouts\\app.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:420)
 [stacktrace]
 #0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(777): Illuminate\\Routing\\UrlGenerator->route('admin.users.ind...', Array, true)
-#1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/layouts/app.blade.php(105): route('admin.users.ind...')
+#1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/layouts/app.blade.php(105): route('admin.users.ind...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #4 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
 #5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(143): Facade\\Ignition\\Views\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
 #6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(126): Illuminate\\View\\View->getContents()
 #7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(91): Illuminate\\View\\View->renderContents()
-#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/home.blade.php(24): Illuminate\\View\\View->render()
+#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/home.blade.php(24): Illuminate\\View\\View->render()
 #9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -8068,9 +8074,11 @@ esources\\views/resetPassword/index.blade.php(12): Illuminate\\Foundation\\Boots
 #58 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #59 {main}
 "} 
-[2020-05-09 04:30:18] local.ERROR: Too few arguments to function Illuminate\Routing\PendingResourceRegistration::name(), 1 passed in D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\routes\web.php on line 81 and exactly 2 expected {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): Too few arguments to function Illuminate\\Routing\\PendingResourceRegistration::name(), 1 passed in D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\web.php on line 81 and exactly 2 expected at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\PendingResourceRegistration.php:109)
+[2020-05-09 04:30:18] local.ERROR: Too few arguments to function Illuminate\Routing\PendingResourceRegistration::name(), 1 passed in D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\routes\web.php on line 81 and exactly 2 expected {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): Too few arguments to function Illuminate\\Routing\\PendingResourceRegistration::name(), 1 passed in D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\web.php on line 81 and exactly 2 expected at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\PendingResourceRegistration.php:109)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\web.php(81): Illuminate\\Routing\\PendingResourceRegistration->name('admin.users.ind...')
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\web.php(81): Illuminate\\Routing\\PendingResourceRegistration->name('admin.users.ind...')
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteFileRegistrar.php(35): require('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(416): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\Arsip Tugas\\\\...')
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes('D:\\\\Arsip Tugas\\\\...')
@@ -8105,17 +8113,20 @@ esources\\views/resetPassword/index.blade.php(12): Illuminate\\Foundation\\Boots
 #32 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #33 {main}
 "} 
-[2020-05-09 04:33:00] local.ERROR: Route [admin.users.index] not defined. (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\layouts\app.blade.php) {"userId":111111,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [admin.users.index] not defined. (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\\layouts\\app.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:420)
+[2020-05-09 04:33:00] local.ERROR: Route [admin.users.index] not defined. (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\layouts\app.blade.php) {"userId":111111,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [admin.users.index] not defined. (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\\layouts\\app.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:420)
 [stacktrace]
 #0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(777): Illuminate\\Routing\\UrlGenerator->route('admin.users.ind...', Array, true)
-#1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/layouts/app.blade.php(105): route('admin.users.ind...')
+#1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/layouts/app.blade.php(105): route('admin.users.ind...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #4 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
 #5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(143): Facade\\Ignition\\Views\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
 #6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(126): Illuminate\\View\\View->getContents()
 #7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(91): Illuminate\\View\\View->renderContents()
-#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/home.blade.php(24): Illuminate\\View\\View->render()
+#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/home.blade.php(24): Illuminate\\View\\View->render()
 #9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
