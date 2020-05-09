@@ -1,11 +1,13 @@
 @extends('layouts.dosen')
-@section('title','Daftar Hadir Mahasiswa')
+@section('title','Riwayat Pertemuan')
 @section('content')
+    @foreach($pertemuan as $row)
+    <br>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Catatan Pertemuan Perkuliahan</div>
+                    <div class="card-header">Riwayat Pertemuan ke-{{$row->pertemuan_ke}} Perkuliahan</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -27,13 +29,12 @@
                                 <td>
                                     {{ $pertemuan_ke }} {{ Form::hidden('pertemuan_ke',$pertemuan_ke )}}
                                 </td></tr>
-                            <tr><td>Jenis Kelas</td><td>{{ Form::select('PT_Type',['Reguler'=>'Reguler','Praktikum'=>'Praktikum','Seminar'=>'Seminar'],'reguler')}}</td></tr>
-                            <tr><td>Topik</td><td>{{ Form::text('PT_Name',null,['class'=>'form-control','placeholder'=>'Topik Pembahasan'])}}</td></tr>
-                            <tr><td>Catatan</td><td>{{ Form::textarea('PT_Notes',null,['class'=>'form-control','placeholder'=>'Catatan Kelas'])}}</td></tr>
+                            <tr><td>Jenis Kelas</td><td>{{ $pertemuan->PT_Type }}</td></tr>
+                            <tr><td>Topik</td><td>{{ $pertemuan->PT_Name}}</td></tr>
+                            <tr><td>Catatan</td><td>{{ $pertemuan->PT_Notes }}</td></tr>
                             <tr><td></td>
                                 <td>
-                                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Simpan</button>
-                                    <button type="submit" class="btn btn-primary"><i class="fas fa-qrcode"></i> Show QR Code</button>
+                                    <a href="#" class="btn btn-danger"><i class="fas fa-qrcode"></i> Show QR Code</a>
                                 </td>
                             </tr>
                         </table>
@@ -43,4 +44,5 @@
             </div>
         </div>
     </div>
+    @endforeach
 @endsection
