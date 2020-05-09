@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Employee extends Authenticatable
 {
 
-    protected $fillable = ['PE_Nip', 'PE_Nama', 'PE_NamaLengkap', 'PE_Email'];
+    protected $fillable = ['PE_Nip', 'PE_Nama', 'PE_NamaLengkap', 'PE_Email','password'];
 
     protected $primaryKey = 'PE_Nip';
     public $incrementing = false;

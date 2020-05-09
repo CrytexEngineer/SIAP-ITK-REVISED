@@ -2243,11 +2243,13 @@ Did you mean one of these?
 #5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(446): Illuminate\\Routing\\Router->createRoute(Array, 'notification', Array)
 #6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(145): Illuminate\\Routing\\Router->addRoute(Array, 'notification', 'Mobile\\\\MobileNo...')
 #7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->get('notification', 'Mobile\\\\MobileNo...')
-#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
+#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
 #9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #13 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteFileRegistrar.php(35): require('D:\\\\Arsip Tugas\\\\...')
 #14 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(416): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\Arsip Tugas\\\\...')
 #15 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes('D:\\\\Arsip Tugas\\\\...')
@@ -2292,11 +2294,13 @@ Did you mean one of these?
 #5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(446): Illuminate\\Routing\\Router->createRoute(Array, 'notification', Array)
 #6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(145): Illuminate\\Routing\\Router->addRoute(Array, 'notification', 'Mobile\\\\MobileNo...')
 #7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->get('notification', 'Mobile\\\\MobileNo...')
-#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
+#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
 #9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #13 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteFileRegistrar.php(35): require('D:\\\\Arsip Tugas\\\\...')
 #14 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(416): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\Arsip Tugas\\\\...')
 #15 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes('D:\\\\Arsip Tugas\\\\...')
@@ -2341,11 +2345,13 @@ Did you mean one of these?
 #5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(446): Illuminate\\Routing\\Router->createRoute(Array, 'notification', Array)
 #6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(145): Illuminate\\Routing\\Router->addRoute(Array, 'notification', 'Mobile\\\\MobileNo...')
 #7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->get('notification', 'Mobile\\\\MobileNo...')
-#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
+#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
 #9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #13 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteFileRegistrar.php(35): require('D:\\\\Arsip Tugas\\\\...')
 #14 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(416): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\Arsip Tugas\\\\...')
 #15 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes('D:\\\\Arsip Tugas\\\\...')
@@ -2390,11 +2396,13 @@ Did you mean one of these?
 #5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(446): Illuminate\\Routing\\Router->createRoute(Array, 'notification', Array)
 #6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(145): Illuminate\\Routing\\Router->addRoute(Array, 'notification', 'Mobile\\\\MobileNo...')
 #7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->get('notification', 'Mobile\\\\MobileNo...')
-#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
+#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
 #9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #13 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteFileRegistrar.php(35): require('D:\\\\Arsip Tugas\\\\...')
 #14 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(416): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\Arsip Tugas\\\\...')
 #15 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes('D:\\\\Arsip Tugas\\\\...')
@@ -2439,11 +2447,13 @@ Did you mean one of these?
 #5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(446): Illuminate\\Routing\\Router->createRoute(Array, 'notification', Array)
 #6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(145): Illuminate\\Routing\\Router->addRoute(Array, 'notification', 'Mobile\\\\MobileNo...')
 #7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->get('notification', 'Mobile\\\\MobileNo...')
-#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
+#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
 #9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #13 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteFileRegistrar.php(35): require('D:\\\\Arsip Tugas\\\\...')
 #14 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(416): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\Arsip Tugas\\\\...')
 #15 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes('D:\\\\Arsip Tugas\\\\...')
@@ -2486,11 +2496,13 @@ Did you mean one of these?
 #5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(446): Illuminate\\Routing\\Router->createRoute(Array, 'notification', Array)
 #6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(145): Illuminate\\Routing\\Router->addRoute(Array, 'notification', 'Mobile\\\\MobileNo...')
 #7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->get('notification', 'Mobile\\\\MobileNo...')
-#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
+#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
 #9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #13 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteFileRegistrar.php(35): require('D:\\\\Arsip Tugas\\\\...')
 #14 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(416): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\Arsip Tugas\\\\...')
 #15 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes('D:\\\\Arsip Tugas\\\\...')
@@ -2535,11 +2547,13 @@ Did you mean one of these?
 #5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(446): Illuminate\\Routing\\Router->createRoute(Array, 'notification', Array)
 #6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(145): Illuminate\\Routing\\Router->addRoute(Array, 'notification', 'Mobile\\\\MobileNo...')
 #7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->get('notification', 'Mobile\\\\MobileNo...')
-#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
+#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
 #9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #13 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteFileRegistrar.php(35): require('D:\\\\Arsip Tugas\\\\...')
 #14 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(416): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\Arsip Tugas\\\\...')
 #15 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes('D:\\\\Arsip Tugas\\\\...')
@@ -2582,11 +2596,13 @@ Did you mean one of these?
 #5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(446): Illuminate\\Routing\\Router->createRoute(Array, 'notification', Array)
 #6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(145): Illuminate\\Routing\\Router->addRoute(Array, 'notification', 'Mobile\\\\MobileNo...')
 #7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->get('notification', 'Mobile\\\\MobileNo...')
-#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
+#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
 #9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #13 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteFileRegistrar.php(35): require('D:\\\\Arsip Tugas\\\\...')
 #14 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(416): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\Arsip Tugas\\\\...')
 #15 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes('D:\\\\Arsip Tugas\\\\...')
@@ -2629,11 +2645,13 @@ Did you mean one of these?
 #5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(446): Illuminate\\Routing\\Router->createRoute(Array, 'kkk', Array)
 #6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(145): Illuminate\\Routing\\Router->addRoute(Array, 'kkk', 'Mobile\\\\MobileNo...')
 #7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->get('kkk', 'Mobile\\\\MobileNo...')
-#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
+#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
 #9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #13 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteFileRegistrar.php(35): require('D:\\\\Arsip Tugas\\\\...')
 #14 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(416): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\Arsip Tugas\\\\...')
 #15 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes('D:\\\\Arsip Tugas\\\\...')
@@ -2676,11 +2694,13 @@ Did you mean one of these?
 #5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(446): Illuminate\\Routing\\Router->createRoute(Array, 'notification', Array)
 #6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(145): Illuminate\\Routing\\Router->addRoute(Array, 'notification', 'Mobile\\\\MobileNo...')
 #7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->get('notification', 'Mobile\\\\MobileNo...')
-#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
+#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
 #9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #13 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteFileRegistrar.php(35): require('D:\\\\Arsip Tugas\\\\...')
 #14 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(416): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\Arsip Tugas\\\\...')
 #15 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes('D:\\\\Arsip Tugas\\\\...')
@@ -2723,11 +2743,13 @@ Did you mean one of these?
 #5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(446): Illuminate\\Routing\\Router->createRoute(Array, 'notification', Array)
 #6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(145): Illuminate\\Routing\\Router->addRoute(Array, 'notification', 'MobileNotificat...')
 #7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->get('notification', 'MobileNotificat...')
-#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
+#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
 #9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #13 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteFileRegistrar.php(35): require('D:\\\\Arsip Tugas\\\\...')
 #14 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(416): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\Arsip Tugas\\\\...')
 #15 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes('D:\\\\Arsip Tugas\\\\...')
@@ -2770,11 +2792,13 @@ Did you mean one of these?
 #5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(446): Illuminate\\Routing\\Router->createRoute(Array, 'notification', Array)
 #6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(145): Illuminate\\Routing\\Router->addRoute(Array, 'notification', 'Mobile\\\\MobileNo...')
 #7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->get('notification', 'Mobile\\\\MobileNo...')
-#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
+#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
 #9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #13 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteFileRegistrar.php(35): require('D:\\\\Arsip Tugas\\\\...')
 #14 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(416): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\Arsip Tugas\\\\...')
 #15 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes('D:\\\\Arsip Tugas\\\\...')
@@ -2821,11 +2845,13 @@ Did you mean one of these?
 #5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(446): Illuminate\\Routing\\Router->createRoute(Array, 'notification', Array)
 #6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(145): Illuminate\\Routing\\Router->addRoute(Array, 'notification', 'UserNotificatio...')
 #7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->get('notification', 'UserNotificatio...')
-#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
+#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(37): Illuminate\\Support\\Facades\\Facade::__callStatic('GET', Array)
 #9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(39): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #13 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteFileRegistrar.php(35): require('D:\\\\Arsip Tugas\\\\...')
 #14 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(416): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\Arsip Tugas\\\\...')
 #15 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes('D:\\\\Arsip Tugas\\\\...')
@@ -4143,9 +4169,13 @@ Did you mean one of these?
 #36 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #37 {main}
 "} 
-[2020-05-05 06:56:43] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:19)
+[2020-05-05 06:56:43] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:19)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -4229,9 +4259,13 @@ Did you mean one of these?
 #38 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #39 {main}
 "} 
-[2020-05-05 06:56:56] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:19)
+[2020-05-05 06:56:56] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:19)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -4315,9 +4349,13 @@ Did you mean one of these?
 #38 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #39 {main}
 "} 
-[2020-05-05 06:57:10] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:19)
+[2020-05-05 06:57:10] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:19)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -4401,9 +4439,13 @@ Did you mean one of these?
 #38 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #39 {main}
 "} 
-[2020-05-05 06:57:11] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:19)
+[2020-05-05 06:57:11] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:19)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -4487,9 +4529,13 @@ Did you mean one of these?
 #38 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #39 {main}
 "} 
-[2020-05-05 07:00:40] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:19)
+[2020-05-05 07:00:40] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:19)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -4573,9 +4619,13 @@ Did you mean one of these?
 #38 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #39 {main}
 "} 
-[2020-05-05 07:00:42] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:19)
+[2020-05-05 07:00:42] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:19)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -4659,7 +4709,10 @@ Did you mean one of these?
 #38 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #39 {main}
 "} 
-[2020-05-05 07:49:27] local.ERROR: syntax error, unexpected 'endif' (T_ENDIF), expecting end of file (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): syntax error, unexpected 'endif' (T_ENDIF), expecting end of file (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:33)
+[2020-05-05 07:49:27] local.ERROR: syntax error, unexpected 'endif' (T_ENDIF), expecting end of file (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): syntax error, unexpected 'endif' (T_ENDIF), expecting end of file (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:33)
 [stacktrace]
 #0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -4741,7 +4794,10 @@ Did you mean one of these?
 #36 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #37 {main}
 "} 
-[2020-05-05 07:49:34] local.ERROR: syntax error, unexpected 'endif' (T_ENDIF), expecting end of file (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): syntax error, unexpected 'endif' (T_ENDIF), expecting end of file (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:33)
+[2020-05-05 07:49:34] local.ERROR: syntax error, unexpected 'endif' (T_ENDIF), expecting end of file (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): syntax error, unexpected 'endif' (T_ENDIF), expecting end of file (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:33)
 [stacktrace]
 #0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -4823,9 +4879,13 @@ Did you mean one of these?
 #36 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #37 {main}
 "} 
-[2020-05-05 07:49:49] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:19)
+[2020-05-05 07:49:49] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:19)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -4909,9 +4969,13 @@ Did you mean one of these?
 #38 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #39 {main}
 "} 
-[2020-05-05 07:50:24] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:19)
+[2020-05-05 07:50:24] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:19)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -4995,9 +5059,13 @@ Did you mean one of these?
 #38 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #39 {main}
 "} 
-[2020-05-05 07:50:47] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:19)
+[2020-05-05 07:50:47] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:19)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -5081,9 +5149,13 @@ Did you mean one of these?
 #38 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #39 {main}
 "} 
-[2020-05-05 07:54:11] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:21)
+[2020-05-05 07:54:11] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:21)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(21): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 21, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(21): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 21, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -5167,9 +5239,13 @@ Did you mean one of these?
 #38 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #39 {main}
 "} 
-[2020-05-05 07:56:38] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:19)
+[2020-05-05 07:56:38] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:19)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -5253,9 +5329,13 @@ Did you mean one of these?
 #38 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #39 {main}
 "} 
-[2020-05-05 07:56:50] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:19)
+[2020-05-05 07:56:50] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:19)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -5339,9 +5419,13 @@ Did you mean one of these?
 #38 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #39 {main}
 "} 
-[2020-05-05 07:57:54] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:19)
+[2020-05-05 07:57:54] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:19)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -5425,9 +5509,13 @@ Did you mean one of these?
 #38 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #39 {main}
 "} 
-[2020-05-05 08:01:27] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:19)
+[2020-05-05 08:01:27] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:19)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -5511,9 +5599,13 @@ Did you mean one of these?
 #38 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #39 {main}
 "} 
-[2020-05-05 08:02:03] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:19)
+[2020-05-05 08:02:03] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:19)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -5597,9 +5689,13 @@ Did you mean one of these?
 #38 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #39 {main}
 "} 
-[2020-05-05 08:02:41] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:19)
+[2020-05-05 08:02:41] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:19)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -5760,7 +5856,8 @@ Did you mean one of these?
 #29 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #30 {main}
 "} 
-[2020-05-05 08:15:45] local.ERROR: syntax error, unexpected '}', expecting end of file {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): syntax error, unexpected '}', expecting end of file at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\web.php:120)
+[2020-05-05 08:15:45] local.ERROR: syntax error, unexpected '}', expecting end of file {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): syntax error, unexpected '}', expecting end of file at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\web.php:120)
 [stacktrace]
 #0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(416): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\Arsip Tugas\\\\...')
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes('D:\\\\Arsip Tugas\\\\...')
@@ -5793,9 +5890,13 @@ Did you mean one of these?
 #28 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #29 {main}
 "} 
-[2020-05-05 08:26:14] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:19)
+[2020-05-05 08:26:14] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:19)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -5879,9 +5980,13 @@ Did you mean one of these?
 #38 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #39 {main}
 "} 
-[2020-05-05 08:26:51] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:19)
+[2020-05-05 08:26:51] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:19)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -5965,9 +6070,13 @@ Did you mean one of these?
 #38 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #39 {main}
 "} 
-[2020-05-05 08:27:02] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:19)
+[2020-05-05 08:27:02] local.ERROR: Undefined variable: errors (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: errors (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:19)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(19): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 19, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -6055,15 +6164,18 @@ Did you mean one of these?
 [stacktrace]
 #0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(349): Illuminate\\Routing\\Route->parameters()
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(933): Illuminate\\Routing\\Route->parameter('middleware')
-#2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(32): Illuminate\\Routing\\Route->__get('middleware')
+#2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(32): Illuminate\\Routing\\Route->__get('middleware')
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #4 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(33): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(33): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(42): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(42): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteFileRegistrar.php(35): require('D:\\\\Arsip Tugas\\\\...')
 #12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(416): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\Arsip Tugas\\\\...')
 #13 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes('D:\\\\Arsip Tugas\\\\...')
@@ -6102,15 +6214,18 @@ Did you mean one of these?
 [stacktrace]
 #0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(349): Illuminate\\Routing\\Route->parameters()
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(933): Illuminate\\Routing\\Route->parameter('middleware')
-#2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(32): Illuminate\\Routing\\Route->__get('middleware')
+#2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(32): Illuminate\\Routing\\Route->__get('middleware')
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #4 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(33): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(33): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(42): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(42): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteFileRegistrar.php(35): require('D:\\\\Arsip Tugas\\\\...')
 #12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(416): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\Arsip Tugas\\\\...')
 #13 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes('D:\\\\Arsip Tugas\\\\...')
@@ -6149,15 +6264,18 @@ Did you mean one of these?
 [stacktrace]
 #0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(349): Illuminate\\Routing\\Route->parameters()
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(933): Illuminate\\Routing\\Route->parameter('middleware')
-#2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(32): Illuminate\\Routing\\Route->__get('middleware')
+#2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(32): Illuminate\\Routing\\Route->__get('middleware')
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #4 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(33): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(33): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(42): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(42): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteFileRegistrar.php(35): require('D:\\\\Arsip Tugas\\\\...')
 #12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(416): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\Arsip Tugas\\\\...')
 #13 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes('D:\\\\Arsip Tugas\\\\...')
@@ -6196,15 +6314,18 @@ Did you mean one of these?
 [stacktrace]
 #0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(349): Illuminate\\Routing\\Route->parameters()
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(933): Illuminate\\Routing\\Route->parameter('middleware')
-#2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(32): Illuminate\\Routing\\Route->__get('middleware')
+#2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(32): Illuminate\\Routing\\Route->__get('middleware')
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #4 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(33): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(33): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(414): Illuminate\\Routing\\RouteFileRegistrar->{closure}(Object(Illuminate\\Routing\\Router))
 #8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes(Object(Closure))
 #9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Routing\\Router->group(Array, Object(Closure))
-#10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\outes\\api.php(42): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
+#10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+outes\\api.php(42): Illuminate\\Support\\Facades\\Facade::__callStatic('group', Array)
 #11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteFileRegistrar.php(35): require('D:\\\\Arsip Tugas\\\\...')
 #12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(416): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\Arsip Tugas\\\\...')
 #13 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(374): Illuminate\\Routing\\Router->loadRoutes('D:\\\\Arsip Tugas\\\\...')
@@ -6457,9 +6578,13 @@ Did you mean one of these?
 #44 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #45 {main}
 "} 
-[2020-05-06 06:15:22] local.ERROR: Undefined variable: token (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: token (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:14)
+[2020-05-06 06:15:22] local.ERROR: Undefined variable: token (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: token (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:14)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(14): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 12, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(14): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 12, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -6559,9 +6684,13 @@ Did you mean one of these?
 #46 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #47 {main}
 "} 
-[2020-05-06 06:19:38] local.ERROR: Undefined variable: token (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: token (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:20)
+[2020-05-06 06:19:38] local.ERROR: Undefined variable: token (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: token (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:20)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(20): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 18, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(20): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 18, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -6661,9 +6790,13 @@ Did you mean one of these?
 #46 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #47 {main}
 "} 
-[2020-05-06 06:21:56] local.ERROR: Undefined variable: token (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: token (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:20)
+[2020-05-06 06:21:56] local.ERROR: Undefined variable: token (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: token (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:20)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(20): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 18, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(20): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 18, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -6763,9 +6896,13 @@ Did you mean one of these?
 #46 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #47 {main}
 "} 
-[2020-05-06 06:22:07] local.ERROR: Undefined variable: token (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: token (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:20)
+[2020-05-06 06:22:07] local.ERROR: Undefined variable: token (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: token (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:20)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(20): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 18, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(20): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 18, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -6865,9 +7002,13 @@ Did you mean one of these?
 #46 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #47 {main}
 "} 
-[2020-05-06 06:23:05] local.ERROR: Undefined variable: token (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: token (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:20)
+[2020-05-06 06:23:05] local.ERROR: Undefined variable: token (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: token (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:20)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(20): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 18, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(20): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\\\Arsip Tugas\\\\...', 18, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -7012,9 +7153,13 @@ Did you mean one of these?
 #40 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #41 {main}
 "} 
-[2020-05-06 07:22:27] local.ERROR: Use of undefined constant alert - assumed 'alert' (this will throw an Error in a future version of PHP) (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Use of undefined constant alert - assumed 'alert' (this will throw an Error in a future version of PHP) (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:12)
+[2020-05-06 07:22:27] local.ERROR: Use of undefined constant alert - assumed 'alert' (this will throw an Error in a future version of PHP) (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Use of undefined constant alert - assumed 'alert' (this will throw an Error in a future version of PHP) (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:12)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(12): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Use of undefine...', 'D:\\\\Arsip Tugas\\\\...', 10, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(12): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Use of undefine...', 'D:\\\\Arsip Tugas\\\\...', 10, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
@@ -7114,9 +7259,13 @@ Did you mean one of these?
 #46 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #47 {main}
 "} 
-[2020-05-06 07:23:02] local.ERROR: Use of undefined constant alert - assumed 'alert' (this will throw an Error in a future version of PHP) (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Use of undefined constant alert - assumed 'alert' (this will throw an Error in a future version of PHP) (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views\esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php:12)
+[2020-05-06 07:23:02] local.ERROR: Use of undefined constant alert - assumed 'alert' (this will throw an Error in a future version of PHP) (View: D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views\resetPassword\index.blade.php) {"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Use of undefined constant alert - assumed 'alert' (this will throw an Error in a future version of PHP) (View: D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views\
+esetPassword\\index.blade.php) at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php:12)
 [stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\esources\\views/resetPassword/index.blade.php(12): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Use of undefine...', 'D:\\\\Arsip Tugas\\\\...', 10, Array)
+#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\
+esources\\views/resetPassword/index.blade.php(12): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Use of undefine...', 'D:\\\\Arsip Tugas\\\\...', 10, Array)
 #1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(43): include('D:\\\\Arsip Tugas\\\\...')
 #2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Arsip Tugas\\\\...', Array)
 #3 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\facade\\ignition\\src\\Views\\Engines\\CompilerEngine.php(36): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\Arsip Tugas\\\\...', Array)
