@@ -27,16 +27,21 @@ class KehadiranController extends Controller
 
     function create($id_jadwal)
     {
-        $jadwal = \DB::table('jadwal_kuliah')
-            ->join('dosen','dosen.kode_dosen','=','jadwal_kuliah.kode_dosen')
-            ->join('matakuliah','matakuliah.kode_mk','=','jadwal_kuliah.kode_mk')
-            ->where('id',$id_jadwal)->first();
+        $jadwal = \DB::table('classes')
+            ->join('employees','employees.PE_Nip','=','classes.KE_PE_NIPPengajar')
+            ->join('subjects','subjects.MK_ID','=','classes.KE_KR_MK_ID')
+            ->join('majors','majors.PS_Kode_Prodi','=','classes.KE_KodeJurusan')
 
-        $pertemuan = \DB::table('kehadiran')
-            ->where('kode_mk',$jadwal->kode_mk)
-            ->where('kode_dosen',$jadwal->kode_dosen)
-            ->where('kode_tahun_akademik',$jadwal->kode_tahun_akademik)
-            ->where('kode_jurusan',$jadwal->kode_jurusan)->count();
+            ->where('KE_ID',$id_jadwal)->first();
+
+        $pertemuan = \DB::table('meetings')
+            ->join('classes','classes.KE_ID','=','meetings.PT_KE_ID')
+            ->join('employees','employees.PE_Nip','=','classes.KE_PE_NIPPengajar')
+            ->join('subjects','subjects.MK_ID','=','classes.KE_KR_MK_ID')
+            ->join('class_student','class_student.KU_KE_KR_MK_ID','=','classes.KE_KR_MK_ID')
+            ->where('MK_ID',$jadwal->MK_ID)
+            ->where('PE_Nip',$jadwal->PE_Nip)
+            ->where('KU_KE_KodeJurusan',$jadwal->PS_Kode_Prodi)->count();
 
 
         $data['jadwal']    = $jadwal;
