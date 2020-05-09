@@ -25,7 +25,10 @@ class Presence extends Model
             students.MA_Nrp,
             t3.total AS Jumlah_Pertemuan,
             COUNT(presences.PR_KU_ID)as Kehadiran,
-            COUNT(presences.PR_KU_ID)/t3.total  as persentase from class_student
+            COUNT(IF(PR_Keterangan='SAKIT',1, NULL)) as 'Sakit',
+             COUNT(IF(PR_Keterangan='IZIN',1, NULL)) as 'Izin',
+          (t3.total-COUNT(presences.PR_KU_ID)) as 'Alpha',
+            FORMAT(COUNT(presences.PR_KU_ID)/t3.total,0)  as persentase from class_student
             LEFT Outer  JOIN presences ON presences.PR_KU_ID=class_student.KU_ID
             JOIN (SELECT  meetings.PT_KE_ID,
                   classes.*,

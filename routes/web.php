@@ -115,3 +115,5 @@ Route::resource('/rekapitulasi/pertemuan',"RekapitulasiPegawaiController");
 
 //reset password
 Route::GET('password/form/{token}', 'Mobile\PasswordResetController@showForm')->name('Passeord.showForm');
+
+

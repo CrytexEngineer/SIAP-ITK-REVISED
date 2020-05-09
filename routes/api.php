@@ -36,4 +36,6 @@ Route::group(['prefix' => 'v1/mobile'], function () {
 
   Route::GET('notification', 'Mobile\MobileNotificationController@index');
 
+    //Pertemuan
+    Route::resource('pertemuan','ManajemenPertemuanController');
 });

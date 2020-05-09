@@ -23,6 +23,7 @@
                                 <th>Jumlah Peserta</th>
                                 <th>Jumlah Tatap Muka</th>
                                 <th>Kehadiran</th>
+                                <th>Diluar Jadwal</th>
                                 <th>Persentase</th>
                                 {{--                                @can('manage-users')--}}
                                 {{--                                    <th width="70">Action</th>--}}
@@ -70,8 +71,12 @@
                     {data: 'KE_Terisi', name: 'KE_Terisi'},
                     {data: 'KE_RencanaTatapMuka', name: 'KE_RencanaTatapMuka'},
                     {data: 'KE_RealisasiTatapMuka', name: 'KE_RealisasiTatapMuka'},
-                    {data: 'KE_Prosentase', name: 'KE_Prosentase'},
-{{--                    {data: '#', name: '#'},--}}
+                    {data: 'KE_isLate', name: 'KE_isLate'},
+                    {data: 'KE_Prosentase', name: 'KE_Prosentase',
+                     render: function ( data, type, row ) {
+                    return data+ '%';
+    }},
+
         {{--                    @can('manage-users')--}}
         {{--                    // {data: 'action', name: 'action'}--}}
         {{--                    @endcan--}}
@@ -83,6 +88,8 @@
 
     });
 });
+
+
 
 
     </script>

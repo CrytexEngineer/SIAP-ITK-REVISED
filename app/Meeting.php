@@ -17,7 +17,8 @@ class Meeting extends Model
         subjects.MK_Mata_Kuliah,subjects.MK_Mata_Kuliah,subjects.MK_KreditKuliah,classes.KE_Kelas,
         classes.KE_Terisi,classes.KE_RencanaTatapMuka,
               COUNT(*) as KE_RealisasiTatapMuka,
-              (COUNT(*)/classes.KE_RencanaTatapMuka*100)as KE_Prosentase FROM meetings
+              COUNT(IF(PT_isLate='LATE',1, NULL)) as 'KE_isLate',
+              FORMAT(COUNT(*)/classes.KE_RencanaTatapMuka*100,2)as KE_Prosentase FROM meetings
               RIGHT JOIN classes ON meetings.PT_KE_ID=classes.KE_ID
               JOIN subjects on subjects.MK_ID=classes.KE_KR_MK_ID
               JOIN employees on employees.PE_Nip=classes.KE_PE_NIPPengajar

@@ -1,5 +1,7 @@
-<script src="https://cdn.rawgit.com/ashl1/datatables-rowsgroup/fbd569b8768155c7a9a62568e66a64115887d7d0/dataTables.rowsGroup.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+<script
+    src="https://cdn.rawgit.com/ashl1/datatables-rowsgroup/fbd569b8768155c7a9a62568e66a64115887d7d0/dataTables.rowsGroup.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+      integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
 
 @extends('layouts.app')
 @section('title','Rekapitulasi Kehadiran Mahasiswa')
@@ -17,23 +19,26 @@
                         <table class="table table-bordered" id="users-table" style="overflow-x:auto;">
                             <thead>
                             <tr>
-{{--                                <th>No.</th>--}}
+                                {{--                                <th>No.</th>--}}
                                 <th>Kode Mata Kuliah</th>
                                 <th>Mata Kuliah</th>
                                 <th>SKS</th>
                                 <th>Kelas</th>
                                 <th>Dosen Pengampu</th>
                                 <th>Jumlah Peserta</th>
-{{--                                <th>No.</th>--}}
+                                {{--                                <th>No.</th>--}}
                                 <th>NIM</th>
                                 <th>Nama Mahasiswa</th>
-{{--                                <th>Pekan Perkuliahan</th>--}}
+                                {{--                                <th>Pekan Perkuliahan</th>--}}
                                 <th>Kehadiran Mengajar</th>
                                 <th>Kehadiran Mahasiswa</th>
+                                <th>Sakit</th>
+                                <th>Izin</th>
+                                <th>Alpha</th>
                                 <th>Persentase</th>
-{{--                                @can('manage-users')--}}
-{{--                                    <th width="70">Action</th>--}}
-{{--                                @endcan--}}
+                                {{--                                @can('manage-users')--}}
+                                {{--                                    <th width="70">Action</th>--}}
+                                {{--                                @endcan--}}
                             </tr>
                             </thead>
                         </table>
@@ -81,12 +86,19 @@
                     //PEKAN PERKULIAHAN
                     {data: 'Jumlah_Pertemuan', name: 'Jumlah_Pertemuan'},
                     {data: 'Kehadiran', name: 'Kehadiran'},
-                    {data: 'persentase', name: 'persentase'},
+                    {data: 'Sakit', name: 'Sakit'},
+                    {data: 'Izin', name: 'Izin'},
+                    {data: 'Alpha', name: 'Alpha'},
+                    {data: 'persentase', name: 'persentase',
+                    render: function ( data, type, row ) {
+                    return data+ '%';
+    }},
                     {{--                    @can('manage-users')--}}
-{{--                    {data: 'action', name: 'action'}--}}
-{{--                    @endcan--}}
-                ]
-            });
-        });
+        {{--                    {data: 'action', name: 'action'}--}}
+        {{--                    @endcan--}}
+        ]
+    });
+});
+
     </script>
 @endpush

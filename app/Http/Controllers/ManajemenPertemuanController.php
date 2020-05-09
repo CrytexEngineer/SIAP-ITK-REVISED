@@ -4,13 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Kelas;
 use App\Meeting;
-use App\Presence;
 use http\Exception\RuntimeException;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 
 class ManajemenPertemuanController extends Controller
 {
@@ -21,7 +17,13 @@ class ManajemenPertemuanController extends Controller
      */
     public function index()
     {
-        //
+
+    }
+
+
+    function json($id)
+    {
+
     }
 
     /**
@@ -31,7 +33,7 @@ class ManajemenPertemuanController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -52,17 +54,22 @@ class ManajemenPertemuanController extends Controller
         $kelas = Kelas::find($request->PT_KE_ID);
         $token = $this->getMeetingToken(16);
         $isLate = "NOT LATE";
+        date_default_timezone_set("Asia/Kuala_Lumpur");
+
+        $meeting = Meeting::where('PT_KE_ID', $request->PT_KE_ID)->whereBetween('created_at', [Carbon::today()->startOfDay(), Carbon::today()->endOfDay()])->get()->first();
+        if ($meeting) {
+
+            //redirect back sudah membuat pertemuan hari ini
+        }
 
         if ($kelas) {
 
-            date_default_timezone_set("Asia/Kuala_Lumpur");
-            $lateDay = strtotime($kelas['KE_Jadwal_IDHari']);
+            $lateDay = $kelas['KE_Jadwal_IDHari'];
             $currentDay = $dayOfTheWeek = Carbon::now()->dayOfWeek;
             $lateTime = strtotime($kelas['KE_Jadwal_JamUsai']);
             $currentTime = strtotime(date('H:i:s'));
 
             if ($lateDay == $currentDay) {
-
                 if ($currentTime > $lateTime) {
                     $isLate = "LATE";
                 }
@@ -75,13 +82,20 @@ class ManajemenPertemuanController extends Controller
                 'PT_Name' => $request->PT_Name,
                 'PT_Token' => $token,
                 'PT_isLate' => $isLate,
-                'PT_Types' => $request->PT_Types,
+                'PT_Type' => $request->PT_Types,
                 'PT_Notes' => $request->PT_Notes,
             ]);
+
+
+            $meeting->save();
+            dd($meeting);
+
+            return redirect()->back(201);
+
         } else {
 
-            return redirect()->back(404);
-
+//            return redirect()->back(404);
+            dd("Eror");
         }
 
 
@@ -95,7 +109,7 @@ class ManajemenPertemuanController extends Controller
      */
     public function show($id)
     {
-        //
+        $meeting = Meeting::where('PT_KE_ID', $id);
     }
 
     /**

@@ -21,6 +21,8 @@ class  DosenController extends Controller
             ->join('employees', 'employees.PE_Nip','=','classes.KE_PE_NIPPengajar')
 //            ->where('jadwal_kuliah.kode_tahun_akademik','=',get_tahun_akademik('kode_tahun_akademik'))
             ->where('classes.KE_PE_NIPPengajar',Auth::user()->PE_Nip);
+
+
 //
         return Datatables::of($jadwal)
             ->addColumn('action', function ($row) {

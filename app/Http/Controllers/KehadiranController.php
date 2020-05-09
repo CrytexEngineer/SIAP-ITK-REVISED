@@ -20,8 +20,7 @@ class KehadiranController extends Controller
             ->where('class_student.KU_KE_Kelas',$jadwal->KE_Kelas)
             ->where('classes.KE_PE_NIPPengajar',$jadwal->PE_Nip)
             ->where('class_student.KU_KE_KR_MK_ID',$jadwal->MK_ID)
-            ->where('classes.KE_Terisi',$jadwal->KE_Terisi)
-            ->get();
+            ->where('classes.KE_Terisi',$jadwal->KE_Terisi);
         $data['jadwal']    = $jadwal;
         return view('kehadiran.index',$data);
     }
