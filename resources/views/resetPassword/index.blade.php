@@ -8,9 +8,11 @@
                     <div class="card-header">{{ __('Reset Password') }}</div>
 
                     <div class="card-body">
+
+
                         <form method="POST" action="{{ route('student.password.reset') }}">
                             @csrf
-
+                            @include('alert')
 {{--                            <input type="hidden" name="token" value="{{ $token ?? '' }}">--}}
 
                             <div class="form-group row">
