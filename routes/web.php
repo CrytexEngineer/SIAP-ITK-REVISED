@@ -89,9 +89,9 @@ Route::post('/akunmahasiswa/import', 'ManajemenAkunMahasiswaController@import')-
 //Dosen
 Route::get('jadwal_mengajar','DosenController@jadwal_mengajar');
 Route::get('jadwal_mengajar/json','DosenController@jadwal_mengajar_json');
-//Route::post('/kehadiran/update','KehadiranController@update');
+Route::get('kehadiran/{id_jadwal}/create','KehadiranController@create');
 Route::get('kehadiran/{id_jadwal}','KehadiranController@index');
-//Route::get('/kehadiran/{id_kehadiran}/absen','KehadiranController@show');
+Route::post('/kehadiran/update','KehadiranController@update');
 
 //Operasi QR
 Route::resource('/validator',"ManajemenValidatorController");
