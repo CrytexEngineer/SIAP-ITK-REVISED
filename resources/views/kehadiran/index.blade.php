@@ -23,7 +23,7 @@
 
                         <a href="/jadwal_mengajar" class="btn btn-danger"><i class="fas fa-backward"></i> Kembali</a>
                         <a href="/kehadiran/{{ Request::segment(2)}}/create" class="btn btn-info"><i class="far fa-calendar-alt"></i> Input Kehadiran</a>
-                        <hr>
+                            <hr>
                         <table class="table table-bordered">
                             <tr>
                                 <th>NIM</th>
