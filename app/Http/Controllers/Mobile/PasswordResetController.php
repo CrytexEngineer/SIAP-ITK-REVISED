@@ -9,6 +9,7 @@ use App\Notifications\PasswordResetSuccess;
 use App\PasswordReset;
 use App\Student;
 use Carbon\Carbon;
+use Session;
 use Illuminate\Http\Request;
 
 class PasswordResetController extends Controller
@@ -97,7 +98,7 @@ class PasswordResetController extends Controller
             ['email', $request->email]
         ])->first();
 
-        dd($request->all());
+
         if (!$passwordReset)
             return response()->json([
                 'message' => __('passwords.token')
@@ -118,13 +119,15 @@ class PasswordResetController extends Controller
 
         $user->notify(new PasswordResetSuccess($passwordReset));
 
+        return redirect('/akunpegawai')->with('status', 'Data Berhasil Diubah');
         return response()->json($user);
     }
 
     public function showForm($token)
     {
-
-        return view('resetPassword.index')->with($token);
+//        Session::flash('message', 'This is a message!');
+//        Session::flash('alert-class', 'alert-danger');
+        return view('resetPassword.index', ["token" => $token])->with('status', 'Data Berhasil Dihapus');
     }
 }
 

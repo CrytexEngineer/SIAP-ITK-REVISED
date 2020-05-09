@@ -65,10 +65,6 @@
                             </li>
                         <?php endif; ?>
                     <?php else: ?>
-                        
-                        
-                        
-
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -107,9 +103,9 @@
 
                                 </a>
 
-                                <a class="dropdown-item" href="<?php echo e(route('admin.users.index')); ?>">
-                                    User Management
-                                </a>
+
+
+
 
                                 <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
                                     <?php echo csrf_field(); ?>
