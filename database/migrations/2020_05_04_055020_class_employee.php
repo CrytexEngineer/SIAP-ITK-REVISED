@@ -19,7 +19,7 @@ class ClassEmployee extends Migration
             $table->bigInteger('employee_PE_Nip')->unsigned();
             $table->foreign('employee_PE_Nip')->references('PE_Nip')->on('employees')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('classes_KE_ID')->unsigned();
-            $table->foreign('KE_ID')->references('KE_ID')->on('classes')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('classes_KE_ID')->references('KE_ID')->on('classes')->onUpdate('cascade')->onDelete('cascade');
         });
     }
     /**

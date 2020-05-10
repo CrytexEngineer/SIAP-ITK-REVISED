@@ -25,6 +25,14 @@
                                 <th width="50">Action</th>
                             </tr>
                             </thead>
+                            <tfoot>
+                            <tr>
+                                <th>Kode Matakuliah</th>
+                                <th>Nama Matakuliah</th>
+                                <th>Tahun Kurikulum</th>
+                                <th>Kredit Kuliah</th>
+                            </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -38,15 +46,40 @@
     <script>
         $(function () {
             $('#users-table').DataTable({
+                dom: 'Blfrtip',
+                lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 "scrollX": true,
                 processing: true,
+                serverSide: true,
                 ajax: '/matakuliah/json',
                 columns: [
                     {data: 'MK_ID', name: 'MK_ID'},
                     {data: 'MK_Mata_Kuliah', name: 'MK_Mata_Kuliah'},
                     {data: 'MK_ThnKurikulum', name: 'MK_ThnKurikulum'},
                     {data: 'MK_KreditKuliah', name: 'MK_KreditKuliah'},
-                    {data: 'action', name: 'action'}],
+                    {data: 'action', name: 'action'}
+                    ],
+                initComplete: function () {
+                    this.api().columns().every( function () {
+                        var column = this;
+                        var select = $('<select><option value=""></option></select>')
+                            .appendTo( $(column.footer()).empty() )
+                            .on( 'change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search( val ? '^'+val+'$' : '', true, false )
+                                    .draw();
+                            } );
+
+                        column.data().unique().sort().each( function ( d, j ) {
+                            select.append( '<option value="'+d+'">'+d+'</option>' )
+                        } );
+                    } );
+                }
+
             })
         });
 
