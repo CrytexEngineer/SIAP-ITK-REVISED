@@ -53,9 +53,11 @@
     <script>
         $(function () {
             $('#users-table').DataTable({
+                dom: 'Blfrtip',
+                lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 "scrollX": true,
                 processing: true,
-                serverSide: false,
+                serverSide: true,
                 ajax: '/khs/json',
                 columns: [
                     {data: 'MA_NRP_Baru', name: 'MA_NRP_Baru'},
