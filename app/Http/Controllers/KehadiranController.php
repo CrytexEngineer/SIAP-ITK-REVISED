@@ -26,6 +26,13 @@ class KehadiranController extends Controller
             ->where('classes.KE_PE_NIPPengajar', $jadwal->PE_Nip)
             ->where('class_student.KU_KE_KR_MK_ID', $jadwal->MK_ID)
             ->where('classes.KE_Terisi', $jadwal->KE_Terisi)->get();
+
+        $timPengajar = DB::table('class_employee')
+            ->join('employees', 'employees.PE_Nip', '=', 'employee_PE_Nip')
+            ->where('class_employee.classes_KE_ID', '=', $id_jadwal)->pluck('PE_NamaLengkap')->all();
+
+        $data['timPengajar'] = $timPengajar;
+
         $data['jadwal'] = $jadwal;
         return view('kehadiran.index', $data);
     }
@@ -43,19 +50,14 @@ class KehadiranController extends Controller
             ->join('employees', 'employees.PE_Nip', '=', 'employee_PE_Nip')
             ->where('class_employee.classes_KE_ID', '=', $id_jadwal)->pluck('PE_NamaLengkap')->all();
 
+
         $pertemuan = DB::table('meetings')
-            ->join('classes', 'classes.KE_ID', '=', 'meetings.PT_KE_ID')
-            ->join('employees', 'employees.PE_Nip', '=', 'classes.KE_PE_NIPPengajar')
-            ->join('subjects', 'subjects.MK_ID', '=', 'classes.KE_KR_MK_ID')
-            ->join('class_student', 'class_student.KU_KE_KR_MK_ID', '=', 'classes.KE_KR_MK_ID')
-            ->where('MK_ID', $jadwal->MK_ID)
-            ->where('PE_Nip', $jadwal->PE_Nip)
-            ->where('KU_KE_KodeJurusan', $jadwal->PS_Kode_Prodi)->count();
+            ->where('meetings.PT_KE_ID', $jadwal->KE_ID)->count();
 
 
         $data['jadwal'] = $jadwal;
         $data['pertemuan_ke'] = $pertemuan + 1;
-        $data['timPegajar']=$timPengajar;
+        $data['timPegajar'] = $timPengajar;
         return view('kehadiran.create', $data);
     }
 
@@ -118,9 +120,27 @@ class KehadiranController extends Controller
     }
 
 
-    function show($id)
+    function showHistory($id_jadwal)
     {
-        $meeting = Meeting::where('PT_KE_ID', $id);
+        $jadwal = DB::table('classes')
+            ->join('employees', 'employees.PE_Nip', '=', 'classes.KE_PE_NIPPengajar')
+            ->join('subjects', 'subjects.MK_ID', '=', 'classes.KE_KR_MK_ID')
+            ->where('KE_ID', $id_jadwal)->first();
+
+
+        $timPengajar = DB::table('class_employee')
+            ->join('employees', 'employees.PE_Nip', '=', 'employee_PE_Nip')
+            ->where('class_employee.classes_KE_ID', '=', $id_jadwal)->pluck('PE_NamaLengkap')->all();
+
+        $pertemuan = Meeting::where('PT_KE_ID', $id_jadwal);
+
+        $data['timPengajar'] = $timPengajar;
+        $data['jadwal'] = $jadwal;
+        $data['pertemuan']=$pertemuan;
+
+        return view('kehadiran.history', $data);
+
+
     }
 
     function update(Request $request)

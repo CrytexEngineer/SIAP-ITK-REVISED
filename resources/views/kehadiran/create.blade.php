@@ -34,7 +34,7 @@
                             </tr>
                             <tr>
                                 <td>Tim Pengajar</td>
-                                    <td>{{ implode(",",$timPegajar)}}</td>
+                                    <td>{{ implode(" ,",$timPegajar)}}</td>
                             </tr>
                             <tr>
                                 <td>Pertemuan Ke</td>

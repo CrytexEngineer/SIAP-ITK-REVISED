@@ -19,6 +19,7 @@
                             <tr><td>Nama Matakuliah</td><td>{{ $jadwal->MK_Mata_Kuliah}}</td></tr>
                             <tr><td>Kelas</td><td>{{ $jadwal->KE_Kelas}}</td></tr>
                             <tr><td>Nama Dosen</td><td>{{ $jadwal->PE_NamaLengkap}}</td></tr>
+                            <tr><td>Tim Pengajar</td><td>{{ implode(" ,",$timPengajar)}}</td></tr>
                         </table>
 
                         <a href="/jadwal_mengajar" class="btn btn-danger"><i class="fas fa-backward"></i> Kembali</a>

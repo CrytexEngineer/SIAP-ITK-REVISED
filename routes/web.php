@@ -93,6 +93,7 @@ Route::get('kehadiran/{id_jadwal}/create','KehadiranController@create');
 Route::get('kehadiran/{id_jadwal}','KehadiranController@index');
 Route::post('/kehadiran','KehadiranController@store');
 Route::post('/kehadiran/update','KehadiranController@update');
+Route::get('/kehadiran/history/{id_jadwal}','KehadiranController@showHistory')->name('meeting.history');
 
 //Operasi QR
 Route::resource('/validator',"ManajemenValidatorController");
