@@ -31,6 +31,7 @@
                                 <th>NIP</th>
                                 <th>Nama Lengkap</th>
                                 <th>E-mail</th>
+                                <th>Kode Jurusan</th>
                                 <th>Roles</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
@@ -39,6 +40,13 @@
 {{--                                @endcan--}}
                             </tr>
                             </thead>
+                            <tfoot>
+                            <tr>
+                                <th>NIP</th>
+                                <th>Nama Lengkap</th>
+                                <th>E-mail</th>
+                            </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -51,6 +59,8 @@
     <script>
         $(function() {
             $('#users-table').DataTable({
+                dom: 'Blfrtip',
+                lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 "scrollX": true,
                 processing: true,
                 serverSide: true,
@@ -59,6 +69,7 @@
                     { data: 'PE_Nip', name: 'PE_Nip' },
                     { data: 'PE_NamaLengkap', name: 'PE_NamaLengkap' },
                     { data: 'PE_Email', name: 'PE_Email' },
+                    { data: 'PE_KodeJurusan', name: 'PE_KodeJurusan' },
                     { data: 'roles', name: 'role_name',
                         render: "[, ].role_name"},
                     { data: 'created_at', name: 'created_at' },
@@ -66,7 +77,28 @@
 {{--                        @can('manage-users')--}}
                     { data: 'action', name: 'action' }
 {{--                    @endcan--}}
-                ]
+
+                ],
+                initComplete: function () {
+                    this.api().columns().every( function () {
+                        var column = this;
+                        var select = $('<select><option value=""></option></select>')
+                            .appendTo( $(column.footer()).empty() )
+                            .on( 'change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search( val ? '^'+val+'$' : '', true, false )
+                                    .draw();
+                            } );
+
+                        column.data().unique().sort().each( function ( d, j ) {
+                            select.append( '<option value="'+d+'">'+d+'</option>' )
+                        } );
+                    } );
+                }
             });
         });
     </script>
