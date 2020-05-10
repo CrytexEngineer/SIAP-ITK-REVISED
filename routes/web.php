@@ -91,6 +91,7 @@ Route::get('jadwal_mengajar','DosenController@jadwal_mengajar');
 Route::get('jadwal_mengajar/json','DosenController@jadwal_mengajar_json');
 Route::get('kehadiran/{id_jadwal}/create','KehadiranController@create');
 Route::get('kehadiran/{id_jadwal}','KehadiranController@index');
+Route::post('/kehadiran','KehadiranController@store');
 Route::post('/kehadiran/update','KehadiranController@update');
 
 //Operasi QR
