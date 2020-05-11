@@ -60,9 +60,6 @@
                                 <td>
                                     <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Simpan
                                     </button>
-                                    <button type="submit" class="btn btn-primary"><i class="fas fa-qrcode"></i> Show QR
-                                        Code
-                                    </button>
                                 </td>
                             </tr>
                         </table>
