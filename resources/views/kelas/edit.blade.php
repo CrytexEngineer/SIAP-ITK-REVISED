@@ -11,7 +11,6 @@
 
                         {{ Form::model($kelas,['url'=>'kelas/'.$kelas->id,'method'=>'PUT'])}}
 
-
                         @csrf
 
                         @include('kelas.form')

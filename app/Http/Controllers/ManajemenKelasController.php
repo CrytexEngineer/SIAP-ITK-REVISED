@@ -21,13 +21,16 @@ class ManajemenKelasController extends Controller
         ->join('subjects', 'classes.KE_KR_MK_ID', '=', 'subjects.MK_ID')
         ->join('majors', 'classes.KE_KodeJurusan', '=', 'majors.PS_Kode_Prodi'))
         ->addColumn('action', function ($row) {
-            $action = '<a href="/kelas/' . $row->KE_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+            $action = '<a href="/kelas/' . $row->KE_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a> ';
+            $action .= '<a href="/kelas/' . $row->KE_ID . '/manage" class="btn btn-primary btn-sm"><i class="fas fa-tasks"></i></a>';
             $action .= \Form::open(['url' => 'kelas/' . $row->KE_ID, 'method' => 'delete', 'style' => 'float:right']);
             $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
             $action .= \Form::close();
             return $action;
         })
         ->make(true);
+
+
 }
 
 //    UNTUK MENAMPILKAN AUTOCOMPLETE//
@@ -49,6 +52,24 @@ class ManajemenKelasController extends Controller
         }
     }
 
+    function fetch_pengajar(Request $request)
+    {
+        if ($request->get('query')) {
+            $query = $request->get('query');
+            $data = DB::table('employees')
+                ->where('PE_Nama', 'LIKE', "%{$query}%")
+                ->get();
+            $output = '<ul class="dropdown-menu" style="display:block; position:relative">';
+            foreach ($data as $row) {
+                $output .= '
+       <li><a href="#">' . $row->PE_Nip . ' - ' . $row->PE_Nama . '   </a></li>
+       ';
+            }
+            $output .= '</ul>';
+            echo "$output";
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -56,8 +77,11 @@ class ManajemenKelasController extends Controller
      */
     public function index()
     {
+        $timPengajar = \Illuminate\Support\Facades\DB::table('class_employee')
+            ->join('employees', 'employees.PE_Nip', '=', 'employee_PE_Nip');
+        $data['timPengajar'] = $timPengajar;
 
-        return view('kelas.index');
+        return view('kelas.index',$data);
     }
 
     /**
@@ -81,8 +105,10 @@ class ManajemenKelasController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         $kelas = New Kelas();
         $kelas->create($request->all());
+
         return redirect('kelas')->with('status', 'Informasi Kelas Berhasil Ditambahkan');
     }
 
@@ -105,8 +131,6 @@ class ManajemenKelasController extends Controller
      */
     public function edit($id)
     {
-
-
         $data['employees'] = Employee::pluck('PE_NamaLengkap','PE_Nip');
         $data['subjects'] = Subject::pluck('MK_ID');
         $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
@@ -151,5 +175,43 @@ class ManajemenKelasController extends Controller
     {
         $data = Excel::import(new ClassesImport(), request()->file('file'));
         return back();
+    }
+
+    public function manage($id)
+    {
+        $jadwal = \Illuminate\Support\Facades\DB::table('classes')
+            ->join('employees', 'employees.PE_Nip', '=', 'classes.KE_PE_NIPPengajar')
+            ->join('subjects', 'subjects.MK_ID', '=', 'classes.KE_KR_MK_ID')
+            ->where('KE_ID', $id)->first();
+
+        $data['employees'] = Employee::pluck('PE_NamaLengkap','PE_Nip');
+
+        $data['mahasiswa'] = DB::table('class_student')
+            ->join('students', 'students.MA_Nrp', '=', 'class_student.KU_MA_Nrp')
+            ->join('classes', 'classes.KE_KR_MK_ID', '=', 'class_student.KU_KE_KR_MK_ID')
+            ->where('class_student.KU_KE_Kelas', $jadwal->KE_Kelas)
+            ->where('classes.KE_PE_NIPPengajar', $jadwal->PE_Nip)
+            ->where('class_student.KU_KE_KR_MK_ID', $jadwal->MK_ID)
+            ->where('classes.KE_Terisi', $jadwal->KE_Terisi)->get();
+
+        $timPengajar = DB::table('class_employee')
+            ->join('employees', 'employees.PE_Nip', '=', 'employee_PE_Nip')
+            ->where('class_employee.classes_KE_ID', '=', $id)->pluck('PE_NamaLengkap')->all();
+
+        $data['timPengajar'] = $timPengajar;
+
+        $data['jadwal'] = $jadwal;
+        return view('kelas.manage',$data);
+    }
+
+    public function manage_store(Request $request)
+    {
+        dd($request);
+        DB::table('class_employee')->insert([
+            'Employee_PE_Nip' => $request->KE_PE_NIPPengajar,
+            'KE_Kelas' => $request->classes_KE_ID
+        ]);
+//
+//        return redirect('/kelas');
     }
 }

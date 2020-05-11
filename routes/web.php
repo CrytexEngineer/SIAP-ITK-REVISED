@@ -66,8 +66,12 @@ Route::post('/matakuliah/import', 'ManajemenMatakuliahController@import')->name(
 //Kelas
 Route::get('/kelas/json', 'ManajemenKelasController@json');
 Route::resource('/kelas', 'ManajemenKelasController');
+Route::get('/kelas/{id}/manage', 'ManajemenKelasController@manage');
+Route::post('/kelas/{id}/manage/store', 'ManajemenKelasController@manage_store');
 Route::post('/kelas/import','ManajemenKelasController@import')->name('import_kelas');
 Route::post('/kelas/fetch', 'ManajemenKelasController@fetch')->name('kelas.fetch');
+Route::post('/kelas/fetch_pengajar', 'ManajemenKelasController@fetch_pengajar')->name('kelas.fetch_pengajar');
+
 
 
 //KHS
@@ -121,5 +125,9 @@ Route::resource('/rekapitulasi/pertemuan',"RekapitulasiPegawaiController");
 
 //reset password
 Route::GET('password/form/{token}', 'Mobile\PasswordResetController@showForm')->name('Passeord.showForm');
+
+//Kurikulum
+Route::resource('/kurikulum',"KurikulumController");
+
 
 
