@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Logbook;
 use DB;
 use App\Employee;
 use App\Imports\ClassesImport;
@@ -9,6 +10,7 @@ use App\Kelas;
 use App\Major;
 use App\Subject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 
@@ -83,6 +85,9 @@ class ManajemenKelasController extends Controller
     {
         $kelas = New Kelas();
         $kelas->create($request->all());
+        Logbook::write(Auth::user()->PE_Nip,
+            'Menambah data kelas ' . $kelas->KE_KR_MK_ID . ' kelas '.$kelas->KE_Kelas.' dari tabel kelas', Logbook::ACTION_CREATE,
+            Logbook::TABLE_CLASSES);
         return redirect('kelas')->with('status', 'Informasi Kelas Berhasil Ditambahkan');
     }
 
@@ -125,8 +130,13 @@ class ManajemenKelasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $subject = Kelas::where('KE_ID', '=', $id);
-        $subject->update($request->except('_method', '_token'));
+        $kelas = Kelas::where('KE_ID', '=', $id)->first();
+        if(
+        $kelas->update($request->except('_method', '_token'))){
+            Logbook::write(Auth::user()->PE_Nip,
+                'Mengubah data kelas ' . $kelas->KE_KR_MK_ID . ' kelas '.$kelas->KE_Kelas.' dari tabel kelas', Logbook::ACTION_EDIT,
+                Logbook::TABLE_CLASSES);
+        }
         return redirect('/kelas')->with('status', 'Data Kelas Berhasil Di Update');;
     }
 
@@ -141,8 +151,14 @@ class ManajemenKelasController extends Controller
     public function destroy($id)
     {
 
-        $subject = Kelas::where('KE_ID', $id);
-        $subject->delete();
+        $kelas = Kelas::where('KE_ID', $id)->first();
+        if(
+        $kelas->delete()){
+
+            Logbook::write(Auth::user()->PE_Nip,
+                'Menghapus data kelas ' . $kelas->KE_KR_MK_ID . ' kelas '.$kelas->KE_Kelas.' dari tabel kelas', Logbook::ACTION_DELETE,
+                Logbook::TABLE_CLASSES);
+        }
         return redirect('/kelas')->with('status', 'Data Kelas Berhasil Dihapus');;
 
     }
@@ -150,6 +166,11 @@ class ManajemenKelasController extends Controller
     public function import()
     {
         $data = Excel::import(new ClassesImport(), request()->file('file'));
+        if ($data){
+            Logbook::write(Auth::user()->PE_Nip,
+                'Mengimpor data kelas  dari tabel kelas ', Logbook::ACTION_IMPORT,
+                Logbook::TABLE_CLASSES);
+        }
         return back();
     }
 }

@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::get('/kelas', 'ManajemenKelasController@json');
 Route::get('/program_studi/json', 'ManajemenProgramStudiController@json');
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('superadmin');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('home');
 
 Route::get('/superadmin', 'SuperAdminController@index')->name('superadmin')->middleware('superadmin');
 Route::get('/superadmin/manajemen/akun_mahasiswa', 'DiksatController@index')->name('superadmin')->middleware('diksat');
@@ -113,6 +113,9 @@ Route::resource('/rekapitulasi/dosen',"RekapitulasiDosenController");
 Route::get('/rekapitulasi/pertemuan/json',"RekapitulasiPegawaiController@json");
 Route::resource('/rekapitulasi/pertemuan',"RekapitulasiPegawaiController");
 
+//ManajemenData
+Route::get('/riwayat_data/json',"ManajemenLogbookController@json");
+Route::resource('/riwayat_data',"ManajemenLogbookController");
 //Multi-user Management
 //Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
 //    Route::resource('/users', 'UsersController', ['except' => ['show','create', 'store']]);

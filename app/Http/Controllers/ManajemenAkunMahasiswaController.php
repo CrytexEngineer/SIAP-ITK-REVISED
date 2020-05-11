@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Imports\KHSImport;
 use App\Imports\StudentsImport;
-use App\Role;
+use App\Logbook;
 use App\Student;
-use App\User;
 use DataTables;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ManajemenAkunMahasiswaController extends Controller
@@ -59,18 +56,19 @@ class ManajemenAkunMahasiswaController extends Controller
     public function store(Request $request)
     {
 
-         $request->validate([
+        $request->validate([
             'MA_NamaLengkap' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:students'],
             'MA_PASSWORD' => ['required', 'string', 'min:8'],
             'MA_Nrp' => ['required', 'integer', 'unique:students'],
-            'MA_IMEI' => ['required', 'integer','min:14', 'unique:students'],
+            'MA_IMEI' => ['required', 'integer', 'min:14', 'unique:students'],
             'MA_NRP_Baru' => ['required', 'integer', 'unique:students'],
-            ]);
+        ]);
 
         $mahasiswa = New Student();
         $mahasiswa->create($request->all());
-        return redirect('/akunmahasiswa')->with('status','Data Mahasiswa Berhasil Disimpan');
+        Logbook::write(Auth::user()->PE_Nip, 'Menambah data mahasiswa ' . $mahasiswa->MA_NamaLengkap . ' dari tabel mahasiswa', Logbook::ACTION_CREATE, Logbook::TABLE_STUDENTS);
+        return redirect('/akunmahasiswa')->with('status', 'Data Mahasiswa Berhasil Disimpan');
 
 //        $data = $request->all();
 //        $user = [
@@ -142,18 +140,18 @@ class ManajemenAkunMahasiswaController extends Controller
 //
 //        }
 //        return redirect('/akunmahasiswa')->with('status', 'Data Berhasil Diubah');
-        $mahasiswa = Student::where('MA_Nrp','=',$id)->first();
+        $mahasiswa = Student::where('MA_Nrp', '=', $id)->first();
         $mahasiswa->MA_NamaLengkap = $request->MA_NamaLengkap;
         $mahasiswa->email = $request->email;
         $mahasiswa->MA_IMEI = $request->MA_IMEI;
-        if($request->MA_PASSWORD!='')
-        {
+        if ($request->MA_PASSWORD != '') {
             $mahasiswa->MA_PASSWORD = $request->MA_PASSWORD;
         }
 
         $mahasiswa->save();
+        Logbook::write(Auth::user()->PE_Nip, 'Mengubah data mahasiswa ' . $mahasiswa->MA_NamaLengkap . ' dari tabel mahasiswa', Logbook::ACTION_EDIT, Logbook::TABLE_STUDENTS);
         //$mahasiswa->update($request->except('_method','_token'));
-        return redirect('/akunmahasiswa')->with('status','Data mahasiswa Berhasil Di Update');
+        return redirect('/akunmahasiswa')->with('status', 'Data mahasiswa Berhasil Di Update');
     }
 
     /**
@@ -174,13 +172,22 @@ class ManajemenAkunMahasiswaController extends Controller
 //        }
 //        return redirect('/akunmahasiswa')->with('status_failed', 'Data Berhasil Dihapus');
 
-        $mahasiswa = Student::where('MA_Nrp',$id);
-        $mahasiswa->delete();
+        $mahasiswa = Student::where('MA_Nrp', $id)->first();
+
+
+        if ($mahasiswa->delete()) {
+            Logbook::write(Auth::user()->PE_Nip, 'Menghapus data mahasiswa ' . $mahasiswa->MA_NamaLengkap . ' dari tabel mahasiswa', Logbook::ACTION_DELETE, Logbook::TABLE_STUDENTS);
+        }
         return redirect('/akunmahasiswa')->with('status_failed', 'Data Berhasil Dihapus');
     }
 
-    public function import(){
+    public function import()
+    {
         $data = Excel::import(new StudentsImport(), request()->file('file'));
+        if ($data) {
+            Logbook::write(Auth::user()->PE_Nip, 'Mengimpor data mahasiswa  dari tabel mahasiswa', Logbook::ACTION_IMPORT, Logbook::TABLE_STUDENTS);
+
+        }
         return back();
 
     }

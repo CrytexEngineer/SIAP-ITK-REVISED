@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Imports\SubjectsImport;
+use App\Logbook;
 use App\Subject;
+use DataTables;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use DataTables;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ManajemenMataKuliahController extends Controller
@@ -21,16 +22,15 @@ class ManajemenMataKuliahController extends Controller
     function json()
     {
         return Datatables::of(Subject::all())
-           ->addColumn('action', function ($row) {
-            $action = '<a href="/matakuliah/' . $row->MK_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
-            $action .= \Form::open(['url' => 'matakuliah/' . $row->MK_ID, 'method' => 'delete', 'style' => 'float:right']);
-            $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
-            $action .= \Form::close();
-            return $action;
+            ->addColumn('action', function ($row) {
+                $action = '<a href="/matakuliah/' . $row->MK_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+                $action .= \Form::open(['url' => 'matakuliah/' . $row->MK_ID, 'method' => 'delete', 'style' => 'float:right']);
+                $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
+                $action .= \Form::close();
+                return $action;
 
             })
             ->make(true);
-
 
 
     }
@@ -68,6 +68,7 @@ class ManajemenMataKuliahController extends Controller
 
         $subject = New Subject();
         $subject->create($request->all());
+        Logbook::write(Auth::user()->PE_Nip, 'Menambah data matakuliah ' . $subject->MK_Mata_Kuliah . ' dari tabel matakuliah', Logbook::ACTION_CREATE, Logbook::TABLE_SUBJECTS);
         return redirect('/matakuliah')->with('status', 'Data Matakuliah Berhasil Disimpan');
     }
 
@@ -105,14 +106,18 @@ class ManajemenMataKuliahController extends Controller
     {
         $request->validate([
             'MK_Mata_Kuliah' => 'required|min:6',
-            'MK_KreditKuliah'     =>'required',
-            'MK_ThnKurikulum'=>'required'
+            'MK_KreditKuliah' => 'required',
+            'MK_ThnKurikulum' => 'required'
         ]);
 
 
-        $subject = Subject::where('MK_ID','=',$id);
-        $subject->update($request->except('_method','_token'));
-        return redirect('/matakuliah')->with('status','Data Matakuliah Berhasil Di Update');;
+        $subject = Subject::where('MK_ID', '=', $id)->first();
+        if (
+        $subject->update($request->except('_method', '_token'))) {
+            Logbook::write(Auth::user()->PE_Nip, 'Mengubah data matakuliah ' . $subject->MK_Mata_Kuliah . ' dari tabel matakuliah', Logbook::ACTION_EDIT, Logbook::TABLE_SUBJECTS);
+        }
+
+        return redirect('/matakuliah')->with('status', 'Data Matakuliah Berhasil Di Update');;
     }
 
     /**
@@ -123,13 +128,17 @@ class ManajemenMataKuliahController extends Controller
      */
     public function destroy($id)
     {
-        $subject = Subject::where('MK_ID',$id);
-        $subject->delete();
-         return redirect('/matakuliah')->with('status_failed','Data Matakuliah Berhasil Dihapus');;
+        $subject = Subject::where('MK_ID', $id)->first();
+        if (
+        $subject->delete()) {
+            Logbook::write(Auth::user()->PE_Nip, 'Menghapus data matakuliah ' . $subject->MK_Mata_Kuliah . ' dari tabel matakuliah', Logbook::ACTION_DELETE, Logbook::TABLE_SUBJECTS);
+        }
+        return redirect('/matakuliah')->with('status_failed', 'Data Matakuliah Berhasil Dihapus');;
     }
 
 
-    public function importView(){
+    public function importView()
+    {
 
         return view('matakuliah.import');
 
@@ -138,7 +147,10 @@ class ManajemenMataKuliahController extends Controller
 
     public function import()
     {
-        $data = Excel::import(new SubjectsImport(),request()->file('file'));
+        $data = Excel::import(new SubjectsImport(), request()->file('file'));
+        if($data){
+            Logbook::write(Auth::user()->PE_Nip, 'Mengimpor data matakuliah dari tabel matakuliah', Logbook::ACTION_IMPORT, Logbook::TABLE_SUBJECTS);
+        }
         return back();
     }
 }

@@ -87,12 +87,13 @@
                                 <a class="dropdown-item" href="/khs">KHS</a>
                                 <a class="dropdown-item" href="/matakuliah">Matakuliah</a>
                                 <a class="dropdown-item" href="/program_studi">Program Studi</a>
+                                <a class="dropdown-item" href="/riwayat_data">Riwayat Pengolahan Data</a>
                             </div>
                         </li>
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <i class="fas fa-user"></i> <?php echo e(Auth::user()->PE_Nama); ?> <span class="caret"></span>
+                                <i class="fas fa-user"></i> <?php echo e(Auth::user()->PE_NamaLengkap); ?> <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
