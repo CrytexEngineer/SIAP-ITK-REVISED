@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::get('/kelas', 'ManajemenKelasController@json');
 Route::get('/program_studi/json', 'ManajemenProgramStudiController@json');
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('superadmin');
 
 Route::get('/superadmin', 'SuperAdminController@index')->name('superadmin')->middleware('superadmin');
 Route::get('/superadmin/manajemen/akun_mahasiswa', 'DiksatController@index')->name('superadmin')->middleware('diksat');
@@ -40,9 +40,8 @@ Route::get('/dikjur', 'DikjurController@index')->name('dikjur')->middleware('dik
 Route::get('/diksat', 'DiksatController@index')->name('diksat')->middleware('diksat');
 Route::get('/diksat/manajemen/akun_mahasiswa', 'DiksatController@index')->name('diksat')->middleware('diksat');
 
-Route::get('/dosen', 'DosenController@index')->name('dosen');
-Route::get('/dosen/json', 'DosenController@json')->name('dosen');
-//    ->middleware('dosen');
+Route::get('/dosen', 'DosenController@jadwal_mengajar')->name('dosen')->middleware('dosen');;
+//Route::get('/dosen/json', 'DosenController@json')->name('dosen');
 
 
 //Testing Routes

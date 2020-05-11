@@ -39,7 +39,11 @@ class LoginController extends Controller
     protected $redirectTo;
     public function redirectTo()
     {
-        switch (Auth::user()->role) {
+
+
+        switch (Auth::user()->roles->first()->id) {
+
+
 
             case 1:
                 $this->redirectTo = '/superadmin';
