@@ -87,6 +87,7 @@
                                 <a class="dropdown-item" href="/khs">KHS</a>
                                 <a class="dropdown-item" href="/matakuliah">Matakuliah</a>
                                 <a class="dropdown-item" href="/program_studi">Program Studi</a>
+                                <a class="dropdown-item" href="/riwayat_data">Riwayat Pengolahan Data</a>
                             </div>
                         </li>
 

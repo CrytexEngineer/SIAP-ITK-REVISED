@@ -25,7 +25,7 @@
                         @include('employee.import')
                         <hr>
 
-                        <table class="table table-bordered" id="users-table">
+                        <table class="table table-bordered" id="users-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
                             <thead>
                             <tr>
                                 <th>NIP</th>
@@ -44,7 +44,7 @@
                             <tr>
                                 <th>NIP</th>
                                 <th>Nama Lengkap</th>
-                                <th>E-mail</th>
+                                <th width="50">E-mail</th>
                             </tr>
                             </tfoot>
                         </table>
