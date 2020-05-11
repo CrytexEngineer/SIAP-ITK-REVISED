@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Presence;
 use App\Validator;
 use http\Exception\RuntimeException;
 
@@ -14,13 +15,20 @@ class ManajemenValidatorController extends Controller
      */
     public function index()
     {
-        return view('qrCode');
+
 
     }
 
     public function show($id)
     {
+        $data['PT_ID'] = $id;
+        return view('qrCode', $data);
 
+    }
+
+
+    public function generateQRcode($id)
+    {
 
         $meetingID = $id;
         $token = $this->getQrToken();
@@ -69,6 +77,8 @@ class ManajemenValidatorController extends Controller
         return view('qr_code_container', $data);
 
     }
+
+
 
 
 }

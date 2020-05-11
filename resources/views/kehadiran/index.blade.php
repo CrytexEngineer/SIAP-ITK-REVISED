@@ -8,11 +8,7 @@
                     <div class="card-header">Daftar Hadir Mahasiswa</div>
 
                     <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+                        @include('alert')
 
                         <table class="table table-bordered">
                             <tr><td width="270">Kode Matakuliah</td><td>{{ $jadwal->MK_ID}}</td></tr>

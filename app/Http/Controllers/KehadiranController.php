@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Kehadiran;
 use App\Kelas;
 use App\Meeting;
+use App\Presence;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -128,15 +129,24 @@ class KehadiranController extends Controller
             ->where('KE_ID', $id_jadwal)->first();
 
 
+
         $timPengajar = DB::table('class_employee')
             ->join('employees', 'employees.PE_Nip', '=', 'employee_PE_Nip')
             ->where('class_employee.classes_KE_ID', '=', $id_jadwal)->pluck('PE_NamaLengkap')->all();
 
-        $pertemuan = Meeting::where('PT_KE_ID', $id_jadwal);
+        $pertemuan = Meeting::where('PT_KE_ID', $id_jadwal)->get();
+
 
         $data['timPengajar'] = $timPengajar;
         $data['jadwal'] = $jadwal;
         $data['pertemuan']=$pertemuan;
+
+
+        if ($pertemuan->isEmpty()){
+
+            return redirect()->back()->with('status_failed', 'Belum ada pertemuan');
+        }
+
 
         return view('kehadiran.history', $data);
 
@@ -170,6 +180,13 @@ class KehadiranController extends Controller
 
     }
 
+   public  function  getKehadiranPertemuan($PT_ID){
+     return   Presence::where('PR_PT_ID','=',$PT_ID)->count();
+
+
+   }
+
+
     public function getMeetingToken($length = 16)
     {
         if (!function_exists('openssl_random_pseudo_bytes')) {
@@ -185,4 +202,6 @@ class KehadiranController extends Controller
         return substr(str_replace(array('/', '+', '='), '', base64_encode($bytes)), 0, $length);
 
     }
+
+
 }

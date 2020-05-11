@@ -93,10 +93,14 @@ Route::get('kehadiran/{id_jadwal}/create','KehadiranController@create');
 Route::get('kehadiran/{id_jadwal}','KehadiranController@index');
 Route::post('/kehadiran','KehadiranController@store');
 Route::post('/kehadiran/update','KehadiranController@update');
-Route::get('/kehadiran/history/{id_jadwal}','KehadiranController@showHistory')->name('meeting.history');
+Route::get('/kehadiran/{id_jadwal}/history/','KehadiranController@showHistory')->name('meeting.history');
+Route::get('/kehadiran/presenceCount/{pt_id}',"KehadiranController@getKehadiranPertemuan");
+
 
 //Operasi QR
 Route::resource('/validator',"ManajemenValidatorController");
+Route::get('/validator/generateQrCode/{pt_id}',"ManajemenValidatorController@generateQrCode");
+
 
 //Rekapitulasi Mahasiswa
 Route::get('/rekapitulasi/mahasiswa/json',"RekapitulasiMahasiswaController@json");
