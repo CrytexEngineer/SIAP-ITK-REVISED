@@ -13,17 +13,28 @@
 
                         <table class="table table-bordered">
                             <tr>
-                                <td width="300">Tahun Kurikulum</td><td></td>
+                                <td width="300">Tahun Kurikulum</td><td>{{--QUERY KURIKULUMNYA ISI DISINI YA QIL--}}</td>
                             </tr>
                             <tr>
-                                <td>Tanggal Mulai & Selesai</td><td>
+                                <td>Tanggal Mulai & Selesai</td>
+                                <td>
                                     <div class="form-group row">
-                                    <div class="col-md-2">
-                                        {{ Form::text('Tanggal_Mulai',null,['class'=>'form-control', 'id'=>'datetimepicker'])}}
-                                    </div> -
-                                    <div class="col-md-2">{{ Form::text('Tanggal_Selesai',null,['class'=>'form-control', 'id'=>'datetimepicker'])}}
+                                        <div class="col-md-4">
+                                            <input type="text"
+                                                   class="datepicker-here form-control"
+                                                   data-language='en'
+                                                   name="tanggal_mulai"
+                                                   data-multiple-dates="1"/>
+                                        </div> -
+                                        <div class="col-md-4">
+                                            <input type="text"
+                                                   class="datepicker-here form-control"
+                                                   data-language='en'
+                                                   name="tanggal_selesai"
+                                                   data-multiple-dates="1"/>
+                                        </div>
                                     </div>
-                                    </div>
+
                                 </td>
                             </tr>
                             <tr>
