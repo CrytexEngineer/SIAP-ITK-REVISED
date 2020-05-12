@@ -20,6 +20,8 @@ class CreateEmployeesTable extends Migration
             $table->String('PE_Nama');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->integer('PE_KodeJurusan')->unsigned()->nullable();
+            $table->foreign('PE_KodeJurusan')->references('PS_Kode_Prodi')->on('majors')->onUpdate('cascade')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

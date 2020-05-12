@@ -40,9 +40,8 @@ Route::get('/dikjur', 'DikjurController@index')->name('dikjur')->middleware('dik
 Route::get('/diksat', 'DiksatController@index')->name('diksat')->middleware('diksat');
 Route::get('/diksat/manajemen/akun_mahasiswa', 'DiksatController@index')->name('diksat')->middleware('diksat');
 
-Route::get('/dosen', 'DosenController@index')->name('dosen');
-Route::get('/dosen/json', 'DosenController@json')->name('dosen');
-//    ->middleware('dosen');
+Route::get('/dosen', 'DosenController@jadwal_mengajar')->name('dosen')->middleware('dosen');;
+//Route::get('/dosen/json', 'DosenController@json')->name('dosen');
 
 
 //Testing Routes
@@ -118,6 +117,9 @@ Route::resource('/rekapitulasi/dosen',"RekapitulasiDosenController");
 Route::get('/rekapitulasi/pertemuan/json',"RekapitulasiPegawaiController@json");
 Route::resource('/rekapitulasi/pertemuan',"RekapitulasiPegawaiController");
 
+//ManajemenData
+Route::get('/riwayat_data/json',"ManajemenLogbookController@json");
+Route::resource('/riwayat_data',"ManajemenLogbookController");
 //Multi-user Management
 //Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
 //    Route::resource('/users', 'UsersController', ['except' => ['show','create', 'store']]);

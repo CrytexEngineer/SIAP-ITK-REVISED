@@ -58,7 +58,7 @@ class SuperAdmin
         }
 
 
-        if (Auth::user()->role == 9) {
+        if (Auth::user()->roles->pluck('id') == 9) {
             return redirect()->route('dosen');
         }
     }

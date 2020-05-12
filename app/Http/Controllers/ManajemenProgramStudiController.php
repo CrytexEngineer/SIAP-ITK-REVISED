@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Imports\MajorsImport;
-use App\Imports\SubjectsImport;
+use App\Logbook;
 use App\Major;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 
@@ -56,14 +57,16 @@ class ManajemenProgramStudiController extends Controller
     {
 
         $request->validate([
-            'PS_Kode_Prodi' =>'required|unique:majors|min:1',
+            'PS_Kode_Prodi' => 'required|unique:majors|min:1',
             'PS_Nama' => 'required|min:3',
 
         ]);
 
         $major = New Major();
         $major->create($request->all());
-
+        Logbook::write(Auth::user()->PE_Nip,
+            'Menambah data program studi ' . $major->PS_Nama . ' dari tabel program studi', Logbook::ACTION_CREATE,
+            Logbook::TABLE_MAJORS);
 
         return redirect('/program_studi')->with('status', 'Data Program Studi Berhasil Disimpan');
     }
@@ -88,7 +91,7 @@ class ManajemenProgramStudiController extends Controller
     public function edit($id)
     {
         $data['major'] = Major::where('PS_Kode_Prodi', $id)->first();
-       return view('program_studi.edit', $data);
+        return view('program_studi.edit', $data);
     }
 
     /**
@@ -104,9 +107,15 @@ class ManajemenProgramStudiController extends Controller
 
         ]);
 
-        $major = Major::where('PS_Kode_Prodi', '=', $id);
-        $major->update($request->except('_method', '_token'));
-        return redirect('/program_studi')->with('status','Data Program Studi Berhasil Di Update');;
+        $major = Major::where('PS_Kode_Prodi', '=', $id)->first();
+        if (
+        $major->update($request->except('_method', '_token'))) {
+
+            Logbook::write(Auth::user()->PE_Nip,
+                'Mengubah data program studi ' . $major->PS_Nama . ' dari tabel program studi', Logbook::ACTION_EDIT,
+                Logbook::TABLE_MAJORS);
+        }
+        return redirect('/program_studi')->with('status', 'Data Program Studi Berhasil Di Update');;
     }
 
     /**
@@ -117,15 +126,25 @@ class ManajemenProgramStudiController extends Controller
      */
     public function destroy($id)
     {
-        $major = Major::where('PS_Kode_Prodi', $id);
-        $major->delete();
-        return redirect('/program_studi')->with('status','Data Program Studi Berhasil Dihapus');;
+        $major = Major::where('PS_Kode_Prodi', $id)->first();
+        if ($major->delete()) {
+            Logbook::write(Auth::user()->PE_Nip,
+                'Menghapus data program studi ' . $major->PS_Nama . ' dari tabel program studi', Logbook::ACTION_DELETE,
+                Logbook::TABLE_MAJORS);
+        };
+
+        return redirect('/program_studi')->with('status', 'Data Program Studi Berhasil Dihapus');;
     }
 
 
     public function import()
     {
-        $data = Excel::import(new MajorsImport(),request()->file('file'));
+        $data = Excel::import(new MajorsImport(), request()->file('file'));
+        if ($data) {
+            Logbook::write(Auth::user()->PE_Nip,
+                'Mengimpor data program studi  dari tabel program studi', Logbook::ACTION_IMPORT,
+                Logbook::TABLE_MAJORS);
+        }
         return back();
     }
 }

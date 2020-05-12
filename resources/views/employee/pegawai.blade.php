@@ -31,7 +31,7 @@
                                 <th>NIP</th>
                                 <th>Nama Lengkap</th>
                                 <th>E-mail</th>
-                                <th>Kode Jurusan</th>
+                                <th>Jurusan</th>
                                 <th>Roles</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
@@ -69,7 +69,7 @@
                     { data: 'PE_Nip', name: 'PE_Nip' },
                     { data: 'PE_NamaLengkap', name: 'PE_NamaLengkap' },
                     { data: 'PE_Email', name: 'PE_Email' },
-                    { data: 'PE_KodeJurusan', name: 'PE_KodeJurusan' },
+                    { data: 'PS_Nama', name: 'PS_Nama' },
                     { data: 'roles', name: 'role_name',
                         render: "[, ].role_name"},
                     { data: 'created_at', name: 'created_at' },

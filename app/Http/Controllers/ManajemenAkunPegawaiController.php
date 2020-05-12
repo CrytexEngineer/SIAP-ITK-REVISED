@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Employee;
-use App\Imports\ClassesImport;
 use App\Imports\EmployeesImport;
+use App\Logbook;
 use App\Role;
-use App\User;
 use DataTables;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -18,10 +17,10 @@ class ManajemenAkunPegawaiController extends Controller
 
     function json()
     {
-        return Datatables::of(Employee::with('roles')->get()->all())
+        return Datatables::of(Employee::with('roles')->join('majors','employees.PE_KodeJurusan','=','PS_Kode_Prodi')->get()->all())
             ->addColumn('action', function ($row) {
-                $action  = '<a href="/akunpegawai/'.$row->PE_Nip.'/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
-                $action .= \Form::open(['url'=>'akunpegawai/'.$row->PE_Nip,'method'=>'delete','style'=>'float:right']);
+                $action = '<a href="/akunpegawai/' . $row->PE_Nip . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+                $action .= \Form::open(['url' => 'akunpegawai/' . $row->PE_Nip, 'method' => 'delete', 'style' => 'float:right']);
                 $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
                 $action .= \Form::close();
                 return $action;
@@ -37,7 +36,8 @@ class ManajemenAkunPegawaiController extends Controller
     public function index()
     {
         $employees = Employee::all();
-        return view('employee.pegawai')->with('employees',$employees);    }
+        return view('employee.pegawai')->with('employees', $employees);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -110,7 +110,7 @@ class ManajemenAkunPegawaiController extends Controller
 //                $user->roles()->attach($role);
 //            }
 //            return redirect('/akunpegawai')->with('status', 'Data Pegawai Berhasil Disimpan');
-//
+//        Logbook::write(Auth::user()->PE_Nip, 'Menambah data pegawai ' . $employee->PE_NamaLengkap . ' dari tabel pegawai',Logbook::Create ,Logbook::TABLE_EMPLOYEES);
 //        }
     }
 
@@ -159,7 +159,9 @@ class ManajemenAkunPegawaiController extends Controller
         $employee->PE_Nip = $request->PE_Nip;
         $employee->PE_NamaLengkap = $request->PE_NamaLengkap;
         $employee->PE_Email = $request->PE_Email;
-        $employee->save();
+        if ($employee->save()) {
+            Logbook::write(Auth::user()->PE_Nip, 'Mengubah data pegawai ' . $employee->PE_NamaLengkap . ' dari tabel pegawai', Logbook::ACTION_EDIT, Logbook::TABLE_EMPLOYEES);
+        };
         return redirect('/akunpegawai')->with('status', 'Data Berhasil Diubah');
     }
 
@@ -174,7 +176,12 @@ class ManajemenAkunPegawaiController extends Controller
     {
         $employee = Employee::find($id);
         $employee->roles()->detach();
-        $employee->delete();
+        if ($employee->delete()) {
+            Logbook::write(Auth::user()->PE_Nip,
+                'Menghapus data pegawai ' . $employee->PE_NamaLengkap . ' dari tabel pegawai', Logbook::ACTION_DELETE,
+                Logbook::TABLE_EMPLOYEES);
+
+        };
         return redirect('/akunpegawai')->with('status_failed', 'Data Berhasil Dihapus');
     }
 
@@ -182,6 +189,9 @@ class ManajemenAkunPegawaiController extends Controller
     {
 
         $data = Excel::import(new EmployeesImport(), request()->file('file'));
+        if ($data) {
+            Logbook::write(Auth::user()->PE_Nip, 'Mengimpor data pegawai  dari tabel pegawai', Logbook::ACTION_IMPORT, Logbook::TABLE_EMPLOYEES);
+        }
         return back();
     }
 
