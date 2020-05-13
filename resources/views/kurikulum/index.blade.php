@@ -13,7 +13,10 @@
 
                         <table class="table table-bordered">
                             <tr>
-                                <td width="300">Tahun Kurikulum</td><td>{{--QUERY KURIKULUMNYA ISI DISINI YA QIL--}}</td>
+                                <td width="300">Tahun Kurikulum</td>
+                                <td>
+                                    {{ Form::text('tahun_kurikulum',null,['class'=>'form-control','placeholder'=>'Tahun Ajaran (contoh: 2020 - Genap)'])}}
+                                </td>
                             </tr>
                             <tr>
                                 <td>Tanggal Mulai & Selesai</td>
