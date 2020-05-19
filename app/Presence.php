@@ -28,7 +28,7 @@ class Presence extends Model
             COUNT(IF(PR_Keterangan='SAKIT',1, NULL)) as 'Sakit',
              COUNT(IF(PR_Keterangan='IZIN',1, NULL)) as 'Izin',
           (t3.total-COUNT(presences.PR_KU_ID)) as 'Alpha',
-            FORMAT(COUNT(presences.PR_KU_ID)/t3.total,0)  as persentase from class_student
+            FORMAT(COUNT(presences.PR_KU_ID)/t3.total*100,0)  as persentase from class_student
             LEFT Outer  JOIN presences ON presences.PR_KU_ID=class_student.KU_ID
             JOIN (SELECT  meetings.PT_KE_ID,
                   classes.*,
@@ -56,15 +56,17 @@ class Presence extends Model
             $filter = $filter . " " . "AND  class_student.KU_KE_KR_MK_ID=" . " '" . $params['MK_ID'] . "'";
         }
         if (isset($params['min_percentage'])) {
-            $group = $group . " " . "having   persentase >=" . " '" . $params['min_percentage'] . "'";
+            $group = $group . " " . "having   persentase >=" . $params['min_percentage'] ;
         }
         if (isset($params['max_percentage'])) {
-            $group = $group . " " . "having  persentase <=" . " '" . $params['max_percentage'] . "'";
+            $group = $group . " " . "having  persentase <=" . $params['max_percentage'] ;
         }
 
         if (isset($params['equals'])) {
-            $group = $group . " " . "having  persentase =" . " '" . $params['max_percentage'] . "'";
+            $group = $group . " " . "having  persentase =" . " '" . $params['equals'] . "'";
         }
+
+
 
         return DB::select($defaultQuery . " " . $filter . " " . $group . " " . $order);
 

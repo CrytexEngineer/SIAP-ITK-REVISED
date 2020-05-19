@@ -17,7 +17,7 @@ class ManajemenAkunPegawaiController extends Controller
 
     function json()
     {
-        return Datatables::of(Employee::with('roles')->join('majors','employees.PE_KodeJurusan','=','PS_Kode_Prodi')->get()->all())
+        return Datatables::of(Employee::with('roles')->lefjoin('majors','employees.PE_KodeJurusan','=','PS_Kode_Prodi')->get()->all())
             ->addColumn('action', function ($row) {
                 $action = '<a href="/akunpegawai/' . $row->PE_Nip . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
                 $action .= \Form::open(['url' => 'akunpegawai/' . $row->PE_Nip, 'method' => 'delete', 'style' => 'float:right']);

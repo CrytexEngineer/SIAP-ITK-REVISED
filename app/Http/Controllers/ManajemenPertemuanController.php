@@ -88,7 +88,7 @@ class ManajemenPertemuanController extends Controller
 
 
             $meeting->save();
-            dd($meeting);
+
 
             return redirect()->back(201);
 

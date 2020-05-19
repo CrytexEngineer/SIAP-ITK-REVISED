@@ -29,6 +29,11 @@ class PresenceController extends Controller
 
         $presenceCount = Presence::count(['MA_Nrp' => trim($request['MA_Nrp'], '"'), 'MK_ID' => trim($request['MK_ID'], '"')]);
 
+        if ($request['MK_ID'] == "all") {
+            $presenceCount = Presence::count(['MA_Nrp' => trim($request['MA_Nrp'], '"')]);
+
+        }
+
         if ($presenceCount) {
             $response = ['properties' => [$properties],
                 'presenceCount' => $presenceCount];
@@ -40,11 +45,12 @@ class PresenceController extends Controller
         }
 
 
-        return response()->json( $response, Response::HTTP_OK);
+        return response()->json($response, Response::HTTP_OK);
     }
 
     function index(Request $request)
-    {  error_log($request->input('MK_ID'));
+    {
+        error_log($request->input('MK_ID'));
         $request->validate([
             'MA_Nrp' => 'required',
             'MK_ID' => 'required'
@@ -56,6 +62,7 @@ class PresenceController extends Controller
         ];
 
         $presences = Presence::index(['MA_Nrp' => trim($request['MA_Nrp'], '"'), 'MK_ID' => trim($request['MK_ID'], '"'),]);
+
 
         if ($presences) {
             $response = ['properties' => [$properties],
@@ -70,5 +77,6 @@ class PresenceController extends Controller
         return response()->json($response, Response::HTTP_OK);
 
     }
+
 
 }

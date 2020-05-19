@@ -1,8 +1,10 @@
 <?php
+
 namespace App\Http\Controllers\Mobile;
 
 use App\Http\Controllers\Controller;
 use App\Presence;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -18,31 +20,38 @@ class MobileNotificationController extends Controller
     {
 
 
-
-
         $request->validate([
             'MA_Nrp' => 'required'
         ]);
 
+        date_default_timezone_set("Asia/Kuala_Lumpur");
+        $dt = Carbon::now();
+        $currentDate = $dt->format('Y-m-d');
+        $currrentTime = $dt->format('H:i:s');
 
         $properties = ['msg' => 'Notifikasi',
             'href' => "api/v1/mobile/notification",
             'method' => 'GET'
         ];
-        $presences = Presence::count(['MA_Nrp' => trim($request['MA_Nrp'], '"'),'max_percentage' => 70]);
+        $presences = Presence::count(['MA_Nrp' => trim($request['MA_Nrp'], '"'), 'max_percentage' => 80]);
+        $notification = new Notification(
+            [
+                'date' => $currentDate,
+                'time' => $currrentTime,
+                'msg' => "Kamu mahasiswa yang rajin, pertahankan yaa!",
+                'count' => count($presences)]);
+
 
         if ($presences) {
-            $properties ['msg'] = "Kamu punya ".count($presences)." kehadiran matakuliah kurang dari 80%";
-            $response = ['properties' => [$properties]];
-
-        } else {
-            $properties['msg'] = "Kamu mahasiswa yang rajin, pertahankan!";
-            $response = ['properties' => [$properties]];
-
+            $notification['msg']= "Kamu punya " . count($presences) . " kehadiran matakuliah kurang dari 80%";
         }
 
-        return response()->json($response, Response::HTTP_OK);
 
+
+        $response = ['properties' => [$properties],
+            'notification' => [$notification]];
+
+        return response()->json($response, Response::HTTP_OK);
 
 
     }
@@ -60,7 +69,7 @@ class MobileNotificationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -71,7 +80,7 @@ class MobileNotificationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -82,7 +91,7 @@ class MobileNotificationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -93,8 +102,8 @@ class MobileNotificationController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -105,7 +114,7 @@ class MobileNotificationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

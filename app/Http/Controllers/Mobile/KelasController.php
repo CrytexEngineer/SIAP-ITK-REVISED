@@ -44,13 +44,16 @@ class KelasController extends Controller
             ($class->KE_KR_MK_ID);
             $count = Presence::count(['MA_Nrp' => trim($nrp, '"'),
                 'MK_ID' => trim($class->KE_KR_MK_ID, '"')]);
-            
+
 
             $persentase = 0;
+            $jumlahPertemuan=0;
             if ($count) {
-                $persentase = number_format($count[0]->persentase * 100, 0);
+                $persentase = ($count[0]->persentase);
+                $jumlahPertemuan=($count[0]->Jumlah_Pertemuan);
             }
             $class->KE_Count = $persentase;
+            $class->Jumlah_Pertemuan = $jumlahPertemuan;
         }
 
 
