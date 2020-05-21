@@ -36,7 +36,7 @@
                                 <th>Hari</th>
                                 <th>Jam Mulai</th>
                                 <th>Jam Usai</th>
-                                <th width="150">Action</th>
+                                <th width="160">Action</th>
                             </tr>
                             </thead>
                             <tfoot>
@@ -73,7 +73,7 @@
                 lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 "scrollX": true,
                 processing: true,
-                serverSide: true,
+                serverSide: false,
                 ajax: '/kelas/json',
                 columns: [
                  {data: 'KE_KR_MK_ID', name: 'KE_KR_MK_ID'},
@@ -116,10 +116,5 @@
                 }
             });
         });
-
-
-
-
     </script>
-
 @endpush

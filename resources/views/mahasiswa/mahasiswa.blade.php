@@ -49,7 +49,7 @@
                 lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 "scrollX": true,
                 processing: true,
-                serverSide: true,
+                serverSide: false,
                 ajax: '/akunmahasiswa/json',
                 columns: [
                     { data: 'MA_NRP_Baru', name: 'MA_NRP_Baru' },

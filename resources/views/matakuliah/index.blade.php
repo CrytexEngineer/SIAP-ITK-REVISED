@@ -50,7 +50,7 @@
                 lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 "scrollX": true,
                 processing: true,
-                serverSide: true,
+                serverSide: false,
                 ajax: '/matakuliah/json',
                 columns: [
                     {data: 'MK_ID', name: 'MK_ID'},

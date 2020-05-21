@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use App\Role;
+use Illuminate\Support\Facades\DB;
+
 class RolesTableSeeder extends Seeder
 
 {
@@ -22,8 +24,8 @@ class RolesTableSeeder extends Seeder
 //        $diksat = App\Role::create(['role_name' => 'Tendik Pusat']);
 //        $dosen = Role::create(['role_name' => 'Dosen Pengampu']);
 //        $mahasiswa=Role::create(['role_name'=>'Mahasiswa']);
-
-
+        DB::statement("SET foreign_key_checks=0");
+        Role::truncate();
         Role::create(['role_name' => 'Super Admin']);
         Role::create(['role_name' => 'Admin']);
         Role::create(['role_name' => 'Observer']);
@@ -34,5 +36,6 @@ class RolesTableSeeder extends Seeder
         Role::create(['role_name' => 'Tendik Pusat']);
         Role::create(['role_name' => 'Dosen Pengampu']);
         Role::create(['role_name' => 'Mahasiswa']);
+        DB::statement("SET foreign_key_checks=1");
     }
 }

@@ -33,6 +33,13 @@
                         </div>
 
                         <div class="form-group row">
+                            <label class="col-md-2 col-form-label text-md-right">Program Studi</label>
+                            <div class="col-md-4">
+                                {{Form::select('PE_KodeJurusan',$major ?? '',null,['class'=>'form-control'])}}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="roles" class="col-md-2 col-form-label text-md-right">Roles</label>
                             <div class="col-md-6">
                             @foreach($roles as $role)
