@@ -35,7 +35,7 @@
                                 <th>Hari</th>
                                 <th>Jam Mulai</th>
                                 <th>Jam Usai</th>
-                                <th width="70">Action</th>
+                                <th width="150">Action</th>
                             </tr>
                             </thead>
                             <tfoot>
