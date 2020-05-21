@@ -39,8 +39,6 @@ class LoginController extends Controller
     protected $redirectTo;
     public function redirectTo()
     {
-
-
         switch (Auth::user()->roles->first()->id) {
 
 

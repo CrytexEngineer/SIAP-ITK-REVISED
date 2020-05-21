@@ -24,7 +24,7 @@ class ManajemenKelasController extends Controller
         ->join('majors', 'classes.KE_KodeJurusan', '=', 'majors.PS_Kode_Prodi'))
         ->addColumn('action', function ($row) {
             $action = '<a href="/kelas/' . $row->KE_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a> ';
-            $action .= '<a href="/kelas/' . $row->KE_ID . '/manage" class="btn btn-primary btn-sm"><i class="fas fa-tasks"></i></a>';
+            $action .= '<a href="/kelas/' . $row->KE_ID . '/manage" class="btn btn-primary btn-sm"><i class="fas fa-tasks"></i></a> ';
             $action .= \Form::open(['url' => 'kelas/' . $row->KE_ID, 'method' => 'delete', 'style' => 'float:right']);
             $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
             $action .= \Form::close();
@@ -182,7 +182,7 @@ class ManajemenKelasController extends Controller
                 'Menghapus data kelas ' . $kelas->KE_KR_MK_ID . ' kelas '.$kelas->KE_Kelas.' dari tabel kelas', Logbook::ACTION_DELETE,
                 Logbook::TABLE_CLASSES);
         }
-        return redirect('/kelas')->with('status', 'Data Kelas Berhasil Dihapus');;
+        return redirect('/kelas')->with('status_failed', 'Data Kelas Berhasil Dihapus');;
 
     }
 

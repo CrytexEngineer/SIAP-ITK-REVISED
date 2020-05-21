@@ -69,7 +69,7 @@ class ManajemenMataKuliahController extends Controller
         $subject = New Subject();
         $subject->create($request->all());
         Logbook::write(Auth::user()->PE_Nip, 'Menambah data matakuliah ' . $subject->MK_Mata_Kuliah . ' dari tabel matakuliah', Logbook::ACTION_CREATE, Logbook::TABLE_SUBJECTS);
-        return redirect('/matakuliah')->with('status', 'Data Matakuliah Berhasil Disimpan');
+        return redirect('/matakuliah')->with('status', 'Data Matakuliah Berhasil Disimpan!');
     }
 
     /**
@@ -117,7 +117,7 @@ class ManajemenMataKuliahController extends Controller
             Logbook::write(Auth::user()->PE_Nip, 'Mengubah data matakuliah ' . $subject->MK_Mata_Kuliah . ' dari tabel matakuliah', Logbook::ACTION_EDIT, Logbook::TABLE_SUBJECTS);
         }
 
-        return redirect('/matakuliah')->with('status', 'Data Matakuliah Berhasil Di Update');;
+        return redirect('/matakuliah')->with('status', 'Data Matakuliah Berhasil Diubah!');;
     }
 
     /**
@@ -133,7 +133,7 @@ class ManajemenMataKuliahController extends Controller
         $subject->delete()) {
             Logbook::write(Auth::user()->PE_Nip, 'Menghapus data matakuliah ' . $subject->MK_Mata_Kuliah . ' dari tabel matakuliah', Logbook::ACTION_DELETE, Logbook::TABLE_SUBJECTS);
         }
-        return redirect('/matakuliah')->with('status_failed', 'Data Matakuliah Berhasil Dihapus');;
+        return redirect('/matakuliah')->with('status_failed', 'Data Matakuliah Berhasil Dihapus!');;
     }
 
 

@@ -19,6 +19,7 @@
     <script src="https://cdn.rawgit.com/ashl1/datatables-rowsgroup/fbd569b8768155c7a9a62568e66a64115887d7d0/dataTables.rowsGroup.js"></script>
     <script src="{{asset('assets/dist/air-datepicker/dist/js/datepicker.js')}}"></script>
     <script src="{{asset('assets/dist/air-datepicker/dist/js/i18n/datepicker.en.js')}}"></script>
+    <script src="{{asset('assets/dist/sweetalert2/sweetalert2.min.js')}}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -34,6 +35,7 @@
     <link rel="stylesheet" href="{{asset('assets/dist/air-datepicker/dist/css/datepicker.css')}}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
     <link href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{asset('assets/dist/sweetalert2/sweetalert2.min.css')}}">
 
 </head>
 <body>
@@ -94,6 +96,8 @@
             </div>
         </div>
     </nav>
+
+    @include('sweetalert::alert')
 
     <main class="py-4">
         @yield('content')

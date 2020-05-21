@@ -63,7 +63,7 @@
                 lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 "scrollX": true,
                 processing: true,
-                serverSide: true,
+                serverSide: false,
                 ajax: '/akunpegawai/json',
                 columns: [
                     { data: 'PE_Nip', name: 'PE_Nip' },

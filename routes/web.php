@@ -131,5 +131,8 @@ Route::GET('password/form/{token}', 'Mobile\PasswordResetController@showForm')->
 //Kurikulum
 Route::resource('/kurikulum',"KurikulumController");
 
+Route::get('/delete_all', 'DeleteAllController@destroy')->name('delete.all');
+
+
 
 

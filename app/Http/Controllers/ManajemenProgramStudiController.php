@@ -68,7 +68,7 @@ class ManajemenProgramStudiController extends Controller
             'Menambah data program studi ' . $major->PS_Nama . ' dari tabel program studi', Logbook::ACTION_CREATE,
             Logbook::TABLE_MAJORS);
 
-        return redirect('/program_studi')->with('status', 'Data Program Studi Berhasil Disimpan');
+        return redirect('/program_studi')->with('status', 'Data Program Studi Berhasil Disimpan!');
     }
 
     /**
@@ -115,7 +115,7 @@ class ManajemenProgramStudiController extends Controller
                 'Mengubah data program studi ' . $major->PS_Nama . ' dari tabel program studi', Logbook::ACTION_EDIT,
                 Logbook::TABLE_MAJORS);
         }
-        return redirect('/program_studi')->with('status', 'Data Program Studi Berhasil Di Update');;
+        return redirect('/program_studi')->with('status', 'Data Program Studi Berhasil Diubah!');;
     }
 
     /**
@@ -133,7 +133,7 @@ class ManajemenProgramStudiController extends Controller
                 Logbook::TABLE_MAJORS);
         };
 
-        return redirect('/program_studi')->with('status', 'Data Program Studi Berhasil Dihapus');;
+        return redirect('/program_studi')->with('status_failed', 'Data Program Studi Berhasil Dihapus!');;
     }
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Employee;
 use App\Imports\EmployeesImport;
 use App\Logbook;
+use App\Major;
 use App\Role;
 use DataTables;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ class ManajemenAkunPegawaiController extends Controller
 
     function json()
     {
-        return Datatables::of(Employee::with('roles')->join('majors','employees.PE_KodeJurusan','=','PS_Kode_Prodi')->get()->all())
+        return Datatables::of(Employee::with('roles')->leftjoin('majors','employees.PE_KodeJurusan','=','PS_Kode_Prodi')->get()->all())
             ->addColumn('action', function ($row) {
                 $action = '<a href="/akunpegawai/' . $row->PE_Nip . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
                 $action .= \Form::open(['url' => 'akunpegawai/' . $row->PE_Nip, 'method' => 'delete', 'style' => 'float:right']);
@@ -137,6 +138,7 @@ class ManajemenAkunPegawaiController extends Controller
 
     {
         $roles = Role::all();
+        $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
         $data['employee'] = Employee::where('PE_Nip', $id)->first();
         return view('employee.edit_pegawai', $data)->with([
             'id' => $id,
@@ -159,6 +161,7 @@ class ManajemenAkunPegawaiController extends Controller
         $employee->PE_Nip = $request->PE_Nip;
         $employee->PE_NamaLengkap = $request->PE_NamaLengkap;
         $employee->PE_Email = $request->PE_Email;
+        $employee->PE_KodeJurusan = $request->PE_KodeJurusan;
         if ($employee->save()) {
             Logbook::write(Auth::user()->PE_Nip, 'Mengubah data pegawai ' . $employee->PE_NamaLengkap . ' dari tabel pegawai', Logbook::ACTION_EDIT, Logbook::TABLE_EMPLOYEES);
         };
