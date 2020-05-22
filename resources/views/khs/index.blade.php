@@ -27,7 +27,9 @@
                                 <th>Prodi/TPB</th>
                                 <th>Tahun Akademik</th>
                                 <th>Mata Kuliah Diambil</th>
+                                @can('change')
                                 <th width="50">Action</th>
+                                    @endcan
                             </tr>
                             </thead>
                             <tfoot>
@@ -66,7 +68,9 @@
                     {data: 'PS_Nama', name: 'PS_Nama'},
                     {data: 'KU_KE_Tahun', name: 'KU_KE_Tahun'},
                     {data: 'MK_Mata_Kuliah', name: 'MK_Mata_Kuliah'},
+                        @can('change')
                     {data: 'action', name: 'action'}
+                    @endcan
                 ],
                 initComplete: function () {
                     this.api().columns().every( function () {

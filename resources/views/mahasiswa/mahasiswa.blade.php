@@ -23,7 +23,9 @@
                                 <th>E-mail</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
+                                @can('change')
                                 <th width="50">Action</th>
+                                    @endcan
                             </tr>
                             </thead>
                             <tfoot>
@@ -57,7 +59,9 @@
                     { data: 'email', name: 'email' },
                     { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' },
+                        @can('change')
                     { data: 'action', name: 'action' }
+                    @endcan
                 ],
                 initComplete: function () {
                     this.api().columns().every( function () {

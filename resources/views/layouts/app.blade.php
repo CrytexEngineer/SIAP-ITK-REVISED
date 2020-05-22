@@ -107,15 +107,12 @@
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-                                <a class="dropdown-item delete-confirm" href="/delete_all">Hapus Semua Data</a>
-
-{{--                                <a class="dropdown-item" href="{{ route('admin.users.index') }}">--}}
-{{--                                    User Management--}}
-{{--                                </a>--}}
-
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
+                                @can('change')
+                                    <a class="dropdown-item delete-confirm" href="/delete_all">Hapus Semua Data</a>
+                                @endcan
                             </div>
                         </li>
                     @endguest
