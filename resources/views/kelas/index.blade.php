@@ -36,7 +36,9 @@
                                 <th>Hari</th>
                                 <th>Jam Mulai</th>
                                 <th>Jam Usai</th>
+                                @can('change')
                                 <th width="160">Action</th>
+                                    @endcan
                             </tr>
                             </thead>
                             <tfoot>
@@ -92,7 +94,9 @@
                     {data: 'KE_Jadwal_IDHari', name: 'KE_Jadwal_IDHari'},
                     {data: 'KE_Jadwal_JamMulai', name: 'KE_Jadwal_JamMulai'},
                     {data: 'KE_Jadwal_JamUsai', name: 'KE_Jadwal_JamUsai'},
+                        @can('change')
                     {data: 'action', name: 'action'}
+                    @endcan
                 ],
                 initComplete: function () {
                     this.api().columns().every( function () {

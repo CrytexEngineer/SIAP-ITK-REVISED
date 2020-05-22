@@ -25,6 +25,16 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('change', function ($id){
+            return $id->hasAnyRoles(['Super Admin', 'Admin', 'Wakil Rektor', 'Tendik Jurusan', 'Tendik Pusat']);
+        });
+
+        Gate::define('tendik-pusat', function ($id){
+            return $id->hasAnyRoles(['Super Admin', 'Tendik Pusat']);
+        });
+
+        Gate::define('admin', function ($id){
+            return $id->hasAnyRoles(['Super Admin', 'Admin', 'Observer', 'Wakil Rektor', 'Ketua Prodi', 'Ketua Jurusan', 'Tendik Jurusan', 'Tendik Pusat']);
+        });
     }
 }

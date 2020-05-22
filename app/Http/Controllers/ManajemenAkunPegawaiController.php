@@ -8,6 +8,7 @@ use App\Logbook;
 use App\Major;
 use App\Role;
 use DataTables;
+use Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -18,7 +19,7 @@ class ManajemenAkunPegawaiController extends Controller
 
     function json()
     {
-        return Datatables::of(Employee::with('roles')->lefjoin('majors','employees.PE_KodeJurusan','=','PS_Kode_Prodi')->get()->all())
+        return Datatables::of(Employee::with('roles')->leftjoin('majors','employees.PE_KodeJurusan','=','PS_Kode_Prodi')->get()->all())
             ->addColumn('action', function ($row) {
                 $action = '<a href="/akunpegawai/' . $row->PE_Nip . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
                 $action .= \Form::open(['url' => 'akunpegawai/' . $row->PE_Nip, 'method' => 'delete', 'style' => 'float:right']);
@@ -135,7 +136,6 @@ class ManajemenAkunPegawaiController extends Controller
      */
     public
     function edit($id)
-
     {
         $roles = Role::all();
         $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');

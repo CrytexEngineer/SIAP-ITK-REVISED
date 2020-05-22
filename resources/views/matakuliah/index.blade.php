@@ -22,7 +22,9 @@
                                 <th>Nama Matakuliah</th>
                                 <th>Tahun Kurikulum</th>
                                 <th>Kredit Kuliah</th>
+                                @can('change')
                                 <th width="50">Action</th>
+                                    @endcan
                             </tr>
                             </thead>
                             <tfoot>
@@ -57,7 +59,9 @@
                     {data: 'MK_Mata_Kuliah', name: 'MK_Mata_Kuliah'},
                     {data: 'MK_ThnKurikulum', name: 'MK_ThnKurikulum'},
                     {data: 'MK_KreditKuliah', name: 'MK_KreditKuliah'},
+                        @can('change')
                     {data: 'action', name: 'action'}
+                    @endcan
                     ],
                 initComplete: function () {
                     this.api().columns().every( function () {
