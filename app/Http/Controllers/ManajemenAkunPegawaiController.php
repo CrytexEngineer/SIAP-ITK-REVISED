@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Employee;
 use App\Imports\EmployeesImport;
 use App\Logbook;
+use App\Major;
 use App\Role;
 use DataTables;
+use Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -134,9 +136,9 @@ class ManajemenAkunPegawaiController extends Controller
      */
     public
     function edit($id)
-
     {
         $roles = Role::all();
+        $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
         $data['employee'] = Employee::where('PE_Nip', $id)->first();
         return view('employee.edit_pegawai', $data)->with([
             'id' => $id,
@@ -159,6 +161,7 @@ class ManajemenAkunPegawaiController extends Controller
         $employee->PE_Nip = $request->PE_Nip;
         $employee->PE_NamaLengkap = $request->PE_NamaLengkap;
         $employee->PE_Email = $request->PE_Email;
+        $employee->PE_KodeJurusan = $request->PE_KodeJurusan;
         if ($employee->save()) {
             Logbook::write(Auth::user()->PE_Nip, 'Mengubah data pegawai ' . $employee->PE_NamaLengkap . ' dari tabel pegawai', Logbook::ACTION_EDIT, Logbook::TABLE_EMPLOYEES);
         };

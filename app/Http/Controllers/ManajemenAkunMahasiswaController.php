@@ -8,6 +8,7 @@ use App\Student;
 use DataTables;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ManajemenAkunMahasiswaController extends Controller
@@ -59,38 +60,25 @@ class ManajemenAkunMahasiswaController extends Controller
         $request->validate([
             'MA_NamaLengkap' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:students'],
-            'MA_PASSWORD' => ['required', 'string', 'min:8'],
-            'MA_Nrp' => ['required', 'integer', 'unique:students'],
-            'MA_IMEI' => ['required', 'integer', 'min:14', 'unique:students'],
+            'MA_PASSWORD' => ['required', 'string', 'min:6'],
+//            'MA_Nrp' => ['required', 'integer', 'unique:students'],
             'MA_NRP_Baru' => ['required', 'integer', 'unique:students'],
         ]);
 
-        $mahasiswa = New Student();
-        $mahasiswa->create($request->all());
+        $mahasiswa = Student::create([
+            'email' => $request->email,
+            'MA_NamaLengkap' => $request->MA_NamaLengkap,
+            'MA_NRP_Baru' => $request->MA_NRP_Baru,
+            'MA_PASSWORD' => Hash::make($request->MA_PASSWORD)
+        ]);
+
+//        $mahasiswa = New Student();
+//        $mahasiswa->MA_PASSWORD = Hash::make($request->MA_PASSWORD);
+//        $mahasiswa->create($request->all());
+
         Logbook::write(Auth::user()->PE_Nip, 'Menambah data mahasiswa ' . $mahasiswa->MA_NamaLengkap . ' dari tabel mahasiswa', Logbook::ACTION_CREATE, Logbook::TABLE_STUDENTS);
         return redirect('/akunmahasiswa')->with('status', 'Data Mahasiswa Berhasil Disimpan');
 
-//        $data = $request->all();
-//        $user = [
-//            'name' => $data['name'],
-//            'email' => $data['email'],
-//            'role' => $data['role'],
-//            'password' => Hash::make($data['password']),
-//        ];
-//
-//        $student = new \App\Student([
-//            'MA_Nrp' => $data['MA_Nrp'],
-//            'MA_NRP_Baru' => $data['MA_Nrp'],
-//            'MA_NamaLengkap' => $data['name'],
-//            'email' => $data['MA_Email']]);
-//
-//
-//        if ($student->save()) {
-//            User::create($user);
-//            $user = User::where('email', $data['MA_Email'])->first();
-//            $role = Role::where('id', $data['role'])->get()->first();
-//            $user->roles()->attach($role);
-//        }
     }
 
 
@@ -140,18 +128,19 @@ class ManajemenAkunMahasiswaController extends Controller
 //
 //        }
 //        return redirect('/akunmahasiswa')->with('status', 'Data Berhasil Diubah');
+
         $mahasiswa = Student::where('MA_Nrp', '=', $id)->first();
         $mahasiswa->MA_NamaLengkap = $request->MA_NamaLengkap;
         $mahasiswa->email = $request->email;
-        $mahasiswa->MA_IMEI = $request->MA_IMEI;
+        //SYNTAX KETIKA PASSWORD DIISI KOSONG MAKA DIISI PASSWORD LAMA
         if ($request->MA_PASSWORD != '') {
-            $mahasiswa->MA_PASSWORD = $request->MA_PASSWORD;
+            $mahasiswa->MA_PASSWORD = Hash::make($request->MA_PASSWORD);
         }
 
         $mahasiswa->save();
         Logbook::write(Auth::user()->PE_Nip, 'Mengubah data mahasiswa ' . $mahasiswa->MA_NamaLengkap . ' dari tabel mahasiswa', Logbook::ACTION_EDIT, Logbook::TABLE_STUDENTS);
         //$mahasiswa->update($request->except('_method','_token'));
-        return redirect('/akunmahasiswa')->with('status', 'Data mahasiswa Berhasil Di Update');
+        return redirect('/akunmahasiswa')->with('status', 'Data Mahasiswa Berhasil Diubah');
     }
 
     /**
@@ -178,7 +167,7 @@ class ManajemenAkunMahasiswaController extends Controller
         if ($mahasiswa->delete()) {
             Logbook::write(Auth::user()->PE_Nip, 'Menghapus data mahasiswa ' . $mahasiswa->MA_NamaLengkap . ' dari tabel mahasiswa', Logbook::ACTION_DELETE, Logbook::TABLE_STUDENTS);
         }
-        return redirect('/akunmahasiswa')->with('status_failed', 'Data Berhasil Dihapus');
+        return redirect('/akunmahasiswa')->with('status_failed', 'Data Mahasiswa Berhasil Dihapus');
     }
 
     public function import()

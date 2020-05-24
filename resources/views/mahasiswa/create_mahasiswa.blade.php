@@ -15,12 +15,12 @@
 
                         @csrf
 
-                        <div class="form-group row">
-                            <label class="col-md-3 col-form-label text-md-right">NIM Default Mahasiswa</label>
-                            <div class="col-md-6">
-                                {{ Form::text('MA_Nrp', null, ['class'=>'form-control', 'placeholder'=> 'NIM Dafault Mahasiswa contoh: 1116110022']) }}
-                            </div>
-                        </div>
+{{--                        <div class="form-group row">--}}
+{{--                            <label class="col-md-3 col-form-label text-md-right">NIM Default Mahasiswa</label>--}}
+{{--                            <div class="col-md-6">--}}
+{{--                                {{ Form::text('MA_Nrp', null, ['class'=>'form-control', 'placeholder'=> 'NIM Dafault Mahasiswa contoh: 1116110022']) }}--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label text-md-right">NIM Mahasiswa</label>
@@ -47,13 +47,6 @@
                             <label class="col-md-3 col-form-label text-md-right">Password</label>
                             <div class="col-md-6">
                                 {{ Form::password('MA_PASSWORD',['class'=>'form-control','placeholder'=>'Password'])}}
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label class="col-md-3 col-form-label text-md-right">Nomor IMEI HP</label>
-                            <div class="col-md-6">
-                                {{ Form::text('MA_IMEI', null, ['class'=>'form-control', 'placeholder'=> 'Nomor IMEI HP Mahasiswa']) }}
                             </div>
                         </div>
 

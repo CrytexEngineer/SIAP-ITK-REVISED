@@ -13,7 +13,7 @@
 
                         @include('alert')
 
-                        <a href="/kelas/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
+                        <a href="/khs/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
 
                         @include('khs.import')
                         <hr>
@@ -27,7 +27,9 @@
                                 <th>Prodi/TPB</th>
                                 <th>Tahun Akademik</th>
                                 <th>Mata Kuliah Diambil</th>
+                                @can('change')
                                 <th width="50">Action</th>
+                                    @endcan
                             </tr>
                             </thead>
                             <tfoot>
@@ -57,7 +59,7 @@
                 lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 "scrollX": true,
                 processing: true,
-                serverSide: true,
+                serverSide: false,
                 ajax: '/khs/json',
                 columns: [
                     {data: 'MA_NRP_Baru', name: 'MA_NRP_Baru'},
@@ -66,7 +68,9 @@
                     {data: 'PS_Nama', name: 'PS_Nama'},
                     {data: 'KU_KE_Tahun', name: 'KU_KE_Tahun'},
                     {data: 'MK_Mata_Kuliah', name: 'MK_Mata_Kuliah'},
+                        @can('change')
                     {data: 'action', name: 'action'}
+                    @endcan
                 ],
                 initComplete: function () {
                     this.api().columns().every( function () {

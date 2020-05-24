@@ -40,13 +40,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label class="col-md-2 col-form-label text-md-right">Nomor IMEI HP</label>
-                            <div class="col-md-6">
-                                {{ Form::text('MA_IMEI', null, ['class'=>'form-control', 'placeholder'=> 'Nomor IMEI HP Mahasiswa']) }}
-                            </div>
-                        </div>
-
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-2">
                                     {{Form::submit('Simpan Data', ['class'=>'btn btn-primary'])}}

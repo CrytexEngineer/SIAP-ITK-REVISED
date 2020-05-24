@@ -35,9 +35,9 @@
                                 <th>Roles</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
-{{--                                @can('manage-users')--}}
+                                @can('change')
                                     <th width="50">Action</th>
-{{--                                @endcan--}}
+                                @endcan
                             </tr>
                             </thead>
                             <tfoot>
@@ -63,7 +63,7 @@
                 lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 "scrollX": true,
                 processing: true,
-                serverSide: true,
+                serverSide: false,
                 ajax: '/akunpegawai/json',
                 columns: [
                     { data: 'PE_Nip', name: 'PE_Nip' },
@@ -74,9 +74,9 @@
                         render: "[, ].role_name"},
                     { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' },
-{{--                        @can('manage-users')--}}
+                        @can('change')
                     { data: 'action', name: 'action' }
-{{--                    @endcan--}}
+                    @endcan
 
                 ],
                 initComplete: function () {

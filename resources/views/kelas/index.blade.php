@@ -36,7 +36,9 @@
                                 <th>Hari</th>
                                 <th>Jam Mulai</th>
                                 <th>Jam Usai</th>
-                                <th width="150">Action</th>
+                                @can('change')
+                                <th width="160">Action</th>
+                                    @endcan
                             </tr>
                             </thead>
                             <tfoot>
@@ -73,7 +75,7 @@
                 lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 "scrollX": true,
                 processing: true,
-                serverSide: true,
+                serverSide: false,
                 ajax: '/kelas/json',
                 columns: [
                  {data: 'KE_KR_MK_ID', name: 'KE_KR_MK_ID'},
@@ -92,7 +94,9 @@
                     {data: 'KE_Jadwal_IDHari', name: 'KE_Jadwal_IDHari'},
                     {data: 'KE_Jadwal_JamMulai', name: 'KE_Jadwal_JamMulai'},
                     {data: 'KE_Jadwal_JamUsai', name: 'KE_Jadwal_JamUsai'},
+                        @can('change')
                     {data: 'action', name: 'action'}
+                    @endcan
                 ],
                 initComplete: function () {
                     this.api().columns().every( function () {
@@ -116,10 +120,5 @@
                 }
             });
         });
-
-
-
-
     </script>
-
 @endpush

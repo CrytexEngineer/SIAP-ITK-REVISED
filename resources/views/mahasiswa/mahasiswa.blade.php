@@ -23,7 +23,9 @@
                                 <th>E-mail</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
+                                @can('change')
                                 <th width="50">Action</th>
+                                    @endcan
                             </tr>
                             </thead>
                             <tfoot>
@@ -49,7 +51,7 @@
                 lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 "scrollX": true,
                 processing: true,
-                serverSide: true,
+                serverSide: false,
                 ajax: '/akunmahasiswa/json',
                 columns: [
                     { data: 'MA_NRP_Baru', name: 'MA_NRP_Baru' },
@@ -57,7 +59,9 @@
                     { data: 'email', name: 'email' },
                     { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' },
+                        @can('change')
                     { data: 'action', name: 'action' }
+                    @endcan
                 ],
                 initComplete: function () {
                     this.api().columns().every( function () {

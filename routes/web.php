@@ -90,7 +90,7 @@ Route::resource('/akunmahasiswa', 'ManajemenAkunMahasiswaController');
 Route::post('/akunmahasiswa/import', 'ManajemenAkunMahasiswaController@import')->name('import_mahasiswa');
 
 //Dosen
-Route::get('jadwal_mengajar','DosenController@jadwal_mengajar');
+Route::get('jadwal_mengajar','DosenController@jadwal_mengajar')->name('jadwal_mengajar');
 Route::get('jadwal_mengajar/json','DosenController@jadwal_mengajar_json');
 Route::get('kehadiran/{id_jadwal}/create','KehadiranController@create');
 Route::get('kehadiran/{id_jadwal}','KehadiranController@index');
@@ -120,6 +120,7 @@ Route::resource('/rekapitulasi/pertemuan',"RekapitulasiPegawaiController");
 //ManajemenData
 Route::get('/riwayat_data/json',"ManajemenLogbookController@json");
 Route::resource('/riwayat_data',"ManajemenLogbookController");
+
 //Multi-user Management
 //Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
 //    Route::resource('/users', 'UsersController', ['except' => ['show','create', 'store']]);
@@ -130,6 +131,9 @@ Route::GET('password/form/{token}', 'Mobile\PasswordResetController@showForm')->
 
 //Kurikulum
 Route::resource('/kurikulum',"KurikulumController");
+
+Route::get('/delete_all', 'DeleteAllController@destroy')->name('delete.all');
+
 
 
 
