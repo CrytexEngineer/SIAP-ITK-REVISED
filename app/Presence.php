@@ -11,7 +11,26 @@ class Presence extends Model
     protected $primaryKey = 'PR_ID';
     protected $fillable = ['PR_KU_ID', 'PR_KE_ID', 'PR_PT_ID', 'PR_IsLAte', 'PR_KU_MA_Nrp', 'PR_Keterangan', 'PR_Type'];
 
-    static function count($params = array())
+
+    static function countAll($params = array())
+    {
+        $defaultQuery = "SELECT count(*) as Kehadiran,
+        COUNT(IF(PR_Keterangan='SAKIT',1, NULL)) as 'Sakit',
+        COUNT(IF(PR_Keterangan='IZIN',1, NULL)) as 'Izin',
+        ( count(*)-COUNT(PR_KU_ID)) as 'Alpha',
+        COUNT(IF(PR_isLate='LATE',1, NULL)) as 'Telat'
+        from presences
+        join class_student on class_student.KU_ID= presences.PR_KU_ID";
+
+        if (isset($params['MA_Nrp'])) {
+            $filter = "WHERE class_student.KU_MA_Nrp=" . " '" . $params['MA_Nrp'] . "'";
+        }
+
+        return DB::select($defaultQuery . " " . $filter);
+    }
+
+
+    static function countBySubject($params = array())
     {
         $defaultQuery = "SELECT class_student.KU_ID,
             class_student.KU_KE_KR_MK_ID,
@@ -56,16 +75,15 @@ class Presence extends Model
             $filter = $filter . " " . "AND  class_student.KU_KE_KR_MK_ID=" . " '" . $params['MK_ID'] . "'";
         }
         if (isset($params['min_percentage'])) {
-            $group = $group . " " . "having   persentase >=" . $params['min_percentage'] ;
+            $group = $group . " " . "having   persentase >=" . $params['min_percentage'];
         }
         if (isset($params['max_percentage'])) {
-            $group = $group . " " . "having  persentase <=" . $params['max_percentage'] ;
+            $group = $group . " " . "having  persentase <=" . $params['max_percentage'];
         }
 
         if (isset($params['equals'])) {
             $group = $group . " " . "having  persentase =" . " '" . $params['equals'] . "'";
         }
-
 
 
         return DB::select($defaultQuery . " " . $filter . " " . $group . " " . $order);

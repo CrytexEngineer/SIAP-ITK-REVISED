@@ -19,6 +19,9 @@ class MeetingController extends Controller
             'href' => "api/v1/mobile/validate/register_meeting",
             'method' => 'POST'
         ];
+
+
+
         $request->validate([
             'MA_Nrp' => 'required',
             'PT_Token' => 'required'
@@ -28,22 +31,25 @@ class MeetingController extends Controller
 
         if ($meetings) {
             date_default_timezone_set("Asia/Kuala_Lumpur");
+            $createdTime = strtotime($meetings['created_at']);
             $blockTime = strtotime($meetings['PT_BlockTime']);
             $lateTime = strtotime($meetings['PT_LateTime']);
             $currentTime = strtotime(date('Y-m-d H:i:s'));
             $isBlocked = ($blockTime - $currentTime);
             $isLate = ($lateTime - $currentTime);
-            $defaultBlockTime = strtotime($meetings['created_at'] . '+120 minutes');
-            $defaultLateTime=strtotime($meetings['created_at']);
+            $maxBlockTime = strtotime($meetings['created_at'] . '+120 minutes');
+            $maxLateTime = strtotime($meetings['created_at'] . '+15 minutes');
 
 
-            if ($blockTime == $defaultLateTime || $blockTime >$defaultBlockTime) {
-                $defaultBlockTime = strtotime($meetings['created_at'] . '+120 minutes');
-                $isBlocked = ($defaultBlockTime - $currentTime);
+            if ($blockTime == $createdTime || $blockTime > $maxBlockTime) {
+                $blockTime = $maxBlockTime;
+                $isBlocked = ($blockTime - $currentTime);
+            } else if ($blockTime < $maxBlockTime) {
+                $isBlocked = ($blockTime - $currentTime);
             }
-            if ($lateTime == $defaultLateTime) {
-                $isLate = 1;
-            }
+
+            $isLate = $maxLateTime - $currentTime;
+
 
             $khs = DB::select("select * from `meetings`
                 inner join `classes` on `meetings`.`PT_KE_ID` = `classes`.`KE_ID`
@@ -55,8 +61,10 @@ class MeetingController extends Controller
             if ($khs) {
 
                 if ($isBlocked > 0) {
-                    $isPresenced = Presence::whereDate('created_at', Carbon::today())
-                        ->where('PR_KU_ID', '=', $khs[0]->KU_ID)->get()->first();
+                    $isPresenced = Presence::whereDate('presences.created_at', Carbon::today())
+                        ->join('meetings','presences.PR_PT_ID','meetings.PT_ID')
+                        ->where('PR_KU_ID', '=', $khs[0]->KU_ID)
+                        ->where('meetings.PT_Token','=',trim($request->PT_Token,'"'))->get()->first();
 
                     if (!$isPresenced) {
                         $keterangan = 'HADIR';
@@ -73,14 +81,14 @@ class MeetingController extends Controller
 
                         $presence = new Presence(['PR_KU_ID' => $khs['0']->KU_ID,
                             'PR_PT_ID' => $meetings['PT_ID'],
-                            'PR_KE_ID'=>$meetings['PT_KE_ID'],
+                            'PR_KE_ID' => $meetings['PT_KE_ID'],
                             'PR_IsLAte' => $latemrker,
 //                            'PR_KU_MA_Nrp' => $request->input('MA_Nrp'),
                             'PR_Keterangan' => $keterangan,
                             'PR_Type' => $type]);
 
                         $presence->save();
-                        return response()->json(['properties' => [$properties], 'presence' => $presence], Response::HTTP_CREATED);
+                        return response()->json(['properties' => [$properties], 'presences' => [$presence]], Response::HTTP_CREATED);
 
                     }
 

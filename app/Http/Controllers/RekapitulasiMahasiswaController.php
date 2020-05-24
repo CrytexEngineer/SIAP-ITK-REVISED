@@ -21,7 +21,7 @@ class RekapitulasiMahasiswaController extends Controller
 
     public function json()
     {
-        return Datatables::of(Presence::count(array()))
+        return Datatables::of(Presence::countBySubject(array()))
 
 //            ->addColumn('action', function ($row) {
 //                $action = '<a href="/Khs/' . $row->KU_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
