@@ -61,10 +61,12 @@ Route::resource('/matakuliah', 'ManajemenMatakuliahController')->middleware('can
 Route::post('/matakuliah/import', 'ManajemenMatakuliahController@import')->name('import_matakuliah')->middleware('can:admin');
 
 //Kelas
+Route::get('/kelas/{id}/manage/json', 'ManajemenKelasController@manage_json')->middleware('can:admin');
 Route::get('/kelas/json', 'ManajemenKelasController@json')->middleware('can:admin');
 Route::resource('/kelas', 'ManajemenKelasController')->middleware('can:admin');
 Route::get('/kelas/{id}/manage', 'ManajemenKelasController@manage')->middleware('can:admin');
 Route::post('/kelas/{id}/manage/store', 'ManajemenKelasController@manage_store')->middleware('can:admin');
+Route::delete('/kelas/{id}/manage/delete', 'ManajemenKelasController@manage_delete')->middleware('can:admin');
 Route::post('/kelas/import','ManajemenKelasController@import')->name('import_kelas')->middleware('can:admin');
 Route::post('/kelas/fetch', 'ManajemenKelasController@fetch')->name('kelas.fetch')->middleware('can:admin');
 Route::post('/kelas/fetch_pengajar', 'ManajemenKelasController@fetch_pengajar')->name('kelas.fetch_pengajar')->middleware('can:admin');
@@ -119,6 +121,7 @@ Route::resource('/rekapitulasi/pertemuan',"RekapitulasiPegawaiController")->midd
 //ManajemenData
 Route::get('/riwayat_data/json',"ManajemenLogbookController@json")->middleware('can:admin');
 Route::resource('/riwayat_data',"ManajemenLogbookController")->middleware('can:admin');
+Route::get('/delete_all', 'DeleteAllController@destroy')->name('delete.all')->middleware('can:admin');
 
 //Multi-user Management
 //Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
@@ -129,10 +132,11 @@ Route::resource('/riwayat_data',"ManajemenLogbookController")->middleware('can:a
 Route::GET('password/form/{token}', 'Mobile\PasswordResetController@showForm')->name('Passeord.showForm');
 
 //Kurikulum
-Route::resource('/kurikulum',"KurikulumController")->middleware('can:admin');
+Route::get('/kurikulum/json',"ManajemenKurikulumController@json")->middleware('can:admin');
+Route::resource('/kurikulum',"ManajemenKurikulumController")->middleware('can:admin');
 
-Route::get('/delete_all', 'DeleteAllController@destroy')->name('delete.all')->middleware('can:admin');
 
+Route::get('test', function (){return getKehadiran(1116110022,2023,1);});
 
 
 

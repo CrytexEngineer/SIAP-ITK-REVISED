@@ -42,7 +42,7 @@ class KelasController extends Controller
         foreach ($kelas as $class) {
 
             ($class->KE_KR_MK_ID);
-            $count = Presence::count(['MA_Nrp' => trim($nrp, '"'),
+            $count = Presence::countBySubject(['MA_Nrp' => trim($nrp, '"'),
                 'MK_ID' => trim($class->KE_KR_MK_ID, '"')]);
 
 

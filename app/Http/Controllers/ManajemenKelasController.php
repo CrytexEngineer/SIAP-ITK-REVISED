@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Logbook;
-use DB;
 use App\Employee;
 use App\Imports\ClassesImport;
 use App\Kelas;
+use App\Logbook;
 use App\Major;
 use App\Subject;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
@@ -22,23 +22,23 @@ class ManajemenKelasController extends Controller
     }
 
     function json()
-{
-    return Datatables::of(DB::table('classes')
-        ->join('employees', 'classes.KE_PE_NIPPengajar', '=', 'employees.PE_Nip')
-        ->join('subjects', 'classes.KE_KR_MK_ID', '=', 'subjects.MK_ID')
-        ->join('majors', 'classes.KE_KodeJurusan', '=', 'majors.PS_Kode_Prodi'))
-        ->addColumn('action', function ($row) {
-            $action = '<a href="/kelas/' . $row->KE_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a> ';
-            $action .= '<a href="/kelas/' . $row->KE_ID . '/manage" class="btn btn-primary btn-sm"><i class="fas fa-tasks"></i></a> ';
-            $action .= \Form::open(['url' => 'kelas/' . $row->KE_ID, 'method' => 'delete', 'style' => 'float:right']);
-            $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
-            $action .= \Form::close();
-            return $action;
-        })
-        ->make(true);
+    {
+        return Datatables::of(DB::table('classes')
+            ->join('employees', 'classes.KE_PE_NIPPengajar', '=', 'employees.PE_Nip')
+            ->join('subjects', 'classes.KE_KR_MK_ID', '=', 'subjects.MK_ID')
+            ->join('majors', 'classes.KE_KodeJurusan', '=', 'majors.PS_Kode_Prodi'))
+            ->addColumn('action', function ($row) {
+                $action = '<a href="/kelas/' . $row->KE_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a> ';
+                $action .= '<a href="/kelas/' . $row->KE_ID . '/manage" class="btn btn-primary btn-sm"><i class="fas fa-tasks"></i></a> ';
+                $action .= \Form::open(['url' => 'kelas/' . $row->KE_ID, 'method' => 'delete', 'style' => 'float:right']);
+                $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
+                $action .= \Form::close();
+                return $action;
+            })
+            ->make(true);
 
 
-}
+    }
 
 //    UNTUK MENAMPILKAN AUTOCOMPLETE//
     function fetch(Request $request)
@@ -88,7 +88,7 @@ class ManajemenKelasController extends Controller
             ->join('employees', 'employees.PE_Nip', '=', 'employee_PE_Nip');
         $data['timPengajar'] = $timPengajar;
 
-        return view('kelas.index',$data);
+        return view('kelas.index', $data);
     }
 
     /**
@@ -112,11 +112,11 @@ class ManajemenKelasController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+
         $kelas = New Kelas();
         $kelas->create($request->all());
         Logbook::write(Auth::user()->PE_Nip,
-            'Menambah data kelas ' . $kelas->KE_KR_MK_ID . ' kelas '.$kelas->KE_Kelas.' dari tabel kelas', Logbook::ACTION_CREATE,
+            'Menambah data kelas ' . $kelas->KE_KR_MK_ID . ' kelas ' . $kelas->KE_Kelas . ' dari tabel kelas', Logbook::ACTION_CREATE,
             Logbook::TABLE_CLASSES);
         return redirect('kelas')->with('status', 'Informasi Kelas Berhasil Ditambahkan');
     }
@@ -140,12 +140,12 @@ class ManajemenKelasController extends Controller
      */
     public function edit($id)
     {
-        $data['employees'] = Employee::pluck('PE_NamaLengkap','PE_Nip');
+        $data['employees'] = Employee::pluck('PE_NamaLengkap', 'PE_Nip');
         $data['subjects'] = Subject::pluck('MK_ID');
         $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
 
-        $data['kelas']=Kelas::where('KE_ID',$id)->first();
-        return view('kelas.edit',$data);
+        $data['kelas'] = Kelas::where('KE_ID', $id)->first();
+        return view('kelas.edit', $data);
 
     }
 
@@ -159,10 +159,10 @@ class ManajemenKelasController extends Controller
     public function update(Request $request, $id)
     {
         $kelas = Kelas::where('KE_ID', '=', $id)->first();
-        if(
-        $kelas->update($request->except('_method', '_token'))){
+        if (
+        $kelas->update($request->except('_method', '_token'))) {
             Logbook::write(Auth::user()->PE_Nip,
-                'Mengubah data kelas ' . $kelas->KE_KR_MK_ID . ' kelas '.$kelas->KE_Kelas.' dari tabel kelas', Logbook::ACTION_EDIT,
+                'Mengubah data kelas ' . $kelas->KE_KR_MK_ID . ' kelas ' . $kelas->KE_Kelas . ' dari tabel kelas', Logbook::ACTION_EDIT,
                 Logbook::TABLE_CLASSES);
         }
         return redirect('/kelas')->with('status', 'Data Kelas Berhasil Di Update');;
@@ -180,11 +180,11 @@ class ManajemenKelasController extends Controller
     {
 
         $kelas = Kelas::where('KE_ID', $id)->first();
-        if(
-        $kelas->delete()){
+        if (
+        $kelas->delete()) {
 
             Logbook::write(Auth::user()->PE_Nip,
-                'Menghapus data kelas ' . $kelas->KE_KR_MK_ID . ' kelas '.$kelas->KE_Kelas.' dari tabel kelas', Logbook::ACTION_DELETE,
+                'Menghapus data kelas ' . $kelas->KE_KR_MK_ID . ' kelas ' . $kelas->KE_Kelas . ' dari tabel kelas', Logbook::ACTION_DELETE,
                 Logbook::TABLE_CLASSES);
         }
         return redirect('/kelas')->with('status_failed', 'Data Kelas Berhasil Dihapus');;
@@ -194,7 +194,7 @@ class ManajemenKelasController extends Controller
     public function import()
     {
         $data = Excel::import(new ClassesImport(), request()->file('file'));
-        if ($data){
+        if ($data) {
             Logbook::write(Auth::user()->PE_Nip,
                 'Mengimpor data kelas  dari tabel kelas ', Logbook::ACTION_IMPORT,
                 Logbook::TABLE_CLASSES);
@@ -209,7 +209,7 @@ class ManajemenKelasController extends Controller
             ->join('subjects', 'subjects.MK_ID', '=', 'classes.KE_KR_MK_ID')
             ->where('KE_ID', $id)->first();
 
-        $data['employees'] = Employee::pluck('PE_NamaLengkap','PE_Nip');
+        $data['employees'] = Employee::pluck('PE_NamaLengkap', 'PE_Nip');
 
         $data['mahasiswa'] = DB::table('class_student')
             ->join('students', 'students.MA_Nrp', '=', 'class_student.KU_MA_Nrp')
@@ -226,17 +226,45 @@ class ManajemenKelasController extends Controller
         $data['timPengajar'] = $timPengajar;
 
         $data['jadwal'] = $jadwal;
-        return view('kelas.manage',$data);
+        return view('kelas.manage', $data);
+    }
+
+    public function manage_json($id)
+    {
+
+
+        return Datatables::of(DB::table('class_employee')
+            ->join('employees', 'employees.PE_Nip', '=', 'employee_PE_Nip')
+            ->where('class_employee.classes_KE_ID', '=', $id))
+            ->addColumn('action', function ($row) {
+
+                $action = \Form::open(['url' => 'kelas/' . $row->id . '/manage/delete', 'method' => 'delete', 'style' => 'float:right']);
+                $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
+                $action .= \Form::close();
+                return $action;
+            })
+            ->make(true);
+
+
     }
 
     public function manage_store(Request $request)
     {
-        dd($request);
+
         DB::table('class_employee')->insert([
-            'Employee_PE_Nip' => $request->KE_PE_NIPPengajar,
-            'KE_Kelas' => $request->classes_KE_ID
+
+            'employee_PE_Nip' => substr($request->PE_Nama, 0, strrpos($request->PE_Nama, '-', 0)),
+            'classes_KE_ID' => $request->KE_ID
         ]);
-//
-//        return redirect('/kelas');
+        return back();
+    }
+
+    public function manage_delete($id)
+    {
+
+        DB::table('class_employee')->where('id', $id)->delete();
+
+
+        return back();
     }
 }

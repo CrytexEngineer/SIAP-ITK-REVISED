@@ -39,7 +39,7 @@
                             <tr>
                                 <td>Pertemuan Ke</td>
                                 <td>
-                                    {{ $pertemuan_ke }} {{ Form::hidden('pertemuan_ke',$pertemuan_ke )}}
+                                    {{ $pertemuan_ke }} {{ Form::hidden('PT_Urutan',$pertemuan_ke )}}
                                     {{ Form::hidden('PT_KE_ID', Request::segment(2) )}}
                                 </td>
                             </tr>

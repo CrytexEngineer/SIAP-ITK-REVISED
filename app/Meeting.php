@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class Meeting extends Model
 {
     protected $primaryKey = 'PT_ID';
-    protected $fillable = ['PT_KE_ID', 'PT_Name', 'PT_Token', 'PT_isLate', 'PT_Type', 'PT_Notes'];
+    protected $fillable = ['PT_KE_ID', 'PT_Name', 'PT_Token', 'PT_isLate', 'PT_Type', 'PT_Notes','PT_Urutan'];
 
 
     static function count($params = array())

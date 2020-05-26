@@ -33,7 +33,7 @@ class MobileNotificationController extends Controller
             'href' => "api/v1/mobile/notification",
             'method' => 'GET'
         ];
-        $presences = Presence::count(['MA_Nrp' => trim($request['MA_Nrp'], '"'), 'max_percentage' => 80]);
+        $presences = Presence::countBySubject(['MA_Nrp' => trim($request['MA_Nrp'], '"'), 'max_percentage' => 80]);
         $notification = new Notification(
             [
                 'date' => $currentDate,

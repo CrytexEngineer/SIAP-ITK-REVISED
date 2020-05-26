@@ -1,50 +1,42 @@
+
+
 @extends('layouts.app')
-@section('title','Input Data Kurikulum')
+@section('title', 'Manajemen Akun Mahasiswa')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Input Data Kurikulum</div>
+                    <div class="card-header">@yield('title')</div>
 
                     <div class="card-body">
 
-                        {{ Form::open(['url'=>'kurikulum'])}}
+                        @include('alert')
 
-                        <table class="table table-bordered">
-                            <tr>
-                                <td width="300">Tahun Kurikulum</td>
-                                <td>
-                                    {{ Form::text('tahun_kurikulum',null,['class'=>'form-control','placeholder'=>'Tahun Ajaran (contoh: 2020 - Genap)'])}}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Tanggal Mulai & Selesai</td>
-                                <td>
-                                    <div class="form-group row">
-                                        <div class="col-md-4">
-                                            <input type="text"
-                                                   class="datepicker-here form-control"
-                                                   data-language='en'
-                                                   name="tanggal_mulai"
-                                                   data-multiple-dates="1"/>
-                                        </div> -
-                                        <div class="col-md-4">
-                                            <input type="text"
-                                                   class="datepicker-here form-control"
-                                                   data-language='en'
-                                                   name="tanggal_selesai"
-                                                   data-multiple-dates="1"/>
-                                        </div>
-                                    </div>
+                        <a href="/kurikulum/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
 
-                                </td>
-                            </tr>
+                        <hr>
+
+                        <table class="table table-bordered" id="users-table">
+                            <thead>
                             <tr>
-                                <td></td><td>{{ Form::submit('Simpan Data',['class'=>'btn btn-primary'])}}
-                                    <a href="/kurikulum" class="btn btn-primary">Kembali</a></td>
+                                <th>Nama Kurikulum</th>
+                                <th>Tanggal Mulai</th>
+                                <th>Tanggal Selesai</th>
+
+                                @can('change')
+                                    <th width="50">Action</th>
+                                @endcan
                             </tr>
-                        @csrf
+                            </thead>
+                            <tfoot>
+                            <tr>
+                                <th>Nama Kurikulum</th>
+                                <th>Tanggal Mulai</th>
+                                <th>Tanggal Selesai</th>
+                                <th>Aksi</th>
+                            </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -53,5 +45,46 @@
     </div>
 @endsection
 
+@push('scripts')
+    <script>
+        $(function() {
+            $('#users-table').DataTable({
+                dom: 'Blfrtip',
+                lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                "scrollX": true,
+                processing: true,
+                serverSide: false,
+                ajax: '/kurikulum/json',
+                columns: [
+                    { data: 'KL_Tahun_Kurikulum', name: 'KL_Tahun_Kurikulum' },
+                    { data: 'KL_Date_Start', name: 'KL_Date_Start' },
+                    { data: 'KL_Date_End', name: 'KL_Date_End' },
 
+                        @can('change')
+            { data: 'action', name: 'action' }
+@endcan
+        ],
+        initComplete: function () {
+            this.api().columns().every( function () {
+                var column = this;
+                var select = $('<select><option value=""></option></select>')
+                    .appendTo( $(column.footer()).empty() )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
 
+                        column
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+
+                column.data().unique().sort().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                } );
+            } );
+        }
+    });
+});
+</script>
+@endpush

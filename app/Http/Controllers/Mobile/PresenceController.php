@@ -27,10 +27,10 @@ class PresenceController extends Controller
             'method' => 'GET'
         ];
 
-        $presenceCount = Presence::count(['MA_Nrp' => trim($request['MA_Nrp'], '"'), 'MK_ID' => trim($request['MK_ID'], '"')]);
+        $presenceCount = Presence::countBySubject(['MA_Nrp' => trim($request['MA_Nrp'], '"'), 'MK_ID' => trim($request['MK_ID'], '"')]);
 
         if ($request['MK_ID'] == "all") {
-            $presenceCount = Presence::count(['MA_Nrp' => trim($request['MA_Nrp'], '"')]);
+            $presenceCount = Presence::countAll(['MA_Nrp' => trim($request['MA_Nrp'], '"')]);
 
         }
 
