@@ -7,7 +7,8 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
         <!-- Styles -->
         <style>
@@ -61,39 +62,68 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            .button {
+                border-radius: 4px;
+                background-color: #2164C2;
+                border: none;
+                color: #FFFFFF;
+                text-align: center;
+                font-size: 24px;
+                padding: 20px;
+                width: 200px;
+                transition: all 0.5s;
+                cursor: pointer;
+                margin: 5px;
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+            }
+
+            .button span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+            }
+
+            .button span:after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+            }
+
+            .button:hover span {
+                padding-right: 25px;
+            }
+
+            .button:hover span:after {
+                opacity: 1;
+                right: 0;
+            }
+
+            .nunito { font-family: "Nunito", sans-serif}
         </style>
     </head>
-    <body>
+    <body style="background: url('{{ asset('img/landing-page.png')}}');">
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+{{--            @if (Route::has('login'))--}}
+{{--                <div class="top-right links">--}}
+{{--                    @auth--}}
+{{--                        <a href="{{ url('/home') }}">Home</a>--}}
+{{--                    @else--}}
+{{--                        <a href="{{ route('login') }}">Login</a>--}}
+{{--                    @endauth--}}
+{{--                </div>--}}
+{{--            @endif--}}
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <br>
+                    <br>
+                    <button class="button nunito" onclick="location.href='{{ url('login') }}'"><span>Login </span></button>
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
             </div>
         </div>
     </body>

@@ -13,6 +13,10 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ManajemenAkunMahasiswaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     function json()
     {

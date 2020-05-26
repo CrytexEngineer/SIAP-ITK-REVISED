@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class RegisterPegawaiController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function showRegistrationForm()
 {
     return view('register.pegawai');
