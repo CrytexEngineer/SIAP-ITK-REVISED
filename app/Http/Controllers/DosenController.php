@@ -8,6 +8,11 @@ use Yajra\DataTables\DataTables;
 
 class  DosenController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     function jadwal_mengajar()
     {
         return view('dosen.jadwal_mengajar');
