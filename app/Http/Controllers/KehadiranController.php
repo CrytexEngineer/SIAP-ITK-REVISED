@@ -66,6 +66,7 @@ class KehadiranController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'PT_Urutan'=>['required', 'integer'],
             'PT_KE_ID' => ['required', 'integer'],
             'PT_Name' => ['required', 'string', 'max:255'],
             'PT_Types' => ['required', 'string', 'max:255'],
@@ -99,6 +100,7 @@ class KehadiranController extends Controller
 
             $meeting = new Meeting([
                 'PT_KE_ID' => $request->PT_KE_ID,
+                'PT_Urutan'=>$request->PT_Urutan,
                 'PT_Name' => $request->PT_Name,
                 'PT_Token' => $token,
                 'PT_isLate' => $isLate,
@@ -108,7 +110,7 @@ class KehadiranController extends Controller
 
 
             $meeting->save();
-            dd($meeting);
+
 
             return redirect()->back(201);
 

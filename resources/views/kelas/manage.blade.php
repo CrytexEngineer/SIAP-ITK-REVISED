@@ -9,7 +9,7 @@
 
                     <div class="card-body">
                         @include('alert')
-                        {{Form::open(['url'=>'kelas'])}}
+                        {{Form::open(['url'=>'/kelas/'.$jadwal->KE_ID.'/manage/store'])}}
 
                         <a href="/kelas" class="btn btn-danger"><i class="fas fa-backward"></i> Kembali</a>
                         <hr>
@@ -27,7 +27,18 @@
                                 <td>Nama Pengajar</td><td>{{ $jadwal->PE_Nama}}</td>
                             </tr>
                             <tr>
-                                <td>Tim Pengajar</td><td>{{ implode(" ,",$timPengajar)}}</td>
+                                <td>Tim Pengajar</td><td> <table class="table table-bordered" id="users-table" style="overflow-x:auto;">
+                                        <thead>
+                                        <tr>
+                                            <th>NIP</th>
+                                            <th>Nama Pengajar</th>
+                                            @can('change')
+                                                <th width="50">Action</th>
+                                            @endcan
+
+                                        </tr>
+                                        </thead>
+                                    </table></td>
                             </tr>
                             <tr>
                                 <td>Input Tim Pengajar
@@ -35,6 +46,8 @@
                                 <div id="pengajarList">
                                 </div>
                                 </td>
+
+                                <td><input type="hidden" name="KE_ID" id="KE_ID"  class="form-control input" value={{$jadwal->KE_ID}}></td>
                             </tr>
                             <tr>
                                 <td></td><td>{{ Form::submit('Simpan Data',['class'=>'btn btn-primary'])}}</td>
@@ -75,4 +88,28 @@
     });
 </script>
 
+    @push('scripts')
+        <script>
+        $(function() {
+            $('#users-table').DataTable({
+
+                "scrollX": true,
+                processing: true,
+                 dom: 'Blfrtip',
+                serverSide: true,
+                ajax: '/kelas/'+$('#KE_ID').val()+'/manage/json',
+                columns: [
+                    { data: 'PE_Nip', name: 'PE_Nip' },
+                    { data: 'PE_NamaLengkap', name: 'PE_NamaLengkap' },
+
+
+                        @can('change')
+                { data: 'action', name: 'action' }
+@endcan
+            ],
+
+        });
+    });
+</script>
+    @endpush
 @endsection

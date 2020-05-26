@@ -19,6 +19,7 @@
     <script src="https://cdn.rawgit.com/ashl1/datatables-rowsgroup/fbd569b8768155c7a9a62568e66a64115887d7d0/dataTables.rowsGroup.js"></script>
     <script src="<?php echo e(asset('assets/dist/air-datepicker/dist/js/datepicker.js')); ?>"></script>
     <script src="<?php echo e(asset('assets/dist/air-datepicker/dist/js/i18n/datepicker.en.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/dist/sweetalert2/sweetalert2.min.js')); ?>"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -34,6 +35,8 @@
     <link rel="stylesheet" href="<?php echo e(asset('assets/dist/air-datepicker/dist/css/datepicker.css')); ?>">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
     <link href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="<?php echo e(asset('assets/dist/sweetalert2/sweetalert2.min.css')); ?>">
+
 
 </head>
 <body>
@@ -105,14 +108,12 @@
                                     <?php echo e(__('Logout')); ?>
 
                                 </a>
-
-
-
-
-
                                 <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
                                     <?php echo csrf_field(); ?>
                                 </form>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('change')): ?>
+                                    <a class="dropdown-item delete-confirm" href="/delete_all">Hapus Semua Data</a>
+                                <?php endif; ?>
                             </div>
                         </li>
                     <?php endif; ?>
@@ -121,11 +122,13 @@
         </div>
     </nav>
 
+    <?php echo $__env->make('sweetalert::alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
     <main class="py-4">
         <?php echo $__env->yieldContent('content'); ?>
     </main>
 
-    <!-- jQuery DATATABLES DONT CHANGE! -->
+<!-- jQuery DATATABLES DONT CHANGE! -->
     <!-- jQuery -->
     <script src="//code.jquery.com/jquery.js"></script>
     <!-- DataTables -->
@@ -133,6 +136,25 @@
     <!-- Bootstrap JavaScript -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <!-- App scripts -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript">
+
+        $('.delete-confirm').on('click', function (event) {
+            event.preventDefault();
+            const url = $(this).attr('href');
+            swal({
+                title: 'Apakah Anda Yakin?',
+                text: 'Data yang sudah dihapus tidak dapat dikembalikan!',
+                icon: 'warning',
+                dangerMode: true,
+                buttons: ["Cancel", "Yes!"],
+            }).then(function(value) {
+                if (value) {
+                    window.location.href = url;
+                }
+            });
+        });
+    </script>
     <?php echo $__env->yieldPushContent('scripts'); ?>
 
 </div>

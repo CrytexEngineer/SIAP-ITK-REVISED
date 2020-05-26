@@ -51,6 +51,8 @@ class ManajemenPertemuanController extends Controller
             'PT_Notes' => ['required', 'string', 'max:255']
         ]);
 
+
+
         $kelas = Kelas::find($request->PT_KE_ID);
         $token = $this->getMeetingToken(16);
         $isLate = "NOT LATE";

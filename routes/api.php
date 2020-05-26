@@ -34,8 +34,12 @@ Route::group(['prefix' => 'v1/mobile'], function () {
     Route::GET('presence/count', 'Mobile\PresenceController@count');
     Route::GET('presence/index', 'Mobile\PresenceController@index');
 
-  Route::GET('notification', 'Mobile\MobileNotificationController@index');
+    Route::GET('notification', 'Mobile\MobileNotificationController@index');
 
     //Pertemuan
-    Route::resource('pertemuan','ManajemenPertemuanController');
+    Route::resource('pertemuan', 'ManajemenPertemuanController');
+
+
+
+
 });

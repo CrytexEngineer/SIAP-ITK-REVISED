@@ -39,7 +39,7 @@
                                     <td>{{ $row->MA_NamaLengkap}}</td>
                                     <?php for($pertemuan=1;$pertemuan<=16;$pertemuan++)
                                     {
-//                                        echo "<td>".chek_kehadiran($row->nim,Request::segment(2),$pertemuan)."</td>";
+                                    echo "<td>".getKehadiran($row->MA_Nrp,Request::segment(2),$pertemuan)."</td>";
                                     }
                                     ?>
                                 </tr>

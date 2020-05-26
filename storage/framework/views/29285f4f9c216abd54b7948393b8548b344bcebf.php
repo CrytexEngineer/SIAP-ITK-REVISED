@@ -21,7 +21,9 @@
                                 <th>Nama Matakuliah</th>
                                 <th>Tahun Kurikulum</th>
                                 <th>Kredit Kuliah</th>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('change')): ?>
                                 <th width="50">Action</th>
+                                    <?php endif; ?>
                             </tr>
                             </thead>
                             <tfoot>
@@ -49,14 +51,16 @@
                 lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 "scrollX": true,
                 processing: true,
-                serverSide: true,
+                serverSide: false,
                 ajax: '/matakuliah/json',
                 columns: [
                     {data: 'MK_ID', name: 'MK_ID'},
                     {data: 'MK_Mata_Kuliah', name: 'MK_Mata_Kuliah'},
                     {data: 'MK_ThnKurikulum', name: 'MK_ThnKurikulum'},
                     {data: 'MK_KreditKuliah', name: 'MK_KreditKuliah'},
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('change')): ?>
                     {data: 'action', name: 'action'}
+                    <?php endif; ?>
                     ],
                 initComplete: function () {
                     this.api().columns().every( function () {

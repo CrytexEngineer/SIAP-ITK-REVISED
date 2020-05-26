@@ -35,7 +35,9 @@
                                 <th>Hari</th>
                                 <th>Jam Mulai</th>
                                 <th>Jam Usai</th>
-                                <th width="150">Action</th>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('change')): ?>
+                                <th width="160">Action</th>
+                                    <?php endif; ?>
                             </tr>
                             </thead>
                             <tfoot>
@@ -72,7 +74,7 @@
                 lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 "scrollX": true,
                 processing: true,
-                serverSide: true,
+                serverSide: false,
                 ajax: '/kelas/json',
                 columns: [
                  {data: 'KE_KR_MK_ID', name: 'KE_KR_MK_ID'},
@@ -91,7 +93,9 @@
                     {data: 'KE_Jadwal_IDHari', name: 'KE_Jadwal_IDHari'},
                     {data: 'KE_Jadwal_JamMulai', name: 'KE_Jadwal_JamMulai'},
                     {data: 'KE_Jadwal_JamUsai', name: 'KE_Jadwal_JamUsai'},
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('change')): ?>
                     {data: 'action', name: 'action'}
+                    <?php endif; ?>
                 ],
                 initComplete: function () {
                     this.api().columns().every( function () {
@@ -115,12 +119,7 @@
                 }
             });
         });
-
-
-
-
     </script>
-
 <?php $__env->stopPush(); ?>
 
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views/kelas/index.blade.php ENDPATH**/ ?>

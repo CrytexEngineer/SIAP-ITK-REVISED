@@ -29,7 +29,7 @@
                                 {{--                                <th>No.</th>--}}
                                 <th>NIM</th>
                                 <th>Nama Mahasiswa</th>
-                                {{--                                <th>Pekan Perkuliahan</th>--}}
+                                <th>Pekan Perkuliahan</th>
                                 <th>Kehadiran Mengajar</th>
                                 <th>Kehadiran Mahasiswa</th>
                                 <th>Sakit</th>
@@ -83,7 +83,7 @@
                     //NO.
                     {data: 'MA_NRP_Baru', name: 'MA_NRP_Baru'},
                     {data: 'MA_NamaLengkap', name: 'MA_NamaLengkap'},
-                    //PEKAN PERKULIAHAN
+                    {data: 'pekan_perkuliahan', name: 'pekan_perkuliahan'},
                     {data: 'Jumlah_Pertemuan', name: 'Jumlah_Pertemuan'},
                     {data: 'Kehadiran', name: 'Kehadiran'},
                     {data: 'Sakit', name: 'Sakit'},

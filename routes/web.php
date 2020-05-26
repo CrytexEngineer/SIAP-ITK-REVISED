@@ -63,10 +63,12 @@ Route::resource('/matakuliah', 'ManajemenMatakuliahController');
 Route::post('/matakuliah/import', 'ManajemenMatakuliahController@import')->name('import_matakuliah');
 
 //Kelas
+Route::get('/kelas/{id}/manage/json', 'ManajemenKelasController@manage_json');
 Route::get('/kelas/json', 'ManajemenKelasController@json');
 Route::resource('/kelas', 'ManajemenKelasController');
 Route::get('/kelas/{id}/manage', 'ManajemenKelasController@manage');
 Route::post('/kelas/{id}/manage/store', 'ManajemenKelasController@manage_store');
+Route::delete('/kelas/{id}/manage/delete', 'ManajemenKelasController@manage_delete');
 Route::post('/kelas/import','ManajemenKelasController@import')->name('import_kelas');
 Route::post('/kelas/fetch', 'ManajemenKelasController@fetch')->name('kelas.fetch');
 Route::post('/kelas/fetch_pengajar', 'ManajemenKelasController@fetch_pengajar')->name('kelas.fetch_pengajar');
@@ -120,6 +122,7 @@ Route::resource('/rekapitulasi/pertemuan',"RekapitulasiPegawaiController");
 //ManajemenData
 Route::get('/riwayat_data/json',"ManajemenLogbookController@json");
 Route::resource('/riwayat_data',"ManajemenLogbookController");
+Route::get('/delete_all', 'DeleteAllController@destroy')->name('delete.all');
 
 //Multi-user Management
 //Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
@@ -130,10 +133,11 @@ Route::resource('/riwayat_data',"ManajemenLogbookController");
 Route::GET('password/form/{token}', 'Mobile\PasswordResetController@showForm')->name('Passeord.showForm');
 
 //Kurikulum
-Route::resource('/kurikulum',"KurikulumController");
+Route::get('/kurikulum/json',"ManajemenKurikulumController@json");
+Route::resource('/kurikulum',"ManajemenKurikulumController");
 
-Route::get('/delete_all', 'DeleteAllController@destroy')->name('delete.all');
 
+Route::get('test', function (){return getKehadiran(1116110022,2023,1);});
 
 
 
