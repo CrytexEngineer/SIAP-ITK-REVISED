@@ -19,3 +19,4 @@ Homestead.json
 /app/Http/Controllers/ManajemenMataKuliahController.php
 SIAP_ITK.zip
 storage/logs/laravel.log
+storage/logs/laravel.log
