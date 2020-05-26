@@ -13,6 +13,10 @@ use Yajra\DataTables\DataTables;
 
 class ManajemenProgramStudiController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     function json()
     {

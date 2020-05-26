@@ -16,6 +16,11 @@ use Yajra\DataTables\DataTables;
 
 class ManajemenKelasController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     function json()
 {
     return Datatables::of(DB::table('classes')

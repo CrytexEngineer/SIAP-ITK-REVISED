@@ -8,6 +8,11 @@ use Yajra\DataTables\DataTables;
 
 class ManajemenLogbookController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *

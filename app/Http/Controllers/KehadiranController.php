@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\DB;
 
 class KehadiranController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     function index($id_jadwal)
     {
         $jadwal = DB::table('classes')
