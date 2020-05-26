@@ -10,7 +10,11 @@ use Yajra\DataTables\DataTables;
 
 class ManajemenKurikulumController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     function json()
     {
         return Datatables::of(Curiculum::all())
