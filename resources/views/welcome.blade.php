@@ -105,7 +105,10 @@
             .nunito { font-family: "Nunito", sans-serif}
         </style>
     </head>
-    <body style="background: url('{{ asset('img/landing-page.png')}}');">
+    <body style="
+        background: url('{{ asset('img/landing-page.png')}}') no-repeat center fixed;
+        background-size: cover;
+        ">
         <div class="flex-center position-ref full-height">
 {{--            @if (Route::has('login'))--}}
 {{--                <div class="top-right links">--}}
