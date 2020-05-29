@@ -17,6 +17,7 @@ class CreateMeetingsTable extends Migration
             $table->bigIncrements('PT_ID')->unsigned();
             $table->timestamps();
             $table->bigInteger('PT_KE_ID')->unsigned();
+            $table->integer('PT_Urutan')->unsigned();p
             $table->string('PT_Name');
             $table->string('PT_Type');
             $table->string('PT_Notes');
