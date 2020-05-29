@@ -38,7 +38,10 @@
     <link rel="stylesheet" href="{{asset('assets/dist/sweetalert2/sweetalert2.min.css')}}">
 
 </head>
-<body style="background: url('{{ asset('img/Background SIAP ITK - Skripsi.png')}}');">
+<body style="
+    background: url('{{ asset('img/Background SIAP ITK - Skripsi.png')}}') no-repeat center fixed;
+    background-size: cover;
+    ">
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
