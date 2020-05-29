@@ -20,3 +20,4 @@ Homestead.json
 SIAP_ITK.zip
 storage/logs/laravel.log
 storage/logs/laravel.log
+*.log

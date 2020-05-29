@@ -14,7 +14,7 @@ class ManajemenKurikulumController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     function json()
     {
         return Datatables::of(Curiculum::all())
