@@ -27,6 +27,7 @@ class PasswordResetController extends Controller
             'MA_Email' => 'required|string',
         ]);
 
+         error_log($request->MA_Email);
 
         $user = Student::where('email', trim($request['MA_Email'], '"'))->first();
 

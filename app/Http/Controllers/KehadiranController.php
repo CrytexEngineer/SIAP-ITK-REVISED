@@ -117,7 +117,7 @@ class KehadiranController extends Controller
             $meeting->save();
 
 
-            return redirect()->back(201);
+            return $this->showHistory($request->PT_KE_ID);
 
         } else {
 
