@@ -60,17 +60,28 @@ class ManajemenAkunMahasiswaController extends Controller
      */
     public function store(Request $request)
     {
+        $messages = [
+            'MA_NamaLengkap.required' => 'Nama mahasiswa tidak boleh kosong.',
+            'email.required' => 'Email tidak boleh kosong',
+            'email.email' => 'Email yang Anda masukkan tidak sesuai.',
+            'email.unique' => 'Email sudah terdaftar, harap masukan email yang baru.',
+            'MA_NRP_Baru.required' => 'NIM tidak boleh kosong.',
+            'MA_NRP_Baru.unique' => 'NIM sudah ada di database.',
+            'MA_NRP_Baru.integer' => 'NIM tidak boleh selain angka.',
+            'MA_PASSWORD.required' => 'Password tidak boleh kosong.',
+            'MA_PASSWORD.min' => 'Password minimal 6 huruf/angka.'
+        ];
 
         $request->validate([
             'MA_NamaLengkap' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:students'],
             'MA_PASSWORD' => ['required', 'string', 'min:6'],
-//            'MA_Nrp' => ['required', 'integer', 'unique:students'],
             'MA_NRP_Baru' => ['required', 'integer', 'unique:students'],
-        ]);
+        ], $messages);
 
         $mahasiswa = Student::create([
             'email' => $request->email,
+            'MA_Nrp' => $request->MA_NRP_Baru,
             'MA_NamaLengkap' => $request->MA_NamaLengkap,
             'MA_NRP_Baru' => $request->MA_NRP_Baru,
             'MA_PASSWORD' => Hash::make($request->MA_PASSWORD)
@@ -81,7 +92,7 @@ class ManajemenAkunMahasiswaController extends Controller
 //        $mahasiswa->create($request->all());
 
         Logbook::write(Auth::user()->PE_Nip, 'Menambah data mahasiswa ' . $mahasiswa->MA_NamaLengkap . ' dari tabel mahasiswa', Logbook::ACTION_CREATE, Logbook::TABLE_STUDENTS);
-        return redirect('/akunmahasiswa')->with('status', 'Data Mahasiswa Berhasil Disimpan');
+        return redirect('/akunmahasiswa')->with('success', 'Data mahasiswa berhasil disimpan!');
 
     }
 
@@ -144,7 +155,7 @@ class ManajemenAkunMahasiswaController extends Controller
         $mahasiswa->save();
         Logbook::write(Auth::user()->PE_Nip, 'Mengubah data mahasiswa ' . $mahasiswa->MA_NamaLengkap . ' dari tabel mahasiswa', Logbook::ACTION_EDIT, Logbook::TABLE_STUDENTS);
         //$mahasiswa->update($request->except('_method','_token'));
-        return redirect('/akunmahasiswa')->with('status', 'Data Mahasiswa Berhasil Diubah');
+        return redirect('/akunmahasiswa')->with('success', 'Data mahasiswa berhasil diubah');
     }
 
     /**
@@ -171,7 +182,7 @@ class ManajemenAkunMahasiswaController extends Controller
         if ($mahasiswa->delete()) {
             Logbook::write(Auth::user()->PE_Nip, 'Menghapus data mahasiswa ' . $mahasiswa->MA_NamaLengkap . ' dari tabel mahasiswa', Logbook::ACTION_DELETE, Logbook::TABLE_STUDENTS);
         }
-        return redirect('/akunmahasiswa')->with('status_failed', 'Data Mahasiswa Berhasil Dihapus');
+        return redirect('/akunmahasiswa')->with('toast_warning', 'Data Mahasiswa Berhasil Dihapus!');
     }
 
     public function import()
@@ -181,7 +192,7 @@ class ManajemenAkunMahasiswaController extends Controller
             Logbook::write(Auth::user()->PE_Nip, 'Mengimpor data mahasiswa  dari tabel mahasiswa', Logbook::ACTION_IMPORT, Logbook::TABLE_STUDENTS);
 
         }
-        return back();
+        return back()->with('toast_success', 'Import data mahasiswa berhasil!');
 
     }
 }

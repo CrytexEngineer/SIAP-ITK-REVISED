@@ -8,6 +8,7 @@
                     <div class="card-header">Input Data Kelas</div>
 
                     <div class="card-body">
+                        @include('validation_error')
 
                         {{ Form::open(['url'=>'kelas'])}}
 

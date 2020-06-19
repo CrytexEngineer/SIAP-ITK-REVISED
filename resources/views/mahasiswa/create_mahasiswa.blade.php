@@ -1,20 +1,17 @@
 @extends('layouts.app')
-
+@section('title', 'Input Data Mahasiswa')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Register Mahasiswa</div>
+                    <div class="card-header">Input Data Mahasiswa</div>
 
                     <div class="card-body">
-
                         @include('validation_error')
 
                         {{Form::open(['url'=>'akunmahasiswa/'])}}
-
                         @csrf
-
 {{--                        <div class="form-group row">--}}
 {{--                            <label class="col-md-3 col-form-label text-md-right">NIM Default Mahasiswa</label>--}}
 {{--                            <div class="col-md-6">--}}
@@ -56,7 +53,6 @@
                                     <a href="/akunmahasiswa" class="btn btn-primary">Kembali</a>
                                 </div>
                             </div>
-                        </form>
                     </div>
                 </div>
             </div>

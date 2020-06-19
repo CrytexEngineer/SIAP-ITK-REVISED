@@ -67,7 +67,17 @@ class ManajemenAkunPegawaiController extends Controller
      */
     public function store(Request $request)
     {
-
+        $messages = [
+            'name.required' => 'Nama tidak boleh kosong.',
+            'email.required' => 'Email tidak boleh kosong',
+            'email.email' => 'Email yang Anda masukkan tidak sesuai.',
+            'email.unique' => 'Email sudah terdaftar, harap masukan email yang baru.',
+            'password.required' => 'Password tidak boleh kosong.',
+            'password.min' => 'Password minimal 8 huruf/angka.',
+            'PE_NIP.required' => 'NIP tidak boleh kosong.',
+            'PE_NIP.integer' => 'NIP tidak boleh selain angka.',
+            'PE_NIP.unique' => 'NIP yang Anda masukkan sudah terdaftar.'
+        ];
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -75,7 +85,8 @@ class ManajemenAkunPegawaiController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'PE_Nip' => ['required', 'integer', 'unique:employees'],
             'role' => ['required', 'integer']
-        ]);
+        ], $messages);
+
         $data = $request->all();
         $user = [
             'name' => $data['name'],
@@ -115,7 +126,7 @@ class ManajemenAkunPegawaiController extends Controller
 //                $role = Role::where('id', $data['role'])->get()->first();
 //                $user->roles()->attach($role);
 //            }
-//            return redirect('/akunpegawai')->with('status', 'Data Pegawai Berhasil Disimpan');
+            return redirect('/akunpegawai')->with('status', 'Data pegawai berhasil disimpan');
 //        Logbook::write(Auth::user()->PE_Nip, 'Menambah data pegawai ' . $employee->PE_NamaLengkap . ' dari tabel pegawai',Logbook::Create ,Logbook::TABLE_EMPLOYEES);
 //        }
     }
@@ -169,7 +180,7 @@ class ManajemenAkunPegawaiController extends Controller
         if ($employee->save()) {
             Logbook::write(Auth::user()->PE_Nip, 'Mengubah data pegawai ' . $employee->PE_NamaLengkap . ' dari tabel pegawai', Logbook::ACTION_EDIT, Logbook::TABLE_EMPLOYEES);
         };
-        return redirect('/akunpegawai')->with('status', 'Data Berhasil Diubah');
+        return redirect('/akunpegawai')->with('success', 'Data pegawai berhasil diubah!');
     }
 
     /**
@@ -189,7 +200,7 @@ class ManajemenAkunPegawaiController extends Controller
                 Logbook::TABLE_EMPLOYEES);
 
         };
-        return redirect('/akunpegawai')->with('status_failed', 'Data Berhasil Dihapus');
+        return redirect('/akunpegawai')->with('toast_warning', 'Data berhasil dihapus');
     }
 
     function import()
@@ -199,7 +210,7 @@ class ManajemenAkunPegawaiController extends Controller
         if ($data) {
             Logbook::write(Auth::user()->PE_Nip, 'Mengimpor data pegawai  dari tabel pegawai', Logbook::ACTION_IMPORT, Logbook::TABLE_EMPLOYEES);
         }
-        return back();
+        return back()->with('toast_success', 'Import data pegawai berhasil!');
     }
 
 
