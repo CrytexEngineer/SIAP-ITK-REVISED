@@ -59,12 +59,18 @@ class ManajemenProgramStudiController extends Controller
      */
     public function store(Request $request)
     {
+        $messages = [
+          'PS_Kode_Prodi.required' => 'Kode Program Studi tidak boleh kosong.',
+          'PS_Kode_Prodi.unique' => 'Kode Program Studi sudah terdaftar.',
+          'PS_Kode_Prodi.min' => 'Kode Program Studi minimal 1 angka/huruf.',
+          'PS_Nama.min' => 'Nama Program Studi minimal 3 angka/huruf.',
+          'PS_Nama.required' => 'Nama Program Studi tidak boleh kosong.',
+        ];
 
         $request->validate([
             'PS_Kode_Prodi' => 'required|unique:majors|min:1',
             'PS_Nama' => 'required|min:3',
-
-        ]);
+        ], $messages);
 
         $major = New Major();
         $major->create($request->all());
@@ -72,7 +78,7 @@ class ManajemenProgramStudiController extends Controller
             'Menambah data program studi ' . $major->PS_Nama . ' dari tabel program studi', Logbook::ACTION_CREATE,
             Logbook::TABLE_MAJORS);
 
-        return redirect('/program_studi')->with('status', 'Data Program Studi Berhasil Disimpan!');
+        return redirect('/program_studi')->with('success', 'Data Program Studi berhasil ditambahkan!');
     }
 
     /**
@@ -119,7 +125,7 @@ class ManajemenProgramStudiController extends Controller
                 'Mengubah data program studi ' . $major->PS_Nama . ' dari tabel program studi', Logbook::ACTION_EDIT,
                 Logbook::TABLE_MAJORS);
         }
-        return redirect('/program_studi')->with('status', 'Data Program Studi Berhasil Diubah!');;
+        return redirect('/program_studi')->with('success', 'Data Program Studi berhasil diubah!');;
     }
 
     /**
@@ -137,7 +143,7 @@ class ManajemenProgramStudiController extends Controller
                 Logbook::TABLE_MAJORS);
         };
 
-        return redirect('/program_studi')->with('status_failed', 'Data Program Studi Berhasil Dihapus!');;
+        return redirect('/program_studi')->with('toast_warning', 'Data Program Studi berhasil dihapus!');;
     }
 
 
@@ -149,6 +155,6 @@ class ManajemenProgramStudiController extends Controller
                 'Mengimpor data program studi  dari tabel program studi', Logbook::ACTION_IMPORT,
                 Logbook::TABLE_MAJORS);
         }
-        return back();
+        return back()->with('toast_success', 'Import data program studi berhasil!');
     }
 }

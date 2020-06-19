@@ -112,13 +112,42 @@ class ManajemenKelasController extends Controller
      */
     public function store(Request $request)
     {
+        $messages = [
+            'MK_Mata_Kuliah.required' => 'Mata Kuliah tidak boleh kosong.',
+            'KE_Kelas.required' => 'Kelas tidak boleh kosong.',
+            'KE_Jadwal_Ruangan.required' => 'Nama Ruangan tidak boleh kosong.',
+            'PS_Kode_Prodi.required' => 'Kode Program Studi tidak boleh kosong.',
+            'KE_Tahun.required' => 'Tahun Ajaran tidak boleh kosong.',
+            'KE_IDSemester.required' => 'Semester tidak boleh kosong.',
+            'KE_DayaTampung.required' => 'Daya Tampung tidak boleh kosong.',
+            'KE_Terisi.required' => 'Jumlah Kelas tidak boleh kosong.',
+            'KE_PE_NIPPengajar.required' => 'NIP Pengajar tidak boleh kosong.',
+            'KE_Jadwal_IDHari.required' => 'Hari tidak boleh kosong.',
+            'KE_Jadwal_JamMulai.required' => 'Jam Mulai tidak boleh kosong.',
+            'KE_Jadwal_JamUsai.required' => 'Jam Usai tidak boleh kosong.',
+        ];
+
+        $request->validate([
+            'MK_Mata_Kuliah' => ['required'],
+            'KE_Kelas' => ['required'],
+            'KE_Jadwal_Ruangan' => ['required'],
+            'PS_Kode_Prodi' => ['required'],
+            'KE_Tahun' => ['required'],
+            'KE_IDSemester' => ['required'],
+            'KE_DayaTampung' => ['required'],
+            'KE_Terisi' => ['required'],
+            'KE_PE_NIPPengajar' => ['required'],
+            'KE_Jadwal_IDHari' => ['required'],
+            'KE_Jadwal_JamMulai' => ['required'],
+            'KE_Jadwal_JamUsai' => ['required']
+        ], $messages);
 
         $kelas = New Kelas();
         $kelas->create($request->all());
         Logbook::write(Auth::user()->PE_Nip,
             'Menambah data kelas ' . $kelas->KE_KR_MK_ID . ' kelas ' . $kelas->KE_Kelas . ' dari tabel kelas', Logbook::ACTION_CREATE,
             Logbook::TABLE_CLASSES);
-        return redirect('kelas')->with('status', 'Informasi Kelas Berhasil Ditambahkan');
+        return redirect('kelas')->with('success', 'Informasi kelas berhasil ditambahkan!');
     }
 
     /**
@@ -165,7 +194,7 @@ class ManajemenKelasController extends Controller
                 'Mengubah data kelas ' . $kelas->KE_KR_MK_ID . ' kelas ' . $kelas->KE_Kelas . ' dari tabel kelas', Logbook::ACTION_EDIT,
                 Logbook::TABLE_CLASSES);
         }
-        return redirect('/kelas')->with('status', 'Data Kelas Berhasil Di Update');;
+        return redirect('/kelas')->with('success', 'Data kelas berhasil diubah!');;
     }
 
     /**
@@ -187,7 +216,7 @@ class ManajemenKelasController extends Controller
                 'Menghapus data kelas ' . $kelas->KE_KR_MK_ID . ' kelas ' . $kelas->KE_Kelas . ' dari tabel kelas', Logbook::ACTION_DELETE,
                 Logbook::TABLE_CLASSES);
         }
-        return redirect('/kelas')->with('status_failed', 'Data Kelas Berhasil Dihapus');;
+        return redirect('/kelas')->with('toast_warning', 'Data Kelas Berhasil Dihapus');;
 
     }
 
@@ -199,7 +228,7 @@ class ManajemenKelasController extends Controller
                 'Mengimpor data kelas  dari tabel kelas ', Logbook::ACTION_IMPORT,
                 Logbook::TABLE_CLASSES);
         }
-        return back();
+        return back()->with('toast_success', 'Import data kelas berhasil!');
     }
 
     public function manage($id)

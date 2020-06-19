@@ -65,7 +65,7 @@ class ManajemenKhsController extends Controller
     {
         $Khs = New Khs();
         $Khs->create($request->all());
-        return redirect('Khs')->with('status', 'Informasi Khs Berhasil Ditambahkan');
+        return redirect('Khs')->with('success', 'Informasi KHS berhasil ditambahkan!');
     }
 
     /**
@@ -101,7 +101,7 @@ class ManajemenKhsController extends Controller
     {
         $Khs = Khs::where('KU_ID', '=', $id);
         $Khs->update($request->except('_method', '_token'));
-        return redirect('/Khs')->with('status', 'Data Khs Berhasil Di Update');;
+        return redirect('/Khs')->with('success', 'Data KHS berhasil diupdate');
     }
 
     /**
@@ -114,12 +114,12 @@ class ManajemenKhsController extends Controller
     {
         $Khs = Khs::where('KU_ID', $id);
         $Khs->delete();
-        return redirect('/Khs')->with('status', 'Data Khs Berhasil Dihapus');;
+        return redirect('/Khs')->with('toast_warning', 'Data KHS berhasil dihapus!');;
     }
 
     public function import()
     {
         $data = Excel::import(new KHSImport(), request()->file('file'));
-        return back();
+        return back()->with('toast_success', 'Import data pegawai berhasil!');
     }
 }

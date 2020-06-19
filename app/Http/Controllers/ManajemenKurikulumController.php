@@ -57,18 +57,22 @@ class ManajemenKurikulumController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $messages = [
+            'KL_Tahun_Kurikulum.required' => 'Tahun Kurikulum tidak boleh kosong.',
+            'KL_Date_Start.required' => 'Tanggal Mulai tidak boleh kosong.',
+            'KL_Date_End.required' => 'Tanggal Selesai tidak boleh kosong.',
 
+        ];
+
+        $request->validate([
             'KL_Tahun_Kurikulum' => 'required',
             'KL_Date_Start' => 'required',
             'KL_Date_End' => 'required'
-        ]);
-
-
+        ], $messages);
 
         $kurikulum = New Curiculum();
         $kurikulum->create($request->all());
-        return redirect('/kurikulum');
+        return redirect('/kurikulum')->with('success', 'Data tahun kurikulum berhasil ditambahkan!');
     }
 
     /**
@@ -105,7 +109,7 @@ class ManajemenKurikulumController extends Controller
     {
         $curiculum = Curiculum::find($id);
         $curiculum->update($request->all());
-        return redirect('/kurikulum')->with('status_failed', 'Data Kelas Berhasil Diubah');
+        return redirect('/kurikulum')->with('success', 'Data tahun kurikulum berhasil diubah!');
     }
 
     /**
@@ -118,6 +122,6 @@ class ManajemenKurikulumController extends Controller
     {
         $curiculum = Curiculum::find($id);
         $curiculum->delete();
-        return redirect('/kurikulum')->with('status_failed', 'Data Kelas Berhasil Dihapus');
+        return redirect('/kurikulum')->with('toast_warning', 'Data tahun kurikulum berhasil dihapus!');
     }
 }

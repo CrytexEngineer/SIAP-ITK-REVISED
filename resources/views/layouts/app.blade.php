@@ -66,11 +66,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif
+{{--                        @if (Route::has('register'))--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>--}}
+{{--                            </li>--}}
+{{--                        @endif--}}
                     @else
 
                         <li class="nav-item dropdown">
@@ -93,7 +93,7 @@
                                 <a class="dropdown-item" href="/kelas">Kelas</a>
                                 <a class="dropdown-item" href="/khs">KHS</a>
                                 <a class="dropdown-item" href="/kurikulum">Kurikulum</a>
-                                <a class="dropdown-item" href="/matakuliah">Matakuliah</a>
+                                <a class="dropdown-item" href="/matakuliah">Mata Kuliah</a>
                                 <a class="dropdown-item" href="/program_studi">Program Studi</a>
                                 <a class="dropdown-item" href="/riwayat_data">Riwayat Pengolahan Data</a>
                             </div>
@@ -124,8 +124,6 @@
         </div>
     </nav>
 
-    @include('sweetalert::alert')
-
     <main class="py-4">
         @yield('content')
     </main>
@@ -140,7 +138,6 @@
     <!-- App scripts -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript">
-
         $('.delete-confirm').on('click', function (event) {
             event.preventDefault();
             const url = $(this).attr('href');
@@ -160,5 +157,6 @@
     @stack('scripts')
 
 </div>
+@include('sweetalert::alert')
 </body>
 </html>

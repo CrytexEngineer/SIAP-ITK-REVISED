@@ -15,7 +15,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label class="col-md-2 col-form-label text-md-right">Kode jurusan</label>
+                            <label class="col-md-3 col-form-label text-md-right">Kode jurusan</label>
                             <div class="col-md-6">
                                 {{ Form::text('PS_Kode_Prodi',null,['class'=>'form-control','placeholder'=>'Kode program_studi','readonly'=>''])}}
                             </div>
@@ -24,13 +24,12 @@
                         @include('program_studi.form')
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-2">
+                            <div class="col-md-6 offset-md-3">
 
                                 {{ Form::submit('Simpan Data',['class'=>'btn btn-primary'])}}
                                 <a href="/program_studi" class="btn btn-primary">Kembali</a>
                             </div>
                         </div>
-                        </form>
                     </div>
                 </div>
             </div>

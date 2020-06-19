@@ -14,7 +14,7 @@ class CreateMajorsTable extends Migration
     public function up()
     {
         Schema::create('majors', function (Blueprint $table) {
-            $table->integer('PS_Kode_Prodi')->primary()->unsigned();
+            $table->integer('PS_Kode_Prodi')->primary()->unsigned()->nullable();
             $table->string('PS_Nama');
             $table->timestamps();
         });
