@@ -46,6 +46,7 @@ class PasswordResetRequest extends Notification implements ShouldQueue
 
 
         return (new MailMessage)
+            ->from('absensi@itk.ac.id', 'SIAP ITK Helpdesk')
             ->subject(__('Pengaturan Ulang Password'))
             ->line(__('Kamu telah mengajukan permintaan pengaturan ulang password akun'))
             ->action(__('Atur Ulang Password'), url($url))

@@ -44,15 +44,15 @@
 {{ $salutation }}
 @else
 @lang('Regards'),<br>
-{{ config('app.name') }}
+@lang('Tim SIAP ITK')
 @endif
 
 {{-- Subcopy --}}
 @isset($actionText)
 @slot('subcopy')
 @lang(
-    "If you’re having trouble clicking the \":actionText\" button, copy and paste the URL below\n".
-    'into your web browser:',
+    "Jika kamu tidak bisa menekan tombol \":actionText\", copy dan paste URL berikut\n".
+    'ke URL web browser kamu:',
     [
         'actionText' => $actionText,
     ]

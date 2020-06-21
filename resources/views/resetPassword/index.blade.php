@@ -8,20 +8,23 @@
                     <div class="card-header">{{ __('Reset Password') }}</div>
 
                     <div class="card-body">
-
-
+                        @include('validation_error')
                         <form method="POST" action="{{ route('student.password.reset') }}">
                             @csrf
-                            @include('alert')
+
+{{--                            @include('alert')--}}
 {{--                            <input type="hidden" name="token" value="{{ $token ?? '' }}">--}}
 
-                            <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">Token</label>
+{{--                            <div class="form-group row">--}}
+{{--                                <label for="email" class="col-md-4 col-form-label text-md-right">Token</label>--}}
 
-                                <div class="col-md-6">
-                                    <input id="token" type="token" class="form-control " name="token" value="{{ $token }}" readonly>
-                                </div>
-                            </div>
+{{--                                <div class="col-md-6">--}}
+{{--                                    <input id="token" type="token" class="form-control " name="token" value="{{ $token }}" readonly>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+
+                            <input type="token" id="token" name="token" value="{{ $token }}">
+
 
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
