@@ -105,7 +105,10 @@
             .nunito { font-family: "Nunito", sans-serif}
         </style>
     </head>
-    <body style="background: url('<?php echo e(asset('img/landing-page.png')); ?>');">
+    <body style="
+        background: url('<?php echo e(asset('img/landing-page.png')); ?>') no-repeat center fixed;
+        background-size: cover;
+        ">
         <div class="flex-center position-ref full-height">
 
 

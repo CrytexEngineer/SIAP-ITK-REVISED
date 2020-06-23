@@ -31,6 +31,7 @@ class PresenceController extends Controller
 
         if ($request['MK_ID'] == "all") {
             $presenceCount = Presence::countAll(['MA_Nrp' => trim($request['MA_Nrp'], '"')]);
+            $presenceCount[0]->Jumlah_Pertemuan=Presence::countAllMeetings(['MA_Nrp' => trim($request['MA_Nrp'], '"')])[0]->Jumlah_Pertemuan;
 
         }
 

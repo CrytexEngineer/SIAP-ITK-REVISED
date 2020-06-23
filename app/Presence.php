@@ -12,6 +12,15 @@ class Presence extends Model
     protected $fillable = ['PR_KU_ID', 'PR_KE_ID', 'PR_PT_ID', 'PR_IsLAte', 'PR_KU_MA_Nrp', 'PR_Keterangan', 'PR_Type'];
 
 
+    static function countAllMeetings($params = array())
+    {
+        return DB::select("Select count(*)  as Jumlah_Pertemuan from meetings inner join
+classes on meetings.PT_KE_ID=classes.KE_ID
+inner join class_student on class_student.KU_KE_KR_MK_ID = classes.KE_KR_MK_ID  and classes.KE_Kelas=class_student.KU_KE_Kelas and  class_student.KU_MA_Nrp=
+". " '" . $params['MA_Nrp'] . "'");
+    }
+
+
     static function countAll($params = array())
     {
         $defaultQuery = "SELECT count(*) as Kehadiran,
@@ -32,7 +41,7 @@ class Presence extends Model
 
     static function countBySubject($params = array())
     {
-        $dateCuriculum=Curiculum::all()->sortByDesc('KL_Date_Start')->first()->KL_Date_Start;
+        $dateCuriculum = Curiculum::all()->sortByDesc('KL_Date_Start')->first()->KL_Date_Start;
 
         $defaultQuery = "SELECT class_student.KU_ID,
             class_student.KU_KE_KR_MK_ID,
@@ -42,7 +51,7 @@ class Presence extends Model
             employees.PE_NamaLengkap,
             t3.KE_Terisi,
             students.MA_NamaLengkap,
-            ROUND(DATEDIFF(current_date(),'"."$dateCuriculum"."')/7, 0)  AS pekan_perkuliahan,
+            ROUND(DATEDIFF(current_date(),'" . "$dateCuriculum" . "')/7, 0)  AS pekan_perkuliahan,
             students.MA_NRP_Baru,
             students.MA_Nrp,
             t3.total AS Jumlah_Pertemuan,
@@ -68,7 +77,6 @@ class Presence extends Model
         $group = "group by class_student.KU_ID";
 
         $filter = "WHERE t3.KE_Kelas=class_student.KU_KE_Kelas";
-
 
 
         if (isset($params['KE_ID'])) {
@@ -103,13 +111,13 @@ class Presence extends Model
     static function index($params = array())
     {
 
-        $defaultQuery="SELECT presences.*, meetings.PT_Name,meetings.PT_Type,students.* from presences
+        $defaultQuery = "SELECT presences.*, meetings.PT_Name,meetings.PT_Type,students.* from presences
          JOIN class_student on class_student.KU_ID=presences.PR_KU_ID
          JOIN students on  class_student.KU_MA_Nrp=students.MA_Nrp
          JOIN meetings on meetings.PT_ID = presences.PR_PT_ID
          JOIN classes on presences.PR_KE_ID=classes.KE_ID";
 
-        $filter=" WHERE classes.KE_KR_MK_ID= " . "'" . $params['MK_ID'] . "'";
+        $filter = " WHERE classes.KE_KR_MK_ID= " . "'" . $params['MK_ID'] . "'";
 
         if (isset($params['MA_Nrp'])) {
             $filter = $filter . " " . " AND   class_student.KU_MA_Nrp=" . " '" . $params['MA_Nrp'] . "'";
@@ -120,6 +128,6 @@ class Presence extends Model
         }
 
 
-        return DB::select($defaultQuery." ".$filter);
+        return DB::select($defaultQuery . " " . $filter);
     }
 }
