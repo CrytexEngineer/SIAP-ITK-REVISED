@@ -1668,20 +1668,3 @@ esbot\\carbon\\src\\Carbon\\Traits\\Rounding.php:26)
 #33 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\server.php(21): require_once('D:\\\\Arsip Tugas\\\\...')
 #34 {main}
 "} 
-[2020-06-23 12:41:40] local.ERROR: include(D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\vendor\composer/../nesbot/carbon/src/Carbon/Laravel/ServiceProvider.php): failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\composer/../nesbot/carbon/src/Carbon/Laravel/ServiceProvider.php): failed to open stream: No such file or directory at D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\composer\\ClassLoader.php:444)
-[stacktrace]
-#0 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\composer\\ClassLoader.php(444): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(D:\\\\Arsi...', 'D:\\\\Arsip Tugas\\\\...', 444, Array)
-#1 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\composer\\ClassLoader.php(444): include()
-#2 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\composer\\ClassLoader.php(322): Composer\\Autoload\\includeFile('D:\\\\Arsip Tugas\\\\...')
-#3 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('Carbon\\\\Laravel\\\\...')
-#4 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(679): spl_autoload_call('Carbon\\\\Laravel\\\\...')
-#5 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(613): Illuminate\\Foundation\\Application->resolveProvider('Carbon\\\\Laravel\\\\...')
-#6 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(75): Illuminate\\Foundation\\Application->register('Carbon\\\\Laravel\\\\...')
-#7 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(593): Illuminate\\Foundation\\ProviderRepository->load(Array)
-#8 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
-#9 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(219): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
-#10 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(320): Illuminate\\Foundation\\Application->bootstrapWith(Array)
-#11 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
-#12 D:\\Arsip Tugas\\FINAL ASSIGMENT\\SIAP_ITK\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
-#13 {main}
-"} 
