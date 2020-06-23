@@ -1,7 +1,7 @@
 
 
 @extends('layouts.app')
-@section('title', 'Manajemen Akun Mahasiswa')
+@section('title', 'Modul Tahun Kurikulum')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

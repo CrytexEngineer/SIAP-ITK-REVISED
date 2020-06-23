@@ -8,7 +8,7 @@
                 <div class="card-header">Input Data Kurikulum</div>
 
                 <div class="card-body">
-
+                    @include('validation_error')
                     {{ Form::open(['url'=>'kurikulum'])}}
 
                     <table class="table table-bordered">

@@ -16,8 +16,9 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-
-
+        DB::statement("SET foreign_key_checks=0");
+        DB::table('employees')->truncate();
+        $superAdminRole = Role::where('role_name', 'Super Admin') -> first();
         $superAdmin = Employee::create([
             'PE_Nip' => '111111',
             'PE_Email' => 'super_admin@itk.ac.id',
@@ -27,8 +28,8 @@ class UsersTableSeeder extends Seeder
         ]);
 
 
-
         $superAdmin->roles()->attach($superAdminRole);
+        DB::statement("SET foreign_key_checks=1");
 
     }
 }

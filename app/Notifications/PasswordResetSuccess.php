@@ -41,10 +41,9 @@ class PasswordResetSuccess extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject(__('passwords.email_password_reset_success_subject'))
-            ->line(__('passwords.email_password_reset_success_line1'))
-            ->line(__('passwords.email_password_reset_success_line2'))
-            ->line(__('passwords.email_password_reset_success_line3'));
+            ->subject(__('Atur Ulang Password Berhasil!'))
+            ->line(__('Selamat! Permintaan atur ulang password kamu telah berhasil'))
+            ->line(__('silahkan login kembali dengan password terbaru'));
     }
 
     /**

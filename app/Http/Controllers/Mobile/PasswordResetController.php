@@ -14,6 +14,10 @@ use Illuminate\Http\Request;
 
 class PasswordResetController extends Controller
 {
+    public function index()
+    {
+        return view('resetPassword.success');
+    }
     /**
      * Create token password reset
      *
@@ -88,11 +92,20 @@ class PasswordResetController extends Controller
      */
     public function reset(Request $request)
     {
+        $messages = [
+          'email.required' => 'Email tidak boleh kosong.',
+          'email.string' => 'Email hanya boleh diisi dengan huruf.',
+          'email.email' => 'Email yang Anda masukan salah.',
+          'password.required' => 'Password tidak boleh kosong.',
+          'password.string' => 'Password hanya boleh diisi dengan huruf.',
+          'password.confirmed' => 'Password yang Anda masukkan tidak sesuai.',
+        ];
+
         $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string|confirmed',
             'token' => 'required|string'
-        ]);
+        ],$messages);
 
         $passwordReset = PasswordReset::where([
             ['token', $request->token],
@@ -120,7 +133,7 @@ class PasswordResetController extends Controller
 
         $user->notify(new PasswordResetSuccess($passwordReset));
 
-        return redirect('/akunpegawai')->with('status', 'Data Berhasil Diubah');
+        return redirect('resetPassword.success')->with('success', 'Data Berhasil Diubah');
         return response()->json($user);
     }
 

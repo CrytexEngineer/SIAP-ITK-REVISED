@@ -23,6 +23,8 @@ class LoginController extends Controller
     use AuthenticatesUsers {
         username as protected userNip;
         validateLogin as protected userValidation;
+        redirectPath as laravelRedirectPath;
+
     }
 
 
@@ -101,11 +103,20 @@ class LoginController extends Controller
     {
         if(Auth::user()->hasAnyRoles(['Super Admin', 'Admin', 'Observer', 'Wakil Rektor', 'Ketua Prodi', 'Ketua Jurusan', 'Tendik Jurusan', 'Tendik Pusat']))
         {
-            $this->redirectTo = route('home');
+            $this->redirectTo = route('mahasiswa.index');
             return $this->redirectTo;
         }
 
         $this->redirectTo = route('jadwal_mengajar');
         return $this->redirectTo;
+    }
+
+    public function redirectPath()
+    {
+        // Do your logic to flash data to session...
+        session()->flash('success', 'Anda berhasil login');
+
+        // Return the results of the method we are overriding that we aliased.
+        return $this->laravelRedirectPath();
     }
 }
