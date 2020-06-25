@@ -53,7 +53,7 @@ class ManajemenAkunPegawaiController extends Controller
     public function create()
     {
         $roles = Role::all();
-        $data['employee'] = Employee::with(roles)->get()->all();
+        $data['employee'] = Employee::with('roles')->get()->all();
         return view('employee.create_pegawai', $data)->with([
             'roles' => $roles
         ]);
