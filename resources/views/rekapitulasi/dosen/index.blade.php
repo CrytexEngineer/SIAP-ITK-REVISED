@@ -45,14 +45,15 @@
 @push('scripts')
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="/js/datatable-buttons.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
-
+    <script type="text/javascript"
+            src=" https://cdn.rawgit.com/ashl1/datatables-rowsgroup/fbd569b8768155c7a9a62568e66a64115887d7d0/dataTables.rowsGroup.js"></script>
     <script>
         $(function () {
             $('#users-table').DataTable({
@@ -61,6 +62,7 @@
                 serverSide: false,
                 ajax: '/rekapitulasi/dosen/json',
                 lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                'rowsGroup': [0,1,2,3,4,5,6,7,8,9,10],
                 columns: [
                     {data: 'PE_NamaLengkap', name: 'PE_NamaLengkap'},
                     {data: 'tim_dosen', name: 'tim_dosen'},
@@ -83,11 +85,31 @@
         ],
         dom: 'Blfrtip',
         buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
+            {
+                extend: 'copyHtml5',
+                exportOptions: {
+                    columns: [ 0, ':visible' ]
+                }
+            },
+            {
+                extend: 'excelHtml5',
+                exportOptions: {
+
+
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                exportOptions: {
+                    columns: [ 0, 1, 2, 5 ]
+                }
+            },
+
         ],
 
     });
 });
+
 
 
 

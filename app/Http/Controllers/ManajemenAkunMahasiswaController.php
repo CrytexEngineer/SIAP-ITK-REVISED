@@ -84,6 +84,7 @@ class ManajemenAkunMahasiswaController extends Controller
             'MA_Nrp' => $request->MA_NRP_Baru,
             'MA_NamaLengkap' => $request->MA_NamaLengkap,
             'MA_NRP_Baru' => $request->MA_NRP_Baru,
+            'MA_IMEI' => $request->MA_IMEI,
             'MA_PASSWORD' => Hash::make($request->MA_PASSWORD)
         ]);
 
@@ -147,6 +148,7 @@ class ManajemenAkunMahasiswaController extends Controller
         $mahasiswa = Student::where('MA_Nrp', '=', $id)->first();
         $mahasiswa->MA_NamaLengkap = $request->MA_NamaLengkap;
         $mahasiswa->email = $request->email;
+        $mahasiswa->MA_IMEI = $request->MA_IMEI;
         //SYNTAX KETIKA PASSWORD DIISI KOSONG MAKA DIISI PASSWORD LAMA
         if ($request->MA_PASSWORD != '') {
             $mahasiswa->MA_PASSWORD = Hash::make($request->MA_PASSWORD);

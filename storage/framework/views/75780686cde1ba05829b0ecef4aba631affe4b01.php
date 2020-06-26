@@ -66,11 +66,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo e(route('login')); ?>"><?php echo e(__('Login')); ?></a>
                         </li>
-                        <?php if(Route::has('register')): ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?php echo e(route('register')); ?>"><?php echo e(__('Register')); ?></a>
-                            </li>
-                        <?php endif; ?>
+
+
+
+
+
                     <?php else: ?>
 
                         <li class="nav-item dropdown">
@@ -93,7 +93,7 @@
                                 <a class="dropdown-item" href="/kelas">Kelas</a>
                                 <a class="dropdown-item" href="/khs">KHS</a>
                                 <a class="dropdown-item" href="/kurikulum">Kurikulum</a>
-                                <a class="dropdown-item" href="/matakuliah">Matakuliah</a>
+                                <a class="dropdown-item" href="/matakuliah">Mata Kuliah</a>
                                 <a class="dropdown-item" href="/program_studi">Program Studi</a>
                                 <a class="dropdown-item" href="/riwayat_data">Riwayat Pengolahan Data</a>
                             </div>
@@ -125,8 +125,6 @@
         </div>
     </nav>
 
-    <?php echo $__env->make('sweetalert::alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
     <main class="py-4">
         <?php echo $__env->yieldContent('content'); ?>
     </main>
@@ -141,7 +139,6 @@
     <!-- App scripts -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript">
-
         $('.delete-confirm').on('click', function (event) {
             event.preventDefault();
             const url = $(this).attr('href');
@@ -161,6 +158,7 @@
     <?php echo $__env->yieldPushContent('scripts'); ?>
 
 </div>
+<?php echo $__env->make('sweetalert::alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 </html>
 <?php /**PATH D:\Arsip Tugas\FINAL ASSIGMENT\SIAP_ITK\resources\views/layouts/app.blade.php ENDPATH**/ ?>

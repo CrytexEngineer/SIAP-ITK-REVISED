@@ -42,13 +42,13 @@ class MeetingController extends Controller
 
 
             if ($blockTime == $createdTime || $blockTime > $maxBlockTime) {
-                $blockTime = $maxBlockTime;
-                $isBlocked = ($blockTime - $currentTime);
+                $isBlocked = ($maxBlockTime - $currentTime);
             } else if ($blockTime < $maxBlockTime) {
                 $isBlocked = ($blockTime - $currentTime);
             }
 
             $isLate = $maxLateTime - $currentTime;
+
 
 
             $khs = DB::select("select * from `meetings`
@@ -59,7 +59,7 @@ class MeetingController extends Controller
                  and `class_student`.`KU_MA_Nrp`=" . $request->input('MA_Nrp'));
 
             if ($khs) {
-
+                date_default_timezone_set("Asia/Kuala_Lumpur");
                 if ($isBlocked > 0) {
                     $isPresenced = Presence::whereDate('presences.created_at', Carbon::today())
                         ->join('meetings','presences.PR_PT_ID','meetings.PT_ID')

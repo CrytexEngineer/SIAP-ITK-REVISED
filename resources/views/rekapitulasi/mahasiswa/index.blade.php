@@ -59,6 +59,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src=" https://cdn.rawgit.com/ashl1/datatables-rowsgroup/fbd569b8768155c7a9a62568e66a64115887d7d0/dataTables.rowsGroup.js"></script>
+
     <script>
         $(function () {
             $('#users-table').DataTable({
@@ -71,7 +73,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: '/rekapitulasi/mahasiswa/json',
-                'rowsGroup': [0],
+                'rowsGroup': [0,1,2,3,4,5],
                 columns: [
                     //NO
                     {data: 'KU_KE_KR_MK_ID', name: 'KU_KE_KR_MK_ID'},

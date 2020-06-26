@@ -20,7 +20,9 @@
                             <tr>
                                 <th width="150">Kode Program Studi</th>
                                 <th>Nama Program Studi</th>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('change')): ?>
                                 <th width="50">Action</th>
+                                    <?php endif; ?>
                             </tr>
                             </thead>
                         </table>
@@ -41,11 +43,13 @@
                 "scrollX": true,
                 processing: true,
                 serverSide: true,
-                ajax: '/program_studi/json', //DIGANTI SESUAI CONTROLLER
+                ajax: '/program_studi/json',
                 columns: [
-                    { data: 'PS_Kode_Prodi', name: 'PS_Kode_Prodi' }, //SESUAIKAN DB
-                    { data: 'PS_Nama', name: 'PS_Nama' }, //SESUAIKAN DB
+                    { data: 'PS_Kode_Prodi', name: 'PS_Kode_Prodi' },
+                    { data: 'PS_Nama', name: 'PS_Nama' },
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('change')): ?>
                     { data: 'action', name: 'action' }
+                    <?php endif; ?>
                 ]
             });
         });

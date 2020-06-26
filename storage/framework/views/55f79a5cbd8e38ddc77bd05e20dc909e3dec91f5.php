@@ -20,7 +20,7 @@
 <div class="form-group row">
     <label class="col-md-2 col-form-label text-md-right">Ruangan</label>
     <div class="col-md-3">
-        <?php echo e(Form::text('KE_Jadwal_Ruangan',null,['class'=>'form-control','placeholder'=>'Ruangan'])); ?>
+        <?php echo e(Form::text('KE_Jadwal_Ruangan',null,['class'=>'form-control','placeholder'=>'Ruangan [Contoh B201]'])); ?>
 
     </div>
 </div>

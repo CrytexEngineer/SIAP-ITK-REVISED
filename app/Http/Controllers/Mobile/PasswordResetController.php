@@ -93,27 +93,28 @@ class PasswordResetController extends Controller
     public function reset(Request $request)
     {
         $messages = [
-          'email.required' => 'Email tidak boleh kosong.',
-          'email.string' => 'Email hanya boleh diisi dengan huruf.',
-          'email.email' => 'Email yang Anda masukan salah.',
-          'password.required' => 'Password tidak boleh kosong.',
+//          'email.required' => 'Email tidak boleh kosong.',
+//          'email.string' => 'Email hanya boleh diisi dengan huruf.',
+//          'email.email' => 'Email yang Anda masukan salah.',
+            'password.min' => 'Password minimal 5 karakter.',
+            'password.required' => 'Password tidak boleh kosong.',
           'password.string' => 'Password hanya boleh diisi dengan huruf.',
           'password.confirmed' => 'Password yang Anda masukkan tidak sesuai.',
         ];
 
         $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string|confirmed',
+//            'email' => 'required|string|email',
+            'password' => 'required|string|min:5|confirmed',
             'token' => 'required|string'
         ],$messages);
 
         $passwordReset = PasswordReset::where([
             ['token', $request->token],
-            ['email', $request->email]
+//            ['email', $request->email]
         ])->first();
 
 
-        if (!$passwordReset)
+            if (!$passwordReset)
             return response()->json([
                 'message' => __('passwords.token')
             ], 200);
@@ -125,16 +126,14 @@ class PasswordResetController extends Controller
             return response()->json([
                 'message' => __('passwords.user')
             ], 200);
-
-        $user->MA_PASSWORD = bcrypt($request->MA_PASSWORD);
+        $user->MA_PASSWORD = bcrypt( trim($request->password, '"'));
         $user->save();
 
         $passwordReset->delete();
 
         $user->notify(new PasswordResetSuccess($passwordReset));
+        return view('resetPassword.success');
 
-        return redirect('resetPassword.success')->with('success', 'Data Berhasil Diubah');
-        return response()->json($user);
     }
 
     public function showForm($token)

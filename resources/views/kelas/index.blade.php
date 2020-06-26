@@ -32,7 +32,6 @@
                                 <th>NIP Pengajar</th>
                                 <th>Nama Pengajar</th>
                                 <th>Rencana Pertemuan</th>
-                                <th>Realisasi Pertemuan</th>
                                 <th>Hari</th>
                                 <th>Jam Mulai</th>
                                 <th>Jam Usai</th>
@@ -90,7 +89,6 @@
                     {data: 'KE_PE_NIPPengajar', name: 'KE_PE_NIPPengajar'},
                     {data: 'PE_Nama', name: 'employees.PE_Nama'},
                     {data: 'KE_RencanaTatapMuka', name: 'KE_RencanaTatapMuka'},
-                    {data: 'KE_RealisasiTatapMuka', name: 'KE_RealisasiTatapMuka'},
                     {data: 'KE_Jadwal_IDHari', name: 'KE_Jadwal_IDHari'},
                     {data: 'KE_Jadwal_JamMulai', name: 'KE_Jadwal_JamMulai'},
                     {data: 'KE_Jadwal_JamUsai', name: 'KE_Jadwal_JamUsai'},

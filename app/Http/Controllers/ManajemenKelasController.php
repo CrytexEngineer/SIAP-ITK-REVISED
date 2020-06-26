@@ -172,7 +172,6 @@ class ManajemenKelasController extends Controller
         $data['employees'] = Employee::pluck('PE_NamaLengkap', 'PE_Nip');
         $data['subjects'] = Subject::pluck('MK_ID');
         $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
-
         $data['kelas'] = Kelas::where('KE_ID', $id)->first();
         return view('kelas.edit', $data);
 

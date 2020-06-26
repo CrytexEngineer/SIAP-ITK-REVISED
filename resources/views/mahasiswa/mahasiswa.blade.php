@@ -21,6 +21,7 @@
                                 <th>NIM</th>
                                 <th>Nama Lengkap</th>
                                 <th>E-mail</th>
+                                <th>ID Perangkat</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
                                 @can('change')
@@ -57,6 +58,7 @@
                     { data: 'MA_NRP_Baru', name: 'MA_NRP_Baru' },
                     { data: 'MA_NamaLengkap', name: 'MA_NamaLengkap' },
                     { data: 'email', name: 'email' },
+                     { data: 'MA_IMEI', name: 'MA_IMEI' },
                     { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' },
                         @can('change')

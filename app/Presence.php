@@ -111,7 +111,7 @@ inner join class_student on class_student.KU_KE_KR_MK_ID = classes.KE_KR_MK_ID  
     static function index($params = array())
     {
 
-        $defaultQuery = "SELECT presences.*, meetings.PT_Name,meetings.PT_Type,students.* from presences
+        $defaultQuery = "SELECT presences.*, meetings.PT_Name,meetings.PT_Type from presences
          JOIN class_student on class_student.KU_ID=presences.PR_KU_ID
          JOIN students on  class_student.KU_MA_Nrp=students.MA_Nrp
          JOIN meetings on meetings.PT_ID = presences.PR_PT_ID
