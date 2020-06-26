@@ -23,15 +23,32 @@ class ManajemenAkunPegawaiController extends Controller
 
     function json()
     {
-        return Datatables::of(Employee::with('roles')->leftJoin('majors','employees.PE_KodeJurusan','=','PS_Kode_Prodi')->get()->all())
-            ->addColumn('action', function ($row) {
-                $action = '<a href="/akunpegawai/' . $row->PE_Nip . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
-                $action .= \Form::open(['url' => 'akunpegawai/' . $row->PE_Nip, 'method' => 'delete', 'style' => 'float:right']);
-                $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
-                $action .= \Form::close();
-                return $action;
-            })
-            ->make(true);
+        $role = (Auth::user()->roles->pluck('id')[0]);
+        if ($role == 1 || $role == 2 || $role == 4 || $role == 8) {
+            return Datatables::of(Employee::with('roles')->leftJoin('majors','employees.PE_KodeJurusan','=','PS_Kode_Prodi')->get()->all())
+                ->addColumn('action', function ($row) {
+                    $action = '<a href="/akunpegawai/' . $row->PE_Nip . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+                    $action .= \Form::open(['url' => 'akunpegawai/' . $row->PE_Nip, 'method' => 'delete', 'style' => 'float:right']);
+                    $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
+                    $action .= \Form::close();
+                    return $action;
+                })
+                ->make(true);
+        } else {
+            $jurusan = Auth::user()->PE_KodeJurusan;
+            return Datatables::of(Employee::with('roles')->leftJoin('majors','employees.PE_KodeJurusan','=','PS_Kode_Prodi')
+                ->where('employees.PE_KodeJurusan','=',$jurusan)
+                ->get()->all())
+                ->addColumn('action', function ($row) {
+                    $action = '<a href="/akunpegawai/' . $row->PE_Nip . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+                    $action .= \Form::open(['url' => 'akunpegawai/' . $row->PE_Nip, 'method' => 'delete', 'style' => 'float:right']);
+                    $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
+                    $action .= \Form::close();
+                    return $action;
+                })
+                ->make(true);
+        }
+
     }
 
     /**
