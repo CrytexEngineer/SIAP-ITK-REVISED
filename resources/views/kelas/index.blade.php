@@ -20,8 +20,8 @@
                         <table class="table table-bordered" id="users-table" style="overflow-x:auto;">
                             <thead>
                             <tr>
-                                <th>Kode Matakuliah</th>
-                                <th>Matakuliah</th>
+                                <th>Kode Mata Kuliah</th>
+                                <th>Mata Kuliah</th>
                                 <th>Kelas</th>
                                 <th>Ruangan</th>
                                 <th>Program Studi</th>
@@ -43,7 +43,7 @@
                             </thead>
                             <tfoot>
                             <tr>
-                                <th>Matakuliah</th>
+                                <th>Mata Kuliah</th>
                                 <th>Kelas</th>
                                 <th>Ruangan</th>
                                 <th>Program Studi</th>
@@ -85,7 +85,7 @@
                     {data: 'PS_Nama', name: 'majors.PS_Nama'},
                     {data: 'KE_Tahun', name: 'KE_Tahun'},
                     {data: 'KE_IDSemester', name: 'KE_IDSemester'},
-                    {data: 'KE_DayaTampung', name: 'KE_IDSemester'},
+                    {data: 'KE_DayaTampung', name: 'KE_DayaTampung'},
                     {data: 'KE_Terisi', name: 'KE_Terisi'},
                     {data: 'KE_PE_NIPPengajar', name: 'KE_PE_NIPPengajar'},
                     {data: 'PE_Nama', name: 'employees.PE_Nama'},

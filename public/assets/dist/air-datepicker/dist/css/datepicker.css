@@ -100,7 +100,7 @@
   margin: 8px 0 3px; }
 
 .datepicker--day-name {
-  color: #FF9A19;
+  color: #0099FF;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -620,3 +620,11 @@
   .datepicker--cell-day.-other-month-:empty, .datepicker--cell-year.-other-decade-:empty {
     background: none;
     border: none; }
+
+.only-timepicker .datepicker--nav,
+.only-timepicker .datepicker--content {
+    display: none;
+}
+.only-timepicker .datepicker--time {
+    border-top: none;
+}
