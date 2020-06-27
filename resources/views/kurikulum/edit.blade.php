@@ -8,7 +8,7 @@
                     <div class="card-header">Input Data Kurikulum</div>
 
                     <div class="card-body">
-
+                        @include('validation_error')
                         {{ Form::model($kurikulum,['url'=>'kurikulum/'.$kurikulum->id,'method'=>'PUT'])}}
 
                         <table class="table table-bordered">
@@ -28,7 +28,8 @@
                                                    data-language='en'
                                                    name="KL_Date_Start"
                                                    data-date-format="yyyy-mm-dd"
-                                                   data-multiple-dates="1"/>
+                                                   data-multiple-dates="1"
+                                                   autocomplete="off"/>
                                         </div> -
                                         <div class="col-md-4">
                                             <input type="text"
@@ -36,7 +37,8 @@
                                                    data-language='en'
                                                    name="KL_Date_End"
                                                    data-date-format="yyyy-mm-dd"
-                                                   data-multiple-dates="1"/>
+                                                   data-multiple-dates="1"
+                                                   autocomplete="off"/>
                                         </div>
                                     </div>
 

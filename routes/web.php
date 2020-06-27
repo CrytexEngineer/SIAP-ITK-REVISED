@@ -11,7 +11,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('rekapitulasi.mahasiswa.index');
 });
 
 
@@ -19,7 +19,7 @@ Route::get('/', function () {
 Route::get('/kelas', 'ManajemenKelasController@json')->middleware('can:admin');
 Route::get('/program_studi/json', 'ManajemenProgramStudiController@json')->middleware('can:admin');
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('home');
+Route::get('/home', 'RekapitulasiMahasiswaController@index')->name('home')->middleware('can:admin');
 
 Route::get('/superadmin', 'SuperAdminController@index')->name('superadmin')->middleware('superadmin');
 Route::get('/superadmin/manajemen/akun_mahasiswa', 'DiksatController@index')->name('superadmin')->middleware('diksat');
