@@ -121,14 +121,31 @@
 {{--                </div>--}}
 {{--            @endif--}}
 
+            @if(Route::has('login'))
             <div class="content">
+                @auth
+                    @if($role==9)
+                        <div class="title m-b-md">
+                            <br>
+                            <br>
+                            <button class="button nunito" onclick="location.href='{{ url('jadwal_mengajar') }}'"><span>Masuk </span></button>
+                        </div>
+                        @else
+                        <div class="title m-b-md">
+                            <br>
+                            <br>
+                            <button class="button nunito" onclick="location.href='{{ url('/rekapitulasi/mahasiswa') }}'"><span>Masuk </span></button>
+                        </div>
+                    @endif
+                @else
                 <div class="title m-b-md">
                     <br>
                     <br>
                     <button class="button nunito" onclick="location.href='{{ url('login') }}'"><span>Login </span></button>
                 </div>
-
+                @endauth
             </div>
+            @endif
         </div>
     </body>
 </html>
