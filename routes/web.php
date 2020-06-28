@@ -11,7 +11,13 @@
 */
 
 Route::get('/', function () {
-    return view('rekapitulasi.mahasiswa.index');
+    if (Auth::check()){
+        $role = (Auth::user()->roles->pluck('id')[0]);
+        return view('welcome')->with([
+            'role' => $role]);
+    } else {
+        return view('welcome');
+    }
 });
 
 
@@ -19,7 +25,7 @@ Route::get('/', function () {
 Route::get('/kelas', 'ManajemenKelasController@json')->middleware('can:admin');
 Route::get('/program_studi/json', 'ManajemenProgramStudiController@json')->middleware('can:admin');
 
-Route::get('/home', 'RekapitulasiMahasiswaController@index')->name('home')->middleware('can:admin');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('can:admin');
 
 Route::get('/superadmin', 'SuperAdminController@index')->name('superadmin')->middleware('superadmin');
 Route::get('/superadmin/manajemen/akun_mahasiswa', 'DiksatController@index')->name('superadmin')->middleware('diksat');
@@ -107,7 +113,7 @@ Route::get('/validator/generateQrCode/{pt_id}',"ManajemenValidatorController@gen
 
 //Rekapitulasi Mahasiswa
 Route::get('/rekapitulasi/mahasiswa/json',"RekapitulasiMahasiswaController@json")->middleware('can:admin');
-Route::resource('/rekapitulasi/mahasiswa',"RekapitulasiMahasiswaController")->middleware('can:admin');
+Route::resource('/rekapitulasi/mahasiswa',"RekapitulasiMahasiswaController")->name('*','rekapitulasi_mahasiswa')->middleware('can:admin');
 
 //Rekapitulasi Dosen
 Route::get('/rekapitulasi/dosen/json',"RekapitulasiDosenController@json")->middleware('can:admin');
