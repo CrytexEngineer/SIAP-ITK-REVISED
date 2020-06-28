@@ -15,7 +15,7 @@
                         <tr>
                             <td width="300">Tahun Kurikulum</td>
                             <td>
-                                {{ Form::text('KL_Tahun_Kurikulum',null,['class'=>'form-control','placeholder'=>'Tahun Ajaran (contoh: 2020 - Genap)'])}}
+                                {{ Form::text('KL_Tahun_Kurikulum',null,['class'=>'form-control','placeholder'=>'Tahun Ajaran (contoh: 2020/2021 - Ganjil)'])}}
                             </td>
                         </tr>
                         <tr>
@@ -28,7 +28,8 @@
                                                data-language='en'
                                                name="KL_Date_Start"
                                                data-date-format="yyyy-mm-dd"
-                                               data-multiple-dates="1"/>
+                                               data-multiple-dates="1"
+                                               autocomplete="off"/>
                                     </div> -
                                     <div class="col-md-4">
                                         <input type="text"
@@ -36,7 +37,8 @@
                                                data-language='en'
                                                name="KL_Date_End"
                                                data-date-format="yyyy-mm-dd"
-                                               data-multiple-dates="1"/>
+                                               data-multiple-dates="1"
+                                               autocomplete="off"/>
                                     </div>
                                 </div>
 

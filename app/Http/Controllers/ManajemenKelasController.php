@@ -23,19 +23,38 @@ class ManajemenKelasController extends Controller
 
     function json()
     {
-        return Datatables::of(DB::table('classes')
-            ->join('employees', 'classes.KE_PE_NIPPengajar', '=', 'employees.PE_Nip')
-            ->join('subjects', 'classes.KE_KR_MK_ID', '=', 'subjects.MK_ID')
-            ->join('majors', 'classes.KE_KodeJurusan', '=', 'majors.PS_Kode_Prodi'))
-            ->addColumn('action', function ($row) {
-                $action = '<a href="/kelas/' . $row->KE_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a> ';
-                $action .= '<a href="/kelas/' . $row->KE_ID . '/manage" class="btn btn-primary btn-sm"><i class="fas fa-tasks"></i></a> ';
-                $action .= \Form::open(['url' => 'kelas/' . $row->KE_ID, 'method' => 'delete', 'style' => 'float:right']);
-                $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
-                $action .= \Form::close();
-                return $action;
-            })
-            ->make(true);
+        $role = (Auth::user()->roles->pluck('id')[0]);
+        if ($role == 1 || $role == 2 || $role == 4 || $role == 8) {
+            return Datatables::of(DB::table('classes')
+                ->join('employees', 'classes.KE_PE_NIPPengajar', '=', 'employees.PE_Nip')
+                ->join('subjects', 'classes.KE_KR_MK_ID', '=', 'subjects.MK_ID')
+                ->join('majors', 'classes.KE_KodeJurusan', '=', 'majors.PS_Kode_Prodi'))
+                ->addColumn('action', function ($row) {
+                    $action = '<a href="/kelas/' . $row->KE_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a> ';
+                    $action .= '<a href="/kelas/' . $row->KE_ID . '/manage" class="btn btn-primary btn-sm"><i class="fas fa-tasks"></i></a> ';
+                    $action .= \Form::open(['url' => 'kelas/' . $row->KE_ID, 'method' => 'delete', 'style' => 'float:right']);
+                    $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
+                    $action .= \Form::close();
+                    return $action;
+                })
+                ->make(true);
+        } else {
+            $jurusan = Auth::user()->PE_KodeJurusan;
+            return Datatables::of(DB::table('classes')
+                ->where('classes.KE_KodeJurusan', '=', $jurusan)
+                ->join('employees', 'classes.KE_PE_NIPPengajar', '=', 'employees.PE_Nip')
+                ->join('subjects', 'classes.KE_KR_MK_ID', '=', 'subjects.MK_ID')
+                ->join('majors', 'classes.KE_KodeJurusan', '=', 'majors.PS_Kode_Prodi'))
+                ->addColumn('action', function ($row) {
+                    $action = '<a href="/kelas/' . $row->KE_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a> ';
+                    $action .= '<a href="/kelas/' . $row->KE_ID . '/manage" class="btn btn-primary btn-sm"><i class="fas fa-tasks"></i></a> ';
+                    $action .= \Form::open(['url' => 'kelas/' . $row->KE_ID, 'method' => 'delete', 'style' => 'float:right']);
+                    $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
+                    $action .= \Form::close();
+                    return $action;
+                })
+                ->make(true);
+        }
 
 
     }
@@ -98,8 +117,8 @@ class ManajemenKelasController extends Controller
      */
     public function create()
     {
-        $data['employees'] = Employee::pluck('PE_NamaLengkap', 'PE_Nip');
-        $data['subjects'] = Subject::pluck('MK_ID');
+        $data['employees'] = Employee::pluck('PE_NamaLengkap','PE_Nip');
+        $data['subjects'] = Subject::pluck('MK_Mata_Kuliah','MK_ID');
         $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
         return view('kelas.create', $data);
     }
@@ -112,34 +131,45 @@ class ManajemenKelasController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request);
         $messages = [
-            'MK_Mata_Kuliah.required' => 'Mata Kuliah tidak boleh kosong.',
+            'KE_KR_MK_ID.required' => 'Mata Kuliah tidak boleh kosong.',
+            'KE_KodeJurusan.required' => 'Program Studi tidak boleh kosong.',
             'KE_Kelas.required' => 'Kelas tidak boleh kosong.',
             'KE_Jadwal_Ruangan.required' => 'Nama Ruangan tidak boleh kosong.',
-            'PS_Kode_Prodi.required' => 'Kode Program Studi tidak boleh kosong.',
             'KE_Tahun.required' => 'Tahun Ajaran tidak boleh kosong.',
+            'KE_Tahun.integer' => 'Tahun Ajaran harus diisi menggunakan angka.',
             'KE_IDSemester.required' => 'Semester tidak boleh kosong.',
+            'KE_IDSemester.integer' => 'Semester harus diisi menggunakan angka.',
             'KE_DayaTampung.required' => 'Daya Tampung tidak boleh kosong.',
+            'KE_DayaTampung.integer' => 'Daya Tampung harus diisi menggunakan angka.',
             'KE_Terisi.required' => 'Jumlah Kelas tidak boleh kosong.',
+            'KE_Terisi.integer' => 'Jumlah Kelas harus diisi menggunakan angka.',
             'KE_PE_NIPPengajar.required' => 'NIP Pengajar tidak boleh kosong.',
             'KE_Jadwal_IDHari.required' => 'Hari tidak boleh kosong.',
             'KE_Jadwal_JamMulai.required' => 'Jam Mulai tidak boleh kosong.',
             'KE_Jadwal_JamUsai.required' => 'Jam Usai tidak boleh kosong.',
+            'KE_RencanaTatapMuka.required' => 'Rencana Tatap Muka tidak boleh kosong.',
+            'KE_RencanaTatapMuka.integer' => 'Rencana Tatap Muka harus diisi menggunakan angka.',
+            'KE_RealisasiTatapMuka.required' => 'Realisasi Tatap Muka tidak boleh kosong.',
+            'KE_RealisasiTatapMuka.integer' => 'Realisasi Tatap Muka harus diisi menggunakan angka.',
         ];
 
         $request->validate([
-            'MK_Mata_Kuliah' => ['required'],
+            'KE_KR_MK_ID' => ['required'],
             'KE_Kelas' => ['required'],
+            'KE_KodeJurusan' => ['required'],
             'KE_Jadwal_Ruangan' => ['required'],
-            'PS_Kode_Prodi' => ['required'],
-            'KE_Tahun' => ['required'],
-            'KE_IDSemester' => ['required'],
-            'KE_DayaTampung' => ['required'],
-            'KE_Terisi' => ['required'],
+            'KE_Tahun' => ['required','int'],
+            'KE_IDSemester' => ['required','int'],
+            'KE_DayaTampung' => ['required','int'],
+            'KE_Terisi' => ['required','int'],
             'KE_PE_NIPPengajar' => ['required'],
             'KE_Jadwal_IDHari' => ['required'],
             'KE_Jadwal_JamMulai' => ['required'],
-            'KE_Jadwal_JamUsai' => ['required']
+            'KE_Jadwal_JamUsai' => ['required'],
+            'KE_RencanaTatapMuka' => ['required','int'],
+            'KE_RealisasiTatapMuka' => ['required','int']
         ], $messages);
 
         $kelas = New Kelas();

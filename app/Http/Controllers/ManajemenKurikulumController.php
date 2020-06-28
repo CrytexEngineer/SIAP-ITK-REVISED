@@ -93,7 +93,6 @@ class ManajemenKurikulumController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id){
-
         $data['kurikulum'] = Curiculum::find($id);
         return view('kurikulum.edit',$data);
     }
@@ -107,6 +106,19 @@ class ManajemenKurikulumController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $messages = [
+            'KL_Tahun_Kurikulum.required' => 'Tahun Kurikulum tidak boleh kosong.',
+            'KL_Date_Start.required' => 'Tanggal Mulai tidak boleh kosong.',
+            'KL_Date_End.required' => 'Tanggal Selesai tidak boleh kosong.',
+
+        ];
+
+        $request->validate([
+            'KL_Tahun_Kurikulum' => 'required',
+            'KL_Date_Start' => 'required',
+            'KL_Date_End' => 'required'
+        ], $messages);
+
         $curiculum = Curiculum::find($id);
         $curiculum->update($request->all());
         return redirect('/kurikulum')->with('success', 'Data tahun kurikulum berhasil diubah!');

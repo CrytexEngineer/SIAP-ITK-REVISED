@@ -6,6 +6,7 @@ use App\Imports\KHSImport;
 use App\Imports\KHSimportimplements;
 use App\Khs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
@@ -25,18 +26,36 @@ class ManajemenKhsController extends Controller
 
     function json()
     {
-        return Datatables::of(DB::table('class_student')
-            ->join('students', 'class_student.KU_MA_Nrp', '=', 'students.MA_Nrp')
-            ->join('subjects', 'class_student.KU_KE_KR_MK_ID', '=', 'subjects.MK_ID')
-            ->join('majors', 'class_student.KU_KE_KodeJurusan', '=', 'majors.PS_Kode_Prodi'))
-            ->addColumn('action', function ($row) {
-                $action = '<a href="/Khs/' . $row->KU_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
-                $action .= \Form::open(['url' => 'Khs/' . $row->KU_ID, 'method' => 'delete', 'style' => 'float:right']);
-                $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
-                $action .= \Form::close();
-                return $action;
-            })
-            ->make(true);
+        $role = (Auth::user()->roles->pluck('id')[0]);
+        if ($role == 1 || $role == 2 || $role == 4 || $role == 8) {
+            return Datatables::of(DB::table('class_student')
+                ->join('students', 'class_student.KU_MA_Nrp', '=', 'students.MA_Nrp')
+                ->join('subjects', 'class_student.KU_KE_KR_MK_ID', '=', 'subjects.MK_ID')
+                ->join('majors', 'class_student.KU_KE_KodeJurusan', '=', 'majors.PS_Kode_Prodi'))
+                ->addColumn('action', function ($row) {
+                    $action = '<a href="/Khs/' . $row->KU_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+                    $action .= \Form::open(['url' => 'Khs/' . $row->KU_ID, 'method' => 'delete', 'style' => 'float:right']);
+                    $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
+                    $action .= \Form::close();
+                    return $action;
+                })
+                ->make(true);
+        } else {
+            $jurusan = Auth::user()->PE_KodeJurusan;
+            return Datatables::of(DB::table('class_student')
+                ->where('class_student.KU_KE_KodeJurusan','=',$jurusan)
+                ->join('students', 'class_student.KU_MA_Nrp', '=', 'students.MA_Nrp')
+                ->join('subjects', 'class_student.KU_KE_KR_MK_ID', '=', 'subjects.MK_ID')
+                ->join('majors', 'class_student.KU_KE_KodeJurusan', '=', 'majors.PS_Kode_Prodi'))
+                ->addColumn('action', function ($row) {
+                    $action = '<a href="/Khs/' . $row->KU_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+                    $action .= \Form::open(['url' => 'Khs/' . $row->KU_ID, 'method' => 'delete', 'style' => 'float:right']);
+                    $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
+                    $action .= \Form::close();
+                    return $action;
+                })
+                ->make(true);
+        }
     }
 
 

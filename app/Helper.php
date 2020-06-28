@@ -11,9 +11,7 @@ function getKehadiran($MA_Nrp, $KE_ID, $PT_URUTAN){
             ->WHERE('presences.PR_KE_ID',$KE_ID)
             ->WHERE('meetings.PT_Urutan',$PT_URUTAN)->get()->first();
 
-
-
-      return substr($presences['PR_Keterangan'],0,1);
-
-
+    if ($presences != null){
+        return substr($presences['PR_Keterangan'],0,1);
+    }
 }
