@@ -129,7 +129,7 @@ Route::get('/delete_all', 'DeleteAllController@destroy')->name('delete.all')->mi
 //});
 
 //reset password
-Route::GET('password/form/{token}', 'Mobile\PasswordResetController@showForm')->name('Passeord.showForm');
+Route::get('password/form/{token}', 'Mobile\PasswordResetController@showForm')->name('Passeord.showForm');
 Route::get('/password/success', 'Mobile\PasswordResetController@index');
 
 //Kurikulum

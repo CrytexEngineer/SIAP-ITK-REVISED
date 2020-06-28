@@ -9,7 +9,7 @@ use App\Notifications\PasswordResetSuccess;
 use App\PasswordReset;
 use App\Student;
 use Carbon\Carbon;
-use Session;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 class PasswordResetController extends Controller
@@ -114,10 +114,12 @@ class PasswordResetController extends Controller
         ])->first();
 
 
-            if (!$passwordReset)
-            return response()->json([
-                'message' => __('passwords.token')
-            ], 200);
+            if ($passwordReset == null){
+                Session::put('status_failed', 'value');
+                return back();
+
+            }
+
 
 
         $user = Student::where('email', $passwordReset->email)->first();
@@ -140,7 +142,7 @@ class PasswordResetController extends Controller
     {
 //        Session::flash('message', 'This is a message!');
 //        Session::flash('alert-class', 'alert-danger');
-        return view('resetPassword.index', ["token" => $token])->with('status', 'Data Berhasil Dihapus');
+        return view('resetPassword.index', ["token" => $token]);
     }
 }
 
