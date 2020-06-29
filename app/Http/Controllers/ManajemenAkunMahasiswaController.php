@@ -149,7 +149,6 @@ class ManajemenAkunMahasiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-
 //        $user = User::where('email', $id)->with('student')->get()->first();
 //        if ($user != null) {
 //
