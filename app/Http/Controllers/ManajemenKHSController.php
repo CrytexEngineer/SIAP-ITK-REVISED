@@ -139,6 +139,6 @@ class ManajemenKhsController extends Controller
     public function import()
     {
         $data = Excel::import(new KHSImport(), request()->file('file'));
-        return back()->with('toast_success', 'Import data pegawai berhasil!');
+        return back()->with('toast_success', 'Import data KHS berhasil!');
     }
 }

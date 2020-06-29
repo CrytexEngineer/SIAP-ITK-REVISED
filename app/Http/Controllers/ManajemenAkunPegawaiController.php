@@ -23,7 +23,7 @@ class ManajemenAkunPegawaiController extends Controller
 
     function json()
     {
-        $role = (Auth::user()->roles->pluck('id')[0]);
+        $role = (Auth::user()->roles->pluck('id')->first());
         if ($role == 1 || $role == 2 || $role == 4 || $role == 8) {
             return Datatables::of(Employee::with('roles')->leftJoin('majors','employees.PE_KodeJurusan','=','PS_Kode_Prodi')->get()->all())
                 ->addColumn('action', function ($row) {

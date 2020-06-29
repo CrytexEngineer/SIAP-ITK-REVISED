@@ -9,7 +9,7 @@
 
                     <div class="card-body">
 
-                        {{ Form::model($kelas,['url'=>'kelas/'.$kelas->id,'method'=>'PUT'])}}
+                        {{ Form::model($kelas,['url'=>'kelas/'.$kelas->KE_ID,'method'=>'PUT'])}}
 
                         @csrf
 

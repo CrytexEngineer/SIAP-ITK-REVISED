@@ -17,7 +17,6 @@
                         {{ Form::open(['url'=>'kehadiran/'.Request::segment(2)])}}
 
                         <table class="table table-bordered">
-                            <a href="/kehadiran/{{ Request::segment(2)}}" class="btn btn-danger"><i class="fas fa-backward"></i> Kembali</a>
                             <hr>
 {{--                            <tr><td width="270">Kode Matakuliah</td><td>{{ $jadwal->MK_ID}}</td></tr>--}}
 {{--                            <tr><td>Nama Matakuliah</td><td>{{ $jadwal->MK_Mata_Kuliah}}</td></tr>--}}

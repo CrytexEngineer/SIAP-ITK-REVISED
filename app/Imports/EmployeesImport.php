@@ -74,6 +74,6 @@ class EmployeesImport implements ToModel, WithHeadingRow, WithValidation, SkipsO
      */
     public function onError(Throwable $e)
     {
-        dump($e);
+        dd($e);
     }
 }

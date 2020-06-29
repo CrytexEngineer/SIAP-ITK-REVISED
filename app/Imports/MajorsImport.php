@@ -23,10 +23,12 @@ class MajorsImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFa
      */
     public function model(array $row)
     {
-
         $majors = Major::where('PS_Kode_Prodi', $row['ps_kode_prodi'])->first();
-        $data = ['PS_Kode_Prodi' => $row['ps_kode_prodi'],
-            'PS_Nama' => $row['ps_nama']];
+        $data = [
+            'PS_Kode_Prodi' => $row['ps_kode_prodi'],
+            'PS_Nama' => $row['ps_nama'],
+            'PS_ID' => $row['ps_id']
+        ];
 
 
         if (!$majors) {
@@ -42,6 +44,7 @@ class MajorsImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFa
         return [
             'ps_kode_prodi' => 'required',
             'ps_nama_baru' => 'required',
+            'ps_id' => 'required'
         ];
     }
 

@@ -23,7 +23,7 @@ class ManajemenKelasController extends Controller
 
     function json()
     {
-        $role = (Auth::user()->roles->pluck('id')[0]);
+        $role = (Auth::user()->roles->pluck('id')->first());
         if ($role == 1 || $role == 2 || $role == 4 || $role == 8) {
             return Datatables::of(DB::table('classes')
                 ->join('employees', 'classes.KE_PE_NIPPengajar', '=', 'employees.PE_Nip')
@@ -217,6 +217,7 @@ class ManajemenKelasController extends Controller
      */
     public function update(Request $request, $id)
     {
+//        dd($request);
         $kelas = Kelas::where('KE_ID', '=', $id)->first();
         if (
         $kelas->update($request->except('_method', '_token'))) {
