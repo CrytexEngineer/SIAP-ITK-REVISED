@@ -28,7 +28,7 @@ class CreateClassesTable extends Migration
             $table->time('KE_Jadwal_JamMulai');
             $table->time('KE_Jadwal_JamUsai');
             $table->string('KE_Jadwal_Ruangan');
-            $table->integer('KE_KodeJurusan')->unsigned();
+            $table->integer('KE_KodeJurusan')->unsigned()->nullable();
             $table->foreign('KE_KodeJurusan')->references('PS_Kode_Prodi')->on('majors')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('KE_RencanaTatapMuka')->unsigned();
             $table->integer('KE_RealisasiTatapMuka')->unsigned();

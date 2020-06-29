@@ -16,6 +16,7 @@ class CreateMajorsTable extends Migration
         Schema::create('majors', function (Blueprint $table) {
             $table->integer('PS_Kode_Prodi')->primary()->unsigned()->nullable();
             $table->string('PS_Nama');
+            $table->integer('PS_ID');
             $table->timestamps();
         });
     }

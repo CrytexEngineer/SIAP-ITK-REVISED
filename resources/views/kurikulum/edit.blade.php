@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Input Data Kurikulum</div>
+                    <div class="card-header">Edit Data Kurikulum</div>
 
                     <div class="card-body">
                         @include('validation_error')
