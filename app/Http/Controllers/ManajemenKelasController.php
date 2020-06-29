@@ -199,8 +199,8 @@ class ManajemenKelasController extends Controller
      */
     public function edit($id)
     {
-        $data['employees'] = Employee::pluck('PE_NamaLengkap', 'PE_Nip');
-        $data['subjects'] = Subject::pluck('MK_ID');
+        $data['employees'] = Employee::pluck('PE_NamaLengkap','PE_Nip');
+        $data['subjects'] = Subject::pluck('MK_Mata_Kuliah','MK_ID');
         $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
         $data['kelas'] = Kelas::where('KE_ID', $id)->first();
         return view('kelas.edit', $data);
@@ -216,15 +216,32 @@ class ManajemenKelasController extends Controller
      */
     public function update(Request $request, $id)
     {
-//        dd($request);
+//        $kelas = Kelas::where('KE_ID', '=', $id)->first();
+//        if (
+//        $kelas->update($request->except('_method', '_token'))) {
+//            Logbook::write(Auth::user()->PE_Nip,
+//                'Mengubah data kelas ' . $kelas->KE_KR_MK_ID . ' kelas ' . $kelas->KE_Kelas . ' dari tabel kelas', Logbook::ACTION_EDIT,
+//                Logbook::TABLE_CLASSES);
+//        }
+
         $kelas = Kelas::where('KE_ID', '=', $id)->first();
-        if (
-        $kelas->update($request->except('_method', '_token'))) {
-            Logbook::write(Auth::user()->PE_Nip,
-                'Mengubah data kelas ' . $kelas->KE_KR_MK_ID . ' kelas ' . $kelas->KE_Kelas . ' dari tabel kelas', Logbook::ACTION_EDIT,
-                Logbook::TABLE_CLASSES);
-        }
+        $kelas->KE_KR_MK_ID = $request->KE_KR_MK_ID;
+        $kelas->KE_Kelas = $request->KE_Kelas;
+        $kelas->KE_Jadwal_Ruangan = $request->KE_Jadwal_Ruangan;
+        $kelas->KE_KodeJurusan = $request->KE_KodeJurusan;
+        $kelas->KE_Tahun = $request->KE_Tahun;
+        $kelas->KE_IDSemester = $request->KE_IDSemester;
+        $kelas->KE_DayaTampung = $request->KE_DayaTampung;
+        $kelas->KE_Terisi = $request->KE_Terisi;
+        $kelas->KE_PE_NIPPengajar = $request->KE_PE_NIPPengajar;
+        $kelas->KE_RencanaTatapMuka = $request->KE_RencanaTatapMuka;
+        $kelas->KE_RealisasiTatapMuka = $request->KE_RealisasiTatapMuka;
+        $kelas->KE_Jadwal_IDHari = $request->KE_Jadwal_IDHari;
+        $kelas->KE_Jadwal_JamMulai = $request->KE_Jadwal_JamMulai;
+        $kelas->KE_Jadwal_JamUsai = $request->KE_Jadwal_JamUsai;
+        $kelas->save();
         return redirect('/kelas')->with('success', 'Data kelas berhasil diubah!');;
+        Logbook::write(Auth::user()->PE_Nip, 'Mengubah data kelas ' . $kelas->KE_KR_MK_ID . ' dari tabel mahasiswa', Logbook::ACTION_EDIT, Logbook::TABLE_CLASSES);
     }
 
     /**

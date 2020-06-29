@@ -19,6 +19,12 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td width="300">Semester</td>
+                                <td>
+                                    {{ Form::select('KL_IDSemester',['1'=>'Ganjil','2'=>'Genap'],null,['class'=>'form-control','placeholder'=>'Pilih Semester'])}}
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>Tanggal Mulai & Selesai</td>
                                 <td>
                                     <div class="form-group row">
