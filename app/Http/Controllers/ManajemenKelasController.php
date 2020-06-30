@@ -224,6 +224,46 @@ class ManajemenKelasController extends Controller
 //                Logbook::TABLE_CLASSES);
 //        }
 
+        $messages = [
+            'KE_KR_MK_ID.required' => 'Mata Kuliah tidak boleh kosong.',
+            'KE_KodeJurusan.required' => 'Program Studi tidak boleh kosong.',
+            'KE_Kelas.required' => 'Kelas tidak boleh kosong.',
+            'KE_Jadwal_Ruangan.required' => 'Nama Ruangan tidak boleh kosong.',
+            'KE_Tahun.required' => 'Tahun Ajaran tidak boleh kosong.',
+            'KE_Tahun.integer' => 'Tahun Ajaran harus diisi menggunakan angka.',
+            'KE_IDSemester.required' => 'Semester tidak boleh kosong.',
+            'KE_IDSemester.integer' => 'Semester harus diisi menggunakan angka.',
+            'KE_DayaTampung.required' => 'Daya Tampung tidak boleh kosong.',
+            'KE_DayaTampung.integer' => 'Daya Tampung harus diisi menggunakan angka.',
+            'KE_Terisi.required' => 'Jumlah Kelas tidak boleh kosong.',
+            'KE_Terisi.integer' => 'Jumlah Kelas harus diisi menggunakan angka.',
+            'KE_PE_NIPPengajar.required' => 'NIP Pengajar tidak boleh kosong.',
+            'KE_Jadwal_IDHari.required' => 'Hari tidak boleh kosong.',
+            'KE_Jadwal_JamMulai.required' => 'Jam Mulai tidak boleh kosong.',
+            'KE_Jadwal_JamUsai.required' => 'Jam Usai tidak boleh kosong.',
+            'KE_RencanaTatapMuka.required' => 'Rencana Tatap Muka tidak boleh kosong.',
+            'KE_RencanaTatapMuka.integer' => 'Rencana Tatap Muka harus diisi menggunakan angka.',
+            'KE_RealisasiTatapMuka.required' => 'Realisasi Tatap Muka tidak boleh kosong.',
+            'KE_RealisasiTatapMuka.integer' => 'Realisasi Tatap Muka harus diisi menggunakan angka.',
+        ];
+
+        $request->validate([
+            'KE_KR_MK_ID' => ['required'],
+            'KE_Kelas' => ['required'],
+            'KE_KodeJurusan' => ['required'],
+            'KE_Jadwal_Ruangan' => ['required'],
+            'KE_Tahun' => ['required','int'],
+            'KE_IDSemester' => ['required','int'],
+            'KE_DayaTampung' => ['required','int'],
+            'KE_Terisi' => ['required','int'],
+            'KE_PE_NIPPengajar' => ['required'],
+            'KE_Jadwal_IDHari' => ['required'],
+            'KE_Jadwal_JamMulai' => ['required'],
+            'KE_Jadwal_JamUsai' => ['required'],
+            'KE_RencanaTatapMuka' => ['required','int'],
+            'KE_RealisasiTatapMuka' => ['required','int']
+        ], $messages);
+
         $kelas = Kelas::where('KE_ID', '=', $id)->first();
         $kelas->KE_KR_MK_ID = $request->KE_KR_MK_ID;
         $kelas->KE_Kelas = $request->KE_Kelas;
