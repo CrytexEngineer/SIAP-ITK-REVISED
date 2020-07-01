@@ -12,35 +12,42 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label class="col-md-2 col-form-label text-md-right">NIP Pegawai</label>
+                            <label class="col-md-3 col-form-label text-md-right">NIP Pegawai</label>
                             <div class="col-md-4">
                                 {{ Form::text('PE_Nip', null, ['class'=>'form-control', 'placeholder'=> 'NIP Pegawai'], ['readonly']) }}
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-md-2 col-form-label text-md-right">Nama Lengkap</label>
+                            <label class="col-md-3 col-form-label text-md-right">Nama Lengkap</label>
                             <div class="col-md-6">
                                 {{ Form::text('PE_NamaLengkap', null, ['class'=>'form-control', 'placeholder'=> 'Nama Pegawai']) }}
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-md-2 col-form-label text-md-right">E-mail</label>
+                            <label class="col-md-3 col-form-label text-md-right">E-mail</label>
                             <div class="col-md-4">
                                 {{ Form::text('PE_Email', null, ['class'=>'form-control', 'placeholder'=> 'E-Mail Pegawai']) }}
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-md-2 col-form-label text-md-right">Program Studi</label>
+                            <label class="col-md-3 col-form-label text-md-right">Program Studi</label>
                             <div class="col-md-4">
                                 {{Form::select('PE_KodeJurusan',$major ?? '',null,['class'=>'form-control'])}}
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="roles" class="col-md-2 col-form-label text-md-right">Roles</label>
+                            <label class="col-md-3 col-form-label text-md-right">Password</label>
+                            <div class="col-md-6">
+                                {{ Form::password('password',['class'=>'form-control','placeholder'=>'Password'])}}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="roles" class="col-md-3 col-form-label text-md-right">Roles</label>
                             <div class="col-md-6">
                             @foreach($roles as $role)
                                 <div class="form-check">
@@ -53,7 +60,7 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-2">
+                            <div class="col-md-6 offset-md-3">
                                 {{Form::submit('Simpan Data', ['class'=>'btn btn-primary'])}}
                                 <a href="/akunpegawai" class="btn btn-primary">Kembali</a>
                             </div>

@@ -12,7 +12,7 @@
                             @csrf
 
                             <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">Nip Pegawai</label>
+                                <label for="email" class="col-md-4 col-form-label text-md-right">NIP Pegawai</label>
 
                                 <div class="col-md-6">
                                     <input id="PE_Nip"  class="form-control @error('PE_Nip') is-invalid @enderror" name="PE_Nip" value="{{ old('PE_Nip') }}" required autocomplete="PE_Nip" autofocus>

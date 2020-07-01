@@ -18,7 +18,6 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-3">
-
                                 {{ Form::submit('Simpan Data',['class'=>'btn btn-primary'])}}
                                 <a href="/kelas" class="btn btn-primary">Kembali</a>
                             </div>
