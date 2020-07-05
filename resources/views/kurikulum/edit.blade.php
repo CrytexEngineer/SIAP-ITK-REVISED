@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Input Data Kurikulum</div>
+                    <div class="card-header">Edit Data Kurikulum</div>
 
                     <div class="card-body">
                         @include('validation_error')
@@ -16,6 +16,12 @@
                                 <td width="300">Tahun Kurikulum</td>
                                 <td>
                                     {{ Form::text('KL_Tahun_Kurikulum',null,['class'=>'form-control','placeholder'=>'Tahun Ajaran (contoh: 2020 - Genap)'])}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="300">Semester</td>
+                                <td>
+                                    {{ Form::select('KL_IDSemester',['1'=>'Ganjil','2'=>'Genap'],null,['class'=>'form-control','placeholder'=>'Pilih Semester'])}}
                                 </td>
                             </tr>
                             <tr>

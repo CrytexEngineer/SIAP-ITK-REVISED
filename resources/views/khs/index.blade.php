@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Modul Kelas</div>
+                    <div class="card-header">Modul KHS</div>
 
                     <div class="card-body">
 
@@ -27,6 +27,7 @@
                                 <th>Prodi/TPB</th>
                                 <th>Tahun Akademik</th>
                                 <th>Mata Kuliah Diambil</th>
+{{--                                <th>Kelas</th>--}}
                                 @can('change')
                                 <th width="50">Action</th>
                                     @endcan
@@ -40,6 +41,7 @@
                                 <th>Prodi/TPB</th>
                                 <th>Tahun Akademik</th>
                                 <th>Mata Kuliah Diambil</th>
+{{--                                <th>Kelas</th>--}}
                             </tr>
                             </tfoot>
                         </table>
@@ -68,6 +70,7 @@
                     {data: 'PS_Nama', name: 'PS_Nama'},
                     {data: 'KU_KE_Tahun', name: 'KU_KE_Tahun'},
                     {data: 'MK_Mata_Kuliah', name: 'MK_Mata_Kuliah'},
+                    // {data: 'KE_Kelas', name: 'KE_Kelas'},
                         @can('change')
                     {data: 'action', name: 'action'}
                     @endcan

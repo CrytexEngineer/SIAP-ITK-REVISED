@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Employee;
+use App\EmployeeRole;
 use App\Imports\EmployeesImport;
 use App\Logbook;
 use App\Major;
@@ -23,7 +24,7 @@ class ManajemenAkunPegawaiController extends Controller
 
     function json()
     {
-        $role = (Auth::user()->roles->pluck('id')[0]);
+        $role = (Auth::user()->roles->pluck('id')->first());
         if ($role == 1 || $role == 2 || $role == 4 || $role == 8) {
             return Datatables::of(Employee::with('roles')->leftJoin('majors','employees.PE_KodeJurusan','=','PS_Kode_Prodi')->get()->all())
                 ->addColumn('action', function ($row) {
@@ -70,10 +71,11 @@ class ManajemenAkunPegawaiController extends Controller
     public function create()
     {
         $roles = Role::all();
-        $data['employee'] = Employee::with(roles)->get()->all();
+        $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
         return view('employee.create_pegawai', $data)->with([
             'roles' => $roles
         ]);
+
     }
 
     /**
@@ -85,67 +87,43 @@ class ManajemenAkunPegawaiController extends Controller
     public function store(Request $request)
     {
         $messages = [
-            'name.required' => 'Nama tidak boleh kosong.',
-            'email.required' => 'Email tidak boleh kosong',
-            'email.email' => 'Email yang Anda masukkan tidak sesuai.',
-            'email.unique' => 'Email sudah terdaftar, harap masukan email yang baru.',
+            'PE_NamaLengkap.required' => 'Nama tidak boleh kosong.',
+            'PE_NamaLengkap.string' => 'Nama tidak boleh memakai huruf.',
+            'PE_Email.required' => 'Email tidak boleh kosong',
+            'PE_Email.email' => 'Email yang Anda masukkan tidak sesuai.',
+            'PE_Email.unique' => 'Email sudah terdaftar, harap masukan email yang baru.',
             'password.required' => 'Password tidak boleh kosong.',
-            'password.min' => 'Password minimal 8 huruf/angka.',
-            'PE_NIP.required' => 'NIP tidak boleh kosong.',
-            'PE_NIP.integer' => 'NIP tidak boleh selain angka.',
-            'PE_NIP.unique' => 'NIP yang Anda masukkan sudah terdaftar.'
+            'password.min' => 'Password minimal 8 karakter.',
+            'PE_Nip.required' => 'NIP tidak boleh kosong.',
+            'PE_KodeJurusan.required' => 'Program Studi tidak boleh kosong.',
+            'PE_Nip.integer' => 'NIP tidak boleh selain angka.',
+            'PE_Nip.unique' => 'NIP yang Anda masukkan sudah terdaftar.',
+            'roles.required' => 'Roles tidak boleh kosong.'
         ];
 
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'PE_NamaLengkap' => ['required', 'string', 'max:255'],
+            'PE_Email' => ['required', 'email', 'max:255', 'unique:employees'],
+            'password' => ['required', 'string', 'min:8'],
             'PE_Nip' => ['required', 'integer', 'unique:employees'],
-            'role' => ['required', 'integer']
+            'PE_KodeJurusan' => ['required'],
+            'roles' => ['required']
         ], $messages);
 
-        $data = $request->all();
-        $user = [
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'role' => $data['role'],
-            'password' => Hash::make($data['password']),
-        ];
+        $pegawai = New Employee();
+        $pegawai->PE_Nip = $request->PE_Nip;
+        $pegawai->PE_NamaLengkap = $request->PE_NamaLengkap;
+        $pegawai->PE_Nama = $request->PE_NamaLengkap;
+        $pegawai->PE_KodeJurusan = $request->PE_KodeJurusan;
+        $pegawai->PE_Email = $request->PE_Email;
+        $pegawai->password = Hash::make($request->password);
+        $pegawai->save();
+        $pegawai->roles()->attach($request->roles);
 
-//        $employee = [];
-//        if ($data['role'] != 10) {
-//            if ($data['role'] >= 1 && $data['role'] <= 6 || $data['role'] == 9) {
-//
-//                $employee = New Employee([
-//                    'PE_Nip' => $data['PE_Nip'],
-//                    'PE_Nama' => $data['name'],
-//                    'PE_NamaLengkap' => $data['name'],
-//                    'PE_Email' => $data['email'],
-//                    'PE_TipePegawai' => 0
-//                ]);
-//            }
-//
-//            if ($data['role'] == 7 || $data['role'] == 8) {
-//                $employee = New Employee([
-//                    'PE_Nip' => $data['PE_Nip'],
-//                    'PE_Nama' => $data['name'],
-//                    'PE_NamaLengkap' => $data['name'],
-//                    'PE_Email' => $data['email'],
-//                    'PE_TipePegawai' => 1
-//                ]);
-//            }
-//
-//
-//            if ($employee->save()) {
-//
-//                User::create($user);
-//                $user = User::where('email', $data['email'])->first();
-//                $role = Role::where('id', $data['role'])->get()->first();
-//                $user->roles()->attach($role);
-//            }
-            return redirect('/akunpegawai')->with('status', 'Data pegawai berhasil disimpan');
-//        Logbook::write(Auth::user()->PE_Nip, 'Menambah data pegawai ' . $employee->PE_NamaLengkap . ' dari tabel pegawai',Logbook::Create ,Logbook::TABLE_EMPLOYEES);
-//        }
+        return redirect('/akunpegawai')->with('success', 'Data pegawai berhasil ditambahkan!');
+        Logbook::write(Auth::user()->PE_Nip,
+            'Menambah data kelas ' . $kelas->KE_KR_MK_ID . ' kelas ' . $kelas->KE_Kelas . ' dari tabel kelas', Logbook::ACTION_CREATE,
+            Logbook::TABLE_CLASSES);
     }
 
     /**
@@ -188,12 +166,33 @@ class ManajemenAkunPegawaiController extends Controller
     public
     function update(Request $request, $id)
     {
+        $messages = [
+            'PE_NamaLengkap.required' => 'Nama tidak boleh kosong.',
+            'PE_NamaLengkap.string' => 'Nama tidak boleh memakai huruf.',
+            'PE_Email.required' => 'Email tidak boleh kosong',
+            'PE_KodeJurusan.required' => 'Program Studi tidak boleh kosong.',
+            'PE_Nip.integer' => 'NIP tidak boleh selain angka.',
+            'PE_Nip.unique' => 'NIP yang Anda masukkan sudah terdaftar.',
+            'roles.required' => 'Roles tidak boleh kosong.'
+        ];
+
+        $request->validate([
+            'PE_NamaLengkap' => ['required', 'string', 'max:255'],
+            'PE_Nip' => ['required', 'integer'],
+            'PE_KodeJurusan' => ['required'],
+            'roles' => ['required']
+        ], $messages);
+
         $employee = Employee::find($id);
         $employee->roles()->sync($request->roles);
         $employee->PE_Nip = $request->PE_Nip;
         $employee->PE_NamaLengkap = $request->PE_NamaLengkap;
         $employee->PE_Email = $request->PE_Email;
         $employee->PE_KodeJurusan = $request->PE_KodeJurusan;
+        if ($request->password != '') {
+            $employee->password = Hash::make($request->password);
+        }
+
         if ($employee->save()) {
             Logbook::write(Auth::user()->PE_Nip, 'Mengubah data pegawai ' . $employee->PE_NamaLengkap . ' dari tabel pegawai', Logbook::ACTION_EDIT, Logbook::TABLE_EMPLOYEES);
         };

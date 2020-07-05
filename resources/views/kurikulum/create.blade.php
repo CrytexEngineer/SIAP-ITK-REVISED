@@ -15,7 +15,13 @@
                         <tr>
                             <td width="300">Tahun Kurikulum</td>
                             <td>
-                                {{ Form::text('KL_Tahun_Kurikulum',null,['class'=>'form-control','placeholder'=>'Tahun Ajaran (contoh: 2020/2021 - Ganjil)'])}}
+                                {{ Form::text('KL_Tahun_Kurikulum',null,['class'=>'form-control','placeholder'=>'Tahun Ajaran (contoh: 2020)'])}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="300">Semester</td>
+                            <td>
+                                {{ Form::select('KL_IDSemester',['1'=>'Ganjil','2'=>'Genap'],null,['class'=>'form-control','placeholder'=>'Pilih Semester'])}}
                             </td>
                         </tr>
                         <tr>

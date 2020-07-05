@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Imports\StudentsImport;
 use App\Logbook;
+use App\Major;
 use App\Student;
 use DataTables;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -20,16 +22,32 @@ class ManajemenAkunMahasiswaController extends Controller
 
     function json()
     {
-        return Datatables::of(Student::all())
-            ->addColumn('action', function ($row) {
-                $action = '<a href="/akunmahasiswa/' . $row->MA_Nrp . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
-                $action .= \Form::open(['url' => 'akunmahasiswa/' . $row->MA_Nrp, 'method' => 'delete', 'style' => 'float:right']);
-                $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
-                $action .= \Form::close();
-                return $action;
+        $role = (Auth::user()->roles->pluck('id')[0]);
+        if ($role == 1 || $role == 2 || $role == 4 || $role == 8) {
+            return Datatables::of(Student::all())
+                ->addColumn('action', function ($row) {
+                    $action = '<a href="/akunmahasiswa/' . $row->MA_Nrp . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+                    $action .= \Form::open(['url' => 'akunmahasiswa/' . $row->MA_Nrp, 'method' => 'delete', 'style' => 'float:right']);
+                    $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
+                    $action .= \Form::close();
+                    return $action;
 
-            })
-            ->make(true);
+                })
+                ->make(true);
+        } else {
+            $jurusan = Auth::user()->PE_KodeJurusan;
+            $idJurusan = Major::all()->where('PS_Kode_Prodi',$jurusan)->pluck('PS_ID')->first();
+            $mahasiswa = Student::all();
+            return Datatables::of(DB::select("select * from students where SUBSTRING(students.MA_Nrp,5,3) = 110"))
+                ->addColumn('action', function ($row) {
+                    $action = '<a href="/akunmahasiswa/' . $row->MA_Nrp . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+                    $action .= \Form::open(['url' => 'akunmahasiswa/' . $row->MA_Nrp, 'method' => 'delete', 'style' => 'float:right']);
+                    $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
+                    $action .= \Form::close();
+                    return $action;
+                })
+                ->make(true);
+        }
     }
 
     /**
@@ -131,7 +149,6 @@ class ManajemenAkunMahasiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-
 //        $user = User::where('email', $id)->with('student')->get()->first();
 //        if ($user != null) {
 //

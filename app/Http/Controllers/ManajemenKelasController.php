@@ -23,7 +23,7 @@ class ManajemenKelasController extends Controller
 
     function json()
     {
-        $role = (Auth::user()->roles->pluck('id')[0]);
+        $role = (Auth::user()->roles->pluck('id')->first());
         if ($role == 1 || $role == 2 || $role == 4 || $role == 8) {
             return Datatables::of(DB::table('classes')
                 ->join('employees', 'classes.KE_PE_NIPPengajar', '=', 'employees.PE_Nip')
@@ -199,8 +199,8 @@ class ManajemenKelasController extends Controller
      */
     public function edit($id)
     {
-        $data['employees'] = Employee::pluck('PE_NamaLengkap', 'PE_Nip');
-        $data['subjects'] = Subject::pluck('MK_ID');
+        $data['employees'] = Employee::pluck('PE_NamaLengkap','PE_Nip');
+        $data['subjects'] = Subject::pluck('MK_Mata_Kuliah','MK_ID');
         $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
         $data['kelas'] = Kelas::where('KE_ID', $id)->first();
         return view('kelas.edit', $data);
@@ -216,14 +216,72 @@ class ManajemenKelasController extends Controller
      */
     public function update(Request $request, $id)
     {
+//        $kelas = Kelas::where('KE_ID', '=', $id)->first();
+//        if (
+//        $kelas->update($request->except('_method', '_token'))) {
+//            Logbook::write(Auth::user()->PE_Nip,
+//                'Mengubah data kelas ' . $kelas->KE_KR_MK_ID . ' kelas ' . $kelas->KE_Kelas . ' dari tabel kelas', Logbook::ACTION_EDIT,
+//                Logbook::TABLE_CLASSES);
+//        }
+
+        $messages = [
+            'KE_KR_MK_ID.required' => 'Mata Kuliah tidak boleh kosong.',
+            'KE_KodeJurusan.required' => 'Program Studi tidak boleh kosong.',
+            'KE_Kelas.required' => 'Kelas tidak boleh kosong.',
+            'KE_Jadwal_Ruangan.required' => 'Nama Ruangan tidak boleh kosong.',
+            'KE_Tahun.required' => 'Tahun Ajaran tidak boleh kosong.',
+            'KE_Tahun.integer' => 'Tahun Ajaran harus diisi menggunakan angka.',
+            'KE_IDSemester.required' => 'Semester tidak boleh kosong.',
+            'KE_IDSemester.integer' => 'Semester harus diisi menggunakan angka.',
+            'KE_DayaTampung.required' => 'Daya Tampung tidak boleh kosong.',
+            'KE_DayaTampung.integer' => 'Daya Tampung harus diisi menggunakan angka.',
+            'KE_Terisi.required' => 'Jumlah Kelas tidak boleh kosong.',
+            'KE_Terisi.integer' => 'Jumlah Kelas harus diisi menggunakan angka.',
+            'KE_PE_NIPPengajar.required' => 'NIP Pengajar tidak boleh kosong.',
+            'KE_Jadwal_IDHari.required' => 'Hari tidak boleh kosong.',
+            'KE_Jadwal_JamMulai.required' => 'Jam Mulai tidak boleh kosong.',
+            'KE_Jadwal_JamUsai.required' => 'Jam Usai tidak boleh kosong.',
+            'KE_RencanaTatapMuka.required' => 'Rencana Tatap Muka tidak boleh kosong.',
+            'KE_RencanaTatapMuka.integer' => 'Rencana Tatap Muka harus diisi menggunakan angka.',
+            'KE_RealisasiTatapMuka.required' => 'Realisasi Tatap Muka tidak boleh kosong.',
+            'KE_RealisasiTatapMuka.integer' => 'Realisasi Tatap Muka harus diisi menggunakan angka.',
+        ];
+
+        $request->validate([
+            'KE_KR_MK_ID' => ['required'],
+            'KE_Kelas' => ['required'],
+            'KE_KodeJurusan' => ['required'],
+            'KE_Jadwal_Ruangan' => ['required'],
+            'KE_Tahun' => ['required','int'],
+            'KE_IDSemester' => ['required','int'],
+            'KE_DayaTampung' => ['required','int'],
+            'KE_Terisi' => ['required','int'],
+            'KE_PE_NIPPengajar' => ['required'],
+            'KE_Jadwal_IDHari' => ['required'],
+            'KE_Jadwal_JamMulai' => ['required'],
+            'KE_Jadwal_JamUsai' => ['required'],
+            'KE_RencanaTatapMuka' => ['required','int'],
+            'KE_RealisasiTatapMuka' => ['required','int']
+        ], $messages);
+
         $kelas = Kelas::where('KE_ID', '=', $id)->first();
-        if (
-        $kelas->update($request->except('_method', '_token'))) {
-            Logbook::write(Auth::user()->PE_Nip,
-                'Mengubah data kelas ' . $kelas->KE_KR_MK_ID . ' kelas ' . $kelas->KE_Kelas . ' dari tabel kelas', Logbook::ACTION_EDIT,
-                Logbook::TABLE_CLASSES);
-        }
+        $kelas->KE_KR_MK_ID = $request->KE_KR_MK_ID;
+        $kelas->KE_Kelas = $request->KE_Kelas;
+        $kelas->KE_Jadwal_Ruangan = $request->KE_Jadwal_Ruangan;
+        $kelas->KE_KodeJurusan = $request->KE_KodeJurusan;
+        $kelas->KE_Tahun = $request->KE_Tahun;
+        $kelas->KE_IDSemester = $request->KE_IDSemester;
+        $kelas->KE_DayaTampung = $request->KE_DayaTampung;
+        $kelas->KE_Terisi = $request->KE_Terisi;
+        $kelas->KE_PE_NIPPengajar = $request->KE_PE_NIPPengajar;
+        $kelas->KE_RencanaTatapMuka = $request->KE_RencanaTatapMuka;
+        $kelas->KE_RealisasiTatapMuka = $request->KE_RealisasiTatapMuka;
+        $kelas->KE_Jadwal_IDHari = $request->KE_Jadwal_IDHari;
+        $kelas->KE_Jadwal_JamMulai = $request->KE_Jadwal_JamMulai;
+        $kelas->KE_Jadwal_JamUsai = $request->KE_Jadwal_JamUsai;
+        $kelas->save();
         return redirect('/kelas')->with('success', 'Data kelas berhasil diubah!');;
+        Logbook::write(Auth::user()->PE_Nip, 'Mengubah data kelas ' . $kelas->KE_KR_MK_ID . ' dari tabel mahasiswa', Logbook::ACTION_EDIT, Logbook::TABLE_CLASSES);
     }
 
     /**

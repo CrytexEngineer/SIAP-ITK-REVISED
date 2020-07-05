@@ -36,7 +36,7 @@
                         <div class="form-group row">
                             <label class="col-md-2 col-form-label text-md-right">ID Perangkat</label>
                             <div class="col-md-6">
-                                {{ Form::text('MA_IMEI',null,['class'=>'form-control','placeholder'=>'Tidak Perlu Diisi'])}}
+                                {{ Form::text('MA_IMEI',null,['class'=>'form-control','placeholder'=>'Tidak Perlu Diisi','readonly'])}}
                             </div>
                         </div>
 

@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Logbook;
+use App\Student;
 use App\Imports\KHSImport;
 use App\Imports\KHSimportimplements;
+use App\Kelas;
 use App\Khs;
+use App\Major;
+use App\Subject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -32,8 +37,9 @@ class ManajemenKhsController extends Controller
                 ->join('students', 'class_student.KU_MA_Nrp', '=', 'students.MA_Nrp')
                 ->join('subjects', 'class_student.KU_KE_KR_MK_ID', '=', 'subjects.MK_ID')
                 ->join('majors', 'class_student.KU_KE_KodeJurusan', '=', 'majors.PS_Kode_Prodi'))
+//                ->join('classes', 'class_student.KU_KE_Kelas', '=', 'classes.KE_Kelas'))
                 ->addColumn('action', function ($row) {
-                    $action = '<a href="/Khs/' . $row->KU_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+                    $action = '<a href="/khs/' . $row->KU_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
                     $action .= \Form::open(['url' => 'Khs/' . $row->KU_ID, 'method' => 'delete', 'style' => 'float:right']);
                     $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
                     $action .= \Form::close();
@@ -47,8 +53,9 @@ class ManajemenKhsController extends Controller
                 ->join('students', 'class_student.KU_MA_Nrp', '=', 'students.MA_Nrp')
                 ->join('subjects', 'class_student.KU_KE_KR_MK_ID', '=', 'subjects.MK_ID')
                 ->join('majors', 'class_student.KU_KE_KodeJurusan', '=', 'majors.PS_Kode_Prodi'))
+//                ->join('classes', 'class_student.KU_KE_Kelas', '=', 'classes.KE_Kelas'))
                 ->addColumn('action', function ($row) {
-                    $action = '<a href="/Khs/' . $row->KU_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+                    $action = '<a href="/khs/' . $row->KU_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
                     $action .= \Form::open(['url' => 'Khs/' . $row->KU_ID, 'method' => 'delete', 'style' => 'float:right']);
                     $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
                     $action .= \Form::close();
@@ -71,7 +78,11 @@ class ManajemenKhsController extends Controller
      */
     public function create()
     {
-
+        $data['subjects'] = Subject::pluck('MK_Mata_Kuliah','MK_ID');
+        $data['major'] = Major::pluck('PS_Nama','PS_Kode_Prodi');
+        $data['students'] = Student::pluck('MA_NamaLengkap','MA_Nrp');
+        $data['classes'] = Kelas::pluck('KE_Kelas','KE_Kelas');
+        return view('khs.create',$data);
     }
 
     /**
@@ -82,9 +93,43 @@ class ManajemenKhsController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request);
+        $messages = [
+            'KE_KR_MK_ID.required' => 'Mata Kuliah tidak boleh kosong.',
+            'KE_KodeJurusan.required' => 'Program Studi tidak boleh kosong.',
+            'KE_Kelas.required' => 'Kelas tidak boleh kosong.',
+            'KE_Jadwal_Ruangan.required' => 'Nama Ruangan tidak boleh kosong.',
+            'KE_Tahun.required' => 'Tahun Ajaran tidak boleh kosong.',
+            'KE_Tahun.integer' => 'Tahun Ajaran harus diisi menggunakan angka.',
+            'KE_IDSemester.required' => 'Semester tidak boleh kosong.',
+            'KE_IDSemester.integer' => 'Semester harus diisi menggunakan angka.',
+            'KE_DayaTampung.required' => 'Daya Tampung tidak boleh kosong.',
+            'KE_DayaTampung.integer' => 'Daya Tampung harus diisi menggunakan angka.',
+
+            'KU_KE_Tahun.required' => 'Tahun Akademik tidak boleh kosong.',
+            'KU_KE_Tahun.integer' => 'Tahun Akademik harus diisi menggunakan angka.',
+            'KU_MA_Nrp.required' => 'Nama Mahasiswa tidak boleh kosong.',
+            'KU_MA_Nrp.integer' => 'Nama Mahasiswa harus diisi menggunakan angka.',
+            'KU_KE_KR_MK_ID.required' => 'Mata Kuliah tidak boleh kosong.',
+            'KU_KE_Kelas.required' => 'Kelas tidak boleh kosong.',
+            'KU_KE_KodeJurusan.required' => 'Program Studi tidak boleh kosong.',
+            'KU_KE_KodeJurusan.integer' => 'Jumlah Kelas harus diisi menggunakan angka.'
+        ];
+
+        $request->validate([
+            'KU_KE_Tahun' => ['required','int'],
+            'KU_MA_Nrp' => ['required','int'],
+            'KU_KE_KR_MK_ID' => ['required'],
+            'KU_KE_Kelas' => ['required'],
+            'KU_KE_KodeJurusan' => ['required','int'],
+        ], $messages);
+
         $Khs = New Khs();
         $Khs->create($request->all());
-        return redirect('Khs')->with('success', 'Informasi KHS berhasil ditambahkan!');
+        Logbook::write(Auth::user()->PE_Nip,
+            'Menambah data KHS ' . $Khs->MA_NamaLengkap . ' mata kuliah ' . $Khs->MK_Mata_Kuliah . ' kelas ' . $Khs->KU_KE_Kelas . ' ke tabel KHS', Logbook::ACTION_CREATE,
+            Logbook::TABLE_CLASSES);
+        return redirect('khs')->with('success', 'Data KHS berhasil ditambahkan!');
     }
 
     /**
@@ -106,7 +151,12 @@ class ManajemenKhsController extends Controller
      */
     public function edit($id)
     {
-
+        $data['subjects'] = Subject::pluck('MK_Mata_Kuliah','MK_ID');
+        $data['major'] = Major::pluck('PS_Nama','PS_Kode_Prodi');
+        $data['students'] = Student::pluck('MA_NamaLengkap','MA_Nrp');
+        $data['classes'] = Kelas::pluck('KE_Kelas');
+        $data['khs'] = Khs::where('KU_ID',$id)->first();
+        return view('khs.edit',$data);
     }
 
     /**
@@ -118,9 +168,40 @@ class ManajemenKhsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Khs = Khs::where('KU_ID', '=', $id);
+//        dd($request);
+        $messages = [
+            'KE_KR_MK_ID.required' => 'Mata Kuliah tidak boleh kosong.',
+            'KE_KodeJurusan.required' => 'Program Studi tidak boleh kosong.',
+            'KE_Kelas.required' => 'Kelas tidak boleh kosong.',
+            'KE_Jadwal_Ruangan.required' => 'Nama Ruangan tidak boleh kosong.',
+            'KE_Tahun.required' => 'Tahun Ajaran tidak boleh kosong.',
+            'KE_Tahun.integer' => 'Tahun Ajaran harus diisi menggunakan angka.',
+            'KE_IDSemester.required' => 'Semester tidak boleh kosong.',
+            'KE_IDSemester.integer' => 'Semester harus diisi menggunakan angka.',
+            'KE_DayaTampung.required' => 'Daya Tampung tidak boleh kosong.',
+            'KE_DayaTampung.integer' => 'Daya Tampung harus diisi menggunakan angka.',
+
+            'KU_KE_Tahun.required' => 'Tahun Akademik tidak boleh kosong.',
+            'KU_KE_Tahun.integer' => 'Tahun Akademik harus diisi menggunakan angka.',
+            'KU_MA_Nrp.required' => 'Nama Mahasiswa tidak boleh kosong.',
+            'KU_MA_Nrp.integer' => 'Nama Mahasiswa harus diisi menggunakan angka.',
+            'KU_KE_KR_MK_ID.required' => 'Mata Kuliah tidak boleh kosong.',
+            'KU_KE_Kelas.required' => 'Kelas tidak boleh kosong.',
+            'KU_KE_KodeJurusan.required' => 'Program Studi tidak boleh kosong.',
+            'KU_KE_KodeJurusan.integer' => 'Jumlah Kelas harus diisi menggunakan angka.'
+        ];
+
+        $request->validate([
+            'KU_KE_Tahun' => ['required','int'],
+            'KU_MA_Nrp' => ['required','int'],
+            'KU_KE_KR_MK_ID' => ['required'],
+            'KU_KE_Kelas' => ['required'],
+            'KU_KE_KodeJurusan' => ['required','int'],
+        ], $messages);
+
+        $Khs = Khs::where('KU_ID', '=', $id)->first();
         $Khs->update($request->except('_method', '_token'));
-        return redirect('/Khs')->with('success', 'Data KHS berhasil diupdate');
+        return redirect('/khs')->with('success', 'Data KHS berhasil diubah!');
     }
 
     /**
@@ -139,6 +220,6 @@ class ManajemenKhsController extends Controller
     public function import()
     {
         $data = Excel::import(new KHSImport(), request()->file('file'));
-        return back()->with('toast_success', 'Import data pegawai berhasil!');
+        return back()->with('toast_success', 'Import data KHS berhasil!');
     }
 }
