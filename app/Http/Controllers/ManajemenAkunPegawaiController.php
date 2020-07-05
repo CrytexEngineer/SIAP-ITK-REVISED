@@ -170,11 +170,6 @@ class ManajemenAkunPegawaiController extends Controller
             'PE_NamaLengkap.required' => 'Nama tidak boleh kosong.',
             'PE_NamaLengkap.string' => 'Nama tidak boleh memakai huruf.',
             'PE_Email.required' => 'Email tidak boleh kosong',
-            'PE_Email.email' => 'Email yang Anda masukkan tidak sesuai.',
-            'PE_Email.unique' => 'Email sudah terdaftar, harap masukan email yang baru.',
-            'password.required' => 'Password tidak boleh kosong.',
-            'password.min' => 'Password minimal 8 karakter.',
-            'PE_Nip.required' => 'NIP tidak boleh kosong.',
             'PE_KodeJurusan.required' => 'Program Studi tidak boleh kosong.',
             'PE_Nip.integer' => 'NIP tidak boleh selain angka.',
             'PE_Nip.unique' => 'NIP yang Anda masukkan sudah terdaftar.',
@@ -183,9 +178,7 @@ class ManajemenAkunPegawaiController extends Controller
 
         $request->validate([
             'PE_NamaLengkap' => ['required', 'string', 'max:255'],
-            'PE_Email' => ['required', 'email', 'max:255', 'unique:employees'],
-            'password' => ['required', 'string', 'min:8'],
-            'PE_Nip' => ['required', 'integer', 'unique:employees'],
+            'PE_Nip' => ['required', 'integer'],
             'PE_KodeJurusan' => ['required'],
             'roles' => ['required']
         ], $messages);
