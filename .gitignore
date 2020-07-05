@@ -32,3 +32,6 @@ vendor/composer/autoload_files.php
 vendor/composer/autoload_static.php
 vendor/composer/ClassLoader.php
 vendor/composer/installed.json
+storage/logs/laravel.log
+storage/framework/views/e6be483fa2ea49bf87a1d201945113f33bc23ca9.php
+storage/framework/views/75780686cde1ba05829b0ecef4aba631affe4b01.php
