@@ -121,14 +121,31 @@
 
 
 
+            <?php if(Route::has('login')): ?>
             <div class="content">
+                <?php if(auth()->guard()->check()): ?>
+                    <?php if($role==9): ?>
+                        <div class="title m-b-md">
+                            <br>
+                            <br>
+                            <button class="button nunito" onclick="location.href='<?php echo e(url('jadwal_mengajar')); ?>'"><span>Masuk </span></button>
+                        </div>
+                        <?php else: ?>
+                        <div class="title m-b-md">
+                            <br>
+                            <br>
+                            <button class="button nunito" onclick="location.href='<?php echo e(url('/rekapitulasi/mahasiswa')); ?>'"><span>Masuk </span></button>
+                        </div>
+                    <?php endif; ?>
+                <?php else: ?>
                 <div class="title m-b-md">
                     <br>
                     <br>
                     <button class="button nunito" onclick="location.href='<?php echo e(url('login')); ?>'"><span>Login </span></button>
                 </div>
-
+                <?php endif; ?>
             </div>
+            <?php endif; ?>
         </div>
     </body>
 </html>
