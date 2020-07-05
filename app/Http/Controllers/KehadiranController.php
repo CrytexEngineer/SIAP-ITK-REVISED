@@ -28,6 +28,7 @@ class KehadiranController extends Controller
         $data['mahasiswa'] = DB::table('class_student')
             ->join('students', 'students.MA_Nrp', '=', 'class_student.KU_MA_Nrp')
             ->join('classes', 'classes.KE_KR_MK_ID', '=', 'class_student.KU_KE_KR_MK_ID')
+            ->where('classes.KE_Kelas', $jadwal->KE_Kelas) //sebelumnya class_student.KU_KE_Kelas
             ->where('class_student.KU_KE_Kelas', $jadwal->KE_Kelas)
             ->where('classes.KE_PE_NIPPengajar', $jadwal->PE_Nip)
             ->where('class_student.KU_KE_KR_MK_ID', $jadwal->MK_ID)
@@ -40,6 +41,7 @@ class KehadiranController extends Controller
         $data['timPengajar'] = $timPengajar;
 
         $data['jadwal'] = $jadwal;
+//        dd($data);
         return view('kehadiran.index', $data);
     }
 

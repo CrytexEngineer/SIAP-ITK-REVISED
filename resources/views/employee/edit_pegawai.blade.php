@@ -8,6 +8,8 @@
                     <div class="card-header">@yield('title')</div>
 
                     <div class="card-body">
+                        @include('validation_error')
+
                         {{Form::model($employee, ['url'=>'akunpegawai/'.$employee->PE_Nip, 'method'=>'PUT'])}}
                         @csrf
 
