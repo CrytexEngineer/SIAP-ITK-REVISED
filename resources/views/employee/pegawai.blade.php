@@ -25,7 +25,7 @@
                         @include('employee.import')
                         <hr>
 
-                        <table class="table table-bordered" id="users-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <table class="display compact"   id="users-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
                             <thead>
                             <tr>
                                 <th>NIP</th>

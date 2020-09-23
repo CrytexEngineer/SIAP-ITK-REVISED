@@ -16,8 +16,7 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://cdn.rawgit.com/ashl1/datatables-rowsgroup/fbd569b8768155c7a9a62568e66a64115887d7d0/dataTables.rowsGroup.js"></script>
-    <script src="<?php echo e(asset('assets/dist/air-datepicker/dist/js/datepicker.js')); ?>"></script>
+       <script src="<?php echo e(asset('assets/dist/air-datepicker/dist/js/datepicker.js')); ?>"></script>
     <script src="<?php echo e(asset('assets/dist/air-datepicker/dist/js/i18n/datepicker.en.js')); ?>"></script>
     <script src="<?php echo e(asset('assets/dist/sweetalert2/sweetalert2.min.js')); ?>"></script>
 
@@ -63,9 +62,9 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     <?php if(auth()->guard()->guest()): ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo e(route('login')); ?>"><?php echo e(__('Login')); ?></a>
-                        </li>
+
+
+
 
 
 
@@ -82,6 +81,8 @@
                                 <a class="dropdown-item" href="/rekapitulasi/dosen">Rekapitulasi Dosen</a>
                             </div>
                         </li>
+
+
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

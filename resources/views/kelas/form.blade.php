@@ -85,7 +85,8 @@
         {{Form::text('KE_RencanaTatapMuka',null,['class'=>'form-control','placeholder'=>'Masukan Rencana Pertemuan'])}}
     </div>
 
-</div><div class="form-group row">
+</div>
+<div class="form-group row">
     <label class="col-md-3 col-form-label text-md-right">Realisasi Pertemuan</label>
     <div class="col-md-4">
         {{Form::text('KE_RealisasiTatapMuka',null,['class'=>'form-control','placeholder'=>'Masukan Realisasi Pertemuan'])}}
@@ -108,7 +109,8 @@
                name="KE_Jadwal_JamMulai"
                id="KE_Jadwal_JamMulai"
                autocomplete="off"/>
-    </div> -
+    </div>
+    -
     <div class="col-md-2">
         {{--        {{ Form::select('KE_Jadwal_JamUsai',['08:20'=>'08:20','09:10'=>'09:10','10:00'=>'10:00','10:10'=>'10:10','11:00'=>'11:00','11:10'=>'11:10','12:00'=>'12:00','13:50'=>'13:50','14:40'=>'14:40','15:30'=>'15:30','16:40'=>'16:40','17:30'=>'17:30'],null,['class'=>'form-control'])}}--}}
         <input type="text"
@@ -152,6 +154,7 @@
         timepicker: true,
         classes: 'only-timepicker'
     });
+
 </script>
 
 

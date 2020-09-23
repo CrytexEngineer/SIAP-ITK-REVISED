@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Curiculum;
 use App\Kehadiran;
 use App\Kelas;
 use App\Meeting;
@@ -73,7 +74,7 @@ class KehadiranController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'PT_Urutan'=>['required', 'integer'],
+            'PT_Urutan' => ['required', 'integer'],
             'PT_KE_ID' => ['required', 'integer'],
             'PT_Name' => ['required', 'string', 'max:255'],
             'PT_Types' => ['required', 'string', 'max:255'],
@@ -107,7 +108,7 @@ class KehadiranController extends Controller
 
             $meeting = new Meeting([
                 'PT_KE_ID' => $request->PT_KE_ID,
-                'PT_Urutan'=>$request->PT_Urutan,
+                'PT_Urutan' => $request->PT_Urutan,
                 'PT_Name' => $request->PT_Name,
                 'PT_Token' => $token,
                 'PT_isLate' => $isLate,
@@ -138,20 +139,19 @@ class KehadiranController extends Controller
             ->where('KE_ID', $id_jadwal)->first();
 
 
-
         $timPengajar = DB::table('class_employee')
             ->join('employees', 'employees.PE_Nip', '=', 'employee_PE_Nip')
             ->where('class_employee.classes_KE_ID', '=', $id_jadwal)->pluck('PE_NamaLengkap')->all();
 
-        $pertemuan = Meeting::where('PT_KE_ID', $id_jadwal)->get();
+        $pertemuan = Meeting::where('PT_KE_ID', $id_jadwal)->orderBy('PT_Urutan', 'DESC')->get();
 
 
         $data['timPengajar'] = $timPengajar;
         $data['jadwal'] = $jadwal;
-        $data['pertemuan']=$pertemuan;
+        $data['pertemuan'] = $pertemuan;
 
 
-        if ($pertemuan->isEmpty()){
+        if ($pertemuan->isEmpty()) {
 
             return redirect()->back()->with('status_failed', 'Belum ada pertemuan');
         }
@@ -189,11 +189,23 @@ class KehadiranController extends Controller
 
     }
 
-   public  function  getKehadiranPertemuan($PT_ID){
-     return   Presence::where('PR_PT_ID','=',$PT_ID)->count();
+
+    public function destroy($id)
+    {
+        $meeting = Meeting::find($id);
+        ($meeting->delete());
+            return redirect('kehadiran/'.$meeting->PT_KE_ID)->with('status_failed', 'Data Berhasil dihapus');
 
 
-   }
+    }
+
+
+    public function getKehadiranPertemuan($PT_ID)
+    {
+        return Presence::where('PR_PT_ID', '=', $PT_ID)->count();
+
+
+    }
 
 
     public function getMeetingToken($length = 16)

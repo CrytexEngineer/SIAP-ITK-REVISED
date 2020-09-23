@@ -15,7 +15,7 @@
                             @include('mahasiswa.import')
                             <hr>
 
-                        <table class="table table-bordered" id="users-table">
+                        <table class="display compact"   id="users-table">
                             <thead>
                             <tr>
                                 <th>NIM</th>

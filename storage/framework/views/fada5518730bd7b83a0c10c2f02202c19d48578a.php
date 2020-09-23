@@ -1,3 +1,4 @@
+<?php $__env->startSection('title', 'Login'); ?>
 <?php $__env->startSection('content'); ?>
     <div class="container">
         <div class="row justify-content-center">
@@ -10,7 +11,7 @@
                             <?php echo csrf_field(); ?>
 
                             <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">Nip Pegawai</label>
+                                <label for="email" class="col-md-4 col-form-label text-md-right">NIP Pegawai</label>
 
                                 <div class="col-md-6">
                                     <input id="PE_Nip"  class="form-control <?php $__errorArgs = ['PE_Nip'];
@@ -71,7 +72,7 @@ unset($__errorArgs, $__bag); ?>
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember" <?php echo e(old('remember') ? 'checked' : ''); ?>>
 
                                         <label class="form-check-label" for="remember">
-                                            <?php echo e(__('Remember Me')); ?>
+                                            <?php echo e(__('Ingat Saya')); ?>
 
                                         </label>
                                     </div>
@@ -87,7 +88,7 @@ unset($__errorArgs, $__bag); ?>
 
                                     <?php if(Route::has('password.request')): ?>
                                         <a class="btn btn-link" href="<?php echo e(route('password.request')); ?>">
-                                            <?php echo e(__('Forgot Your Password?')); ?>
+                                            <?php echo e(__('Lupa Password Anda?')); ?>
 
                                         </a>
                                     <?php endif; ?>

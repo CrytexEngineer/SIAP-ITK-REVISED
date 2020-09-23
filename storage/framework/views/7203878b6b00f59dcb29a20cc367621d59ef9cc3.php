@@ -16,11 +16,11 @@
                         <?php echo $__env->make('kelas.import', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         <hr>
 
-                        <table class="table table-bordered" id="users-table" style="overflow-x:auto;">
+                        <table class="display compact"   id="users-table" >
                             <thead>
                             <tr>
-                                <th>Kode Matakuliah</th>
-                                <th>Matakuliah</th>
+                                <th>Kode Mata Kuliah</th>
+                                <th>Mata Kuliah</th>
                                 <th>Kelas</th>
                                 <th>Ruangan</th>
                                 <th>Program Studi</th>
@@ -41,7 +41,7 @@
                             </thead>
                             <tfoot>
                             <tr>
-                                <th>Matakuliah</th>
+                                <th>Mata Kuliah</th>
                                 <th>Kelas</th>
                                 <th>Ruangan</th>
                                 <th>Program Studi</th>
@@ -67,13 +67,15 @@
 
 <?php $__env->startPush('scripts'); ?>
     <script>
+
         $(function () {
             $('#users-table').DataTable({
                 dom: 'Blfrtip',
                 lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 "scrollX": true,
                 processing: true,
-                serverSide: false,
+                serverSide: true,
+                    'rowsGroup': [0,1,2,3,4,5,6,7,8,9,10],
                 ajax: '/kelas/json',
                 columns: [
                  {data: 'KE_KR_MK_ID', name: 'KE_KR_MK_ID'},
@@ -83,7 +85,7 @@
                     {data: 'PS_Nama', name: 'majors.PS_Nama'},
                     {data: 'KE_Tahun', name: 'KE_Tahun'},
                     {data: 'KE_IDSemester', name: 'KE_IDSemester'},
-                    {data: 'KE_DayaTampung', name: 'KE_IDSemester'},
+                    {data: 'KE_DayaTampung', name: 'KE_DayaTampung'},
                     {data: 'KE_Terisi', name: 'KE_Terisi'},
                     {data: 'KE_PE_NIPPengajar', name: 'KE_PE_NIPPengajar'},
                     {data: 'PE_Nama', name: 'employees.PE_Nama'},

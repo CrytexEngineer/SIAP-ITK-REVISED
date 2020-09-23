@@ -36,7 +36,9 @@ class Meeting extends Model
             $filter = "WHERE classes.KE_KodeJurusan=" . $params['KE_KodeJurusan'];
         }
 
-
+        if (isset($params['KE_KR_MK_ID'])) {
+            $filter = "WHERE classes.KE_KR_MK_ID=" . " '" . $params['KE_KR_MK_ID'] . "'";
+        }
         return DB::select($defaultQuery . " " . $filter . " " . $group . " " . $order);
     }
 

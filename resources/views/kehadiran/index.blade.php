@@ -10,7 +10,7 @@
                     <div class="card-body">
                         @include('alert')
 
-                        <table class="table table-bordered">
+                        <table class="display compact"  >
                             <tr><td width="270">Kode Matakuliah</td><td>{{ $jadwal->MK_ID}}</td></tr>
                             <tr><td>Nama Matakuliah</td><td>{{ $jadwal->MK_Mata_Kuliah}}</td></tr>
                             <tr><td>Kelas</td><td>{{ $jadwal->KE_Kelas}}</td></tr>

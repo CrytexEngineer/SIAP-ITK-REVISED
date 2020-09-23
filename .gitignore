@@ -7858,3 +7858,4 @@ bootstrap/cache/packages.php
 bootstrap/cache/services.php
 *.log
 routes/web.php
+server.php

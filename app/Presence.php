@@ -17,7 +17,7 @@ class Presence extends Model
         return DB::select("Select count(*)  as Jumlah_Pertemuan from meetings inner join
 classes on meetings.PT_KE_ID=classes.KE_ID
 inner join class_student on class_student.KU_KE_KR_MK_ID = classes.KE_KR_MK_ID  and classes.KE_Kelas=class_student.KU_KE_Kelas and  class_student.KU_MA_Nrp=
-". " '" . $params['MA_Nrp'] . "'");
+" . " '" . $params['MA_Nrp'] . "'");
     }
 
 
@@ -44,6 +44,7 @@ inner join class_student on class_student.KU_KE_KR_MK_ID = classes.KE_KR_MK_ID  
         $dateCuriculum = Curiculum::all()->sortByDesc('KL_Date_Start')->first()->KL_Date_Start;
 
         $defaultQuery = "SELECT class_student.KU_ID,
+        class_student.KU_KE_KodeJurusan,
             class_student.KU_KE_KR_MK_ID,
             subjects.MK_Mata_Kuliah,
             subjects.MK_KreditKuliah,
@@ -72,12 +73,17 @@ inner join class_student on class_student.KU_KE_KR_MK_ID = classes.KE_KR_MK_ID  
                 JOIN (subjects)ON subjects.MK_ID=t3.KE_KR_MK_ID
                ";
 
-        $order = "ORDER BY class_student.KU_KE_KR_MK_ID, class_student.KU_MA_Nrp";
+        $order = "ORDER BY class_student.KU_KE_KR_MK_ID,class_student.KU_KE_Kelas, class_student.KU_MA_Nrp";
 
         $group = "group by class_student.KU_ID";
 
         $filter = "WHERE t3.KE_Kelas=class_student.KU_KE_Kelas";
 
+
+
+        if (isset($params['KE_KodeJurusan'])) {
+            $filter = $filter . " " . " AND  class_student.KU_KE_KodeJurusan=" . " '" . $params['KE_KodeJurusan'] . "'";
+        }
 
         if (isset($params['KE_ID'])) {
             $filter = $filter . " " . " AND  t3.KE_ID=" . " '" . $params['KE_ID'] . "'";
