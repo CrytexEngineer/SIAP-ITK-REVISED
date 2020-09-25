@@ -128,7 +128,7 @@ class ManajemenKhsController extends Controller
         $Khs->create($request->all());
         Logbook::write(Auth::user()->PE_Nip,
             'Menambah data KHS ' . $Khs->MA_NamaLengkap . ' mata kuliah ' . $Khs->MK_Mata_Kuliah . ' kelas ' . $Khs->KU_KE_Kelas . ' ke tabel KHS', Logbook::ACTION_CREATE,
-            Logbook::TABLE_CLASSES);
+            Logbook::TABLE_CLASS_STUDENT);
         return redirect('khs')->with('success', 'Data KHS berhasil ditambahkan!');
     }
 
@@ -201,6 +201,11 @@ class ManajemenKhsController extends Controller
 
         $Khs = Khs::where('KU_ID', '=', $id)->first();
         $Khs->update($request->except('_method', '_token'));
+
+
+        Logbook::write(Auth::user()->PE_Nip,
+            'Mengubah data KHS ' . $Khs->MA_NamaLengkap . ' mata kuliah ' . $Khs->MK_Mata_Kuliah . ' kelas ' . $Khs->KU_KE_Kelas . ' dari tabel KHS', Logbook::ACTION_EDIT,
+            Logbook::TABLE_CLASS_STUDENT);
         return redirect('/khs')->with('success', 'Data KHS berhasil diubah!');
     }
 
@@ -214,12 +219,20 @@ class ManajemenKhsController extends Controller
     {
         $Khs = Khs::where('KU_ID', $id);
         $Khs->delete();
+        Logbook::write(Auth::user()->PE_Nip,
+            'Menghapus data KHS ' . $Khs->MA_NamaLengkap . ' mata kuliah ' . $Khs->MK_Mata_Kuliah . ' kelas ' . $Khs->KU_KE_Kelas . ' dari  tabel KHS', Logbook::ACTION_DELETE,
+            Logbook::TABLE_CLASS_STUDENT);
         return redirect('/Khs')->with('toast_warning', 'Data KHS berhasil dihapus!');;
     }
 
     public function import()
     {
         $data = Excel::import(new KHSImport(), request()->file('file'));
+        if ($data) {
+            Logbook::write(Auth::user()->PE_Nip,
+                'Mengimpor data khs  ke  tabel KHS ', Logbook::ACTION_IMPORT,
+                Logbook::TABLE_CLASS_STUDENT);
+        }
         return back()->with('toast_success', 'Import data KHS berhasil!');
     }
 }

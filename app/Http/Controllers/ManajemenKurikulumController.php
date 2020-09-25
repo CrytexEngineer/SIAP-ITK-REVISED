@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Curiculum;
 use App\Employee;
 use App\Kelas;
+use App\Logbook;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 
 class ManajemenKurikulumController extends Controller
@@ -72,6 +74,9 @@ class ManajemenKurikulumController extends Controller
 
         $kurikulum = New Curiculum();
         $kurikulum->create($request->all());
+        Logbook::write(Auth::user()->PE_Nip,
+            'Menambah data kurikulum ' . $kurikulum->KL_Tahun_Kurikulum . ' dari tabel kurikulum', Logbook::ACTION_CREATE,
+            Logbook::TABLE_CURICULUM);
         return redirect('/kurikulum')->with('success', 'Data tahun kurikulum berhasil ditambahkan!');
     }
 
@@ -94,7 +99,7 @@ class ManajemenKurikulumController extends Controller
      */
     public function edit($id){
         $data['kurikulum'] = Curiculum::find($id);
-        return view('kurikulum.edit',$data);
+                return view('kurikulum.edit',$data);
     }
 
     /**
@@ -121,6 +126,11 @@ class ManajemenKurikulumController extends Controller
 
         $curiculum = Curiculum::find($id);
         $curiculum->update($request->all());
+
+        Logbook::write(Auth::user()->PE_Nip,
+            'Mengedit data kurikulum ' . $curiculum->KL_Tahun_Kurikulum . ' dari tabel kurikulum', Logbook::ACTION_EDIT,
+            Logbook::TABLE_CURICULUM);
+
         return redirect('/kurikulum')->with('success', 'Data tahun kurikulum berhasil diubah!');
     }
 
@@ -134,6 +144,9 @@ class ManajemenKurikulumController extends Controller
     {
         $curiculum = Curiculum::find($id);
         $curiculum->delete();
+        Logbook::write(Auth::user()->PE_Nip,
+            'Menghapus data kurikulum ' . $curiculum->KL_Tahun_Kurikulum . ' dari tabel kurikulum', Logbook::ACTION_DELETE,
+            Logbook::TABLE_CURICULUM);
         return redirect('/kurikulum')->with('toast_warning', 'Data tahun kurikulum berhasil dihapus!');
     }
 }
