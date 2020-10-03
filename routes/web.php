@@ -133,7 +133,7 @@ Route::resource('/rekapitulasi/dosen',"RekapitulasiDosenController")->middleware
 //ManajemenData
 Route::get('/riwayat_data/json',"ManajemenLogbookController@json")->middleware('can:admin');
 Route::resource('/riwayat_data',"ManajemenLogbookController")->middleware('can:admin');
-Route::get('/delete_all', 'DeleteAllController@destroy')->name('delete.all')->middleware('can:admin');
+Route::get('/delete_all', 'DeleteAllController@destroy')->name('delete.all')->middleware('can:only-admin');
 
 //Multi-user Management
 //Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
@@ -145,8 +145,8 @@ Route::get('password/form/{token}', 'Mobile\PasswordResetController@showForm')->
 Route::get('/password/success', 'Mobile\PasswordResetController@index');
 
 //Kurikulum
-Route::get('/kurikulum/json',"ManajemenKurikulumController@json")->middleware('can:admin');
-Route::resource('/kurikulum',"ManajemenKurikulumController")->middleware('can:admin');
+Route::get('/kurikulum/json',"ManajemenKurikulumController@json")->middleware('can:only-admin');
+Route::resource('/kurikulum',"ManajemenKurikulumController")->middleware('can:only-admin');
 
 //Helper Query Matakuliah
 Route::get('/subjectQuery',"FilterHelperController@subjectQuery")->name('subjectQuery');
