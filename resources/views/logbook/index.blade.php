@@ -14,7 +14,7 @@
 
                         <hr>
 
-                        <table class="table table-bordered" id="users-table" style="overflow-x:auto;">
+                        <table class="display compact"   id="users-table" style="overflow-x:auto;">
                             <thead>
                             <tr>
                                 <th>Nama Pegawai</th>

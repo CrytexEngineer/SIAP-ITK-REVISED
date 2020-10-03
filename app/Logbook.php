@@ -19,6 +19,7 @@ class Logbook extends Model
     const TABLE_MAJORS = 'majors';
     const TABLE_SUBJECTS = 'subjects';
     const TABLE_CLASSES = 'classes';
+    const TABLE_CURICULUM = 'curiculums';
     const TABLE_CLASS_STUDENT = 'class_student';
     const TABLE_CLASS_EMPLOYEE = 'class_employee';
     const TABLE_EMPLOYEE_ROLE = 'employee_role';

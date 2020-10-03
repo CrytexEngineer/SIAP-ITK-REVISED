@@ -28,7 +28,7 @@ class ManajemenLogbookController extends Controller
 
         return Datatables::of(DB::table('logbooks')->select(['logbooks.*', 'employees.PE_Nip', 'employees.PE_NamaLengkap', 'majors.PS_Kode_Prodi', 'majors.PS_Nama'])
             ->join('employees', 'logbooks.LB_PE_Nip', '=', 'PE_Nip')
-            ->leftjoin('majors', 'employees.PE_KodeJurusan', '=', 'majors.PS_Kode_Prodi')->get())
+            ->leftjoin('majors', 'employees.PE_KodeJurusan', '=', 'majors.PS_Kode_Prodi')->orderByDesc('created_at')->get())
             ->make(true);
 
     }

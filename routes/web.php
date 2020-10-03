@@ -105,24 +105,30 @@ Route::middleware('can:dosen')->group(function (){
     Route::post('/kehadiran/update','KehadiranController@update');
     Route::get('/kehadiran/{id_jadwal}/history/','KehadiranController@showHistory')->name('meeting.history');
     Route::get('/kehadiran/presenceCount/{pt_id}',"KehadiranController@getKehadiranPertemuan");
+    Route::get('/kehadiran/{id}/delete', 'KehadiranController@destroy');
 });
 
 //Operasi QR
 Route::resource('/validator',"ManajemenValidatorController");
 Route::get('/validator/generateQrCode/{pt_id}',"ManajemenValidatorController@generateQrCode");
 
-
+//test
+Route::get('export', "ExportMajor@export");
 //Rekapitulasi Mahasiswa
+
+Route::get('rekapitulasi/mahasiswa/showExportSubjectPage', "RekapitulasiMahasiswaController@showExportSubjectPage");
+Route::get('rekapitulasi/mahasiswa/export/major', "RekapitulasiMahasiswaController@saveMajor");
+Route::post('rekapitulasi/mahasiswa/export/subject', "RekapitulasiMahasiswaController@saveSubject");
 Route::get('/rekapitulasi/mahasiswa/json',"RekapitulasiMahasiswaController@json")->middleware('can:admin');
 Route::resource('/rekapitulasi/mahasiswa',"RekapitulasiMahasiswaController")->name('*','rekapitulasi_mahasiswa')->middleware('can:admin');
 
 //Rekapitulasi Dosen
+Route::get('rekapitulasi/dosen/showExportSubjectPage', "RekapitulasiDosenController@showExportSubjectPage");
+Route::get('rekapitulasi/dosen/export/major', "RekapitulasiDosenController@saveMajor");
+Route::post('rekapitulasi/dosen/export/subject', "RekapitulasiDosenController@saveSubject");
 Route::get('/rekapitulasi/dosen/json',"RekapitulasiDosenController@json")->middleware('can:admin');
 Route::resource('/rekapitulasi/dosen',"RekapitulasiDosenController")->middleware('can:admin');
 
-//Rekapitulasi Pertemuan
-Route::get('/rekapitulasi/pertemuan/json',"RekapitulasiPegawaiController@json")->middleware('can:admin');
-Route::resource('/rekapitulasi/pertemuan',"RekapitulasiPegawaiController")->middleware('can:admin');
 
 //ManajemenData
 Route::get('/riwayat_data/json',"ManajemenLogbookController@json")->middleware('can:admin');
@@ -142,8 +148,7 @@ Route::get('/password/success', 'Mobile\PasswordResetController@index');
 Route::get('/kurikulum/json',"ManajemenKurikulumController@json")->middleware('can:admin');
 Route::resource('/kurikulum',"ManajemenKurikulumController")->middleware('can:admin');
 
+//Helper Query Matakuliah
+Route::get('/subjectQuery',"FilterHelperController@subjectQuery")->name('subjectQuery');
 
-Route::get('test', function (){return getKehadiran(1116110022,2023,1);});
 
-
-Route::get('majors/export/', 'ExportMajor@export');

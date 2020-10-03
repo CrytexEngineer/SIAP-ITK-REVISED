@@ -17,7 +17,7 @@
                         @include('kelas.import')
                         <hr>
 
-                        <table class="table table-bordered" id="users-table" style="overflow-x:auto;">
+                        <table class="display compact"   id="users-table" >
                             <thead>
                             <tr>
                                 <th>Kode Mata Kuliah</th>
@@ -68,13 +68,15 @@
 
 @push('scripts')
     <script>
+
         $(function () {
             $('#users-table').DataTable({
                 dom: 'Blfrtip',
                 lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 "scrollX": true,
                 processing: true,
-                serverSide: false,
+                serverSide: true,
+                    'rowsGroup': [0,1,2,3,4,5,6,7,8,9,10],
                 ajax: '/kelas/json',
                 columns: [
                  {data: 'KE_KR_MK_ID', name: 'KE_KR_MK_ID'},

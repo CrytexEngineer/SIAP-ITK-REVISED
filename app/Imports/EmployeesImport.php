@@ -39,6 +39,7 @@ class EmployeesImport implements ToModel, WithHeadingRow, WithValidation, SkipsO
         $employee = Employee::where('PE_Nip', $row['pe_nip'])->first();
 
         if (!$employee) {
+
             return new Employee($data);
         }
 

@@ -14,7 +14,7 @@
                             </div>
                         @endif
 
-                        <table class="table">
+                        <table class="display compact"  >
                             <thead>
                             <tr>
                                 <th scope="col">#</th>

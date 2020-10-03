@@ -15,7 +15,7 @@
 
                         <?php echo $__env->make('program_studi.import', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         <hr>
-                        <table class="table table-bordered" id="users-table">
+                        <table class="display compact"  id="users-table">
                             <thead>
                             <tr>
                                 <th width="150">Kode Program Studi</th>

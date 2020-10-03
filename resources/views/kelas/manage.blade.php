@@ -13,7 +13,7 @@
 
                         <a href="/kelas" class="btn btn-danger"><i class="fas fa-backward"></i> Kembali</a>
                         <hr>
-                        <table class="table table-bordered">
+                        <table class="display compact"  >
                             <tr>
                                 <td width="270">Kode Matakuliah</td><td>{{ $jadwal->MK_ID}}</td>
                             </tr>
