@@ -93,7 +93,9 @@
                                 <a class="dropdown-item" href="/akunpegawai">Akun Pegawai</a>
                                 <a class="dropdown-item" href="/kelas">Kelas</a>
                                 <a class="dropdown-item" href="/khs">KHS</a>
+                                @can('only-admin')
                                 <a class="dropdown-item" href="/kurikulum">Kurikulum</a>
+                                @endcan
                                 <a class="dropdown-item" href="/matakuliah">Mata Kuliah</a>
                                 <a class="dropdown-item" href="/program_studi">Program Studi</a>
                                 <a class="dropdown-item" href="/riwayat_data">Riwayat Pengolahan Data</a>
@@ -114,7 +116,7 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
-                                @can('change')
+                                @can('only-admin')
                                     <a class="dropdown-item delete-confirm" href="/delete_all">Hapus Semua Data</a>
                                 @endcan
                             </div>
