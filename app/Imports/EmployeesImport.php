@@ -40,7 +40,8 @@ class EmployeesImport implements ToModel, WithHeadingRow, WithValidation, SkipsO
 
         if (!$employee) {
 
-            return new Employee($data);
+        return  new Employee($data);
+
         }
 
         $employee->update($data);

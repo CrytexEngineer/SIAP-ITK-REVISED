@@ -27,7 +27,7 @@
                             <tr>
                                 <th>NIM</th>
                                 <th>Nama Mahasiswa</th>
-                                <?php for($pertemuan=1;$pertemuan<=16;$pertemuan++)
+                                <?php for($pertemuan=1;$pertemuan<=$jadwal->KE_RencanaTatapMuka;$pertemuan++)
                                 {
                                     echo "<th>$pertemuan</th>";
                                 }
@@ -37,7 +37,7 @@
                                 <tr>
                                     <td>{{ $row->MA_NRP_Baru}}</td>
                                     <td>{{ $row->MA_NamaLengkap}}</td>
-                                    <?php for($pertemuan=1;$pertemuan<=16;$pertemuan++)
+                                    <?php for($pertemuan=1;$pertemuan<=$jadwal->KE_RencanaTatapMuka;$pertemuan++)
                                     {
                                     echo "<td>".getKehadiran($row->MA_Nrp,Request::segment(2),$pertemuan)."</td>";
                                     }

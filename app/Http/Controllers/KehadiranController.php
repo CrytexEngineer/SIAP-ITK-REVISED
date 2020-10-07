@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Curiculum;
 use App\Kehadiran;
 use App\Kelas;
 use App\Meeting;
 use App\Presence;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class KehadiranController extends Controller
@@ -46,8 +46,10 @@ class KehadiranController extends Controller
         return view('kehadiran.index', $data);
     }
 
+
     function create($id_jadwal)
     {
+
         $jadwal = DB::table('classes')
             ->join('employees', 'employees.PE_Nip', '=', 'classes.KE_PE_NIPPengajar')
             ->join('subjects', 'subjects.MK_ID', '=', 'classes.KE_KR_MK_ID')
@@ -67,7 +69,11 @@ class KehadiranController extends Controller
         $data['jadwal'] = $jadwal;
         $data['pertemuan_ke'] = $pertemuan + 1;
         $data['timPegajar'] = $timPengajar;
-        return view('kehadiran.create', $data);
+        if(Auth::user()->roles()->pluck('role_id')[0]){
+        return view('kehadiran.create', $data);}
+        else{
+            return view('presensi.createMeeting', $data);
+        }
     }
 
 
@@ -87,10 +93,12 @@ class KehadiranController extends Controller
         date_default_timezone_set("Asia/Kuala_Lumpur");
 
         $meeting = Meeting::where('PT_KE_ID', $request->PT_KE_ID)->whereBetween('created_at', [Carbon::today()->startOfDay(), Carbon::today()->endOfDay()])->get()->first();
-        if ($meeting) {
-            return redirect()->back()->with('status_failed', 'Pertemuan hari ini telah dibuat sebelumnya, silahkan cek riwayat pertemuan');
-        }
 
+        if (Auth::user()->roles()->pluck('role_id')[0]) {
+            if ($meeting) {
+                return redirect()->back()->with('status_failed', 'Pertemuan hari ini telah dibuat sebelumnya, silahkan cek riwayat pertemuan');
+            }
+        }
         if ($kelas) {
 
             $lateDay = $kelas['KE_Jadwal_IDHari'];
@@ -143,7 +151,7 @@ class KehadiranController extends Controller
             ->join('employees', 'employees.PE_Nip', '=', 'employee_PE_Nip')
             ->where('class_employee.classes_KE_ID', '=', $id_jadwal)->pluck('PE_NamaLengkap')->all();
 
-        $pertemuan = Meeting::where('PT_KE_ID', $id_jadwal)->orderBy('PT_Urutan', 'DESC')->get();
+        $pertemuan = Meeting::where('PT_KE_ID', $id_jadwal)->orderBy('created_at', 'DESC')->get();
 
 
         $data['timPengajar'] = $timPengajar;
@@ -194,7 +202,7 @@ class KehadiranController extends Controller
     {
         $meeting = Meeting::find($id);
         ($meeting->delete());
-            return redirect('kehadiran/'.$meeting->PT_KE_ID)->with('status_failed', 'Data Berhasil dihapus');
+        return redirect('kehadiran/' . $meeting->PT_KE_ID)->with('status_failed', 'Data Berhasil dihapus');
 
 
     }
