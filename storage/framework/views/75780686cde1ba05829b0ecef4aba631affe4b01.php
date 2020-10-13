@@ -14,9 +14,13 @@
         src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-       <script src="<?php echo e(asset('assets/dist/air-datepicker/dist/js/datepicker.js')); ?>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <script src="<?php echo e(asset('assets/dist/air-datepicker/dist/js/datepicker.js')); ?>"></script>
     <script src="<?php echo e(asset('assets/dist/air-datepicker/dist/js/i18n/datepicker.en.js')); ?>"></script>
     <script src="<?php echo e(asset('assets/dist/sweetalert2/sweetalert2.min.js')); ?>"></script>
 
@@ -32,7 +36,8 @@
     <link rel="icon" href="<?php echo e(URL::asset('/css/favicon.png')); ?>" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="<?php echo e(URL::asset('/css/app.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('assets/dist/air-datepicker/dist/css/datepicker.css')); ?>">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+          integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
     <link href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="<?php echo e(asset('assets/dist/sweetalert2/sweetalert2.min.css')); ?>">
 
@@ -45,10 +50,12 @@
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="/" >
+            <a class="navbar-brand" href="/">
                 <img src="/img/siap-itk-54px.png" alt="logo siap itk" height="40" width="166">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="<?php echo e(__('Toggle navigation')); ?>">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="<?php echo e(__('Toggle navigation')); ?>">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -62,65 +69,82 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     <?php if(auth()->guard()->guest()): ?>
-
-
-
-
-
-
-
-
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                     <?php else: ?>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-table"></i> Rekapitulasi Data
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/rekapitulasi/mahasiswa">Rekapitulasi Mahasiswa</a>
-                                <a class="dropdown-item" href="/rekapitulasi/dosen">Rekapitulasi Dosen</a>
-                            </div>
-                        </li>
-
-
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-database"></i> Manajemen Data
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/akunmahasiswa">Akun Mahasiswa</a>
-                                <a class="dropdown-item" href="/akunpegawai">Akun Pegawai</a>
-                                <a class="dropdown-item" href="/kelas">Kelas</a>
-                                <a class="dropdown-item" href="/khs">KHS</a>
-                                <a class="dropdown-item" href="/kurikulum">Kurikulum</a>
-                                <a class="dropdown-item" href="/matakuliah">Mata Kuliah</a>
-                                <a class="dropdown-item" href="/program_studi">Program Studi</a>
-                                <a class="dropdown-item" href="/riwayat_data">Riwayat Pengolahan Data</a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <i class="fas fa-user"></i> <?php echo e(Auth::user()->PE_NamaLengkap); ?> <span class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    <?php echo e(__('Logout')); ?>
-
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('change')): ?>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-table"></i> Presensi
                                 </a>
-                                <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
-                                    <?php echo csrf_field(); ?>
-                                </form>
-                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('change')): ?>
-                                    <a class="dropdown-item delete-confirm" href="/delete_all">Hapus Semua Data</a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/pertemuan">Manajemen Presensi</a>
+                                    <a class="dropdown-item" href="/rekapitulasi/mahasiswa">Rekapitulasi Mahasiswa</a>
+                                    <a class="dropdown-item" href="/rekapitulasi/dosen">Rekapitulasi Dosen</a>
+                                </div>
+                            </li>
+                        <?php endif; ?>
+
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('change')): ?>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-database"></i> Manajemen Data
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/akunmahasiswa">Akun Mahasiswa</a>
+                                    <a class="dropdown-item" href="/akunpegawai">Akun Pegawai</a>
+                                    <a class="dropdown-item" href="/kelas">Kelas</a>
+                                    <a class="dropdown-item" href="/khs">KHS</a>
+                                    <a class="dropdown-item" href="/kurikulum">Kurikulum</a>
+                                    <a class="dropdown-item" href="/matakuliah">Mata Kuliah</a>
+                                    <a class="dropdown-item" href="/program_studi">Program Studi</a>
+                                    <a class="dropdown-item" href="/riwayat_data">Riwayat Pengolahan Data</a>
+                                    <a class="dropdown-item delete-confirm" href="/delete_all">Hapus Semua
+                                        Data</a>
+                                </div>
+                            </li>
+                       <?php endif; ?>
+
+
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('dosen')): ?>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/jadwal_mengajar"><i class="far fa-calendar-alt"></i>
+                                            Jadwal
+                                            Mengajar</a>
+                                    </li>
                                 <?php endif; ?>
-                            </div>
-                        </li>
-                    <?php endif; ?>
+
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <i class="fas fa-user"></i> <?php echo e(Auth::user()->PE_NamaLengkap); ?> <span
+                                            class="caret"></span>
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
+                                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            <?php echo e(__('Logout')); ?>
+
+                                        </a>
+                                        <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
+                                              style="display: none;">
+                                            <?php echo csrf_field(); ?>
+                                        </form>
+
+                                    </div>
+                                </li>
+                            <?php endif; ?>
                 </ul>
             </div>
         </div>
@@ -130,7 +154,7 @@
         <?php echo $__env->yieldContent('content'); ?>
     </main>
 
-<!-- jQuery DATATABLES DONT CHANGE! -->
+    <!-- jQuery DATATABLES DONT CHANGE! -->
     <!-- jQuery -->
     <script src="//code.jquery.com/jquery.js"></script>
     <!-- DataTables -->
@@ -155,6 +179,8 @@
                 }
             });
         });
+
+
     </script>
     <?php echo $__env->yieldPushContent('scripts'); ?>
 

@@ -16,22 +16,18 @@
 
 
                         <div class="form-group row">
-                            <label class="col-md-3 col-form-label text-md-right">Program Studi</label>
+
                             <div class="col-md-4">
                                 {{Form::select('PS_ID',$major,null,['class'=>'form-control','placeholder'=>'Pilih Program Studi','id' => 'PS_ID'])}}
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label class="col-md-3 col-form-label text-md-right">Matakuliah</label>
+
                             <div class="col-md-4">
                                 {{Form::select('KE_KR_MK_ID',[],null,['class'=>'form-control','placeholder'=>'Pilih Matakuliah','id' => 'MK_ID'])}}
                             </div>
-                        </div>
 
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-3">
+                            <div class="col-md-4">
                                 {{Form::submit('Unduh', ['class'=>'btn btn-primary'])}}
                             </div>
                         </div>
@@ -69,6 +65,8 @@
                 });
 
             });
+
+
 
 
 

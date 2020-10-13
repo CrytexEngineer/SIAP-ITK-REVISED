@@ -40,8 +40,7 @@ class  DosenController extends Controller
 
         return Datatables::of($jadwal)
             ->addColumn('action', function ($row) {
-                $action = '<a href="/kehadiran/' . $row->KE_ID . '" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i> Kehadiran</a>';
-                $action .= \Form::open(['url' => 'dosen/' . $row->PE_Nip, 'method' => 'delete', 'style' => 'float:right']);
+                $action = '<a href="/pertemuan/' . $row->KE_ID . '/dashboard" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i> Dashboard</a>';
                 return $action;
             })
             ->make(true);

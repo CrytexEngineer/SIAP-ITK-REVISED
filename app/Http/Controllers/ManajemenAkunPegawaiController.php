@@ -26,7 +26,7 @@ class ManajemenAkunPegawaiController extends Controller
     {
         $role = (Auth::user()->roles->pluck('id')->first());
         if ($role == 1 || $role == 2 || $role == 4 || $role == 8) {
-            return Datatables::of(Employee::with('roles')->leftJoin('majors','employees.PE_KodeJurusan','=','PS_Kode_Prodi')->get()->all())
+            return Datatables::of(Employee::with('roles')->leftJoin('majors', 'employees.PE_KodeJurusan', '=', 'PS_Kode_Prodi')->get()->all())
                 ->addColumn('action', function ($row) {
                     $action = '<a href="/akunpegawai/' . $row->PE_Nip . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
                     $action .= \Form::open(['url' => 'akunpegawai/' . $row->PE_Nip, 'method' => 'delete', 'style' => 'float:right']);
@@ -37,8 +37,8 @@ class ManajemenAkunPegawaiController extends Controller
                 ->make(true);
         } else {
             $jurusan = Auth::user()->PE_KodeJurusan;
-            return Datatables::of(Employee::with('roles')->leftJoin('majors','employees.PE_KodeJurusan','=','PS_Kode_Prodi')
-                ->where('employees.PE_KodeJurusan','=',$jurusan)
+            return Datatables::of(Employee::with('roles')->leftJoin('majors', 'employees.PE_KodeJurusan', '=', 'PS_Kode_Prodi')
+                ->where('employees.PE_KodeJurusan', '=', $jurusan)
                 ->get()->all())
                 ->addColumn('action', function ($row) {
                     $action = '<a href="/akunpegawai/' . $row->PE_Nip . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
@@ -57,10 +57,18 @@ class ManajemenAkunPegawaiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
-        $employees = Employee::all();
-        return view('employee.pegawai')->with('employees', $employees);
+        $user_major = Auth::user()->PE_KodeJurusan;
+        if ($user_major == 0000 || $user_major == null) {
+            $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
+            return view('employee.pegawai', $data);
+        } else {
+            $data['major'] = Major::where('PS_Kode_Prodi', '=', $user_major)->pluck('PS_Nama', 'PS_Kode_Prodi');
+            return view('employee.pegawai', $data);
+        }
     }
 
     /**

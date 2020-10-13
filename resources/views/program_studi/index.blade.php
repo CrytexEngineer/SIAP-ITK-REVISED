@@ -5,16 +5,20 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Modul Program Studi</div>
+                    <div class="card-header">Modul Program Studi
+                    <div class="float-md-right">
+                        <a href="/program_studi/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
+                        @include('program_studi.import')
+                    </div>
+
+                    </div>
 
                     <div class="card-body">
 
                         @include('alert')
                         @include('validation_error')
 
-                        <a href="/program_studi/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
 
-                        @include('program_studi.import')
                         <hr>
                         <table class="display compact"  id="users-table">
                             <thead>

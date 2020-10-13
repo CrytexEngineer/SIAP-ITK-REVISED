@@ -10,28 +10,30 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header"><i class="fas fa-table"></i> Rekapitulasi Kehadiran Mahasiswa</div>
-                    <div class="card-body">
+                    <div class="card-header"><i class="fas fa-table"></i> Rekapitulasi Kehadiran Mahasiswa
 
-                        <a href='/rekapitulasi/mahasiswa/export/major' class="btn btn-info"><i
-                                class="fas fa-download"></i> Unduh Seluruh Data</a>
-                        <a href='/rekapitulasi/mahasiswa/showExportSubjectPage' class="btn btn-danger"><i
-                                class='fas fa-download'></i> Unduh Berdasarkan Matakuliah</a></div>
-                        <div class="form-group row">
-                            <label class="col-md-3 col-form-label text-md-right">Tampilkan Data Program Studi</label>
-                            <div class="col-md-4">
-                                {{Form::select('PS_ID',$major,null,['class'=>'form-control','selected'=>''.$major->first().'','id' => 'PS_ID'])}}
-                            </div>
+                        <div class="float-md-right">
+                            <a href='/rekapitulasi/dosen/export/major' class="btn btn-primary"><i
+                                    class="fas fa-download"></i> Unduh Seluruh Data</a>
+
+                            <a href='/rekapitulasi/dosen/showExportSubjectPage' class="btn btn-primary"><i
+                                    class='fas fa-download'></i> Unduh Berdasarkan Matakuliah</a>
+                        </div>
+
+
+
+                        <div class="mt-4">
+                            {{Form::select('PS_ID',$major,null,['class'=>'form-control','selected'=>''.$major->first().'','id' => 'PS_ID'])}}
+                        </div>
+
                     </div>
                     <div class="card-body">
 
-                        @include('alert')
 
+                        @include('alert')
                         <table class="display  cell-border " id="users-table" style="overflow-x:auto;">
                             <thead>
                             <tr>
-
-                                {{--                                <th>No.</th>--}}
                                 <th>Kode Mata Kuliah</th>
                                 <th>Mata Kuliah</th>
                                 <th>SKS</th>
@@ -59,6 +61,7 @@
             </div>
         </div>
     </div>
+
 
 
 @endsection
@@ -126,6 +129,10 @@
                 });
 
             });
+
+
+
+
 
 
     </script>

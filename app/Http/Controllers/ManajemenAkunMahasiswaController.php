@@ -20,11 +20,18 @@ class ManajemenAkunMahasiswaController extends Controller
         $this->middleware('auth');
     }
 
-    function json()
-    {
-        $role = (Auth::user()->roles->pluck('id')[0]);
+    function json(Request $request)
+    {       $role = (Auth::user()->roles->pluck('id')[0]);
+        $jurusan = null;
         if ($role == 1 || $role == 2 || $role == 4 || $role == 8) {
-            return Datatables::of(Student::all())
+            $jurusan = $request->input('PS_ID');
+
+        } else {
+            $jurusan = Auth::user()->PE_KodeJurusan;
+        }
+
+        $idJurusan = Major::all()->where('PS_Kode_Prodi', $jurusan)->pluck('PS_ID')->first();
+            return Datatables::of(DB::select("select * from students where SUBSTRING(students.MA_Nrp,5,3) = $idJurusan"))
                 ->addColumn('action', function ($row) {
                     $action = '<a href="/akunmahasiswa/' . $row->MA_Nrp . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
                     $action .= \Form::open(['url' => 'akunmahasiswa/' . $row->MA_Nrp, 'method' => 'delete', 'style' => 'float:right']);
@@ -34,20 +41,6 @@ class ManajemenAkunMahasiswaController extends Controller
 
                 })
                 ->make(true);
-        } else {
-            $jurusan = Auth::user()->PE_KodeJurusan;
-            $idJurusan = Major::all()->where('PS_Kode_Prodi',$jurusan)->pluck('PS_ID')->first();
-            $mahasiswa = Student::all();
-            return Datatables::of(DB::select("select * from students where SUBSTRING(students.MA_Nrp,5,3) = 110"))
-                ->addColumn('action', function ($row) {
-                    $action = '<a href="/akunmahasiswa/' . $row->MA_Nrp . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
-                    $action .= \Form::open(['url' => 'akunmahasiswa/' . $row->MA_Nrp, 'method' => 'delete', 'style' => 'float:right']);
-                    $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
-                    $action .= \Form::close();
-                    return $action;
-                })
-                ->make(true);
-        }
     }
 
     /**
@@ -55,10 +48,20 @@ class ManajemenAkunMahasiswaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        return view('mahasiswa.mahasiswa');
+        $user_major = Auth::user()->PE_KodeJurusan;
+        if ($user_major == 0000 || $user_major == null) {
+            $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
+            return view('mahasiswa.mahasiswa', $data);
+        } else {
+            $data['major'] = Major::where('PS_Kode_Prodi', '=', $user_major)->pluck('PS_Nama', 'PS_Kode_Prodi');
+            return view('mahasiswa.mahasiswa', $data);
+
+        }
     }
+
 
     /**
      * Show the form for creating a new resource.

@@ -1,11 +1,15 @@
-@extends('layouts.dosen')
+@extends('layouts.app')
+
 @section('title','Jadwal Mengajar')
+
+
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Jadwal Mengajar</div>
+                    <div class="card-header" ><i class="fas fa-table"></i> Jadwal Mengajar</div>
 
                     <div class="card-body">
                         @include('alert')
@@ -25,6 +29,7 @@
                                 <th width="100">Action</th>
                             </tr>
                             </thead>
+
                         </table>
                     </div>
                 </div>

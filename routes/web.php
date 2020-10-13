@@ -21,30 +21,6 @@ Route::get('/', function () {
 });
 
 
-Route::get('/kelas', 'ManajemenKelasController@json')->middleware('can:admin');
-Route::get('/program_studi/json', 'ManajemenProgramStudiController@json')->middleware('can:admin');
-
-Route::get('/home', 'HomeController@index')->name('home')->middleware('can:admin');
-
-Route::get('/superadmin', 'SuperAdminController@index')->name('superadmin')->middleware('superadmin');
-Route::get('/superadmin/manajemen/akun_mahasiswa', 'DiksatController@index')->name('superadmin')->middleware('diksat');
-
-Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');
-Route::get('/admin/manajemen/akun_mahasiswa', 'DiksatController@index')->name('admin')->middleware('diksat');
-
-Route::get('/observer', 'ObserverController@index')->name('observer')->middleware('observer');
-
-Route::get('/warek', 'WarekController@index')->name('warek')->middleware('warek');
-Route::get('/admin/manajemen/akun_mahasiswa', 'DiksatController@index')->name('admin')->middleware('diksat');
-
-Route::get('/kajur', 'KajurController@index')->name('kajur')->middleware('kajur');
-Route::get('/kaprodi', 'KaprodiController@index')->name('kaprodi')->middleware('kaprodi');
-Route::get('/dikjur', 'DikjurController@index')->name('dikjur')->middleware('dikjur');
-
-Route::get('/diksat', 'DiksatController@index')->name('diksat')->middleware('diksat');
-Route::get('/diksat/manajemen/akun_mahasiswa', 'DiksatController@index')->name('diksat')->middleware('diksat');
-
-Route::get('/dosen', 'DosenController@jadwal_mengajar')->name('dosen')->middleware('dosen');
 
 
 //Testing Routes
@@ -57,6 +33,7 @@ Route::resource('/register/pegawai', 'RegisterPegawaiController');
 Route::resource('/mahasiswa/mahasiswa', 'ManajemenAkunMahasiswaController')->middleware('can:admin');
 
 //Program Studi
+Route::get('/program_studi/json', 'ManajemenProgramStudiController@json')->middleware('can:admin');
 Route::resource('/program_studi', 'ManajemenProgramStudiController')->middleware('can:admin');
 Route::post('/program_studi/import', 'ManajemenProgramStudiController@import')->name('import_program_studi')->middleware('can:admin');
 
@@ -99,29 +76,31 @@ Route::post('/akunmahasiswa/import', 'ManajemenAkunMahasiswaController@import')-
 Route::middleware('can:dosen')->group(function () {
     Route::get('jadwal_mengajar', 'DosenController@jadwal_mengajar')->name('jadwal_mengajar');
     Route::get('jadwal_mengajar/json', 'DosenController@jadwal_mengajar_json');
-    Route::get('kehadiran/{id_jadwal}/create', 'KehadiranController@create');
-    Route::get('kehadiran/{id_jadwal}', 'KehadiranController@index');
-    Route::post('/kehadiran', 'KehadiranController@store');
-    Route::post('/kehadiran/update', 'KehadiranController@update');
-    Route::get('/kehadiran/{id_jadwal}/history/', 'KehadiranController@showHistory')->name('meeting.history');
-    Route::get('/kehadiran/presenceCount/{pt_id}', "KehadiranController@getKehadiranPertemuan");
-    Route::get('/kehadiran/{id}/delete', 'KehadiranController@destroy');
+
+
 });
+
+//ManajemenPertemuanController
+Route::get('pertemuan/index/json', 'ManajemenPertemuanController@index_json');
+Route::get('pertemuan/', 'ManajemenPertemuanController@index');
+Route::get('pertemuan/{id_jadwal}/dashboard', 'ManajemenPertemuanController@dashboard');
+Route::post('/pertemuan', 'ManajemenPertemuanController@store');
+Route::get('pertemuan/{id_jadwal}/create', 'ManajemenPertemuanController@create');
+Route::get('/pertemuan/{id_jadwal}/history/', 'ManajemenPertemuanController@showHistory')->name('meeting.history');
+Route::get('/pertemuan/{id}/delete', 'ManajemenPertemuanController@destroy');
+Route::get('/kehadiran/presenceCount/{pt_id}', "ManajemenPertemuanController@getKehadiranPertemuan");
 
 
 //Manajemen Presensi
 Route::middleware('can:admin')->group(function () {
-    Route::get('presensi/index/json', 'ManajemenPresensiController@index_json');
-    Route::get('presensi/', 'ManajemenPresensiController@index');
     Route::get('presensi/{ku_id}/manage', 'ManajemenPresensiController@manage');
     Route::get('presensi/{ku_id}/create', 'ManajemenPresensiController@create');
     Route::post('presensi/', 'ManajemenPresensiController@store');
     Route::delete('presensi/{PR_ID}', 'ManajemenPresensiController@destroy');
     Route::get('presensi/{ku_id}/manage/json', 'ManajemenPresensiController@manage_json');
-    Route::get('presensi/{id_jadwal}/dashboard', 'ManajemenPresensiController@dashboard');
-    Route::get('meeting/{id_jadwal}/create', 'KehadiranController@create');
-    Route::post('/meeting', 'KehadiranController@store');
+
 });
+
 
 
 //Operasi QR

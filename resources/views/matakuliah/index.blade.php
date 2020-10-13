@@ -5,16 +5,13 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Modul Matakuliah</div>
+                    <div class="card-header">Modul Matakuliah
+                    <div class="float-md-right">  <a href="/matakuliah/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
+                        @include('matakuliah.import')</div>
+                    </div>
 
                     <div class="card-body">
-
                         @include('alert')
-
-                        <a href="/matakuliah/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
-                        @include('matakuliah.import')
-                        <hr>
-
                         <table class="display compact"   id="users-table">
                             <thead>
                             <tr>
@@ -27,14 +24,6 @@
                                     @endcan
                             </tr>
                             </thead>
-                            <tfoot>
-                            <tr>
-                                <th>Kode Matakuliah</th>
-                                <th>Nama Matakuliah</th>
-                                <th>Tahun Kurikulum</th>
-                                <th>Kredit Kuliah</th>
-                            </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>

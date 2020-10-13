@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Imports\SubjectsImport;
 use App\Logbook;
+use App\Major;
 use App\Subject;
 use DataTables;
 use Illuminate\Http\Request;
@@ -43,9 +44,15 @@ class ManajemenMataKuliahController extends Controller
 
     public function index()
     {
-        return view('matakuliah.index');
-    }
+        $user_major = Auth::user()->PE_KodeJurusan;
+        if ($user_major == 0000 || $user_major == null) {
+            $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
+        } else {
+            $data['major'] = Major::where('PS_Kode_Prodi', '=', $user_major)->pluck('PS_Nama', 'PS_Kode_Prodi');
+        }
 
+        return view('matakuliah.index',$data);
+    }
     /**
      * Show the form for creating a new resource.
      *

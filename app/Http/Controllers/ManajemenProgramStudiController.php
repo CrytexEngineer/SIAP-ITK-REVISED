@@ -18,8 +18,10 @@ class ManajemenProgramStudiController extends Controller
         $this->middleware('auth');
     }
 
-    function json()
+    function json(Request $request)
     {
+
+
         return DataTables::of(Major::all())
             ->addColumn('action', function ($row) {
                 $action = '<a href="/program_studi/' . $row->PS_Kode_Prodi . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
@@ -38,7 +40,14 @@ class ManajemenProgramStudiController extends Controller
      */
     public function index()
     {
-        return view('program_studi.index');
+        $user_major = Auth::user()->PE_KodeJurusan;
+        if ($user_major == 0000 || $user_major == null) {
+            $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
+        } else {
+            $data['major'] = Major::where('PS_Kode_Prodi', '=', $user_major)->pluck('PS_Nama', 'PS_Kode_Prodi');
+        }
+
+        return view('program_studi.index',$data);
     }
 
     /**

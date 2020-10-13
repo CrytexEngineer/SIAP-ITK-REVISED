@@ -7,15 +7,13 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">@yield('title')</div>
+                    <div class="card-header">@yield('title')
+                    <div class="float-md-right">    <a href="/kurikulum/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a></div>
+                    </div>
 
                     <div class="card-body">
 
                         @include('alert')
-
-                        <a href="/kurikulum/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
-
-                        <hr>
 
                         <table class="display compact"   id="users-table">
                             <thead>
@@ -29,14 +27,6 @@
                                 @endcan
                             </tr>
                             </thead>
-                            <tfoot>
-                            <tr>
-                                <th>Nama Kurikulum</th>
-                                <th>Tanggal Mulai</th>
-                                <th>Tanggal Selesai</th>
-                                <th>Aksi</th>
-                            </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>

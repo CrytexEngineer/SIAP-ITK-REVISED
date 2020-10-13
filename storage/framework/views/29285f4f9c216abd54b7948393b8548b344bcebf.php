@@ -4,16 +4,13 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Modul Matakuliah</div>
+                    <div class="card-header">Modul Matakuliah
+                    <div class="float-md-right">  <a href="/matakuliah/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
+                        <?php echo $__env->make('matakuliah.import', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></div>
+                    </div>
 
                     <div class="card-body">
-
                         <?php echo $__env->make('alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
-                        <a href="/matakuliah/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
-                        <?php echo $__env->make('matakuliah.import', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                        <hr>
-
                         <table class="display compact"   id="users-table">
                             <thead>
                             <tr>
@@ -26,14 +23,6 @@
                                     <?php endif; ?>
                             </tr>
                             </thead>
-                            <tfoot>
-                            <tr>
-                                <th>Kode Matakuliah</th>
-                                <th>Nama Matakuliah</th>
-                                <th>Tahun Kurikulum</th>
-                                <th>Kredit Kuliah</th>
-                            </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>

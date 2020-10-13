@@ -5,43 +5,37 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Modul KHS</div>
+                    <div class="card-header">Modul KHS
+
+                        <div class="float-md-right"><a href="/khs/create" class="btn btn-primary"><i
+                                    class="fas fa-plus"></i> Input Data Baru</a>
+
+                            @include('khs.import')</div>
+                        <div class="mt-4">
+                            {{Form::select('PS_ID',$major,null,['class'=>'form-control','selected'=>''.$major->first().'','id' => 'PS_ID'])}}
+                        </div>
+                    </div>
 
                     <div class="card-body">
 
                         @include('alert')
 
-                        <a href="/khs/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
 
-                        @include('khs.import')
-                        <hr>
-
-                        <table class="display compact" id="users-table" style="overflow-x:auto;">
+                        <table id="users-table"  class=" table-bordered dt-responsive nowrap" >
                             <thead>
                             <tr>
-                                <th width="50">NIM</th>
-                                <th >Nama</th>
+                                <th>NIM</th>
+                                <th>Nama</th>
                                 <th>Email</th>
                                 <th>Prodi/TPB</th>
                                 <th>Tahun Akademik</th>
                                 <th>Mata Kuliah Diambil</th>
-                                {{--                                <th>Kelas</th>--}}
+                                <th>Kelas</th>
                                 @can('change')
                                     <th width="50">Action</th>
                                 @endcan
                             </tr>
                             </thead>
-                            <tfoot>
-                            <tr>
-                                <th width="50">NIM</th>
-                                <th >Nama</th>
-                                <th>Email</th>
-                                <th>Prodi/TPB</th>
-                                <th>Tahun Akademik</th>
-                                <th>Mata Kuliah Diambil</th>
-                                {{--                                <th>Kelas</th>--}}
-                            </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -56,24 +50,30 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript"
             src=" https://cdn.rawgit.com/ashl1/datatables-rowsgroup/fbd569b8768155c7a9a62568e66a64115887d7d0/dataTables.rowsGroup.js"></script>
+
+
     <script>
-        $(function () {
+      var table=
             $('#users-table').DataTable({
                 dom: 'Blfrtip',
                 lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 "scrollX": true,
                 processing: true,
                 serverSide: true,
-                ajax: '/khs/json',
+                  ajax: {
+                "url": '/khs/json',
+                "data": function ( d ) {
+                    d.PS_ID = $('#PS_ID').val();
+                }},
                 columns: [
-                    {data: 'MA_NRP_Baru', name: 'MA_NRP_Baru'},
-                    {data: 'MA_NamaLengkap', name: 'MA_NamaLengkap'},
-                    {data: 'email', name: 'email'},
-                    {data: 'PS_Nama', name: 'PS_Nama'},
+                    {data: 'MA_NRP_Baru', name: 'students.MA_NRP_Baru'},
+                    {data: 'MA_NamaLengkap', name: 'students.MA_NamaLengkap'},
+                    {data: 'email', name: 'students.email'},
+                    {data: 'PS_Nama', name: 'majors.PS_Nama'},
                     {data: 'KU_KE_Tahun', name: 'KU_KE_Tahun'},
-                    {data: 'MK_Mata_Kuliah', name: 'MK_Mata_Kuliah'},
-                    // {data: 'KE_Kelas', name: 'KE_Kelas'},
-                        @can('change')
+                    {data: 'MK_Mata_Kuliah', name: 'subjects.MK_Mata_Kuliah'},
+                            {data: 'KU_KE_Kelas', name: 'KU_KE_Kelas'},
+                                     @can('change')
             {data: 'action', name: 'action'}
 @endcan
         ],
@@ -98,7 +98,16 @@
             } );
         }
     });
+
+       $(document).ready(function () {
+                $('#PS_ID').on('change',function(e) {
+               table.ajax.reload();
+                });
 });
+
+
+
+
 
     </script>
 @endpush

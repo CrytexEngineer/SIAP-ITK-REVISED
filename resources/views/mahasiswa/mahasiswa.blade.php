@@ -5,17 +5,24 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">@yield('title')</div>
+                    <div class="card-header">@yield('title')
+                        <div class="float-md-right">
+                            <a href="/akunmahasiswa/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input
+                                Data Baru</a>
+                            @include('mahasiswa.import')
+
+                        </div>
+                        <div class="mt-4">
+                            {{Form::select('PS_ID',$major,null,['class'=>'form-control','selected'=>''.$major->first().'','id' => 'PS_ID'])}}
+                        </div>
+                    </div>
 
                     <div class="card-body">
 
                         @include('alert')
 
-                        <a href="/akunmahasiswa/create" class="btn btn-primary"><i class="fas fa-plus"></i> Input Data Baru</a>
-                            @include('mahasiswa.import')
-                            <hr>
 
-                        <table class="display compact"   id="users-table">
+                        <table class="display compact" id="users-table">
                             <thead>
                             <tr>
                                 <th>NIM</th>
@@ -25,17 +32,10 @@
                                 <th>Created At</th>
                                 <th>Updated At</th>
                                 @can('change')
-                                <th width="50">Action</th>
-                                    @endcan
+                                    <th width="50">Action</th>
+                                @endcan
                             </tr>
                             </thead>
-                            <tfoot>
-                            <tr>
-                                <th>NIM</th>
-                                <th>Nama Lengkap</th>
-                                <th>E-mail</th>
-                            </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -46,14 +46,19 @@
 
 @push('scripts')
     <script>
-        $(function() {
-            $('#users-table').DataTable({
+
+ var table= $('#users-table').DataTable({
                 dom: 'Blfrtip',
                 lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 "scrollX": true,
                 processing: true,
                 serverSide: false,
-                ajax: '/akunmahasiswa/json',
+             ajax: {
+                "url": '/akunmahasiswa/json',
+                "data": function ( d ) {
+                    d.PS_ID = $('#PS_ID').val();
+                    console.log(d.PS_ID)
+                }},
                 columns: [
                     { data: 'MA_NRP_Baru', name: 'MA_NRP_Baru' },
                     { data: 'MA_NamaLengkap', name: 'MA_NamaLengkap' },
@@ -62,30 +67,20 @@
                     { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' },
                         @can('change')
-                    { data: 'action', name: 'action' }
-                    @endcan
-                ],
-                initComplete: function () {
-                    this.api().columns().every( function () {
-                        var column = this;
-                        var select = $('<select><option value=""></option></select>')
-                            .appendTo( $(column.footer()).empty() )
-                            .on( 'change', function () {
-                                var val = $.fn.dataTable.util.escapeRegex(
-                                    $(this).val()
-                                );
+            { data: 'action', name: 'action' }
+@endcan
+        ],
 
-                                column
-                                    .search( val ? '^'+val+'$' : '', true, false )
-                                    .draw();
-                            } );
 
-                        column.data().unique().sort().each( function ( d, j ) {
-                            select.append( '<option value="'+d+'">'+d+'</option>' )
-                        } );
-                    } );
-                }
-            });
-        });
+    });
+
+       $(document).ready(function () {
+                $('#PS_ID').on('change',function(e) {
+
+               table.ajax.reload();
+
+                });
+});
+
     </script>
 @endpush

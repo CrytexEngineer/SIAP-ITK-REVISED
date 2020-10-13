@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Logbook;
-use App\Student;
 use App\Imports\KHSImport;
 use App\Imports\KHSimportimplements;
 use App\Kelas;
 use App\Khs;
+use App\Logbook;
 use App\Major;
+use App\Student;
 use App\Subject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,18 +29,20 @@ class ManajemenKhsController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    function json()
+    function json(Request $request)
     {
         $role = (Auth::user()->roles->pluck('id')[0]);
+
         if ($role == 1 || $role == 2 || $role == 4 || $role == 8) {
             return Datatables::of(DB::table('class_student')
+                ->where('class_student.KU_KE_KodeJurusan', '=', $request->input('PS_ID'))
                 ->join('students', 'class_student.KU_MA_Nrp', '=', 'students.MA_Nrp')
                 ->join('subjects', 'class_student.KU_KE_KR_MK_ID', '=', 'subjects.MK_ID')
                 ->join('majors', 'class_student.KU_KE_KodeJurusan', '=', 'majors.PS_Kode_Prodi'))
 //                ->join('classes', 'class_student.KU_KE_Kelas', '=', 'classes.KE_Kelas'))
                 ->addColumn('action', function ($row) {
                     $action = '<a href="/khs/' . $row->KU_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
-                    $action .= \Form::open(['url' => 'Khs/' . $row->KU_ID, 'method' => 'delete', 'style' => 'float:right']);
+                    $action .= \Form::open(['url' => 'khs/' . $row->KU_ID, 'method' => 'delete', 'style' => 'float:right']);
                     $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
                     $action .= \Form::close();
                     return $action;
@@ -49,14 +51,14 @@ class ManajemenKhsController extends Controller
         } else {
             $jurusan = Auth::user()->PE_KodeJurusan;
             return Datatables::of(DB::table('class_student')
-                ->where('class_student.KU_KE_KodeJurusan','=',$jurusan)
+                ->where('class_student.KU_KE_KodeJurusan', '=', $jurusan)
                 ->join('students', 'class_student.KU_MA_Nrp', '=', 'students.MA_Nrp')
                 ->join('subjects', 'class_student.KU_KE_KR_MK_ID', '=', 'subjects.MK_ID')
                 ->join('majors', 'class_student.KU_KE_KodeJurusan', '=', 'majors.PS_Kode_Prodi'))
 //                ->join('classes', 'class_student.KU_KE_Kelas', '=', 'classes.KE_Kelas'))
                 ->addColumn('action', function ($row) {
                     $action = '<a href="/khs/' . $row->KU_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
-                    $action .= \Form::open(['url' => 'Khs/' . $row->KU_ID, 'method' => 'delete', 'style' => 'float:right']);
+                    $action .= \Form::open(['url' => '/khs/' . $row->KU_ID, 'method' => 'delete', 'style' => 'float:right']);
                     $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
                     $action .= \Form::close();
                     return $action;
@@ -68,8 +70,16 @@ class ManajemenKhsController extends Controller
 
     public function index()
     {
-        return view('khs.index');
+        $user_major = Auth::user()->PE_KodeJurusan;
+        if ($user_major == 0000 || $user_major == null) {
+            $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
+        } else {
+            $data['major'] = Major::where('PS_Kode_Prodi', '=', $user_major)->pluck('PS_Nama', 'PS_Kode_Prodi');
+        }
+
+        return view('khs.index', $data);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -78,11 +88,11 @@ class ManajemenKhsController extends Controller
      */
     public function create()
     {
-        $data['subjects'] = Subject::pluck('MK_Mata_Kuliah','MK_ID');
-        $data['major'] = Major::pluck('PS_Nama','PS_Kode_Prodi');
-        $data['students'] = Student::pluck('MA_NamaLengkap','MA_Nrp');
-        $data['classes'] = Kelas::pluck('KE_Kelas','KE_Kelas');
-        return view('khs.create',$data);
+        $data['subjects'] = Subject::pluck('MK_Mata_Kuliah', 'MK_ID');
+        $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
+        $data['students'] = Student::pluck('MA_NamaLengkap', 'MA_Nrp');
+        $data['classes'] = Kelas::pluck('KE_Kelas', 'KE_Kelas');
+        return view('khs.create', $data);
     }
 
     /**
@@ -117,11 +127,11 @@ class ManajemenKhsController extends Controller
         ];
 
         $request->validate([
-            'KU_KE_Tahun' => ['required','int'],
-            'KU_MA_Nrp' => ['required','int'],
+            'KU_KE_Tahun' => ['required', 'int'],
+            'KU_MA_Nrp' => ['required', 'int'],
             'KU_KE_KR_MK_ID' => ['required'],
             'KU_KE_Kelas' => ['required'],
-            'KU_KE_KodeJurusan' => ['required','int'],
+            'KU_KE_KodeJurusan' => ['required', 'int'],
         ], $messages);
 
         $Khs = New Khs();
@@ -151,12 +161,12 @@ class ManajemenKhsController extends Controller
      */
     public function edit($id)
     {
-        $data['subjects'] = Subject::pluck('MK_Mata_Kuliah','MK_ID');
-        $data['major'] = Major::pluck('PS_Nama','PS_Kode_Prodi');
-        $data['students'] = Student::pluck('MA_NamaLengkap','MA_Nrp');
+        $data['subjects'] = Subject::pluck('MK_Mata_Kuliah', 'MK_ID');
+        $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
+        $data['students'] = Student::pluck('MA_NamaLengkap', 'MA_Nrp');
         $data['classes'] = Kelas::pluck('KE_Kelas');
-        $data['khs'] = Khs::where('KU_ID',$id)->first();
-        return view('khs.edit',$data);
+        $data['khs'] = Khs::where('KU_ID', $id)->first();
+        return view('khs.edit', $data);
     }
 
     /**
@@ -192,11 +202,11 @@ class ManajemenKhsController extends Controller
         ];
 
         $request->validate([
-            'KU_KE_Tahun' => ['required','int'],
-            'KU_MA_Nrp' => ['required','int'],
+            'KU_KE_Tahun' => ['required', 'int'],
+            'KU_MA_Nrp' => ['required', 'int'],
             'KU_KE_KR_MK_ID' => ['required'],
             'KU_KE_Kelas' => ['required'],
-            'KU_KE_KodeJurusan' => ['required','int'],
+            'KU_KE_KodeJurusan' => ['required', 'int'],
         ], $messages);
 
         $Khs = Khs::where('KU_ID', '=', $id)->first();
@@ -217,12 +227,13 @@ class ManajemenKhsController extends Controller
      */
     public function destroy($id)
     {
-        $Khs = Khs::where('KU_ID', $id);
+        $Khs = Khs::where('KU_ID', $id)->get()->first();
+        $student = Student::where('MA_Nrp', '=', $Khs->KU_MA_Nrp)->get()->first;
         $Khs->delete();
         Logbook::write(Auth::user()->PE_Nip,
-            'Menghapus data KHS ' . $Khs->MA_NamaLengkap . ' mata kuliah ' . $Khs->MK_Mata_Kuliah . ' kelas ' . $Khs->KU_KE_Kelas . ' dari  tabel KHS', Logbook::ACTION_DELETE,
+            'Menghapus data KHS ' . $student->MA_NamaLengkap . ' mata kuliah ' . $Khs->MK_Mata_Kuliah . ' kelas ' . $Khs->KU_KE_Kelas . ' dari  tabel KHS', Logbook::ACTION_DELETE,
             Logbook::TABLE_CLASS_STUDENT);
-        return redirect('/Khs')->with('toast_warning', 'Data KHS berhasil dihapus!');;
+        return redirect('/khs')->with('toast_warning', 'Data KHS berhasil dihapus!');;
     }
 
     public function import()
