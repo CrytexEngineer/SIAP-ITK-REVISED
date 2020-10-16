@@ -25,7 +25,7 @@
                             <tr>
                                 <th width="150">Kode Program Studi</th>
                                 <th>Nama Program Studi</th>
-                                @can('change')
+                                @can('admin')
                                 <th width="50">Action</th>
                                     @endcan
                             </tr>
@@ -52,7 +52,7 @@
                 columns: [
                     { data: 'PS_Kode_Prodi', name: 'PS_Kode_Prodi' },
                     { data: 'PS_Nama', name: 'PS_Nama' },
-                        @can('change')
+                        @can('admin')
                     { data: 'action', name: 'action' }
                     @endcan
                 ]

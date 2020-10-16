@@ -21,8 +21,8 @@ class CreateClassesTable extends Migration
             $table->integer('KE_IDSemester');
             $table->string('KE_Kelas');
             $table->integer('KE_DayaTampung');
-            $table->bigInteger('KE_PE_NIPPengajar')->unsigned();
-            $table->foreign('KE_PE_NIPPengajar')->references('PE_Nip')->on('employees')->onUpdate('cascade')->onDelete('cascade');
+            $table->bigInteger('KE_PE_NIPPengajar')->unsigned()->nullable();
+            $table->foreign('KE_PE_NIPPengajar')->references('PE_Nip')->on('employees')->onUpdate('cascade')->onDelete('set null');
             $table->integer('KE_Terisi');
             $table->integer('KE_Jadwal_IDHari');
             $table->time('KE_Jadwal_JamMulai');

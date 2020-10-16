@@ -10,6 +10,9 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     if (Auth::check()) {
         $role = (Auth::user()->roles->pluck('id')[0]);
@@ -21,75 +24,84 @@ Route::get('/', function () {
 });
 
 
-
-
-//Testing Routes
+//Sesion Management
 Auth::routes();
 
-Route::get('/register/mahasiswa', 'RegisterMahasiswaController@showRegistrationForm')->name('register/mahasiswa');
-Route::get('/register/pegawai', 'RegisterPegawaiController@showRegistrationForm');
-Route::get('/akunpegawai/json', 'ManajemenAkunPegawaiController@json')->middleware('can:admin');
-Route::resource('/register/pegawai', 'RegisterPegawaiController');
-Route::resource('/mahasiswa/mahasiswa', 'ManajemenAkunMahasiswaController')->middleware('can:admin');
+//Kurikulum
+Route::middleware('can:super-admin')->group(function () {
+    Route::get('/kurikulum/json', "ManajemenKurikulumController@json");
+    Route::resource('/kurikulum', "ManajemenKurikulumController");
+});
 
 //Program Studi
-Route::get('/program_studi/json', 'ManajemenProgramStudiController@json')->middleware('can:admin');
-Route::resource('/program_studi', 'ManajemenProgramStudiController')->middleware('can:admin');
-Route::post('/program_studi/import', 'ManajemenProgramStudiController@import')->name('import_program_studi')->middleware('can:admin');
+Route::middleware('can:admin')->group(function () {
+    Route::get('/program_studi/json', 'ManajemenProgramStudiController@json');
+    Route::resource('/program_studi', 'ManajemenProgramStudiController');
+    Route::post('/program_studi/import', 'ManajemenProgramStudiController@import')->name('import_program_studi');
+});
 
 //Mata Kuliah
-Route::get('matakuliah/json', 'ManajemenMataKuliahController@json')->middleware('can:admin');
-Route::resource('/matakuliah', 'ManajemenMatakuliahController')->middleware('can:admin');
-Route::post('/matakuliah/import', 'ManajemenMatakuliahController@import')->name('import_matakuliah')->middleware('can:admin');
+Route::middleware('can:admin')->group(function () {
+    Route::get('matakuliah/json', 'ManajemenMataKuliahController@json');
+    Route::resource('/matakuliah', 'ManajemenMatakuliahController');
+    Route::post('/matakuliah/import', 'ManajemenMatakuliahController@import')->name('import_matakuliah');
+});
 
 //Kelas
-Route::get('/kelas/json', 'ManajemenKelasController@json')->middleware('can:admin');
-Route::resource('/kelas', 'ManajemenKelasController')->middleware('can:admin');
-Route::post('/kelas/import', 'ManajemenKelasController@import')->name('import_kelas')->middleware('can:admin');
-Route::post('/kelas/fetch', 'ManajemenKelasController@fetch')->name('kelas.fetch')->middleware('can:admin');
-Route::post('/kelas/fetch_pengajar', 'ManajemenKelasController@fetch_pengajar')->name('kelas.fetch_pengajar')->middleware('can:admin');
+Route::middleware('can:admin')->group(function () {
+    Route::get('/kelas/json', 'ManajemenKelasController@json');
+    Route::resource('/kelas', 'ManajemenKelasController');
+    Route::post('/kelas/import', 'ManajemenKelasController@import')->name('import_kelas');
+    Route::post('/kelas/fetch', 'ManajemenKelasController@fetch')->name('kelas.fetch');
+    Route::post('/kelas/fetch_pengajar', 'ManajemenKelasController@fetch_pengajar')->name('kelas.fetch_pengajar');
+});
 
 //Manajemen Kelas
-Route::get('/kelas/{id}/manage/json', 'ManajemenKelasController@manage_json')->middleware('can:admin');
-Route::get('/kelas/{id}/manage', 'ManajemenKelasController@manage')->middleware('can:admin');
-Route::post('/kelas/{id}/manage/store', 'ManajemenKelasController@manage_store')->middleware('can:admin');
-Route::delete('/kelas/{id}/manage/delete', 'ManajemenKelasController@manage_delete')->middleware('can:admin');
-
+Route::middleware('can:admin')->group(function () {
+    Route::get('/kelas/{id}/manage/json', 'ManajemenKelasController@manage_json');
+    Route::get('/kelas/{id}/manage', 'ManajemenKelasController@manage');
+    Route::post('/kelas/{id}/manage/store', 'ManajemenKelasController@manage_store');
+    Route::delete('/kelas/{id}/manage/delete', 'ManajemenKelasController@manage_delete');
+});
 
 //KHS
-Route::get('/khs/json', 'ManajemenKHSController@json')->middleware('can:admin');
-Route::resource('/khs', 'ManajemenKHSController')->middleware('can:admin');
-Route::post('/khs/import', 'ManajemenKHSController@import')->name('import_khs')->middleware('can:admin');
-
+Route::middleware('can:admin')->group(function () {
+    Route::get('/khs/json', 'ManajemenKHSController@json');
+    Route::resource('/khs', 'ManajemenKHSController');
+    Route::post('/khs/import', 'ManajemenKHSController@import')->name('import_khs');
+});
 
 //Pegawai
-Route::get('/akunpegawai/json', 'ManajemenAkunPegawaiController@json')->middleware('can:admin');
-Route::resource('/akunpegawai', 'ManajemenAkunPegawaiController')->name('*', 'admin.users.index')->middleware('can:admin');
-Route::post('/akunpegawai/import', 'ManajemenAkunPegawaiController@import')->name('import_employee')->middleware('can:admin');
+Route::middleware('can:admin')->group(function () {
+    Route::get('/akunpegawai/json', 'ManajemenAkunPegawaiController@json');
+    Route::resource('/akunpegawai', 'ManajemenAkunPegawaiController')->name('*', 'admin.users.index');
+    Route::post('/akunpegawai/import', 'ManajemenAkunPegawaiController@import')->name('import_employee');
+});
 
 //Mahasiswa
-Route::get('/akunmahasiswa/json', 'ManajemenAkunMahasiswaController@json')->middleware('can:admin');
-Route::resource('/akunmahasiswa', 'ManajemenAkunMahasiswaController')->middleware('can:admin');
-Route::post('/akunmahasiswa/import', 'ManajemenAkunMahasiswaController@import')->name('import_mahasiswa')->middleware('can:admin');
+Route::middleware('can:admin')->group(function () {
+    Route::get('/akunmahasiswa/json', 'ManajemenAkunMahasiswaController@json');
+    Route::resource('/akunmahasiswa', 'ManajemenAkunMahasiswaController');
+    Route::post('/akunmahasiswa/import', 'ManajemenAkunMahasiswaController@import')->name('import_mahasiswa');
+});
 
 //Dosen
 Route::middleware('can:dosen')->group(function () {
     Route::get('jadwal_mengajar', 'DosenController@jadwal_mengajar')->name('jadwal_mengajar');
     Route::get('jadwal_mengajar/json', 'DosenController@jadwal_mengajar_json');
-
-
 });
 
 //ManajemenPertemuanController
-Route::get('pertemuan/index/json', 'ManajemenPertemuanController@index_json');
-Route::get('pertemuan/', 'ManajemenPertemuanController@index');
-Route::get('pertemuan/{id_jadwal}/dashboard', 'ManajemenPertemuanController@dashboard');
-Route::post('/pertemuan', 'ManajemenPertemuanController@store');
-Route::get('pertemuan/{id_jadwal}/create', 'ManajemenPertemuanController@create');
-Route::get('/pertemuan/{id_jadwal}/history/', 'ManajemenPertemuanController@showHistory')->name('meeting.history');
-Route::get('/pertemuan/{id}/delete', 'ManajemenPertemuanController@destroy');
-Route::get('/kehadiran/presenceCount/{pt_id}', "ManajemenPertemuanController@getKehadiranPertemuan");
-
+Route::middleware('can:perkuliahan')->group(function () {
+    Route::get('pertemuan/index/json', 'ManajemenPertemuanController@index_json');
+    Route::get('pertemuan/', 'ManajemenPertemuanController@index');
+    Route::get('pertemuan/{id_jadwal}/dashboard', 'ManajemenPertemuanController@dashboard');
+    Route::post('/pertemuan', 'ManajemenPertemuanController@store');
+    Route::get('pertemuan/{id_jadwal}/create', 'ManajemenPertemuanController@create');
+    Route::get('/pertemuan/{id_jadwal}/history/', 'ManajemenPertemuanController@showHistory')->name('meeting.history');
+    Route::get('/pertemuan/{id}/delete', 'ManajemenPertemuanController@destroy');
+    Route::get('/kehadiran/presenceCount/{pt_id}', "ManajemenPertemuanController@getKehadiranPertemuan");
+});
 
 //Manajemen Presensi
 Route::middleware('can:admin')->group(function () {
@@ -102,13 +114,10 @@ Route::middleware('can:admin')->group(function () {
 });
 
 
-
 //Operasi QR
 Route::resource('/validator', "ManajemenValidatorController");
 Route::get('/validator/generateQrCode/{pt_id}', "ManajemenValidatorController@generateQrCode");
 
-//test
-Route::get('export', "ExportMajor@export");
 //Rekapitulasi Mahasiswa
 
 Route::get('rekapitulasi/mahasiswa/showExportSubjectPage', "RekapitulasiMahasiswaController@showExportSubjectPage");
@@ -126,22 +135,16 @@ Route::resource('/rekapitulasi/dosen', "RekapitulasiDosenController")->middlewar
 
 
 //ManajemenData
-Route::get('/riwayat_data/json', "ManajemenLogbookController@json")->middleware('can:admin');
-Route::resource('/riwayat_data', "ManajemenLogbookController")->middleware('can:admin');
-Route::get('/delete_all', 'DeleteAllController@destroy')->name('delete.all')->middleware('can:admin');
-
-//Multi-user Management
-//Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
-//    Route::resource('/users', 'UsersController', ['except' => ['show','create', 'store']]);
-//});
+Route::middleware('can:admin')->group(function () {
+    Route::get('/riwayat_data/json', "ManajemenLogbookController@json");
+    Route::resource('/riwayat_data', "ManajemenLogbookController");
+    Route::get('/delete_all', 'DeleteAllController@destroy')->name('delete.all');
+});
 
 //reset password
 Route::get('password/form/{token}', 'Mobile\PasswordResetController@showForm')->name('Passeord.showForm');
 Route::get('/password/success', 'Mobile\PasswordResetController@index');
 
-//Kurikulum
-Route::get('/kurikulum/json', "ManajemenKurikulumController@json")->middleware('can:admin');
-Route::resource('/kurikulum', "ManajemenKurikulumController")->middleware('can:admin');
 
 //Helper Query Matakuliah
 Route::get('/subjectQuery', "FilterHelperController@subjectQuery")->name('subjectQuery');

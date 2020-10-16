@@ -19,7 +19,7 @@
                                 <th>Nama Matakuliah</th>
                                 <th>Tahun Kurikulum</th>
                                 <th>Kredit Kuliah</th>
-                                @can('change')
+                                @can('admin')
                                 <th width="50">Action</th>
                                     @endcan
                             </tr>
@@ -48,7 +48,7 @@
                     {data: 'MK_Mata_Kuliah', name: 'MK_Mata_Kuliah'},
                     {data: 'MK_ThnKurikulum', name: 'MK_ThnKurikulum'},
                     {data: 'MK_KreditKuliah', name: 'MK_KreditKuliah'},
-                        @can('change')
+                        @can('admin')
                     {data: 'action', name: 'action'}
                     @endcan
                     ],

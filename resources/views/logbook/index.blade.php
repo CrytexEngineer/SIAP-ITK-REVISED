@@ -12,7 +12,6 @@
                         @include('alert')
 
 
-                        <hr>
 
                         <table class="display compact"   id="users-table" style="overflow-x:auto;">
                             <thead>
@@ -25,16 +24,7 @@
 
                             </tr>
                             </thead>
-                            <tfoot>
-                            <tr>
-                                <th>Nama Pegawai</th>
-                                <th>NIP Pegawai</th>
-                                <th>Departemen</th>
-                                <th>Aksi</th>
-                                <th>Waktu</th>
 
-                            </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -62,26 +52,7 @@
                     {data: 'created_at', name: 'created_at'}
 
                 ],
-                initComplete: function () {
-                    this.api().columns().every( function () {
-                        var column = this;
-                        var select = $('<select><option value=""></option></select>')
-                            .appendTo( $(column.footer()).empty() )
-                            .on( 'change', function () {
-                                var val = $.fn.dataTable.util.escapeRegex(
-                                    $(this).val()
-                                );
 
-                                column
-                                    .search( val ? '^'+val+'$' : '', true, false )
-                                    .draw();
-                            } );
-
-                        column.data().unique().sort().each( function ( d, j ) {
-                            select.append( '<option value="'+d+'">'+d+'</option>' )
-                        } );
-                    } );
-                }
             });
         });
 

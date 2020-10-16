@@ -39,7 +39,7 @@
                                 <th>Hari</th>
                                 <th>Jam Mulai</th>
                                 <th>Jam Usai</th>
-                                @can('change')
+                                @can('admin')
                                     <th width="160">Action</th>
                                 @endcan
                             </tr>
@@ -85,7 +85,7 @@
                     {data: 'KE_Jadwal_IDHari', name: 'KE_Jadwal_IDHari'},
                     {data: 'KE_Jadwal_JamMulai', name: 'KE_Jadwal_JamMulai'},
                     {data: 'KE_Jadwal_JamUsai', name: 'KE_Jadwal_JamUsai'},
-                        @can('change')
+                        @can('admin')
             {data: 'action', name: 'action'}
 @endcan
         ],

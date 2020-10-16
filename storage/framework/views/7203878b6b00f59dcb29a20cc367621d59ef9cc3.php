@@ -39,7 +39,7 @@
                                 <th>Hari</th>
                                 <th>Jam Mulai</th>
                                 <th>Jam Usai</th>
-                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('change')): ?>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('admin')): ?>
                                     <th width="160">Action</th>
                                 <?php endif; ?>
                             </tr>
@@ -85,7 +85,7 @@
                     {data: 'KE_Jadwal_IDHari', name: 'KE_Jadwal_IDHari'},
                     {data: 'KE_Jadwal_JamMulai', name: 'KE_Jadwal_JamMulai'},
                     {data: 'KE_Jadwal_JamUsai', name: 'KE_Jadwal_JamUsai'},
-                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('change')): ?>
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('admin')): ?>
             {data: 'action', name: 'action'}
 <?php endif; ?>
         ],

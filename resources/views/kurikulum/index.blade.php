@@ -22,7 +22,7 @@
                                 <th>Tanggal Mulai</th>
                                 <th>Tanggal Selesai</th>
 
-                                @can('change')
+                                @can('admin')
                                     <th width="50">Action</th>
                                 @endcan
                             </tr>
@@ -50,7 +50,7 @@
                     { data: 'KL_Date_Start', name: 'KL_Date_Start' },
                     { data: 'KL_Date_End', name: 'KL_Date_End' },
 
-                        @can('change')
+                        @can('admin')
             { data: 'action', name: 'action' }
 @endcan
         ],

@@ -31,7 +31,7 @@
                                 <th>ID Perangkat</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
-                                @can('change')
+                                @can('admin')
                                     <th width="50">Action</th>
                                 @endcan
                             </tr>
@@ -66,7 +66,7 @@
                      { data: 'MA_IMEI', name: 'MA_IMEI' },
                     { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' },
-                        @can('change')
+                        @can('admin')
             { data: 'action', name: 'action' }
 @endcan
         ],

@@ -52,12 +52,14 @@ class ManajemenAkunMahasiswaController extends Controller
     public function index()
     {
         $user_major = Auth::user()->PE_KodeJurusan;
-        if ($user_major == 0000 || $user_major == null) {
+        $role = (Auth::user()->roles->pluck('id')[0]);
+        if ($role == 1 || $role == 2 || $role == 4 || $role == 8) {
             $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
             return view('mahasiswa.mahasiswa', $data);
         } else {
             $data['major'] = Major::where('PS_Kode_Prodi', '=', $user_major)->pluck('PS_Nama', 'PS_Kode_Prodi');
             return view('mahasiswa.mahasiswa', $data);
+
 
         }
     }

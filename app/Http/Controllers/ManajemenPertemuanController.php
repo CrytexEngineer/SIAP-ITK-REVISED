@@ -24,7 +24,8 @@ class ManajemenPertemuanController extends Controller
     {
 
         $user_major = Auth::user()->PE_KodeJurusan;
-        if ($user_major == 0000 || $user_major == null) {
+        $role = (Auth::user()->roles->pluck('id')[0]);
+        if ($role == 1 || $role == 2 || $role == 4 || $role == 8) {
             $data['major'] = Major::pluck('PS_Nama', 'PS_Kode_Prodi');
             return view('pertemuan.index', $data);
         } else {
@@ -40,7 +41,8 @@ class ManajemenPertemuanController extends Controller
 
 
         $user_major = Auth::user()->PE_KodeJurusan;
-        if ($user_major == 0000 || $user_major == null) {
+        $role = (Auth::user()->roles->pluck('id')[0]);
+        if ($role == 1 || $role == 2 || $role == 4 || $role == 8) {
 
 
             $jadwalPengampu = DB::table('classes')
@@ -68,7 +70,7 @@ class ManajemenPertemuanController extends Controller
 
             return Datatables::of($jadwalPengampu)
                 ->addColumn('action', function ($row) {
-                    $action = '<a href="/presensi/' . $row->KE_ID . '/dashboard" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i> Kehadiran</a>';
+                    $action = '<a href="/pertemuan/' . $row->KE_ID . '/dashboard" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i> Kehadiran</a>';
                     return $action;
                 })
                 ->make(true);
@@ -81,6 +83,8 @@ class ManajemenPertemuanController extends Controller
 
     function dashboard($id_jadwal)
     {
+
+
         $jadwal = DB::table('classes')
             ->join('employees', 'employees.PE_Nip', '=', 'classes.KE_PE_NIPPengajar')
             ->join('subjects', 'subjects.MK_ID', '=', 'classes.KE_KR_MK_ID')

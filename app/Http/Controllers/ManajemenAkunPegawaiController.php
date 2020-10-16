@@ -234,6 +234,7 @@ class ManajemenAkunPegawaiController extends Controller
         if ($data) {
             Logbook::write(Auth::user()->PE_Nip, 'Mengimpor data pegawai  dari tabel pegawai', Logbook::ACTION_IMPORT, Logbook::TABLE_EMPLOYEES);
         }
+
         return back()->with('toast_success', 'Import data pegawai berhasil!');
     }
 

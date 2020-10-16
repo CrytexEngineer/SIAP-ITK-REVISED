@@ -41,7 +41,7 @@
                                 <th>Roles</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
-                                @can('change')
+                                @can('admin')
                                     <th width="50">Action</th>
                                 @endcan
                             </tr>
@@ -73,31 +73,12 @@
                         render: "[, ].role_name"},
                     { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' },
-                        @can('change')
+                        @can('admin')
             { data: 'action', name: 'action' }
 @endcan
 
         ],
-        initComplete: function () {
-            this.api().columns().every( function () {
-                var column = this;
-                var select = $('<select><option value=""></option></select>')
-                    .appendTo( $(column.footer()).empty() )
-                    .on( 'change', function () {
-                        var val = $.fn.dataTable.util.escapeRegex(
-                            $(this).val()
-                        );
-
-                        column
-                            .search( val ? '^'+val+'$' : '', true, false )
-                            .draw();
-                    } );
-
-                column.data().unique().sort().each( function ( d, j ) {
-                    select.append( '<option value="'+d+'">'+d+'</option>' )
-                } );
-            } );
-        }
+       
     });
 });
 

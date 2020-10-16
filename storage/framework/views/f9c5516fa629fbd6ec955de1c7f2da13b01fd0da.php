@@ -24,7 +24,7 @@
                             <tr>
                                 <th width="150">Kode Program Studi</th>
                                 <th>Nama Program Studi</th>
-                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('change')): ?>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('admin')): ?>
                                 <th width="50">Action</th>
                                     <?php endif; ?>
                             </tr>
@@ -51,7 +51,7 @@
                 columns: [
                     { data: 'PS_Kode_Prodi', name: 'PS_Kode_Prodi' },
                     { data: 'PS_Nama', name: 'PS_Nama' },
-                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('change')): ?>
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('admin')): ?>
                     { data: 'action', name: 'action' }
                     <?php endif; ?>
                 ]

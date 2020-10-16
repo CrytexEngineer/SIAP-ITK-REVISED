@@ -18,7 +18,7 @@
                                 <th>Nama Matakuliah</th>
                                 <th>Tahun Kurikulum</th>
                                 <th>Kredit Kuliah</th>
-                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('change')): ?>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('admin')): ?>
                                 <th width="50">Action</th>
                                     <?php endif; ?>
                             </tr>
@@ -47,7 +47,7 @@
                     {data: 'MK_Mata_Kuliah', name: 'MK_Mata_Kuliah'},
                     {data: 'MK_ThnKurikulum', name: 'MK_ThnKurikulum'},
                     {data: 'MK_KreditKuliah', name: 'MK_KreditKuliah'},
-                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('change')): ?>
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('admin')): ?>
                     {data: 'action', name: 'action'}
                     <?php endif; ?>
                     ],

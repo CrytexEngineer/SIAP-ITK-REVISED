@@ -31,7 +31,7 @@
                                 <th>Tahun Akademik</th>
                                 <th>Mata Kuliah Diambil</th>
                                 <th>Kelas</th>
-                                @can('change')
+                                @can('admin')
                                     <th width="50">Action</th>
                                 @endcan
                             </tr>
@@ -73,7 +73,7 @@
                     {data: 'KU_KE_Tahun', name: 'KU_KE_Tahun'},
                     {data: 'MK_Mata_Kuliah', name: 'subjects.MK_Mata_Kuliah'},
                             {data: 'KU_KE_Kelas', name: 'KU_KE_Kelas'},
-                                     @can('change')
+                                     @can('admin')
             {data: 'action', name: 'action'}
 @endcan
         ],
