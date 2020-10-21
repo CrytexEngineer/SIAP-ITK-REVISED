@@ -3,18 +3,21 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+ use \Illuminate\Notifications\Notifiable;
 
 class Employee extends Authenticatable
 {
+    use Notifiable;
 
-    protected $fillable = ['PE_Nip', 'PE_Nama', 'PE_NamaLengkap', 'PE_Email','password'];
+    protected $fillable = ['PE_Nip', 'PE_Nama', 'PE_NamaLengkap', 'email','password'];
 
     protected $primaryKey = 'PE_Nip';
     public $incrementing = false;
-    public function user()
-    {
-        return $this->hasOne(User::Class, 'email', 'PE_Email');
-    }
+
+//    public function user()
+//    {
+//        return $this->hasOne(User::Class, 'email', 'PE_Email');
+//    }
 
     public function subjects()
     {
@@ -39,4 +42,6 @@ class Employee extends Authenticatable
         }
         return false;
     }
+
+
 }

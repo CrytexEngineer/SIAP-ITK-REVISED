@@ -17,8 +17,8 @@
                             <thead>
                             <tr>
                                 <th width="100">Kode Matakuliah</th>
-                                <th width="100">PE_NamaLengkap</th>
-                                <th width="200">Matakuliah</th>
+                                <th width="100">Matakuliah</th>
+                                <th width="200">Dosen</th>
                                 <th width="50">Kelas</th>
                                 <th width="50">Hari</th>
                                 <th width="50">Jam Mulai</th>
@@ -26,6 +26,7 @@
                                 <th width="70">Ruang</th>
                                 <th width="100">Jurusan</th>
                                 <th width="100">Action</th>
+                            </tr>
                             </tr>
                             </thead>
                         </table>

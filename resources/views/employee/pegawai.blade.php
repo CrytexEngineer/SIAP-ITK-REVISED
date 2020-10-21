@@ -67,7 +67,7 @@
                 columns: [
                     { data: 'PE_Nip', name: 'PE_Nip' },
                     { data: 'PE_NamaLengkap', name: 'PE_NamaLengkap' },
-                    { data: 'PE_Email', name: 'PE_Email' },
+                    { data: 'email', name: 'email' },
                     { data: 'PS_Nama', name: 'PS_Nama' },
                     { data: 'roles', name: 'role_name',
                         render: "[, ].role_name"},
@@ -78,7 +78,7 @@
 @endcan
 
         ],
-       
+
     });
 });
 

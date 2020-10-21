@@ -25,10 +25,6 @@ class ManajemenKelasController extends Controller
 
     function json(Request $request)
     {
-        $jurusan = Auth::user()->PE_KodeJurusan;
-        $role = (Auth::user()->roles->pluck('id')->first());
-        if ($role == 1 || $role == 2 || $role == 4 || $role == 8) {
-            if ($jurusan == 0000 || $jurusan == null) {
             return Datatables::of(DB::table('classes')
                 ->where('classes.KE_KodeJurusan', '=', $request->input('PS_ID'))
                 ->join('employees', 'classes.KE_PE_NIPPengajar', '=', 'employees.PE_Nip')
@@ -44,23 +40,6 @@ class ManajemenKelasController extends Controller
                     return $action;
                 })
                 ->make(true);
-        } }else {
-
-            return Datatables::of(DB::table('classes')
-                ->where('classes.KE_KodeJurusan', '=', $jurusan)
-                ->join('employees', 'classes.KE_PE_NIPPengajar', '=', 'employees.PE_Nip')
-                ->join('subjects', 'classes.KE_KR_MK_ID', '=', 'subjects.MK_ID')
-                ->join('majors', 'classes.KE_KodeJurusan', '=', 'majors.PS_Kode_Prodi'))
-                ->addColumn('action', function ($row) {
-                    $action = '<a href="/kelas/' . $row->KE_ID . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a> ';
-                    $action .= '<a href="/kelas/' . $row->KE_ID . '/manage" class="btn btn-primary btn-sm"><i class="fas fa-tasks"></i></a> ';
-                    $action .= \Form::open(['url' => 'kelas/' . $row->KE_ID, 'method' => 'delete', 'style' => 'float:right']);
-                    $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
-                    $action .= \Form::close();
-                    return $action;
-                })
-                ->make(true);
-        }
 
 
     }

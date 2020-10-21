@@ -31,7 +31,7 @@
                                 <th>Nama Pertemuan</th>
                                 <th>Status Kehadiran</th>
                                 <th>Media Presensi</th>
-                                @can('change')
+                                @can('admin')
                                     <th width="50">Aksi</th>
                                 @endcan
                             </tr>
@@ -63,7 +63,7 @@
                     { data: 'PT_Name', name: 'PT_Name' },
                          { data: 'PR_Keterangan', name: 'PR_Keterangan' },
                          { data: 'PR_Type', name: 'PR_Type' },
-                        @can('change')
+                        @can('admin')
             { data: 'action', name: 'action' }
 @endcan
         ]

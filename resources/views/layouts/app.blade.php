@@ -108,7 +108,7 @@
                                     <a class="dropdown-item" href="/akunpegawai">Akun Pegawai</a>
                                     <a class="dropdown-item" href="/akunmahasiswa">Akun Mahasiswa</a>
                                     <a class="dropdown-item" href="/kelas">Kelas</a>
-                                    <a class="dropdown-item" href="/khs">KHS</a>
+                                    <a class="dropdown-item" href="/frs">FRS</a>
                                     <a class="dropdown-item" href="/riwayat_data">Riwayat Pengolahan Data</a>
                                     @can('super-admin')
                                         <a class="dropdown-item delete-confirm" href="/delete_all">Hapus Semua

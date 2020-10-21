@@ -30,8 +30,8 @@ class EmployeesImport implements ToModel, WithHeadingRow, WithValidation, SkipsO
             'password'=>$defaultpPassword
         ];
 
-//        if ($row['pe_email']!=null) {
-//            $data['PE_Email'] = $row['pe_email'];
+//        if ($row['email']!=null) {
+//            $data['email'] = $row['email'];
 //        }
 
 

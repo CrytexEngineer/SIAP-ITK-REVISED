@@ -64,11 +64,14 @@ Route::middleware('can:admin')->group(function () {
     Route::delete('/kelas/{id}/manage/delete', 'ManajemenKelasController@manage_delete');
 });
 
-//KHS
+//frs
 Route::middleware('can:admin')->group(function () {
-    Route::get('/khs/json', 'ManajemenKHSController@json');
-    Route::resource('/khs', 'ManajemenKHSController');
-    Route::post('/khs/import', 'ManajemenKHSController@import')->name('import_khs');
+    Route::get('/frs/json', 'ManajemenFRSController@index_json');
+    Route::get('/frs/{ke_id}/dashboard/json', 'ManajemenFRSController@dashboard_json');
+    Route::get('/frs/{ke_id}/dashboard/', 'ManajemenFRSController@dashboard');
+    Route::resource('/frs', 'ManajemenFRSController');
+    Route::post('/frs/fetch_mahasiswa', 'ManajemenFRSController@fetch_mahasiswa')->name('frs.fetch_mahasiswa');
+    Route::post('/frs/import', 'ManajemenFRSController@import')->name('import_khs');
 });
 
 //Pegawai

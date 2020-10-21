@@ -21,26 +21,19 @@ class ManajemenAkunMahasiswaController extends Controller
     }
 
     function json(Request $request)
-    {       $role = (Auth::user()->roles->pluck('id')[0]);
-        $jurusan = null;
-        if ($role == 1 || $role == 2 || $role == 4 || $role == 8) {
-            $jurusan = $request->input('PS_ID');
-
-        } else {
-            $jurusan = Auth::user()->PE_KodeJurusan;
-        }
-
+    {
+        $jurusan = $request->input('PS_ID');
         $idJurusan = Major::all()->where('PS_Kode_Prodi', $jurusan)->pluck('PS_ID')->first();
-            return Datatables::of(DB::select("select * from students where SUBSTRING(students.MA_Nrp,5,3) = $idJurusan"))
-                ->addColumn('action', function ($row) {
-                    $action = '<a href="/akunmahasiswa/' . $row->MA_Nrp . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
-                    $action .= \Form::open(['url' => 'akunmahasiswa/' . $row->MA_Nrp, 'method' => 'delete', 'style' => 'float:right']);
-                    $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
-                    $action .= \Form::close();
-                    return $action;
+        return Datatables::of(DB::select("select * from students where SUBSTRING(students.MA_Nrp,5,3) = $idJurusan"))
+            ->addColumn('action', function ($row) {
+                $action = '<a href="/akunmahasiswa/' . $row->MA_Nrp . '/edit" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>';
+                $action .= \Form::open(['url' => 'akunmahasiswa/' . $row->MA_Nrp, 'method' => 'delete', 'style' => 'float:right']);
+                $action .= "<button type='submit'class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
+                $action .= \Form::close();
+                return $action;
 
-                })
-                ->make(true);
+            })
+            ->make(true);
     }
 
     /**
