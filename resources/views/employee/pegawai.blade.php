@@ -36,7 +36,7 @@
                             <tr>
                                 <th>NIP</th>
                                 <th>Nama Lengkap</th>
-                                <th>E-mail</th>
+{{--                                <th>E-mail</th>--}}
                                 <th>Jurusan</th>
                                 <th>Roles</th>
                                 <th>Created At</th>
@@ -67,7 +67,7 @@
                 columns: [
                     { data: 'PE_Nip', name: 'PE_Nip' },
                     { data: 'PE_NamaLengkap', name: 'PE_NamaLengkap' },
-                    { data: 'email', name: 'email' },
+{{--                    { data: 'email', name: 'email' },--}}
                     { data: 'PS_Nama', name: 'PS_Nama' },
                     { data: 'roles', name: 'role_name',
                         render: "[, ].role_name"},

@@ -1,10 +1,10 @@
-<?php $__env->startSection('title','Input Data matakuliah'); ?>
+<?php $__env->startSection('title','Input Data Mata Kuliah'); ?>
 <?php $__env->startSection('content'); ?>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Input Data matakuliah</div>
+                    <div class="card-header">Input Data Mata Kuliah</div>
 
                     <div class="card-body">
 
@@ -16,9 +16,9 @@
                         <?php echo csrf_field(); ?>
 
                         <div class="form-group row">
-                            <label class="col-md-2 col-form-label text-md-right">Kode matakuliah</label>
-                            <div class="col-md-3">
-                                <?php echo e(Form::text('MK_ID',null,['class'=>'form-control','placeholder'=>'Kode matakuliah'])); ?>
+                            <label class="col-md-3 col-form-label text-md-right">Kode Mata Kuliah</label>
+                            <div class="col-md-6">
+                                <?php echo e(Form::text('MK_ID',null,['class'=>'form-control','placeholder'=>'Kode Mata Kuliah'])); ?>
 
                             </div>
                         </div>
@@ -26,7 +26,7 @@
                         <?php echo $__env->make('matakuliah.form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-2">
+                            <div class="col-md-6 offset-md-3">
 
                                 <?php echo e(Form::submit('Simpan Data',['class'=>'btn btn-primary'])); ?>
 

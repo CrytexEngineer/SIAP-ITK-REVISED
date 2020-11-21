@@ -8,7 +8,7 @@
 
                     <div class="card-body">
 
-
+                        <?php echo $__env->make('validation_error', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
                         <?php echo e(Form::open(['url'=>'program_studi'])); ?>
 
@@ -16,9 +16,9 @@
                         <?php echo csrf_field(); ?>
 
                         <div class="form-group row">
-                            <label class="col-md-2 col-form-label text-md-right">Kode Program Studi</label>
+                            <label class="col-md-3 col-form-label text-md-right">Kode Program Studi</label>
                             <div class="col-md-3">
-                                <?php echo e(Form::text('PS_Kode_Prodi',null,['class'=>'form-control','placeholder'=>'Kode program studi'])); ?>
+                                <?php echo e(Form::text('PS_Kode_Prodi',null,['class'=>'form-control','placeholder'=>'Kode Program Studi'])); ?>
 
                             </div>
                         </div>
@@ -26,7 +26,7 @@
                         <?php echo $__env->make('program_studi.form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-2">
+                            <div class="col-md-6 offset-md-3">
 
                                 <?php echo e(Form::submit('Simpan Data',['class'=>'btn btn-primary'])); ?>
 

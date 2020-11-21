@@ -13,10 +13,10 @@
                     <div class="card-header"><i class="fas fa-table"></i> Rekapitulasi Kehadiran Mahasiswa
 
                         <div class="float-md-right">
-                            <a href='/rekapitulasi/dosen/export/major' class="btn btn-primary"><i
+                            <a href='/rekapitulasi/mahasiswa/export/major' class="btn btn-primary"><i
                                     class="fas fa-download"></i> Unduh Seluruh Data</a>
 
-                            <a href='/rekapitulasi/dosen/showExportSubjectPage' class="btn btn-primary"><i
+                            <a href='/rekapitulasi/mahasiswa/showExportSubjectPage' class="btn btn-primary"><i
                                     class='fas fa-download'></i> Unduh Berdasarkan Matakuliah</a>
                         </div>
 
